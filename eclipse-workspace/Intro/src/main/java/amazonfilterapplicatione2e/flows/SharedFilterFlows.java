@@ -12,6 +12,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
 import main.java.amazonfilterapplicatione2e.base.BasePage;
+import main.java.amazonfilterapplicatione2e.captcha.BlockerHandler;
 import main.java.amazonfilterapplicatione2e.configManager.ConfigManager;
 import main.java.amazonfilterapplicatione2e.logger.LoggerUtility;
 import main.java.amazonfilterapplicatione2e.pages.ProductListingPage;
@@ -27,6 +28,7 @@ public class SharedFilterFlows extends BasePage {
 
 	SafeActions safeAct;
 	GenericUtility genericUtility;
+	BlockerHandler blockerHandler;
 	ProductListingPage productPage;
 	
 	public SharedFilterFlows() {
@@ -34,6 +36,7 @@ public class SharedFilterFlows extends BasePage {
 		this.productPage= new ProductListingPage();
 		this.safeAct = new SafeActions();
 		this.genericUtility = new GenericUtility();
+		this.blockerHandler = new BlockerHandler();
 	}
 	
 	
@@ -108,9 +111,10 @@ public class SharedFilterFlows extends BasePage {
 
 			if (!safeAct.safeClickBooleanWithScreenShot(productPage.getfilterByTypeAndName(filterName, filterValue),filterName,filterValue)) {
 				System.out.println("Filter click failed for: " + filterValue + ". Skipping this filter option.");
-				continue; 
+				continue;
 			}
 
+			blockerHandler.clearBlockers();
 
 			
 		
@@ -230,6 +234,12 @@ log.info("[{}] Clicked product name to open in new tab from productNameListingPa
 // If the click didn't open a new tab, it may have navigated in the same tab (fine, keep going)
 // or done nothing at all (still on the listing page). This tells the two apart before we spend
 // time on the retry-heavy scrape/click calls below, which would otherwise just time out.
+try {
+	blockerHandler.clearBlockers();
+} catch (Exception e) {
+	log.warn("[{}] Blocker on product page did not clear: {}", testName, e.getMessage());
+}
+
 boolean productPageLoaded = genericUtility.isElementInViewport(productPage.productNameIndividualPage);
 if (!productPageLoaded) {
 	log.warn("[{}] Product detail page did not load for index {} filter '{}'; skipping detail scrape to avoid redundant retries/timeouts", testName, productIndex, filterValue);
