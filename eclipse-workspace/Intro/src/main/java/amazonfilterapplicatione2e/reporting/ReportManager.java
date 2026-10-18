@@ -24,6 +24,8 @@ public class ReportManager {
 
 	    	    ExtentSparkReporter reporter = new ExtentSparkReporter(extentPath);
 	    	    reporter.config().setTheme(Theme.DARK);
+	    	    reporter.config().setReportName("Amazon Filter E2E - Selenium + Java Automation Report");
+	    	    reporter.config().setDocumentTitle("Selenium + Java | Amazon Filter E2E");
 
 	    	    extent = new ExtentReports();
 	    	    extent.attachReporter(reporter);

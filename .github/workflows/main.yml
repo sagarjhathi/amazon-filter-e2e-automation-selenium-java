@@ -186,7 +186,7 @@ jobs:
       - name: Generate merged Allure report
         run: |
           npm install -g allure-commandline
-          allure generate allure-results/BatteryProcessorStorage allure-results/BrandsScreenSizeTypeCamEtc allure-results/DeliveryPriceOs --clean -o allure-report
+          allure generate allure-results/BatteryProcessorStorage allure-results/BrandsScreenSizeTypeCamEtc allure-results/DeliveryPriceOs --clean --report-name "Amazon Filter E2E - Selenium + Java Report" -o allure-report
 
 
       - name: Enable long paths (Windows)
@@ -229,7 +229,7 @@ jobs:
             '<head>'
             '<meta charset="UTF-8">'
             '<meta name="viewport" content="width=device-width, initial-scale=1">'
-            '<title>Test Report Hub</title>'
+            '<title>Selenium + Java Test Report Hub</title>'
             '<style>'
             '  body { margin:0; padding:48px 20px; background:#f5f6f8;'
             '         font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;'
@@ -249,7 +249,7 @@ jobs:
             '</head>'
             '<body>'
             '<div class="container">'
-            '<h1>Amazon Filter E2E - Test Report Hub</h1>'
+            '<h1>Amazon Filter E2E - Selenium + Java Test Report Hub</h1>'
             "<div class='subtitle'>Run: $run</div>"
 
             "<a class='card' href='$run/allure-report/index.html'>"
