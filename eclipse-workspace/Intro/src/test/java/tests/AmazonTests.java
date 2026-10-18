@@ -33,6 +33,7 @@ import org.testng.asserts.SoftAssert;
 
 import main.java.amazonfilterapplicatione2e.base.BaseTest;
 import main.java.amazonfilterapplicatione2e.captcha.CaptchaHandler;
+import main.java.amazonfilterapplicatione2e.captcha.BlockerHandler;
 import main.java.amazonfilterapplicatione2e.flows.BrandFilterFlows;
 import main.java.amazonfilterapplicatione2e.flows.DeliveryFilterFlows;
 import main.java.amazonfilterapplicatione2e.flows.OperatingSystemFilterFlows;
@@ -69,6 +70,7 @@ public class AmazonTests extends BaseTest {
 		AmazonLandingPage landingPage=new AmazonLandingPage();
 		
 		CaptchaHandler capHandler=new CaptchaHandler();
+		BlockerHandler blockerHandler = new BlockerHandler();
 		ProductListingPage productPage=new ProductListingPage();
 	    GenericUtility genericUtility=new GenericUtility();
 	    DeliveryFilterFlows deliveryFilterFlows = new DeliveryFilterFlows();
@@ -76,11 +78,11 @@ public class AmazonTests extends BaseTest {
 		landingPage.openingLandingPage();
 		SafeActions safeAct = new SafeActions();
 		safeAct.safeFindElement(landingPage.amazonLogoLandingPage);
-		capHandler.handleCaptcha();
+		blockerHandler.clearBlockers();
 		landingPage.givingInputWithinSearchBar(input);
 		landingPage.clickingOnSubmitSearchButton();                   
 		ScreenshotUtilUpdated.capture(input);
-        genericUtility.refreshIfServiceUnavailable();
+        blockerHandler.clearBlockers();
         String testName=ThreadContext.get("testName");
        
        
@@ -116,6 +118,7 @@ public class AmazonTests extends BaseTest {
 		 
 		 AmazonLandingPage landingPage=new AmazonLandingPage();
 		 CaptchaHandler capHandler=new CaptchaHandler();
+		BlockerHandler blockerHandler = new BlockerHandler();
 		 GenericUtility genericUtility=new GenericUtility();
 		 ProductListingPage productPage=new ProductListingPage();
 		 DeliveryFilterFlows deliveryFilterFlows = new DeliveryFilterFlows();
@@ -125,11 +128,11 @@ public class AmazonTests extends BaseTest {
 		 landingPage.openingLandingPage();
 			SafeActions safeAct = new SafeActions();
 			safeAct.safeFindElement(landingPage.amazonLogoLandingPage);
- 		 capHandler.handleCaptcha();
+ 		 blockerHandler.clearBlockers();
  		 landingPage.givingInputWithinSearchBar(input);
          landingPage.clickingOnSubmitSearchButton();
 
-		 genericUtility.refreshIfServiceUnavailable();   
+		 blockerHandler.clearBlockers();   
 		 String testName=ThreadContext.get("testName");
 		 
 		 
@@ -163,6 +166,7 @@ public class AmazonTests extends BaseTest {
 		ReportManager.getTest().info("Test Input Parameter: <b>" + input + "</b>");
 		AmazonLandingPage landingPage=new AmazonLandingPage();
 		CaptchaHandler capHandler=new CaptchaHandler();
+		BlockerHandler blockerHandler = new BlockerHandler();
 		GenericUtility genericUtility=new GenericUtility();
  		ProductListingPage productPage=new ProductListingPage();
  		DeliveryFilterFlows deliveryFilterFlows = new DeliveryFilterFlows();
@@ -172,12 +176,12 @@ public class AmazonTests extends BaseTest {
  		ScreenshotUtilUpdated.capture();
  		SafeActions safeAct = new SafeActions();
 		safeAct.safeFindElement(landingPage.amazonLogoLandingPage);
-		capHandler.handleCaptcha();
+		blockerHandler.clearBlockers();
 		ScreenshotUtilUpdated.capture(input);
 		landingPage.givingInputWithinSearchBar(input);
 		landingPage.clickingOnSubmitSearchButton();
 		ScreenshotUtilUpdated.capture(input);
- 		genericUtility.refreshIfServiceUnavailable();
+ 		blockerHandler.clearBlockers();
  		
  		 String testName=ThreadContext.get("testName");
  		if (!genericUtility.isElementInViewport(productPage.getItTodayUnderDeliveryDayFilterBy)) {
@@ -211,6 +215,7 @@ public class AmazonTests extends BaseTest {
 		ReportManager.getTest().info("Test Input Parameter: <b>" + input + "</b>");
 		AmazonLandingPage landingPage=new AmazonLandingPage();
 		CaptchaHandler capHandler=new CaptchaHandler();
+		BlockerHandler blockerHandler = new BlockerHandler();
 		GenericUtility genericUtility=new GenericUtility();
  		ProductListingPage productPage=new ProductListingPage();
  		DeliveryFilterFlows deliveryFilterFlows = new DeliveryFilterFlows();
@@ -219,10 +224,10 @@ public class AmazonTests extends BaseTest {
  		landingPage.openingLandingPage();
  		SafeActions safeAct = new SafeActions();
 		safeAct.safeFindElement(landingPage.amazonLogoLandingPage);
-		capHandler.handleCaptcha();
+		blockerHandler.clearBlockers();
 		landingPage.givingInputWithinSearchBar(input);
 		landingPage.clickingOnSubmitSearchButton();
- 		genericUtility.refreshIfServiceUnavailable();
+ 		blockerHandler.clearBlockers();
  		
  		 String testName=ThreadContext.get("testName");
  		if (!genericUtility.isElementInViewport(productPage.eligibleForFreeDelivery)) {
@@ -257,6 +262,7 @@ public class AmazonTests extends BaseTest {
 
 		AmazonLandingPage landingPage=new AmazonLandingPage();
 		CaptchaHandler capHandler=new CaptchaHandler();
+		BlockerHandler blockerHandler = new BlockerHandler();
 		ProductListingPage productPage=new ProductListingPage();
 		SafeActions safeAct=new SafeActions();
 		GenericUtility genericUtility=new GenericUtility();
@@ -267,10 +273,10 @@ public class AmazonTests extends BaseTest {
 		landingPage.openingLandingPage();
 	
 		safeAct.safeFindElement(landingPage.amazonLogoLandingPage);
-		capHandler.handleCaptcha();
+		blockerHandler.clearBlockers();
 		landingPage.givingInputWithinSearchBar(input);
 		landingPage.clickingOnSubmitSearchButton();
-		genericUtility.refreshIfServiceUnavailable();
+		blockerHandler.clearBlockers();
 		String testName=ThreadContext.get("testName");
 
 		if (!genericUtility.filterCheckUnderList("brands")) {
@@ -330,6 +336,7 @@ public class AmazonTests extends BaseTest {
 		
 		AmazonLandingPage landingPage=new AmazonLandingPage();
 		CaptchaHandler capHandler=new CaptchaHandler();
+		BlockerHandler blockerHandler = new BlockerHandler();
 		GenericUtility genericUtility=new GenericUtility();
 		ProductListingPage productPage=new ProductListingPage();
 		SharedFilterFlows sharedFilterFlows = new SharedFilterFlows();
@@ -340,10 +347,10 @@ public class AmazonTests extends BaseTest {
 		landingPage.openingLandingPage();
 		SafeActions safeAct = new SafeActions();
 		safeAct.safeFindElement(landingPage.amazonLogoLandingPage);
-		capHandler.handleCaptcha();
+		blockerHandler.clearBlockers();
 		landingPage.givingInputWithinSearchBar(input);
 		landingPage.clickingOnSubmitSearchButton();
-		genericUtility.refreshIfServiceUnavailable();
+		blockerHandler.clearBlockers();
 		String testName=ThreadContext.get("testName");
 		
 		
@@ -409,6 +416,7 @@ public class AmazonTests extends BaseTest {
 
 		AmazonLandingPage landingPage=new AmazonLandingPage();
 		CaptchaHandler capHandler=new CaptchaHandler();
+		BlockerHandler blockerHandler = new BlockerHandler();
 		GenericUtility genericUtility=new GenericUtility();
 		ProductListingPage productPage=new ProductListingPage();
 		PriceSliderFlows priceSliderFlows = new PriceSliderFlows();
@@ -419,10 +427,10 @@ public class AmazonTests extends BaseTest {
 		ScreenshotUtilUpdated.capture("Test test ");
 		SafeActions safeAct = new SafeActions();
 		safeAct.safeFindElement(landingPage.amazonLogoLandingPage);
-		capHandler.handleCaptcha();
+		blockerHandler.clearBlockers();
 		landingPage.givingInputWithinSearchBar(str);
 		landingPage.clickingOnSubmitSearchButton();
-		genericUtility.refreshIfServiceUnavailable();
+		blockerHandler.clearBlockers();
 		String testName=ThreadContext.get("testName");
 
 
@@ -478,6 +486,7 @@ public class AmazonTests extends BaseTest {
 
 		AmazonLandingPage landingPage = new AmazonLandingPage();
 		CaptchaHandler capHandler=new CaptchaHandler();
+		BlockerHandler blockerHandler = new BlockerHandler();
 		ProductListingPage productPage =new ProductListingPage();
 		GenericUtility genericUtility=new GenericUtility();
 		SoftAssert softAssert = new SoftAssert();
@@ -487,10 +496,10 @@ public class AmazonTests extends BaseTest {
 		landingPage.openingLandingPage();
 		SafeActions safeAct = new SafeActions();
 		safeAct.safeFindElement(landingPage.amazonLogoLandingPage);
-		capHandler.handleCaptcha();
+		blockerHandler.clearBlockers();
 		landingPage.givingInputWithinSearchBar(input);
 		landingPage.clickingOnSubmitSearchButton();
-		genericUtility.refreshIfServiceUnavailable();
+		blockerHandler.clearBlockers();
 		String testName=ThreadContext.get("testName");
 
 		if (!genericUtility.filterCheckUnderList("Battery Capacity")) {
@@ -561,6 +570,7 @@ public class AmazonTests extends BaseTest {
 		
 		AmazonLandingPage landingPage=new AmazonLandingPage();
 		CaptchaHandler capHandler=new CaptchaHandler();
+		BlockerHandler blockerHandler = new BlockerHandler();
 		GenericUtility genericUtility=new GenericUtility();
         ProductListingPage productPage=new ProductListingPage();
         SharedFilterFlows sharedFilterFlows = new SharedFilterFlows();
@@ -570,10 +580,10 @@ public class AmazonTests extends BaseTest {
         landingPage.openingLandingPage();
     	SafeActions safeAct = new SafeActions();
 		safeAct.safeFindElement(landingPage.amazonLogoLandingPage);
-        capHandler.handleCaptcha();
+        blockerHandler.clearBlockers();
         landingPage.givingInputWithinSearchBar(input);
         landingPage.clickingOnSubmitSearchButton();
-        genericUtility.refreshIfServiceUnavailable();
+        blockerHandler.clearBlockers();
         String testName=ThreadContext.get("testName");
 
         if (!genericUtility.filterCheckUnderList("Screen Size")) {
@@ -644,6 +654,7 @@ public class AmazonTests extends BaseTest {
 		
 		AmazonLandingPage landingPage=new AmazonLandingPage();
 		CaptchaHandler capHandler=new CaptchaHandler();
+		BlockerHandler blockerHandler = new BlockerHandler();
 		ProductListingPage productPage=new ProductListingPage();
         GenericUtility genericUtility =new GenericUtility();
         SharedFilterFlows sharedFilterFlows = new SharedFilterFlows();
@@ -654,10 +665,10 @@ public class AmazonTests extends BaseTest {
         landingPage.openingLandingPage();
     	SafeActions safeAct = new SafeActions();
 		safeAct.safeFindElement(landingPage.amazonLogoLandingPage);
-        capHandler.handleCaptcha();
+        blockerHandler.clearBlockers();
         landingPage.givingInputWithinSearchBar(input);
         landingPage.clickingOnSubmitSearchButton();
-        genericUtility.refreshIfServiceUnavailable();
+        blockerHandler.clearBlockers();
         String testName=ThreadContext.get("testName");
 
 
@@ -727,6 +738,7 @@ public class AmazonTests extends BaseTest {
 
 		AmazonLandingPage landingPage=new AmazonLandingPage();
 		CaptchaHandler capHandler=new CaptchaHandler();
+		BlockerHandler blockerHandler = new BlockerHandler();
 		ProductListingPage productPage=new ProductListingPage();
 		GenericUtility genericUtility=new GenericUtility();
 		SharedFilterFlows sharedFilterFlows = new SharedFilterFlows();
@@ -736,10 +748,10 @@ public class AmazonTests extends BaseTest {
 		landingPage.openingLandingPage();
 		SafeActions safeAct = new SafeActions();
 		safeAct.safeFindElement(landingPage.amazonLogoLandingPage);
-		capHandler.handleCaptcha();
+		blockerHandler.clearBlockers();
 		landingPage.givingInputWithinSearchBar(input);
 		landingPage.clickingOnSubmitSearchButton();
-		genericUtility.refreshIfServiceUnavailable();
+		blockerHandler.clearBlockers();
 		String testName=ThreadContext.get("testName");
 
 		if (!genericUtility.filterCheckUnderList("Display Type")){
@@ -808,6 +820,7 @@ public class AmazonTests extends BaseTest {
 		GenericUtility genericUtility=new GenericUtility();
 		AmazonLandingPage landingPage=new AmazonLandingPage();
 		CaptchaHandler capHandler=new CaptchaHandler();
+		BlockerHandler blockerHandler = new BlockerHandler();
 		ProductListingPage productPage=new ProductListingPage();
 		OperatingSystemFilterFlows operatingSystemFilterFlows = new OperatingSystemFilterFlows();
 		SoftAssert softAssert = new SoftAssert();
@@ -816,10 +829,10 @@ public class AmazonTests extends BaseTest {
 		  landingPage.openingLandingPage();	
 			SafeActions safeAct = new SafeActions();
 			safeAct.safeFindElement(landingPage.amazonLogoLandingPage);
-		  capHandler.handleCaptcha();
+		  blockerHandler.clearBlockers();
 		  landingPage.givingInputWithinSearchBar(input);
 		  landingPage.clickingOnSubmitSearchButton();
-		  genericUtility.refreshIfServiceUnavailable();
+		  blockerHandler.clearBlockers();
 		  String testName=ThreadContext.get("testName");
 
 		  if (!genericUtility.filterCheckUnderList("Operating System", "Operating System Version")) {
@@ -889,6 +902,7 @@ public class AmazonTests extends BaseTest {
 		
 		AmazonLandingPage landingPage=new AmazonLandingPage();
 		CaptchaHandler capHandler=new CaptchaHandler();
+		BlockerHandler blockerHandler = new BlockerHandler();
 		GenericUtility genericUtility= new GenericUtility();
 		ProductListingPage productPage=new ProductListingPage();
 		SharedFilterFlows sharedFilterFlows = new SharedFilterFlows();
@@ -898,10 +912,10 @@ public class AmazonTests extends BaseTest {
 		landingPage.openingLandingPage();
 		SafeActions safeAct = new SafeActions();
 		safeAct.safeFindElement(landingPage.amazonLogoLandingPage);
-		capHandler.handleCaptcha();
+		blockerHandler.clearBlockers();
 		landingPage.givingInputWithinSearchBar(input);
 		landingPage.clickingOnSubmitSearchButton();
-		genericUtility.refreshIfServiceUnavailable();
+		blockerHandler.clearBlockers();
 		String testName=ThreadContext.get("testName");
 
 		if (!genericUtility.filterCheckUnderList("Mobile Phone Primary Camera Resolution")) {
@@ -974,6 +988,7 @@ public class AmazonTests extends BaseTest {
 		AmazonLandingPage landingPage=new AmazonLandingPage();
 		SafeActions act=new SafeActions();
 		CaptchaHandler capHandler=new CaptchaHandler();
+		BlockerHandler blockerHandler = new BlockerHandler();
 		ProductListingPage productPage=new ProductListingPage();
 		GenericUtility genericUtility=new GenericUtility();
 		SharedFilterFlows sharedFilterFlows = new SharedFilterFlows();
@@ -982,10 +997,10 @@ public class AmazonTests extends BaseTest {
 
 		landingPage.openingLandingPage();
 		act.safeFindElement(landingPage.amazonLogoLandingPage);
-		capHandler.handleCaptcha();
+		blockerHandler.clearBlockers();
 		landingPage.givingInputWithinSearchBar(input);
 		landingPage.clickingOnSubmitSearchButton();
-		genericUtility.refreshIfServiceUnavailable();
+		blockerHandler.clearBlockers();
 		String testName=ThreadContext.get("testName");
 
 		if (!genericUtility.filterCheckUnderList("Discount")) {
