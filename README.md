@@ -22,6 +22,7 @@ Use this index to quickly navigate the README. Click any entry to jump to that s
 - [Folder Structure](#folder-structure)
 - [Running Tests](#running-tests)
 - [Engineering Decisions Explained](#engineering-decisions-explained)
+- [Problems We Faced and How We Solved Them](#problems-we-faced-and-how-we-solved-them)
 - [Extending the Framework](#extending-the-framework)
 - [Troubleshooting](#troubleshooting)
 
@@ -80,8 +81,8 @@ This framework is built using a rich, modern, and production oriented technology
 
 ## CI/CD and DevOps Toolchain
 - **GitHub Actions** running automated workflows including:
-  - Push based runs
-  - Pull request validations
+  - Push runs on master
+  - Pull request validations (PRs targeting master)
   - Scheduled nightly CRON jobs
   - On demand manual dispatches
 - **Parallel test sharding** using a matrix build: tests are split into three meaningfully named TestNG groups, each running on its own runner.
@@ -248,7 +249,7 @@ project-root/
 │   └── src/
 │       ├── main/java/amazonfilterapplicatione2e/
 │       │   ├── base/              BaseTest, BasePage
-│       │   ├── captcha/           CaptchaHandler
+│       │   ├── captcha/           CaptchaHandler, BlockerHandler
 │       │   ├── configManager/     ConfigManager
 │       │   ├── constants/         GlobalConstants
 │       │   ├── driverManager/     DriverManager
@@ -335,6 +336,9 @@ Each tool covers a different need. ExtentReports (Spark HTML) gives an instant, 
 ## Sharding by Meaningful TestNG Groups
 Tests are split across CI jobs using TestNG groups rather than hand-maintained method lists in XML files. Group names describe the features they cover, so anyone can tell what a shard contains and run it locally with `-Dgroups=`. Shards are kept roughly balanced in runtime, but meaningful names were chosen over perfectly numbered, time-optimized buckets.
 
+## Trial and Error as a Feature
+This project is deliberately a playground for trying different techniques and measuring what works best, and that is a big part of what makes it special. A good example is blocker handling (captcha and "service unavailable" pages): `BlockerHandler.clearBlockers()` ships with two interchangeable approaches, one that inspects the full page source and a lightweight one that checks only the URL, title, and a couple of small element lookups. A single switch (`blockers.light`) flips between them, and each call logs how long it took, so the two can be compared on real runs instead of guessed at. The same mindset shows in the shard layout, the reporting setup, and the retry logic: try an approach, measure it on real CI runs, keep what wins, and drop what does not. Some of these experiments are still in progress, so expect parts of the framework to evolve.
+
 ## Log4j2 Routing
 Log4j2 was chosen for its performance, flexibility, and routing appenders that allow logs to be automatically directed into per run folders. This enables excellent traceability and prevents log mixing between different runs. Each test receives its own log file, which is then linked directly inside the Extent report.
 
@@ -349,6 +353,79 @@ Email notifications are slower and often ignored. Discord provides real time not
 
 ---
 
+# Problems We Faced and How We Solved Them
+
+A running log of real problems hit while building this framework, what caused them, what was done, and why that solution was chosen over the alternatives. Each fix was driven by an actual failure on a CI run or a local run, not by guesswork.
+
+## 1. Interactions that silently never retried
+**Problem:** A filter click gave up on the first transient failure, even though logs claimed "3 attempts". Other retry helpers logged the wrong attempt count, and two lookup methods caught every exception, hiding genuine bugs.
+**Cause:** A loop capped at one pass, an early `return` inside a `catch`, and copy-pasted log messages.
+**Solution:** Fixed the loop and removed the early return, corrected the messages, and narrowed the catch blocks to the Selenium exceptions that are actually retryable.
+**Why:** Retrying only on known transient errors keeps flakiness out of results without hiding real programming mistakes.
+
+## 2. Crashes from "not found" results
+**Problem:** A CI run failed with a `NullPointerException` while reading the size of a list of filter options.
+**Cause:** The safe lookup methods intentionally return `null` once retries are exhausted, but several flows used the result without checking.
+**Solution:** Added a null check at every call site and treated `null` as "nothing found", returning the results gathered so far.
+**Why:** Returning `null` is a deliberate signal, so the callers were fixed instead of changing the contract. A partial result is more useful than a crashed test.
+
+## 3. Configuration that looked supported but did nothing
+**Problem:** Many browser settings could not be changed from the properties file, and Edge read Chrome's headless setting.
+**Cause:** The code used key names that did not match the properties file, and a missing key quietly fell back to a hardcoded default, so nothing looked wrong.
+**Solution:** Renamed the keys in the code to match the properties file, corrected the image-loading logic (it was inverted), and fixed the Edge and Firefox grid URL lookups.
+**Why:** The properties file is the single source of truth, so the code was aligned to it. This is a reminder that silent fallbacks can hide misconfiguration.
+
+## 4. Wasted time on pages that never loaded
+**Problem:** When a product click did not open the product page, the flow still ran its full set of retry-heavy scrapes, each guaranteed to time out. A stale window handle could also have closed every open window.
+**Solution:** Check that the product page actually loaded before scraping, and only close and switch windows if the driver really left the original one.
+**Why:** Failing fast is cheaper than retrying something that cannot succeed, and the window guard removes a risky edge case.
+
+## 5. Captcha and "service unavailable" pages
+**Problem:** Amazon sometimes shows a "Continue shopping" bot-check or an error page mid-test. The captcha handler never verified whether its final attempt worked, and the error-page check only refreshed once and was only called twice per test.
+**Solution:** Added the missing final verification, then combined both checks behind one `clearBlockers()` entry point, called at the test level and at key points inside the shared flow.
+**Why:** One entry point is easy to call from anywhere. Because full page-source reads are large, a lightweight mode was added alongside the original, and a single switch compares them on real runs. This is the trial-and-error approach in practice.
+
+## 6. A test suite too slow to run in one go
+**Problem:** Running every test serially took too long.
+**Solution:** Tagged tests with TestNG groups and run one CI job per group in parallel, using `-Dgroups=`.
+**Why:** Groups are defined next to the tests, so there are no hand-maintained method lists in XML files to drift. A group can also be run locally.
+**Naming decision:** An optimal time-balanced split would have produced buckets like "Shard 3". We kept group names that describe the features they cover, so anyone can tell what a shard contains. Balance was improved by moving a single test (OS Version) instead.
+
+## 7. Combining reports from parallel shards
+**Problem:** Three shards produce three reports, but people want one view.
+**Cause:** Extent reports link to their logs and screenshots with relative paths, so merging or flattening them breaks the links.
+**Solution:** Allure results are merged into one report (its attachments use unique IDs, so merging is safe), while each shard's Extent report is copied whole and untouched. A styled index page links to everything.
+**Why:** Use each tool where it is strong: Allure for the combined picture, Extent for per-shard debugging.
+
+## 8. A GitHub Pages branch that grew to about 9 GB
+**Problem:** Cloning the repository became very slow.
+**Cause:** Every run force-pushed the report branch. A force push only moves the branch pointer, so earlier commits (with all their screenshots) were never removed, even though only the latest was ever served.
+**Solution:** History was squashed once, verified identical by comparing tree hashes, and the deploy step now creates a fresh single-commit branch on every run.
+**Why:** It keeps the live site byte-for-byte the same while making it impossible for the branch to grow again. Only the report branch was touched, never `master`.
+
+## 9. Windows "Filename too long" errors
+**Problem:** Checking out the report branch failed on the CI runner and locally.
+**Cause:** Long screenshot file names exceeded the Windows 260-character path limit.
+**Solution:** Enable `core.longpaths` in git, both locally and as a CI step.
+**Why:** It is the smallest fix for the real cause and avoids renaming existing artifacts.
+
+## 10. Deploying from every parallel job
+**Problem:** With sharding, each job deploying its own report would race and overwrite the others.
+**Solution:** Test jobs only upload artifacts. One separate publish job (which runs even if a shard fails) merges and deploys once.
+**Why:** Anything that must happen exactly once belongs in a single job.
+
+## 11. The nightly run that silently stopped
+**Problem:** The scheduled run stopped for days with no obvious error.
+**Cause:** A malformed line in the workflow file on the default branch made the whole file invalid. Scheduled workflows run only from the default branch, so the problem was invisible from the branch being worked on.
+**Solution:** Corrected the line and restricted push and pull request triggers to `master`.
+**Lesson:** Always check the workflow file as it exists on the default branch, not just on a working branch.
+
+## Still open
+- **Filter matching is brittle.** Several checks use a plain text match, so abbreviations ("Moto" for Motorola) and unit differences (cm versus inches) cause false mismatches. A proper fix needs matching that understands word boundaries and units.
+- **Some filters may not be verifiable from product text.** For example, a storefront discount percentage rarely appears in a product description.
+
+---
+
 # Extending the Framework
 - Add new filters by updating flow classes and page layers
 - Add new UI checks by extending GenericUtility and PDP validation methods
@@ -358,7 +435,7 @@ Email notifications are slower and often ignored. Discord provides real time not
 ---
 
 # Troubleshooting
-- Captcha can appear during Amazon navigation. Retrying the test usually resolves it
+- Captcha or "service unavailable" pages can appear during Amazon navigation. BlockerHandler.clearBlockers() clears them automatically. Two detection modes are currently being trialled: `blockers.light=false` (original full page-source checks) and `blockers.light=true` (lightweight checks)
 - If certain report links do not open, confirm that GitHub Pages deployed all screenshots and logs
 - If a test never appears in CI results, check that it has a `groups` tag matching one of the matrix shards in `main.yml`
 - On Windows, very long screenshot file names can exceed the path limit during git operations; run `git config core.longpaths true`
