@@ -30,7 +30,7 @@ jobs:
         group: [BatteryProcessorStorage, BrandsScreenSizeTypeCamEtc, DeliveryPriceOs]
     env:
       REPORT_BASE: "/amazon-filter-e2e-automation/"
-      IS_CRON: ${{ github.event_name == 'schedule'}} # <-- "true" only for cron
+      IS_CRON: ${{ github.event_name == 'schedule' }} # <-- "true" only for cron
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
