@@ -50,6 +50,7 @@ public class ProductListingPage extends  BasePage{
 			new WebDriverWait(driver, timeout)
 					.until(ExpectedConditions.visibilityOfElementLocated(filterNameHeadingsBy));
 		} catch (TimeoutException e) {
+			System.out.println("EMPTY LISTTTTTTTTTT");
 			return names; // empty list: the panel did not show up in time
 		}
 
@@ -97,7 +98,7 @@ public class ProductListingPage extends  BasePage{
 			);
 
 	private By listBatteryCapacityOptionsBy = By.xpath(
-			"//span[@class='a-size-base a-color-base puis-bold-weight-text' and text()='Battery Capacity']" +
+			"//span[@class='a-size-base a-color-base puis-bold-weight-text' and text()='Battery Life']" +
 					"/parent::div/following-sibling::ul//span[@class='a-size-base a-color-base']"
 			);
 
@@ -192,8 +193,8 @@ public class ProductListingPage extends  BasePage{
 			return By.xpath("//span[@class='a-size-base a-color-base puis-bold-weight-text' and text()='Storage Capacity']/parent::div/following-sibling::ul//span[@class='a-size-base a-color-base' and text()='"+ filterOption + "']");
 		case "brands":
 			return By.xpath("//span[@class='a-size-base a-color-base puis-bold-weight-text' and text()='Brands']/parent::div/following-sibling::ul//span[@class='a-size-base a-color-base' and text()='"+filterOption+"']");
-		case "batterycapacity":
-			return By.xpath("//span[@class='a-size-base a-color-base puis-bold-weight-text' and text()='Battery Capacity']/parent::div/following-sibling::ul//span[@class='a-size-base a-color-base' and text()='" + filterOption + "']");
+		case "batterylife":
+			return By.xpath("//span[@class='a-size-base a-color-base puis-bold-weight-text' and text()='Battery Life']/parent::div/following-sibling::ul//span[@class='a-size-base a-color-base' and text()='" + filterOption + "']");
 		case "displaysize" :
 			return By.xpath("//span[@class='a-size-base a-color-base puis-bold-weight-text' and text()='Display Size']/parent::div/following-sibling::ul//span[@class='a-size-base a-color-base' and text()='"+ filterOption + "']");
 		case "displaytype":
@@ -229,8 +230,8 @@ public class ProductListingPage extends  BasePage{
 			return By.xpath("//span[@class='a-size-base a-color-base puis-bold-weight-text' and text()='Storage Capacity']/parent::div/following-sibling::ul//span[@class='a-size-base a-color-base a-text-bold' and text()='"+ filterOption + "']");
 		case "brands":
 			return By.xpath("//span[@class='a-size-base a-color-base puis-bold-weight-text' and text()='Brands']/parent::div/following-sibling::ul//span[@class='a-size-base a-color-base a-text-bold' and text()='"+filterOption+"']");
-		case "batterycapacity":
-			return By.xpath("//span[@class='a-size-base a-color-base puis-bold-weight-text' and text()='Battery Capacity']/parent::div/following-sibling::ul//span[@class='a-size-base a-color-base a-text-bold' and text()='" + filterOption + "']");
+		case "batterylife":
+			return By.xpath("//span[@class='a-size-base a-color-base puis-bold-weight-text' and text()='Battery Life']/parent::div/following-sibling::ul//span[@class='a-size-base a-color-base a-text-bold' and text()='" + filterOption + "']");
 		case "displaysize" :
 			return By.xpath("//span[@class='a-size-base a-color-base puis-bold-weight-text' and text()='Display Size']/parent::div/following-sibling::ul//span[@class='a-size-base a-color-base a-text-bold' and text()='"+ filterOption + "']");
 		case "displaytype":
@@ -305,8 +306,8 @@ public class ProductListingPage extends  BasePage{
 			return By.xpath("//span[@class='a-size-base a-color-base puis-bold-weight-text' and text()='Storage Capacity']");
 		case "brands":
 			return By.xpath("//span[@class='a-size-base a-color-base puis-bold-weight-text' and text()='Brands']");
-		case "batterycapacity":
-			return By.xpath("//span[@class='a-size-base a-color-base puis-bold-weight-text' and text()='Battery Capacity']");
+		case "batterylife":
+			return By.xpath("//span[@class='a-size-base a-color-base puis-bold-weight-text' and text()='Battery Life']");
 		case "displaysize" :
 			return By.xpath("//span[@class='a-size-base a-color-base puis-bold-weight-text' and text()='Display Size']");
 		case "displaytype":

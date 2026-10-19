@@ -91,66 +91,77 @@ public class GenericUtility extends ProductListingPage{
 	// NEW CODE: skipIfFilterMissing(...) replaces the two methods above.
 	// =====================================================================================
 
-	// At most this many page headings are listed in a skip message (the rest is summarised as "+N more").
-	private static final int MAX_HEADINGS_IN_MESSAGE = 20;
-
 	// Call this right after the results page loads.
-	// If none of the wanted filters is in the left navigation, the test is SKIPPED and the
-	// skip message explains what the page really showed.
-	// More than one name can be given when the site may use either one (for example "Operating System").
+	// Skips the test (with a reason) when none of the wanted filters is in the left navigation.
+	// Several names can be given when the site may use either one (for example "Operating System").
 	public void skipIfFilterMissing(String... wantedFilters) {
-		// This waits for the filters panel before reading the headings.
+		// Read the filter headings from the page (this waits for the filters panel to appear).
 		List<String> foundFilters = getFilterNames(FILTER_PANEL_TIMEOUT);
 
-		// Lower-case the page headings once, so we can compare without worrying about upper/lower case.
-		List<String> foundLowerCase = new ArrayList<>();
-		for (String found : foundFilters) {
-			foundLowerCase.add(found.toLowerCase());
-		}
-
-		// The match is exact on purpose (no "contains").
+		// The filter exists if one of the wanted names is on the page (upper/lower case does not matter).
 		for (String wanted : wantedFilters) {
-			if (foundLowerCase.contains(wanted.trim().toLowerCase())) {
-				return; // The filter exists, so the test carries on.
+			for (String found : foundFilters) {
+				if (found.equalsIgnoreCase(wanted.trim())) {
+					return;
+				}
 			}
 		}
 
-		String reason = buildSkipReason(wantedFilters, foundFilters);
+		// Not found: skip the test and say what the page showed, so the cause is easy to see.
+		String pageShowed = "no filters (the left navigation did not appear in time)";
+		if (!foundFilters.isEmpty()) {
+			pageShowed = String.join(", ", foundFilters);
+		}
+
+		String reason = "Filter '" + String.join("' or '", wantedFilters) + "' not found in the left navigation; "
+				+ "nothing was verified. Page showed: " + pageShowed
+				+ ". URL: " + driver.getCurrentUrl() + " Title: '" + driver.getTitle() + "'.";
+
 		log.warn("[{}] {}", ThreadContext.get("testName"), reason);
 		throw new SkipException(reason);
 	}
 
-	// One message with everything needed to understand the skip:
-	//   "no filters (...)"       -> page slow, blocked, or not the results page
-	//   list without the filter  -> different heading, or this product category does not have the filter
-	private String buildSkipReason(String[] wantedFilters, List<String> foundFilters) {
-		String wanted = "'" + String.join("' or '", wantedFilters) + "'";
-
-		// Reading the URL or title must never break the skip, so they stay empty if reading fails.
-		String url = "";
-		String title = "";
-		try {
-			url = driver.getCurrentUrl();
-			title = driver.getTitle();
-		} catch (Exception e) {
-			log.warn("[{}] Could not read URL or title for the skip message", ThreadContext.get("testName"));
-		}
-
-		return "Filter " + wanted + " not found in the left navigation; nothing was verified. Page showed: "
-				+ describeHeadings(foundFilters) + ". URL: " + url + " Title: '" + title + "'.";
-	}
-
-	// Turns the list of page headings into short text for the skip message.
-	private String describeHeadings(List<String> headings) {
-		if (headings.isEmpty()) {
-			return "no filters (the left navigation did not appear in time)";
-		}
-		if (headings.size() <= MAX_HEADINGS_IN_MESSAGE) {
-			return String.join(", ", headings);
-		}
-		int notShown = headings.size() - MAX_HEADINGS_IN_MESSAGE;
-		return String.join(", ", headings.subList(0, MAX_HEADINGS_IN_MESSAGE)) + " ... (+" + notShown + " more)";
-	}
+	// ---- OLD (previous, longer version, kept as comments; code only). It had a lower-cased copy of the list,
+	// ---- a 20-heading limit, a try/catch around the URL and two helper methods (buildSkipReason, describeHeadings).
+// 	private static final int MAX_HEADINGS_IN_MESSAGE = 20;
+// 	public void skipIfFilterMissing(String... wantedFilters) {
+// 		List<String> foundFilters = getFilterNames(FILTER_PANEL_TIMEOUT);
+// 		List<String> foundLowerCase = new ArrayList<>();
+// 		for (String found : foundFilters) {
+// 			foundLowerCase.add(found.toLowerCase());
+// 		}
+// 		for (String wanted : wantedFilters) {
+// 			if (foundLowerCase.contains(wanted.trim().toLowerCase())) {
+// 				return; // The filter exists, so the test carries on.
+// 			}
+// 		}
+// 		String reason = buildSkipReason(wantedFilters, foundFilters);
+// 		log.warn("[{}] {}", ThreadContext.get("testName"), reason);
+// 		throw new SkipException(reason);
+// 	}
+// 	private String buildSkipReason(String[] wantedFilters, List<String> foundFilters) {
+// 		String wanted = "'" + String.join("' or '", wantedFilters) + "'";
+// 		String url = "";
+// 		String title = "";
+// 		try {
+// 			url = driver.getCurrentUrl();
+// 			title = driver.getTitle();
+// 		} catch (Exception e) {
+// 			log.warn("[{}] Could not read URL or title for the skip message", ThreadContext.get("testName"));
+// 		}
+// 		return "Filter " + wanted + " not found in the left navigation; nothing was verified. Page showed: "
+// 				+ describeHeadings(foundFilters) + ". URL: " + url + " Title: '" + title + "'.";
+// 	}
+// 	private String describeHeadings(List<String> headings) {
+// 		if (headings.isEmpty()) {
+// 			return "no filters (the left navigation did not appear in time)";
+// 		}
+// 		if (headings.size() <= MAX_HEADINGS_IN_MESSAGE) {
+// 			return String.join(", ", headings);
+// 		}
+// 		int notShown = headings.size() - MAX_HEADINGS_IN_MESSAGE;
+// 		return String.join(", ", headings.subList(0, MAX_HEADINGS_IN_MESSAGE)) + " ... (+" + notShown + " more)";
+// 	}
 
 	public boolean isElementInViewport(By locator) throws TimeoutException {
 	    log.info("[{}] Waiting until element is visible in viewport", ThreadContext.get("testName"));
@@ -181,6 +192,53 @@ public class GenericUtility extends ProductListingPage{
 	
 
     
+
+    // NEW: simple "is the page there?" check. The element only has to be VISIBLE (up to 10 seconds).
+    // It does not care whether the element is scrolled out of view or covered by something,
+    // because reading text from it still works in those cases.
+    public boolean isElementVisible(By locator) {
+        try {
+            new WebDriverWait(driver, Duration.ofSeconds(10))
+                    .until(ExpectedConditions.visibilityOfElementLocated(locator));
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
+    // NEW: writes one WARN line that explains why an element could not be used, so the cause is
+    // visible in the log: window size, scroll position, where the element is, and what is on top of it.
+    // Never throws, so it is safe to call from any flow.
+    public void logElementDiagnostics(By locator, String description) {
+        String testName = ThreadContext.get("testName");
+        try {
+            List<WebElement> found = driver.findElements(locator);
+            if (found.isEmpty()) {
+                log.warn("[{}] {}: element NOT in the page at all. URL: {} Title: '{}' readyState: {}", testName, description,
+                        driver.getCurrentUrl(), driver.getTitle(),
+                        ((JavascriptExecutor) driver).executeScript("return document.readyState"));
+                return;
+            }
+
+            // The script reports the window size, the scroll position, the element position,
+            // and which element sits on top of the centre of our element (if any).
+            Object info = ((JavascriptExecutor) driver).executeScript(
+                    "var el = arguments[0];" +
+                    "var r = el.getBoundingClientRect();" +
+                    "var top = document.elementFromPoint(r.left + r.width / 2, r.top + r.height / 2);" +
+                    "var onTop = top ? top.tagName + '#' + top.id + '.' + String(top.className).substring(0, 80)" +
+                    "                : 'nothing (the centre is outside the window)';" +
+                    "return 'window=' + window.innerWidth + 'x' + window.innerHeight" +
+                    "     + ' scrollY=' + Math.round(window.scrollY)" +
+                    "     + ' element(top=' + Math.round(r.top) + ', left=' + Math.round(r.left)" +
+                    "     + ', size=' + Math.round(r.width) + 'x' + Math.round(r.height) + ')'" +
+                    "     + ' onTopOfCentre=' + onTop + ' readyState=' + document.readyState;",
+                    found.get(0));
+            log.warn("[{}] {}: {} URL: {}", testName, description, info, driver.getCurrentUrl());
+        } catch (Exception e) {
+            log.warn("[{}] {}: could not collect diagnostics: {}", testName, description, e.getMessage());
+        }
+    }
 
     public void refreshIfServiceUnavailable() {
 	    String pageSource = driver.getPageSource().toLowerCase();

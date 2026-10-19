@@ -61,6 +61,9 @@ public class DriverManager  {
 					}
 					if (ConfigManager.getBoolean("firefox.headless", false)) {
 						firefoxOptions.addArguments("-headless");
+						// NEW: same reason as for Chrome. Firefox takes the width and height as two separate arguments.
+						firefoxOptions.addArguments("--width=" + ConfigManager.getInt("headless.windowWidth", 1920));
+						firefoxOptions.addArguments("--height=" + ConfigManager.getInt("headless.windowHeight", 1080));
 					}
 					if(!ConfigManager.getBoolean("firefox.image.loading", true)) {
 						firefoxOptions.addArguments(
@@ -117,6 +120,9 @@ public class DriverManager  {
 					}
 					if(ConfigManager.getBoolean("edge.headless", false)) {
 						edgeOptions.addArguments("--headless");
+						// NEW: same reason as for Chrome (small default window in headless mode).
+						edgeOptions.addArguments("--window-size=" + ConfigManager.getInt("headless.windowWidth", 1920)
+								+ "," + ConfigManager.getInt("headless.windowHeight", 1080));
 					}
 					if(!ConfigManager.getBoolean("edge.image.loading", true)) {
 						edgeOptions.addArguments(
@@ -182,6 +188,11 @@ public class DriverManager  {
 					}
 					if(ConfigManager.getBoolean("chrome.headless", false)) {
 						options.addArguments("--headless");
+						// NEW: a headless browser opens a small window by default, which changes the page layout
+						// (for example the filters panel can disappear). --start-maximized does nothing in headless mode,
+						// so the size is set directly (from UtilData.properties, default 1920x1080).
+						options.addArguments("--window-size=" + ConfigManager.getInt("headless.windowWidth", 1920)
+								+ "," + ConfigManager.getInt("headless.windowHeight", 1080));
 					}
 					if(!ConfigManager.getBoolean("chrome.image.loading", true)) {
 						options.addArguments(

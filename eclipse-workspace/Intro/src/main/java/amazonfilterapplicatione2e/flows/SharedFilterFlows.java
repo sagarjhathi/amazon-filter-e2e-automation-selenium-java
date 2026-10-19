@@ -240,9 +240,22 @@ try {
 	log.warn("[{}] Blocker on product page did not clear: {}", testName, e.getMessage());
 }
 
-boolean productPageLoaded = genericUtility.isElementInViewport(productPage.productNameIndividualPageBy());
+// OLD: the page counted as "loaded" only if the title was visible AND its centre was neither off-screen
+// nor covered. In a real run that strict check said "not loaded" for about 70% of product tabs, almost
+// instantly (so the page was there), and the whole scrape was skipped:
+// boolean productPageLoaded = genericUtility.isElementInViewport(productPage.productNameIndividualPageBy());
+
+// NEW: the page counts as loaded when the product title is visible (reading text does not need it in view).
+boolean productPageLoaded = genericUtility.isElementVisible(productPage.productNameIndividualPageBy());
 if (!productPageLoaded) {
 	log.warn("[{}] Product detail page did not load for index {} filter '{}'; skipping detail scrape to avoid redundant retries/timeouts", testName, productIndex, filterValue);
+	// Record WHY (window size, what is on top, ...) and keep a screenshot of this tab.
+	genericUtility.logElementDiagnostics(productPage.productNameIndividualPageBy(), "Product title not visible, index " + productIndex);
+	ScreenshotUtil.capture(testName, filterValue, "Product page not loaded, Product Index=" + productIndex);
+} else if (!genericUtility.isElementInViewport(productPage.productNameIndividualPageBy())) {
+	// The title is visible but off-screen or covered. We still scrape, but record the reason.
+	genericUtility.logElementDiagnostics(productPage.productNameIndividualPageBy(), "Product title visible but off-screen or covered, index " + productIndex);
+	ScreenshotUtil.capture(testName, filterValue, "Product title covered or off-screen, Product Index=" + productIndex);
 }
 
 String name="";

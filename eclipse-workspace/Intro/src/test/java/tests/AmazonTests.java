@@ -474,7 +474,7 @@ public class AmazonTests extends BaseTest {
 		)
 	public void verifyingBatteryCapacityFilterFunctionality(String input) throws InterruptedException, TimeoutException {
 		ReportManager.getTest().info("Test Input Parameter: <b>" + input + "</b>");
-
+		input="laptop";
 		AmazonLandingPage landingPage = new AmazonLandingPage();
 		CaptchaHandler capHandler=new CaptchaHandler();
 		BlockerHandler blockerHandler = new BlockerHandler();
@@ -500,12 +500,13 @@ public class AmazonTests extends BaseTest {
 		//   return ;
 		//   }
 		// NEW (waits for the filters panel; a missing filter SKIPS the test with a clear reason):
-		genericUtility.skipIfFilterMissing("Battery Capacity");
+	//	String wantedFilter []= {"Battery Life"};
+		genericUtility.skipIfFilterMissing("Battery Life");
 
 
-		List<Map<String, Object>> results = sharedFilterFlows.applyFilterAndValidateProductsWithResult(productPage.listBatteryCapacityOptionsBy(),"batterycapacity");
+		List<Map<String, Object>> results = sharedFilterFlows.applyFilterAndValidateProductsWithResult(productPage.listBatteryCapacityOptionsBy(),"batterylife");
 
-
+		
 
 
 		if(results.size()==0) {
@@ -845,7 +846,7 @@ public class AmazonTests extends BaseTest {
 		  //   return;
 		  //   }
 		  // NEW (waits for the filters panel; a missing filter SKIPS the test with a clear reason):
-		  genericUtility.skipIfFilterMissing("Operating System", "Operating System Version");
+		genericUtility.skipIfFilterMissing("Operating System", "Operating System Version");
 
 
 
