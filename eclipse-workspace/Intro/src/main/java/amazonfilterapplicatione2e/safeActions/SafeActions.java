@@ -10,7 +10,7 @@ import main.java.amazonfilterapplicatione2e.configManager.ConfigManager;
 import main.java.amazonfilterapplicatione2e.logger.LoggerUtility;
 import main.java.amazonfilterapplicatione2e.pages.ProductListingPage;
 import main.java.amazonfilterapplicatione2e.utilities.GenericUtility;
-import main.java.amazonfilterapplicatione2e.utilities.ScreenshotUtilUpdated;
+import main.java.amazonfilterapplicatione2e.utilities.ScreenshotUtil;
 
 import java.time.Duration;
 import java.util.List;
@@ -189,7 +189,7 @@ public class SafeActions extends BasePage{
 		    while (attempts < 3) {
 		        try {
 
-                	genericUtility.smoothScrollToElement(productPage.getfilterHeaderByTypeAndName(filterName));
+                	genericUtility.smoothScrollToElement(productPage.getFilterHeaderByTypeAndName(filterName));
                 
                 	try {
                     	genericUtility.clickMoreButtonIfPresent(safeAct, genericUtility, productPage.getMoreButtonByFilterTypeAndName(filterName));
@@ -206,7 +206,7 @@ public class SafeActions extends BasePage{
 		            element.click();
 		         
 		            
-		            genericUtility.smoothScrollToElement(productPage.getfilterHeaderByTypeAndName(filterName));
+		            genericUtility.smoothScrollToElement(productPage.getFilterHeaderByTypeAndName(filterName));
 		                   
 		            
 		        
@@ -219,11 +219,11 @@ public class SafeActions extends BasePage{
 		            
 		    
                 	
-		            genericUtility.smoothScrollToElement(productPage.getAppliedfilterByTypeAndName(filterName, filterOption));
+		            genericUtility.smoothScrollToElement(productPage.getAppliedFilterByTypeAndName(filterName, filterOption));
 		    
 					log.info("[{}] Clicked the element using safe click ,element is "+element ,ThreadContext.get("testName"));
 		            System.out.println("Clicking using safeClick");  
-		            ScreenshotUtilUpdated.capture(testName,filterOptionToPass);
+		            ScreenshotUtil.capture(testName,filterOptionToPass);
 		            return true; // success
 		        } catch (TimeoutException | ElementClickInterceptedException | StaleElementReferenceException e) {
 		            System.out.println("Retrying click for: " + locator + " - Attempt " + (attempts + 1));
@@ -235,7 +235,7 @@ public class SafeActions extends BasePage{
 		                   driver.navigate().refresh();
 		                		
 		                	log.info("[{}] Cannot apply filter taking failed screenshot for ->"+filterOption ,ThreadContext.get("testName"));
-		                	genericUtility.smoothScrollToElement(productPage.getfilterHeaderByTypeAndName(filterName));
+		                	genericUtility.smoothScrollToElement(productPage.getFilterHeaderByTypeAndName(filterName));
 		               
 
 		                	try {
@@ -246,7 +246,7 @@ public class SafeActions extends BasePage{
 		                	}
 		                	
 		       
-				            ScreenshotUtilUpdated.capture(testName,filterOptionToPass,"failed filter apply screenshot-");
+				            ScreenshotUtil.capture(testName,filterOptionToPass,"failed filter apply screenshot-");
 		                
 		                
 						log.info("[{}] Refrshing the page , while trying to click ->"+locator ,ThreadContext.get("testName"));

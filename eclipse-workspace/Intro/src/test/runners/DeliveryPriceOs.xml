@@ -6,7 +6,7 @@
 
  <listeners>
         <listener class-name="test.java.retry.RetryListener"/>
-        <listener class-name="main.java.amazonfilterapplicatione2e.reporting.TestListenerUpdated"/>
+        <listener class-name="main.java.amazonfilterapplicatione2e.reporting.TestListener"/>
     </listeners>
     
   <test thread-count="3" parallel="methods" name="Test">
@@ -22,7 +22,8 @@
         <include name="verifyingGetItIn2DaysFilterFunctionality"></include>
         <include name="verifyingGetItByTodayFilterFunctionality"></include>
         <include name="verifyingFreeDeliveryFilterFunctionality"></include>
-        <include name="verifyingPriceSilderFunctionality"></include>
+        <include name="verifyingPriceSliderFunctionality"></include>
+        <include name="verifyingOperatingSystemVersionFilterFunctionality"></include>
         </methods>
        
        

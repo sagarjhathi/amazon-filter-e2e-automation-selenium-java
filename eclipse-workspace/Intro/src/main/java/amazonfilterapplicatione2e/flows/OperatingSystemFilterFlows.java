@@ -18,7 +18,7 @@ import main.java.amazonfilterapplicatione2e.logger.LoggerUtility;
 import main.java.amazonfilterapplicatione2e.pages.ProductListingPage;
 import main.java.amazonfilterapplicatione2e.safeActions.SafeActions;
 import main.java.amazonfilterapplicatione2e.utilities.GenericUtility;
-import main.java.amazonfilterapplicatione2e.utilities.ScreenshotUtilUpdated;
+import main.java.amazonfilterapplicatione2e.utilities.ScreenshotUtil;
 
 public class OperatingSystemFilterFlows extends BasePage{
 
@@ -109,7 +109,7 @@ public OperatingSystemFilterFlows() {
 
 			// safeClickBooleanWithScreenShot also clicks Amazon's "See more" toggle for this
 			// filter (before and after clicking the option) — expansion isn't done explicitly
-			if (!safeAct.safeClickBooleanWithScreenShot(productPage.getfilterByTypeAndName(filterName, str),filterName,str)) {
+			if (!safeAct.safeClickBooleanWithScreenShot(productPage.getFilterByTypeAndName(filterName, str),filterName,str)) {
 				System.out.println("Filter click failed for: " + str);
 				log.info("[{}] Checking if The Filter is being applied else continuing to next filter , filter option ->"+str+"  ", ThreadContext.get("testName"));
 				continue;
@@ -117,7 +117,7 @@ public OperatingSystemFilterFlows() {
 
 			
 			String currentWindow = driver.getWindowHandle();
-			List<WebElement> productNameListingPage = safeAct.safeFindElements(productPage.productNameListingPageBy);
+			List<WebElement> productNameListingPage = safeAct.safeFindElements(productPage.productNameListingPageBy());
 
 
 			// Default to the real fetched list size 
@@ -147,7 +147,7 @@ public OperatingSystemFilterFlows() {
 				allResults.add(result);
 			}
 
-			safeAct.safeClick(productPage.clearButtonBy);
+			safeAct.safeClick(productPage.clearButtonBy());
 			if (i % 10 == 0 && i != 0) {
 				driver.navigate().refresh();
 				log.info("[{}] Refreshing the page to avoid storage issue ->"+str, ThreadContext.get("testName"));
@@ -212,10 +212,10 @@ public OperatingSystemFilterFlows() {
 		     
 		        genericUtility.switchToNewWindow(currentWindow);
 
-		        String name = genericUtility.fetchTextWithRetries(productPage.productNameIndividualPage, safeAct);
-		        String keyFeatures = genericUtility.fetchTextWithRetries(productPage.productKeyFeatureBlock, safeAct);
-		        String about = genericUtility.fetchTextWithRetries(productPage.aboutThisItemBulletPoint, safeAct);
-		        String techDetails = genericUtility.fetchTextWithRetries(productPage.technicalDetailsBlockIndividualPage, safeAct);
+		        String name = genericUtility.fetchTextWithRetries(productPage.productNameIndividualPageBy(), safeAct);
+		        String keyFeatures = genericUtility.fetchTextWithRetries(productPage.productKeyFeatureBlockBy(), safeAct);
+		        String about = genericUtility.fetchTextWithRetries(productPage.aboutThisItemBulletPointBy(), safeAct);
+		        String techDetails = genericUtility.fetchTextWithRetries(productPage.technicalDetailsBlockIndividualPageBy(), safeAct);
 
 		        genericUtility.addFieldIfPresent("title",name ,filterValue,productIndex,result);
 		        genericUtility.addFieldIfPresent("keyFeatures",keyFeatures ,filterValue,productIndex,result);
@@ -224,11 +224,11 @@ public OperatingSystemFilterFlows() {
 
 		
 		        try {
-		            if (genericUtility.isElementInViewport(productPage.showMoreOnlyIndividualPage) && techDetails.isEmpty()) {
+		            if (genericUtility.isElementInViewport(productPage.showMoreOnlyIndividualPageBy()) && techDetails.isEmpty()) {
 		                String productNamePlusIndex = "Product Index=" + productIndex;
-		                genericUtility.smoothScrollToElement(productPage.reportAnIssue);
+		                genericUtility.smoothScrollToElement(productPage.reportAnIssueBy());
 		              
-		                ScreenshotUtilUpdated.capture(testName, filterValue, productNamePlusIndex);
+		                ScreenshotUtil.capture(testName, filterValue, productNamePlusIndex);
 		                log.info("[{}] Took screenshot for missing tech details; show-more visible",
 		                         ThreadContext.get("testName"));
 		            }

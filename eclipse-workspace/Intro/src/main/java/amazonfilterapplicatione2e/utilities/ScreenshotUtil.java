@@ -1,9 +1,6 @@
 package main.java.amazonfilterapplicatione2e.utilities;
 
 import java.io.File;  
-import java.nio.file.Files;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.FileUtils;
@@ -16,18 +13,17 @@ import org.openqa.selenium.WebDriver;
 import main.java.amazonfilterapplicatione2e.configManager.ConfigManager;
 import main.java.amazonfilterapplicatione2e.driverManager.DriverManager;
 import main.java.amazonfilterapplicatione2e.logger.LoggerUtility;
-import main.java.amazonfilterapplicatione2e.pages.AmazonLandingPage;
 import main.java.amazonfilterapplicatione2e.pathManager.PathManager;
 
-public class ScreenshotUtilUpdated {
+public class ScreenshotUtil {
 
 	
-	private  final static Logger log = LoggerUtility.getLogger(ScreenshotUtilUpdated.class);
+	private  final static Logger log = LoggerUtility.getLogger(ScreenshotUtil.class);
 	
 	WebDriver driver;
 	
 	 public static String capture(String... names) {
-	        WebDriver driver = DriverManager.getDriver(); // ✅ get from ThreadLocal
+	        WebDriver driver = DriverManager.getDriver(); // get from ThreadLocal
 	        String inputNames=String.join("_", names);
 	        
 	        try {

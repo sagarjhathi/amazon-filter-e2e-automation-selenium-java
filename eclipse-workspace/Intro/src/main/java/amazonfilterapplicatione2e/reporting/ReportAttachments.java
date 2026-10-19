@@ -5,15 +5,13 @@ import java.io.File;
 import java.io.File;
 import java.io.InputStream;
 import java.nio.file.Files;
-import java.util.Arrays;
-import java.util.Comparator;
 
 import com.aventstack.extentreports.MediaEntityBuilder;
 
 import io.qameta.allure.Allure;
 import main.java.amazonfilterapplicatione2e.pathManager.PathManager;
 
-public class Attachers {
+public class ReportAttachments {
 
 	
 	

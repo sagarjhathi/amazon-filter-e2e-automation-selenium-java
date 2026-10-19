@@ -133,7 +133,7 @@ allure generate allure-results/BatteryProcessorStorage allure-results/BrandsScre
 
 The Allure CLI accepts **multiple** results directories as positional arguments and merges them
 natively into one combined report — no manual file copying or merging logic needed. This works
-cleanly because Allure attachments (screenshots, logs — see `Attachers.java`, which already calls
+cleanly because Allure attachments (screenshots, logs — see `ReportAttachments.java`, which already calls
 `Allure.addAttachment(...)` for both) are stored with UUID-based filenames inside each
 `allure-results/` folder, so there's no name-collision risk when three shards' results sit
 side by side.

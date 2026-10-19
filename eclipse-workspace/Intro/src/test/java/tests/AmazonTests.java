@@ -1,31 +1,16 @@
 package test.java.tests;
 
-import static org.testng.Assert.expectThrows;       
-import java.time.Duration; 
-import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 import java.util.concurrent.TimeoutException;
 
 import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.ThreadContext;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-import java.time.Duration;
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
@@ -45,12 +30,9 @@ import main.java.amazonfilterapplicatione2e.pages.ProductListingPage;
 import main.java.amazonfilterapplicatione2e.reporting.ReportManager;
 import main.java.amazonfilterapplicatione2e.safeActions.SafeActions;
 import main.java.amazonfilterapplicatione2e.utilities.GenericUtility;
-import main.java.amazonfilterapplicatione2e.utilities.ScreenshotUtilUpdated;
-import test.java.retry.RetryFailedTest;
+import main.java.amazonfilterapplicatione2e.utilities.ScreenshotUtil;
 import test.testDataProvider.TestDataProvider;
 
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 public class AmazonTests extends BaseTest {
 
 	
@@ -77,23 +59,23 @@ public class AmazonTests extends BaseTest {
 		
 		landingPage.openingLandingPage();
 		SafeActions safeAct = new SafeActions();
-		safeAct.safeFindElement(landingPage.amazonLogoLandingPage);
+		safeAct.safeFindElement(landingPage.amazonLogoLandingPageBy());
 		blockerHandler.clearBlockers();
 		landingPage.givingInputWithinSearchBar(input);
 		landingPage.clickingOnSubmitSearchButton();                   
-		ScreenshotUtilUpdated.capture(input);
+		ScreenshotUtil.capture(input);
         blockerHandler.clearBlockers();
         String testName=ThreadContext.get("testName");
        
        
-        if (!genericUtility.isElementInViewport(productPage.getItByTomorrowUnderDeliveryDayFilterBy)) {
+        if (!genericUtility.isElementInViewport(productPage.getItByTomorrowUnderDeliveryDayFilterBy())) {
 		    System.out.println("Filter option 'Get It by Tomorrow' does not exist. Skipping the test.");
 		    log.warn("[{}]   Filter option 'Get It by Tomorrow' does not exist. Skipping the test.", testName);
 		    return;
 		}
         
 	
-		List<Object> result = deliveryFilterFlows.validateDeliveryFilterOptionsWithResult(productPage.getItByTomorrowUnderDeliveryDayFilterBy);
+		List<Object> result = deliveryFilterFlows.validateDeliveryFilterOptionsWithResult(productPage.getItByTomorrowUnderDeliveryDayFilterBy());
 			
 	    
 	    boolean isValid = (boolean) result.get(0);
@@ -123,11 +105,11 @@ public class AmazonTests extends BaseTest {
 		 ProductListingPage productPage=new ProductListingPage();
 		 DeliveryFilterFlows deliveryFilterFlows = new DeliveryFilterFlows();
 		 
-		 ScreenshotUtilUpdated.capture(input);
+		 ScreenshotUtil.capture(input);
 		 
 		 landingPage.openingLandingPage();
 			SafeActions safeAct = new SafeActions();
-			safeAct.safeFindElement(landingPage.amazonLogoLandingPage);
+			safeAct.safeFindElement(landingPage.amazonLogoLandingPageBy());
  		 blockerHandler.clearBlockers();
  		 landingPage.givingInputWithinSearchBar(input);
          landingPage.clickingOnSubmitSearchButton();
@@ -136,13 +118,13 @@ public class AmazonTests extends BaseTest {
 		 String testName=ThreadContext.get("testName");
 		 
 		 
- 		if (!genericUtility.isElementInViewport(productPage.getItInTwoDaysUnderDeliveryDayFilterBy)) {
+ 		if (!genericUtility.isElementInViewport(productPage.getItInTwoDaysUnderDeliveryDayFilterBy())) {
  		    System.out.println("Filter option 'Get It in 2 Days' does not exist. Skipping the test.");
  		    log.warn("[{}]  Filter option 'Get It in 2 Days' does not exist. Skipping the test.", testName);
  		    return ;
  		}                 
 		            	
-		List<Object> result = deliveryFilterFlows.validateDeliveryFilterOptionsWithResult(productPage.getItInTwoDaysUnderDeliveryDayFilterBy);
+		List<Object> result = deliveryFilterFlows.validateDeliveryFilterOptionsWithResult(productPage.getItInTwoDaysUnderDeliveryDayFilterBy());
 		
 	    boolean isValid = (boolean) result.get(0);
 	    String productName = (String) result.get(1);
@@ -173,25 +155,25 @@ public class AmazonTests extends BaseTest {
 		
  		
  		landingPage.openingLandingPage();
- 		ScreenshotUtilUpdated.capture();
+ 		ScreenshotUtil.capture();
  		SafeActions safeAct = new SafeActions();
-		safeAct.safeFindElement(landingPage.amazonLogoLandingPage);
+		safeAct.safeFindElement(landingPage.amazonLogoLandingPageBy());
 		blockerHandler.clearBlockers();
-		ScreenshotUtilUpdated.capture(input);
+		ScreenshotUtil.capture(input);
 		landingPage.givingInputWithinSearchBar(input);
 		landingPage.clickingOnSubmitSearchButton();
-		ScreenshotUtilUpdated.capture(input);
+		ScreenshotUtil.capture(input);
  		blockerHandler.clearBlockers();
  		
  		 String testName=ThreadContext.get("testName");
- 		if (!genericUtility.isElementInViewport(productPage.getItTodayUnderDeliveryDayFilterBy)) {
+ 		if (!genericUtility.isElementInViewport(productPage.getItTodayUnderDeliveryDayFilterBy())) {
  		    System.out.println("Filter option 'Get It Today' does not exist. Skipping the test.");
  		   log.warn("[{}]  Filter option 'Get It Today' does not exist. Skipping the test.", ThreadContext.get("testName"));
  		    return;
  		}                   
 		            		
 		            		
-		List<Object> result = deliveryFilterFlows.validateDeliveryFilterOptionsWithResult(productPage.getItTodayUnderDeliveryDayFilterBy);
+		List<Object> result = deliveryFilterFlows.validateDeliveryFilterOptionsWithResult(productPage.getItTodayUnderDeliveryDayFilterBy());
 		
 		boolean isValid = (boolean) result.get(0);
 	    String productName = (String) result.get(1);
@@ -223,21 +205,21 @@ public class AmazonTests extends BaseTest {
  		
  		landingPage.openingLandingPage();
  		SafeActions safeAct = new SafeActions();
-		safeAct.safeFindElement(landingPage.amazonLogoLandingPage);
+		safeAct.safeFindElement(landingPage.amazonLogoLandingPageBy());
 		blockerHandler.clearBlockers();
 		landingPage.givingInputWithinSearchBar(input);
 		landingPage.clickingOnSubmitSearchButton();
  		blockerHandler.clearBlockers();
  		
  		 String testName=ThreadContext.get("testName");
- 		if (!genericUtility.isElementInViewport(productPage.eligibleForFreeDelivery)) {
+ 		if (!genericUtility.isElementInViewport(productPage.eligibleForFreeDeliveryBy())) {
  		    System.out.println("Filter option 'Eligible for Free Delivery does not. Skipping the test.");
  		   log.warn("[{}]  Filter option 'Eligible for Free Delivery' does not exist. Skipping the test.", ThreadContext.get("testName"));
  		    return;
  		}                   
 		            		
 		            		
-		List<Object> result = deliveryFilterFlows.validateDeliveryFilterOptionsWithResult(productPage.eligibleForFreeDelivery);
+		List<Object> result = deliveryFilterFlows.validateDeliveryFilterOptionsWithResult(productPage.eligibleForFreeDeliveryBy());
 		
 		boolean isValid = (boolean) result.get(0);
 	    String productName = (String) result.get(1);
@@ -272,7 +254,7 @@ public class AmazonTests extends BaseTest {
 
 		landingPage.openingLandingPage();
 	
-		safeAct.safeFindElement(landingPage.amazonLogoLandingPage);
+		safeAct.safeFindElement(landingPage.amazonLogoLandingPageBy());
 		blockerHandler.clearBlockers();
 		landingPage.givingInputWithinSearchBar(input);
 		landingPage.clickingOnSubmitSearchButton();
@@ -286,14 +268,14 @@ public class AmazonTests extends BaseTest {
 		}
 
 
-		List<WebElement> filterOptions = safeAct.safeFindElements(productPage.listBrandsOptionsByNew);
+		List<WebElement> filterOptions = safeAct.safeFindElements(productPage.listBrandsOptionsNewBy());
 		List<Map<Object, Object>> allResults=null;
 
 
 		if(filterOptions==null) {
-			allResults = brandFilterFlows.applyFilterAndValidateBrandsFilterWithResult(productPage.listBrandsOptionsByOld, "brandsold");
+			allResults = brandFilterFlows.applyFilterAndValidateBrandsFilterWithResult(productPage.listBrandsOptionsOldBy(), "brandsold");
 		}else {
-			allResults = brandFilterFlows.applyFilterAndValidateBrandsFilterWithResult(productPage.listBrandsOptionsByNew, "brands");
+			allResults = brandFilterFlows.applyFilterAndValidateBrandsFilterWithResult(productPage.listBrandsOptionsNewBy(), "brands");
 		}
 
 
@@ -346,7 +328,7 @@ public class AmazonTests extends BaseTest {
 		
 		landingPage.openingLandingPage();
 		SafeActions safeAct = new SafeActions();
-		safeAct.safeFindElement(landingPage.amazonLogoLandingPage);
+		safeAct.safeFindElement(landingPage.amazonLogoLandingPageBy());
 		blockerHandler.clearBlockers();
 		landingPage.givingInputWithinSearchBar(input);
 		landingPage.clickingOnSubmitSearchButton();
@@ -361,7 +343,7 @@ public class AmazonTests extends BaseTest {
 		}
 
 
-		List<Map<String, Object>> results = sharedFilterFlows.applyFilterAndValidateProductsWithResult(productPage.listStorageCapacityOptionsBy,"storagecapacity");
+		List<Map<String, Object>> results = sharedFilterFlows.applyFilterAndValidateProductsWithResult(productPage.listStorageCapacityOptionsBy(),"storagecapacity");
 		log.info("[{}] Retrieved {} results from applyFilterAndValidateProductsWithResult.",testName,"And result size->" +results.size());
 		
 
@@ -410,9 +392,9 @@ public class AmazonTests extends BaseTest {
 		    dataProvider = "ExcelData",
 		    dataProviderClass = TestDataProvider.class, groups = { "DeliveryPriceOs" }
 		)
-	public void verifyingPriceSilderFunctionality(String str) throws InterruptedException {
+	public void verifyingPriceSliderFunctionality(String str) throws InterruptedException {
 		
-	//	ReportManager.getTest().info("Test Input Parameter: <b>" + input + "</b>");
+		ReportManager.getTest().info("Test Input Parameter: <b>" + str + "</b>");
 
 		AmazonLandingPage landingPage=new AmazonLandingPage();
 		CaptchaHandler capHandler=new CaptchaHandler();
@@ -424,9 +406,9 @@ public class AmazonTests extends BaseTest {
 		
 
 		landingPage.openingLandingPage();
-		ScreenshotUtilUpdated.capture("Test test ");
+		ScreenshotUtil.capture("Test test ");
 		SafeActions safeAct = new SafeActions();
-		safeAct.safeFindElement(landingPage.amazonLogoLandingPage);
+		safeAct.safeFindElement(landingPage.amazonLogoLandingPageBy());
 		blockerHandler.clearBlockers();
 		landingPage.givingInputWithinSearchBar(str);
 		landingPage.clickingOnSubmitSearchButton();
@@ -495,7 +477,7 @@ public class AmazonTests extends BaseTest {
 
 		landingPage.openingLandingPage();
 		SafeActions safeAct = new SafeActions();
-		safeAct.safeFindElement(landingPage.amazonLogoLandingPage);
+		safeAct.safeFindElement(landingPage.amazonLogoLandingPageBy());
 		blockerHandler.clearBlockers();
 		landingPage.givingInputWithinSearchBar(input);
 		landingPage.clickingOnSubmitSearchButton();
@@ -509,7 +491,7 @@ public class AmazonTests extends BaseTest {
 		}
 
 
-		List<Map<String, Object>> results = sharedFilterFlows.applyFilterAndValidateProductsWithResult(productPage.listBatteryCapacityOptionsBy,"batterycapacity");
+		List<Map<String, Object>> results = sharedFilterFlows.applyFilterAndValidateProductsWithResult(productPage.listBatteryCapacityOptionsBy(),"batterycapacity");
 
 
 
@@ -579,7 +561,7 @@ public class AmazonTests extends BaseTest {
 
         landingPage.openingLandingPage();
     	SafeActions safeAct = new SafeActions();
-		safeAct.safeFindElement(landingPage.amazonLogoLandingPage);
+		safeAct.safeFindElement(landingPage.amazonLogoLandingPageBy());
         blockerHandler.clearBlockers();
         landingPage.givingInputWithinSearchBar(input);
         landingPage.clickingOnSubmitSearchButton();
@@ -594,7 +576,7 @@ public class AmazonTests extends BaseTest {
 
 
 
-        List<Map<String, Object>> results = sharedFilterFlows.applyFilterAndValidateProductsWithResult(productPage.listDisplaySizeOptionsBy,"screensize");
+        List<Map<String, Object>> results = sharedFilterFlows.applyFilterAndValidateProductsWithResult(productPage.listDisplaySizeOptionsBy(),"screensize");
 
 
 
@@ -664,7 +646,7 @@ public class AmazonTests extends BaseTest {
        
         landingPage.openingLandingPage();
     	SafeActions safeAct = new SafeActions();
-		safeAct.safeFindElement(landingPage.amazonLogoLandingPage);
+		safeAct.safeFindElement(landingPage.amazonLogoLandingPageBy());
         blockerHandler.clearBlockers();
         landingPage.givingInputWithinSearchBar(input);
         landingPage.clickingOnSubmitSearchButton();
@@ -679,7 +661,7 @@ public class AmazonTests extends BaseTest {
 
 
 
-        List<Map<String, Object>> results = sharedFilterFlows.applyFilterAndValidateProductsWithResult(productPage.listProcessorSpeedOptionsBy,"processorspeed");
+        List<Map<String, Object>> results = sharedFilterFlows.applyFilterAndValidateProductsWithResult(productPage.listProcessorSpeedOptionsBy(),"processorspeed");
 
 
 
@@ -747,7 +729,7 @@ public class AmazonTests extends BaseTest {
 
 		landingPage.openingLandingPage();
 		SafeActions safeAct = new SafeActions();
-		safeAct.safeFindElement(landingPage.amazonLogoLandingPage);
+		safeAct.safeFindElement(landingPage.amazonLogoLandingPageBy());
 		blockerHandler.clearBlockers();
 		landingPage.givingInputWithinSearchBar(input);
 		landingPage.clickingOnSubmitSearchButton();
@@ -761,7 +743,7 @@ public class AmazonTests extends BaseTest {
 		}
 
 
-		List<Map<String, Object>> results = sharedFilterFlows.applyFilterAndValidateProductsWithResult(productPage.listDisplayTypeOptionsBy ,"displaytype");
+		List<Map<String, Object>> results = sharedFilterFlows.applyFilterAndValidateProductsWithResult(productPage.listDisplayTypeOptionsBy() ,"displaytype");
 
 
 
@@ -828,7 +810,7 @@ public class AmazonTests extends BaseTest {
 		
 		  landingPage.openingLandingPage();	
 			SafeActions safeAct = new SafeActions();
-			safeAct.safeFindElement(landingPage.amazonLogoLandingPage);
+			safeAct.safeFindElement(landingPage.amazonLogoLandingPageBy());
 		  blockerHandler.clearBlockers();
 		  landingPage.givingInputWithinSearchBar(input);
 		  landingPage.clickingOnSubmitSearchButton();
@@ -843,7 +825,7 @@ public class AmazonTests extends BaseTest {
 
 
 
-		  List<Map<String, Object>> results = operatingSystemFilterFlows.applyOperatingSystemFilterAndValidateProductsWithResults(productPage.listOperatingSystemVersionOptionsBy, "operatingsystem");
+		  List<Map<String, Object>> results = operatingSystemFilterFlows.applyOperatingSystemFilterAndValidateProductsWithResults(productPage.listOperatingSystemVersionOptionsBy(), "operatingsystem");
 
 
 
@@ -911,7 +893,7 @@ public class AmazonTests extends BaseTest {
 
 		landingPage.openingLandingPage();
 		SafeActions safeAct = new SafeActions();
-		safeAct.safeFindElement(landingPage.amazonLogoLandingPage);
+		safeAct.safeFindElement(landingPage.amazonLogoLandingPageBy());
 		blockerHandler.clearBlockers();
 		landingPage.givingInputWithinSearchBar(input);
 		landingPage.clickingOnSubmitSearchButton();
@@ -927,7 +909,7 @@ public class AmazonTests extends BaseTest {
 
 
 
-		List<Map<String, Object>> results = sharedFilterFlows.applyFilterAndValidateProductsWithResult(productPage.listMobilePhonePrimaryCameraResolutionOptionsBy, "mobilephoneprimarycameraresolution");
+		List<Map<String, Object>> results = sharedFilterFlows.applyFilterAndValidateProductsWithResult(productPage.listMobilePhonePrimaryCameraResolutionOptionsBy(), "mobilephoneprimarycameraresolution");
 
 
 
@@ -996,7 +978,7 @@ public class AmazonTests extends BaseTest {
 		
 
 		landingPage.openingLandingPage();
-		act.safeFindElement(landingPage.amazonLogoLandingPage);
+		act.safeFindElement(landingPage.amazonLogoLandingPageBy());
 		blockerHandler.clearBlockers();
 		landingPage.givingInputWithinSearchBar(input);
 		landingPage.clickingOnSubmitSearchButton();
@@ -1012,7 +994,7 @@ public class AmazonTests extends BaseTest {
 
 
 
-		List<Map<String, Object>> results = sharedFilterFlows.applyFilterAndValidateProductsWithResult(productPage.listDiscountOptionsBy,"discount");
+		List<Map<String, Object>> results = sharedFilterFlows.applyFilterAndValidateProductsWithResult(productPage.listDiscountOptionsBy(),"discount");
 
 
 

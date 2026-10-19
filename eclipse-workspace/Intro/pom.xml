@@ -11,8 +11,9 @@
     <log4j.version>2.20.0</log4j.version>
     <allure.version>2.29.0</allure.version>
     <!-- Empty by default = no group filter = run everything, same as today.
-         Override per shard with: mvn test -Dgroups=BatteryProcessorOsStorage -->
+         Override per shard with: mvn test -Dgroups=BatteryProcessorStorage -->
     <groups></groups>
+    <surefire.version>3.5.2</surefire.version>
   </properties>
 
   <dependencies>
@@ -38,27 +39,11 @@
     <version>4.40.0</version>
 </dependency>
 
-<!-- Source: https://mvnrepository.com/artifact/io.cucumber/cucumber-java -->
-<dependency>
-    <groupId>io.cucumber</groupId>
-    <artifactId>cucumber-java</artifactId>
-    <version>7.33.0</version>
-    <scope>compile</scope>
-</dependency>
-
     <dependency>
     <groupId>io.qameta.allure</groupId>
     <artifactId>allure-testng</artifactId>
     <version>${allure.version}</version>
   </dependency>
-
-<!-- Source: https://mvnrepository.com/artifact/io.cucumber/cucumber-testng -->
-<dependency>
-    <groupId>io.cucumber</groupId>
-    <artifactId>cucumber-testng</artifactId>
-    <version>7.33.0</version>
-    <scope>compile</scope>
-</dependency>
 
     <!-- ExtentReports -->
     <dependency>
@@ -87,12 +72,6 @@
     </dependency>
 
     <dependency>
-      <groupId>dev.failsafe</groupId>
-      <artifactId>failsafe</artifactId>
-      <version>3.3.2</version>
-    </dependency>
-
-    <dependency>
       <groupId>org.testng</groupId>
       <artifactId>testng</artifactId>
       <version>7.10.2</version>
@@ -111,6 +90,18 @@
 
   <build>
     <sourceDirectory>src</sourceDirectory>
+
+    <!-- Surefire version is declared once here; every other surefire declaration inherits it. -->
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-surefire-plugin</artifactId>
+          <version>${surefire.version}</version>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+
     <plugins>
       <plugin>
         <artifactId>maven-compiler-plugin</artifactId>
@@ -120,53 +111,38 @@
         </configuration>
       </plugin>
 
-      <!-- <plugin>
+      <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-surefire-plugin</artifactId>
-        <version>3.0.0-M5</version>
         <configuration>
+          <systemPropertyVariables>
+            <allure.results.directory>${project.build.directory}/allure-results</allure.results.directory>
+          </systemPropertyVariables>
           <suiteXmlFiles>
             <suiteXmlFile>src/test/runners/AllTestsGlobal.xml</suiteXmlFile>
           </suiteXmlFiles>
+          <groups>${groups}</groups>
         </configuration>
-      </plugin> -->
-
-      <plugin>
-  <groupId>org.apache.maven.plugins</groupId>
-  <artifactId>maven-surefire-plugin</artifactId>
-  <version>3.0.0-M5</version>
-  <configuration>
-    <systemPropertyVariables>
-      <allure.results.directory>${project.build.directory}/allure-results</allure.results.directory>
-    </systemPropertyVariables>
-    <suiteXmlFiles>
-      <suiteXmlFile>src/test/runners/AllTestsGlobal.xml</suiteXmlFile>
-    </suiteXmlFiles>
-    <groups>${groups}</groups>
-  </configuration>
-  <dependencies>
-  
-  </dependencies>
-</plugin>
+      </plugin>
     </plugins>
   </build>
-  
-  
-   <!-- =================  PROFILES ================= -->
+
+
+  <!-- =================  PROFILES =================
+       Each profile only swaps the suite file, e.g. mvn test -PDeliveryPriceOs
+       CI does not use these; it uses -Dgroups=<group> against AllTestsGlobal.xml. -->
   <profiles>
-  
-  
+
     <profile>
-      <id>BatteryProcessorOsStorage</id>
+      <id>BatteryProcessorStorage</id>
       <build>
         <plugins>
           <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-surefire-plugin</artifactId>
-            <version>3.0.0-M5</version>
             <configuration>
               <suiteXmlFiles>
-                <suiteXmlFile>src/test/runners/BatteryProcessorOsStorage.xml</suiteXmlFile>
+                <suiteXmlFile>src/test/runners/BatteryProcessorStorage.xml</suiteXmlFile>
               </suiteXmlFiles>
             </configuration>
           </plugin>
@@ -181,7 +157,6 @@
           <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-surefire-plugin</artifactId>
-            <version>3.0.0-M5</version>
             <configuration>
               <suiteXmlFiles>
                 <suiteXmlFile>src/test/runners/BrandsScreenSizeTypeCamEtc.xml</suiteXmlFile>
@@ -199,10 +174,9 @@
           <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-surefire-plugin</artifactId>
-            <version>3.0.0-M5</version>
             <configuration>
               <suiteXmlFiles>
-                <suiteXmlFile>src/test/runners/testng.xml</suiteXmlFile>
+                <suiteXmlFile>src/test/runners/AllTestsGlobal.xml</suiteXmlFile>
               </suiteXmlFiles>
             </configuration>
           </plugin>
@@ -211,16 +185,15 @@
     </profile>
 
     <profile>
-      <id>DeliveryAndPrice.xml</id>
+      <id>DeliveryPriceOs</id>
       <build>
         <plugins>
           <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-surefire-plugin</artifactId>
-            <version>3.0.0-M5</version>
             <configuration>
               <suiteXmlFiles>
-                <suiteXmlFile>src/test/runners/DeliveryAndPrice.xml</suiteXmlFile>
+                <suiteXmlFile>src/test/runners/DeliveryPriceOs.xml</suiteXmlFile>
               </suiteXmlFiles>
             </configuration>
           </plugin>
@@ -228,24 +201,22 @@
       </build>
     </profile>
 
-
     <profile>
-  <id>LocalExecution</id>
-  <build>
-    <plugins>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-surefire-plugin</artifactId>
-        <version>3.0.0-M5</version>
-        <configuration>
-          <suiteXmlFiles>
-            <suiteXmlFile>src/test/runners/LocalExecution.xml</suiteXmlFile>
-          </suiteXmlFiles>
-        </configuration>
-      </plugin>
-    </plugins>
-  </build>
-</profile>
+      <id>LocalExecution</id>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-surefire-plugin</artifactId>
+            <configuration>
+              <suiteXmlFiles>
+                <suiteXmlFile>src/test/runners/LocalExecution.xml</suiteXmlFile>
+              </suiteXmlFiles>
+            </configuration>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
 
   </profiles>
 </project>

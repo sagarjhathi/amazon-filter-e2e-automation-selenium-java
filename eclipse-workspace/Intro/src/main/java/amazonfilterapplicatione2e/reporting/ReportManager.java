@@ -15,7 +15,7 @@ public class ReportManager {
     	private static ExtentReports extent;
 	    private static ThreadLocal<ExtentTest> test = new ThreadLocal<>();
 
-	    // 🔹 Initialize report (run-level)
+	    // Initialize report (run-level)
 	    public static void initReport(String runPath) {    	
 	    	
 	    	 String extentPath = PathManager.getReportFilePath();
@@ -31,18 +31,18 @@ public class ReportManager {
 	    	    extent.attachReporter(reporter);
 	    }
 
-	    // 🔹 Create test (per test method)
+	    // Create test (per test method)
 	    public static void createTest(String testName) {
 	        ExtentTest extentTest = extent.createTest(testName);
 	        test.set(extentTest);
 	    }
 
-	    // 🔹 Get current test (used everywhere)
+	    // Get current test (used everywhere)
 	    public static ExtentTest getTest() {
 	        return test.get();
 	    } 
 
-	    // 🔹 Flush report (write to file)
+	    // Flush report (write to file)
 	    public static void flush() {
 	        extent.flush();
 	    }

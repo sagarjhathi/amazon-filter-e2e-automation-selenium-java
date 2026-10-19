@@ -14,7 +14,7 @@ import main.java.amazonfilterapplicatione2e.logger.LoggerUtility;
 import main.java.amazonfilterapplicatione2e.pages.ProductListingPage;
 import main.java.amazonfilterapplicatione2e.safeActions.SafeActions;
 import main.java.amazonfilterapplicatione2e.utilities.GenericUtility;
-import main.java.amazonfilterapplicatione2e.utilities.ScreenshotUtilUpdated;
+import main.java.amazonfilterapplicatione2e.utilities.ScreenshotUtil;
 
 public class PriceSliderFlows extends BasePage{
 
@@ -40,7 +40,7 @@ public class PriceSliderFlows extends BasePage{
 		List<Map<String, Object>> results = new ArrayList<>();
 
 		// Scroll to make slider visible
-		genericUtility.smoothScrollToElement(productPage.priceMinSliderButton);
+		genericUtility.smoothScrollToElement(productPage.priceMinSliderButtonBy());
 
 
 		for (int i = 0; i < minValues.size(); i++) {
@@ -55,24 +55,24 @@ public class PriceSliderFlows extends BasePage{
 				String urlBeforeApply = driver.getCurrentUrl();
 
 				// Apply slider
-				genericUtility.setSliderValue(safeAct.safeFindElement(productPage.priceMinSliderButton), min);
-				genericUtility.setSliderValue(safeAct.safeFindElement(productPage.priceMaxSliderButton), max);
+				genericUtility.setSliderValue(safeAct.safeFindElement(productPage.priceMinSliderButtonBy()), min);
+				genericUtility.setSliderValue(safeAct.safeFindElement(productPage.priceMaxSliderButtonBy()), max);
 
 				// Wait for the URL to actually change and carry a price filter - this is what
 				// distinguishes "this iteration's filter applied" from stale state left over from
-				// the previous iteration (unlike waiting on resetPriceRangeProductPage, which stays
+				// the previous iteration (unlike waiting on resetPriceRangeProductPageBy, which stays
 				// visible across iterations and so never really waits after the first one). The
 				// exact applied values are read back from the labels below, not assumed here.
 				wait.until(d -> !d.getCurrentUrl().equals(urlBeforeApply)
 						&& d.getCurrentUrl().contains("low-price")
 						&& d.getCurrentUrl().contains("high-price"));
 
-				String maxPriceApplied = safeAct.safeFindElement(productPage.maxPriceFilterApplied).getText();
-				String minPriceApplied = safeAct.safeFindElement(productPage.minPriceFilterApplied).getText();
+				String maxPriceApplied = safeAct.safeFindElement(productPage.maxPriceFilterAppliedBy()).getText();
+				String minPriceApplied = safeAct.safeFindElement(productPage.minPriceFilterAppliedBy()).getText();
 
 				// Now safely fetch new prices
 				List<String> prices = new ArrayList<>();
-				List<WebElement> priceElements = safeAct.safeFindElements(productPage.productPriceFromProductCards);
+				List<WebElement> priceElements = safeAct.safeFindElements(productPage.productPriceFromProductCardsBy());
 				if (priceElements == null) {
 					log.warn("[{}] No product price elements found for min={} max={}", ThreadContext.get("testName"), min, max);
 					priceElements = new ArrayList<>();
@@ -93,8 +93,8 @@ public class PriceSliderFlows extends BasePage{
 			boolean isValid = true;
 
 			String testName = ThreadContext.get("logFileName");
-			genericUtility.smoothScrollToElement(productPage.priceMinSliderButton);
-			ScreenshotUtilUpdated.capture(testName,appliedFilter);
+			genericUtility.smoothScrollToElement(productPage.priceMinSliderButtonBy());
+			ScreenshotUtil.capture(testName,appliedFilter);
 
 			double maxPriceFilterAppliedVal = Double.parseDouble(GenericUtility.extractPriceOrFail(maxPriceApplied));
 			double minPriceFilterAppliedVal = Double.parseDouble(GenericUtility.extractPriceOrFail(minPriceApplied));

@@ -18,7 +18,7 @@ import main.java.amazonfilterapplicatione2e.logger.LoggerUtility;
 import main.java.amazonfilterapplicatione2e.pages.ProductListingPage;
 import main.java.amazonfilterapplicatione2e.safeActions.SafeActions;
 import main.java.amazonfilterapplicatione2e.utilities.GenericUtility;
-import main.java.amazonfilterapplicatione2e.utilities.ScreenshotUtilUpdated;
+import main.java.amazonfilterapplicatione2e.utilities.ScreenshotUtil;
 
 public class SharedFilterFlows extends BasePage {
 
@@ -109,7 +109,7 @@ public class SharedFilterFlows extends BasePage {
 
 			String filterValue = safeAct.safeGetFilterOptionText(filterOptionsBy, filterOption);
 
-			if (!safeAct.safeClickBooleanWithScreenShot(productPage.getfilterByTypeAndName(filterName, filterValue),filterName,filterValue)) {
+			if (!safeAct.safeClickBooleanWithScreenShot(productPage.getFilterByTypeAndName(filterName, filterValue),filterName,filterValue)) {
 				System.out.println("Filter click failed for: " + filterValue + ". Skipping this filter option.");
 				continue;
 			}
@@ -120,7 +120,7 @@ public class SharedFilterFlows extends BasePage {
 		
 			String currentWindow = driver.getWindowHandle();
 
-			List<WebElement> productNameListingPage = safeAct.safeFindElements(productPage.productNameListingPageBy);
+			List<WebElement> productNameListingPage = safeAct.safeFindElements(productPage.productNameListingPageBy());
 			int productNameListingPageSize=productNameListingPage.size();
 			
 			
@@ -157,7 +157,7 @@ public class SharedFilterFlows extends BasePage {
 				
 				
 			
-				productNameListingPage=safeAct.safeFindElements(productPage.productNameListingPageBy);
+				productNameListingPage=safeAct.safeFindElements(productPage.productNameListingPageBy());
 				
 				if (productIndex >= productNameListingPage.size()) {
 				    break;
@@ -174,7 +174,7 @@ public class SharedFilterFlows extends BasePage {
 
 			}
 
-			safeAct.safeClick(productPage.clearButtonBy);
+			safeAct.safeClick(productPage.clearButtonBy());
 			log.info("[{}] Clearing the filter value ->"+filterValue+"within productNameListingPage loop", ThreadContext.get("testName"));
 
 			log.info("[{}]==========================================================================================================", ThreadContext.get("testName"));
@@ -240,7 +240,7 @@ try {
 	log.warn("[{}] Blocker on product page did not clear: {}", testName, e.getMessage());
 }
 
-boolean productPageLoaded = genericUtility.isElementInViewport(productPage.productNameIndividualPage);
+boolean productPageLoaded = genericUtility.isElementInViewport(productPage.productNameIndividualPageBy());
 if (!productPageLoaded) {
 	log.warn("[{}] Product detail page did not load for index {} filter '{}'; skipping detail scrape to avoid redundant retries/timeouts", testName, productIndex, filterValue);
 }
@@ -248,10 +248,10 @@ if (!productPageLoaded) {
 String name="";
 try {
 if (productPageLoaded) {
-name = genericUtility.fetchTextWithRetries(productPage.productNameIndividualPage, safeAct);
-String keyFeatures = genericUtility.fetchTextWithRetries(productPage.productKeyFeatureBlock, safeAct);
-String about = genericUtility.fetchTextWithRetries(productPage.aboutThisItemBulletPoint, safeAct);
-String techDetails = genericUtility.fetchTextWithRetries(productPage.technicalDetailsBlockIndividualPage, safeAct);
+name = genericUtility.fetchTextWithRetries(productPage.productNameIndividualPageBy(), safeAct);
+String keyFeatures = genericUtility.fetchTextWithRetries(productPage.productKeyFeatureBlockBy(), safeAct);
+String about = genericUtility.fetchTextWithRetries(productPage.aboutThisItemBulletPointBy(), safeAct);
+String techDetails = genericUtility.fetchTextWithRetries(productPage.technicalDetailsBlockIndividualPageBy(), safeAct);
 
 genericUtility.addFieldIfPresent("title",name ,filterValue,productIndex,productResult);
 genericUtility.addFieldIfPresent("keyFeatures",keyFeatures ,filterValue,productIndex,productResult);
@@ -268,16 +268,16 @@ log.info("[{}] Extracting 'name' , 'keyFeatures', 'about' , 'techDetails' within
 
 try {
 	if (productPageLoaded) {
-	 if(genericUtility.isElementInViewport(productPage.showMoreOnlyIndividualPage)) {
+	 if(genericUtility.isElementInViewport(productPage.showMoreOnlyIndividualPageBy())) {
      	String productNamePlusIndex="Product Index="+productIndex;
-     	genericUtility.smoothScrollToElement(productPage.reportAnIssue);
+     	genericUtility.smoothScrollToElement(productPage.reportAnIssueBy());
 
-     	ScreenshotUtilUpdated.capture(testName, filterValue, productNamePlusIndex);
+     	ScreenshotUtil.capture(testName, filterValue, productNamePlusIndex);
 			log.info("[{}] Within Try block  clicking 'show more' hence Taking screen shot available button on ui", testName);
      }else {
-    	 genericUtility.smoothScrollToElement(genericUtility.seeMoreProductDetailsButtonIndividualPageBy);
+    	 genericUtility.smoothScrollToElement(genericUtility.seeMoreProductDetailsButtonIndividualPageBy());
 
-         safeAct.safeClick(genericUtility.seeMoreProductDetailsButtonIndividualPageBy);
+         safeAct.safeClick(genericUtility.seeMoreProductDetailsButtonIndividualPageBy());
 			 log.info("[{}] Within try block for clicking see more deatils within productNameListingPage loop", testName);
          System.out.println("'See More Details' clicked.");
      }
@@ -285,11 +285,11 @@ try {
 
 } catch (Exception e1) {
     
-	genericUtility.smoothScrollToElement(productPage.showMoreOnlyIndividualPage);
+	genericUtility.smoothScrollToElement(productPage.showMoreOnlyIndividualPageBy());
 	
 	
 	String productNamePlusIndex="Product Name="+name+"  "+"Product Index="+productIndex;
-	ScreenshotUtilUpdated.capture(testName, filterValue, productNamePlusIndex);
+	ScreenshotUtil.capture(testName, filterValue, productNamePlusIndex);
 	log.info("[{}] Within catch block Cannot click 'see more details' hence Taking screen shot available button on ui", testName);
 
    

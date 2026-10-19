@@ -51,7 +51,7 @@ This framework is built using a rich, modern, and production oriented technology
 
 ## Data and Input Systems
 - **Apache POI 5.4.1** for reading structured Excel files.
-- **Custom FileReader classes** for handling property files and environment configurations.
+- **ExcelReader and ExcelFileReader** for loading Excel test data.
 - **ConfigManager** for centralized configuration control.
 
 ## Stability, Reliability, and Resilience Systems
@@ -252,19 +252,19 @@ project-root/
 │       │   ├── configManager/     ConfigManager
 │       │   ├── constants/         GlobalConstants
 │       │   ├── driverManager/     DriverManager
-│       │   ├── fileReader/        ExcelReader, FileReader
+│       │   ├── fileReader/        ExcelReader, ExcelFileReader
 │       │   ├── flows/             SharedFilterFlows, BrandFilterFlows,
 │       │   │                      PriceSliderFlows, DeliveryFilterFlows,
 │       │   │                      OperatingSystemFilterFlows
 │       │   ├── logger/            LoggerUtility
 │       │   ├── pages/             AmazonLandingPage, ProductListingPage
 │       │   ├── pathManager/       PathManager (per-run folder layout)
-│       │   ├── reporting/         ReportManager, TestListenerUpdated, Attachers
+│       │   ├── reporting/         ReportManager, TestListener, ReportAttachments
 │       │   ├── safeActions/       SafeActions
 │       │   ├── SeleniumGrid/      GlobalGridUtility
 │       │   ├── database/          JDBCConnection
 │       │   └── utilities/         GenericUtility, WaitUtility,
-│       │                          ScreenshotUtilUpdated, ImageCompressor
+│       │                          ScreenshotUtil, ImageCompressor
 │       │
 │       ├── main/resources/
 │       │   ├── configs/           UtilData.properties

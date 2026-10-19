@@ -16,7 +16,7 @@ public final class ConfigManager {
 	
 	private static final Logger log = LogManager.getLogger(ConfigManager.class);
 	private static final Properties props = new Properties();
-	private static final String RESOURCE = "configs/UtilData.properties";   // ✅ matches the actual location
+	private static final String RESOURCE = "configs/UtilData.properties";   // matches the actual location
 	
 	static {
 	    loadProperties();

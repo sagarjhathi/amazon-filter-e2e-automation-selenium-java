@@ -6,7 +6,7 @@ import org.testng.ITestListener;
 import org.testng.ITestResult;
 
 
-public class TestListenerUpdated implements ITestListener{
+public class TestListener implements ITestListener{
 
 	
 	@Override
@@ -21,8 +21,8 @@ public class TestListenerUpdated implements ITestListener{
     public void onTestSuccess(ITestResult result) {
 
         ReportManager.getTest().pass("Test Passed");
-        Attachers.attachAllLogFolders(ThreadContext.get("testName"));
-        Attachers.attachAllImageFolders(ThreadContext.get("testName"));
+        ReportAttachments.attachAllLogFolders(ThreadContext.get("testName"));
+        ReportAttachments.attachAllImageFolders(ThreadContext.get("testName"));
     }
 
     @Override
@@ -32,12 +32,12 @@ public class TestListenerUpdated implements ITestListener{
 
         if (isRetry != null) {
             ReportManager.getTest().warning("Test Failed → Retrying...");
-            Attachers.attachAllLogFolders(ThreadContext.get("testName"));
-            Attachers.attachAllImageFolders(ThreadContext.get("testName"));
+            ReportAttachments.attachAllLogFolders(ThreadContext.get("testName"));
+            ReportAttachments.attachAllImageFolders(ThreadContext.get("testName"));
         } else {
             ReportManager.getTest().fail(result.getThrowable());
-            Attachers.attachAllLogFolders(ThreadContext.get("testName"));
-            Attachers.attachAllImageFolders(ThreadContext.get("testName"));
+            ReportAttachments.attachAllLogFolders(ThreadContext.get("testName"));
+            ReportAttachments.attachAllImageFolders(ThreadContext.get("testName"));
         }
         
     }
@@ -54,8 +54,8 @@ public class TestListenerUpdated implements ITestListener{
             ReportManager.getTest().skip("Test Skipped");
             ReportManager.getTest().fail(result.getThrowable());
         }
-        Attachers.attachAllLogFolders(ThreadContext.get("testName"));
-        Attachers.attachAllImageFolders(ThreadContext.get("testName"));
+        ReportAttachments.attachAllLogFolders(ThreadContext.get("testName"));
+        ReportAttachments.attachAllImageFolders(ThreadContext.get("testName"));
     }
     
     @Override

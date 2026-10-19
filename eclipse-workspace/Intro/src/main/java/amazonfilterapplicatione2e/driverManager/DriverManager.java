@@ -1,43 +1,24 @@
 package main.java.amazonfilterapplicatione2e.driverManager;
-import java.net.URI;
-import java.net.URL;
-import java.util.List;
 import java.util.Locale;
-import java.util.Map;
-import java.util.Optional;
 
 import org.apache.logging.log4j.Logger;
-import org.openqa.selenium.remote.http.HttpHandler;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.remote.RemoteWebDriver;
-
-
-import org.openqa.selenium.devtools.NetworkInterceptor;
-import org.openqa.selenium.remote.http.HttpHandler;
-import org.openqa.selenium.remote.http.HttpRequest;
-import org.openqa.selenium.remote.http.HttpResponse;
-import org.openqa.selenium.remote.http.Route;
 
 
 
-import org.openqa.selenium.remote.http.Routable;
 
-import java.util.function.Predicate;
+
+
 
 import main.java.amazonfilterapplicatione2e.SeleniumGrid.GlobalGridUtility;
 import main.java.amazonfilterapplicatione2e.configManager.ConfigManager;
 import main.java.amazonfilterapplicatione2e.logger.LoggerUtility;
 
 
-import org.openqa.selenium.devtools.NetworkInterceptor;
-import org.openqa.selenium.remote.http.HttpHandler;
-import org.openqa.selenium.remote.http.HttpRequest;
-import org.openqa.selenium.remote.http.Route;
 
-import java.util.List;
 
 
 public class DriverManager  {

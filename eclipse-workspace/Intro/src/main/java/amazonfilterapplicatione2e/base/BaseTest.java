@@ -1,21 +1,16 @@
 package main.java.amazonfilterapplicatione2e.base;
 import java.io.File;
-import java.lang.reflect.Method;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Arrays;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.ThreadContext;
 import org.openqa.selenium.WebDriver;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
-import org.testng.annotations.Listeners;
 import main.java.amazonfilterapplicatione2e.driverManager.DriverManager;
-import main.java.amazonfilterapplicatione2e.logger.LoggerUtility;
 import main.java.amazonfilterapplicatione2e.pathManager.PathManager;
 import main.java.amazonfilterapplicatione2e.reporting.ReportManager;
 
@@ -65,14 +60,14 @@ public class BaseTest {
 	      
 	      String logPathName = PathManager.getLogPath(testName);
 
-	      // ✅ SET CONTEXT FIRST (VERY IMPORTANT)
+	      // SET CONTEXT FIRST (VERY IMPORTANT)
 	      ThreadContext.put("testNameShort", params);
 	      ThreadContext.put("logFileName", testName);
 	      ThreadContext.put("logPath", logPathName);
 	      ThreadContext.put("testName", testName);
 	      ThreadContext.put("baseTestName",baseName);
 
-	      // ✅ Ensure folder exists BEFORE logging
+	      // Ensure folder exists BEFORE logging
 	      new File(logPathName).mkdirs();
 
 	      // Now safe to do anything else
