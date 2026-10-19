@@ -52,7 +52,10 @@ public class TestListener implements ITestListener{
             ReportManager.getTest().warning(result.getThrowable());
         } else {
             ReportManager.getTest().skip("Test Skipped");
-            ReportManager.getTest().fail(result.getThrowable());
+            // OLD: the skip reason was logged as a FAIL, so every skip looked red in the Extent report:
+            // ReportManager.getTest().fail(result.getThrowable());
+            // NEW: show the skip reason (for example the missing-filter message) as a SKIP.
+            ReportManager.getTest().skip(result.getThrowable());
         }
         ReportAttachments.attachAllLogFolders(ThreadContext.get("testName"));
         ReportAttachments.attachAllImageFolders(ThreadContext.get("testName"));

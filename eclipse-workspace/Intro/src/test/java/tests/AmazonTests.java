@@ -261,11 +261,14 @@ public class AmazonTests extends BaseTest {
 		blockerHandler.clearBlockers();
 		String testName=ThreadContext.get("testName");
 
-		if (!genericUtility.filterCheckUnderList("brands")) {
-			System.out.println("Filter option 'brands' does not exist in the list. Skipping the test.");
-			log.warn("[{}] Filter option 'brands' does not exist in the list. Skipping the test.", testName);
-			return ;
-		}
+		// OLD (no wait, and a missing filter ended the test as PASSED):
+		//   if (!genericUtility.filterCheckUnderList("brands")) {
+		//   System.out.println("Filter option 'brands' does not exist in the list. Skipping the test.");
+		//   log.warn("[{}] Filter option 'brands' does not exist in the list. Skipping the test.", testName);
+		//   return ;
+		//   }
+		// NEW (waits for the filters panel; a missing filter SKIPS the test with a clear reason):
+		genericUtility.skipIfFilterMissing("brands");
 
 
 		List<WebElement> filterOptions = safeAct.safeFindElements(productPage.listBrandsOptionsNewBy());
@@ -336,11 +339,14 @@ public class AmazonTests extends BaseTest {
 		String testName=ThreadContext.get("testName");
 		
 		
-		if (!genericUtility.filterCheckUnderList("Storage Capacity")) {
-			System.out.println("Filter option 'Storage Capacity' does not exist in the list. Skipping the test.");
-			log.warn("[{}]  Filter option 'Storage Capacity' does not exist in the list. Skipping the test.", ThreadContext.get("testName"));
-			return ;
-		}
+		// OLD (no wait, and a missing filter ended the test as PASSED):
+		//   if (!genericUtility.filterCheckUnderList("Storage Capacity")) {
+		//   System.out.println("Filter option 'Storage Capacity' does not exist in the list. Skipping the test.");
+		//   log.warn("[{}]  Filter option 'Storage Capacity' does not exist in the list. Skipping the test.", ThreadContext.get("testName"));
+		//   return ;
+		//   }
+		// NEW (waits for the filters panel; a missing filter SKIPS the test with a clear reason):
+		genericUtility.skipIfFilterMissing("Storage Capacity");
 
 
 		List<Map<String, Object>> results = sharedFilterFlows.applyFilterAndValidateProductsWithResult(productPage.listStorageCapacityOptionsBy(),"storagecapacity");
@@ -416,11 +422,14 @@ public class AmazonTests extends BaseTest {
 		String testName=ThreadContext.get("testName");
 
 
-		if (!genericUtility.filterCheckUnderList("Price")) {
-			System.out.println("Filter option 'Price' does not exist in the list. Skipping the test.");
-			log.warn("[{}]   Filter option 'Price' does not exist in the list. Skipping the test.", testName);
-			return ;
-		}
+		// OLD (no wait, and a missing filter ended the test as PASSED):
+		//   if (!genericUtility.filterCheckUnderList("Price")) {
+		//   System.out.println("Filter option 'Price' does not exist in the list. Skipping the test.");
+		//   log.warn("[{}]   Filter option 'Price' does not exist in the list. Skipping the test.", testName);
+		//   return ;
+		//   }
+		// NEW (waits for the filters panel; a missing filter SKIPS the test with a clear reason):
+		genericUtility.skipIfFilterMissing("Price");
 
 		List<Integer> minValues = Arrays.asList(61, 91, 131);
 		List<Integer> maxValues = Arrays.asList(81, 121, 161);
@@ -484,11 +493,14 @@ public class AmazonTests extends BaseTest {
 		blockerHandler.clearBlockers();
 		String testName=ThreadContext.get("testName");
 
-		if (!genericUtility.filterCheckUnderList("Battery Capacity")) {
-			log.warn("[{}]  Filter option 'Battery Capacity' does not exist in the list. Skipping the test.", testName);
-			System.out.println("Filter option 'Battery Capacity' does not exist in the list. Skipping the test.");
-			return ;
-		}
+		// OLD (no wait, and a missing filter ended the test as PASSED):
+		//   if (!genericUtility.filterCheckUnderList("Battery Capacity")) {
+		//   log.warn("[{}]  Filter option 'Battery Capacity' does not exist in the list. Skipping the test.", testName);
+		//   System.out.println("Filter option 'Battery Capacity' does not exist in the list. Skipping the test.");
+		//   return ;
+		//   }
+		// NEW (waits for the filters panel; a missing filter SKIPS the test with a clear reason):
+		genericUtility.skipIfFilterMissing("Battery Capacity");
 
 
 		List<Map<String, Object>> results = sharedFilterFlows.applyFilterAndValidateProductsWithResult(productPage.listBatteryCapacityOptionsBy(),"batterycapacity");
@@ -568,11 +580,14 @@ public class AmazonTests extends BaseTest {
         blockerHandler.clearBlockers();
         String testName=ThreadContext.get("testName");
 
-        if (!genericUtility.filterCheckUnderList("Screen Size")) {
-        	log.warn("[{}]  Filter option 'Display Size' does not exist in the list. Skipping the test.", testName);
-        	System.out.println("Filter option 'Display Size' does not exist in the list. Skipping the test.");
-        	return ;
-        }
+        // OLD (no wait, and a missing filter ended the test as PASSED):
+        //   if (!genericUtility.filterCheckUnderList("Screen Size")) {
+        //   log.warn("[{}]  Filter option 'Display Size' does not exist in the list. Skipping the test.", testName);
+        //   System.out.println("Filter option 'Display Size' does not exist in the list. Skipping the test.");
+        //   return ;
+        //   }
+        // NEW (waits for the filters panel; a missing filter SKIPS the test with a clear reason):
+        genericUtility.skipIfFilterMissing("Screen Size");
 
 
 
@@ -654,10 +669,13 @@ public class AmazonTests extends BaseTest {
         String testName=ThreadContext.get("testName");
 
 
-        if (!genericUtility.filterCheckUnderList("Processor Speed")) {
-        	log.warn("[{}]  Filter option 'Processor Speed' not available. Skipping test.", testName);
-        	return ;
-        }
+        // OLD (no wait, and a missing filter ended the test as PASSED):
+        //   if (!genericUtility.filterCheckUnderList("Processor Speed")) {
+        //   log.warn("[{}]  Filter option 'Processor Speed' not available. Skipping test.", testName);
+        //   return ;
+        //   }
+        // NEW (waits for the filters panel; a missing filter SKIPS the test with a clear reason):
+        genericUtility.skipIfFilterMissing("Processor Speed");
 
 
 
@@ -736,11 +754,14 @@ public class AmazonTests extends BaseTest {
 		blockerHandler.clearBlockers();
 		String testName=ThreadContext.get("testName");
 
-		if (!genericUtility.filterCheckUnderList("Display Type")){
-			System.out.println("Filter option 'Display Type' does not exist. Skipping the test.");
-			log.warn("[{}]  Filter option 'Display Type' does not exist. Skipping the test.", testName);
-			return ;
-		}
+		// OLD (no wait, and a missing filter ended the test as PASSED):
+		//   if (!genericUtility.filterCheckUnderList("Display Type")){
+		//   System.out.println("Filter option 'Display Type' does not exist. Skipping the test.");
+		//   log.warn("[{}]  Filter option 'Display Type' does not exist. Skipping the test.", testName);
+		//   return ;
+		//   }
+		// NEW (waits for the filters panel; a missing filter SKIPS the test with a clear reason):
+		genericUtility.skipIfFilterMissing("Display Type");
 
 
 		List<Map<String, Object>> results = sharedFilterFlows.applyFilterAndValidateProductsWithResult(productPage.listDisplayTypeOptionsBy() ,"displaytype");
@@ -817,11 +838,14 @@ public class AmazonTests extends BaseTest {
 		  blockerHandler.clearBlockers();
 		  String testName=ThreadContext.get("testName");
 
-		  if (!genericUtility.filterCheckUnderList("Operating System", "Operating System Version")) {
-			  System.out.println("Filter option 'Operating System' or 'Operating System Version' does not exist in the list. Skipping the test.");
-			  log.warn("[{}]  Filter option 'Operating System' or 'Operating System Version' not found. Skipping test.", ThreadContext.get("testName"));
-			  return;
-		  }
+		  // OLD (no wait, and a missing filter ended the test as PASSED):
+		  //   if (!genericUtility.filterCheckUnderList("Operating System", "Operating System Version")) {
+		  //   System.out.println("Filter option 'Operating System' or 'Operating System Version' does not exist in the list. Skipping the test.");
+		  //   log.warn("[{}]  Filter option 'Operating System' or 'Operating System Version' not found. Skipping test.", ThreadContext.get("testName"));
+		  //   return;
+		  //   }
+		  // NEW (waits for the filters panel; a missing filter SKIPS the test with a clear reason):
+		  genericUtility.skipIfFilterMissing("Operating System", "Operating System Version");
 
 
 
@@ -900,12 +924,15 @@ public class AmazonTests extends BaseTest {
 		blockerHandler.clearBlockers();
 		String testName=ThreadContext.get("testName");
 
-		if (!genericUtility.filterCheckUnderList("Mobile Phone Primary Camera Resolution")) {
-			System.out.println("Filter option 'Mobile Phone Primary Camera Resolution' does not exist in the list. Skipping the test.");
-			log.warn("[{}]   Filter 'Mobile Phone Primary Camera Resolution' not found. Skipping test.",
-					ThreadContext.get("testName"));
-			return;
-		}
+		// OLD (no wait, and a missing filter ended the test as PASSED):
+		//   if (!genericUtility.filterCheckUnderList("Mobile Phone Primary Camera Resolution")) {
+		//   System.out.println("Filter option 'Mobile Phone Primary Camera Resolution' does not exist in the list. Skipping the test.");
+		//   log.warn("[{}]   Filter 'Mobile Phone Primary Camera Resolution' not found. Skipping test.",
+		//   ThreadContext.get("testName"));
+		//   return;
+		//   }
+		// NEW (waits for the filters panel; a missing filter SKIPS the test with a clear reason):
+		genericUtility.skipIfFilterMissing("Mobile Phone Primary Camera Resolution");
 
 
 
@@ -985,11 +1012,14 @@ public class AmazonTests extends BaseTest {
 		blockerHandler.clearBlockers();
 		String testName=ThreadContext.get("testName");
 
-		if (!genericUtility.filterCheckUnderList("Discount")) {
-			log.warn("[{}]   Filter 'Discount' not available. Skipping test.", ThreadContext.get("testName"));
-			System.out.println("Filter option 'Discount' does not exist in the list. Skipping the test.");
-			return ;
-		}
+		// OLD (no wait, and a missing filter ended the test as PASSED):
+		//   if (!genericUtility.filterCheckUnderList("Discount")) {
+		//   log.warn("[{}]   Filter 'Discount' not available. Skipping test.", ThreadContext.get("testName"));
+		//   System.out.println("Filter option 'Discount' does not exist in the list. Skipping the test.");
+		//   return ;
+		//   }
+		// NEW (waits for the filters panel; a missing filter SKIPS the test with a clear reason):
+		genericUtility.skipIfFilterMissing("Discount");
 
 
 

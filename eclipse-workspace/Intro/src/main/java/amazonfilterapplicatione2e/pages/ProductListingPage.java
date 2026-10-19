@@ -1,11 +1,16 @@
 package main.java.amazonfilterapplicatione2e.pages;
+import java.time.Duration;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.ThreadContext;
 import org.openqa.selenium.By;
+import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import main.java.amazonfilterapplicatione2e.base.BasePage;
 import main.java.amazonfilterapplicatione2e.logger.LoggerUtility;
 
@@ -23,8 +28,39 @@ public class ProductListingPage extends  BasePage{
 	@FindBy(xpath="//div[@data-cy='delivery-recipe']")
 	WebElement productDeliveryDayListingPage;
 	
-	@FindBy(xpath="//div[@id='s-refinements']//span[@class='a-size-base a-color-base puis-bold-weight-text']")
-	public List<WebElement> listOfFilterNameInLeftNav;
+	// OLD CODE (kept as comments): this list had no wait, so a page that was still loading looked like "no filters".
+	// It was only used by the old filterCheckUnderList(...) methods in GenericUtility.
+	// @FindBy(xpath="//div[@id='s-refinements']//span[@class='a-size-base a-color-base puis-bold-weight-text']")
+	// public List<WebElement> listOfFilterNameInLeftNav;
+
+	// NEW CODE: same XPath as a By locator, used by getFilterNames(...) below, which waits for it.
+	// Headings of the filters in the left navigation (Brands, Storage Capacity, ...).
+	private By filterNameHeadingsBy = By.xpath("//div[@id='s-refinements']//span[@class='a-size-base a-color-base puis-bold-weight-text']");
+
+	// How long to wait for the filters panel to appear after a search.
+	public static final Duration FILTER_PANEL_TIMEOUT = Duration.ofSeconds(10);
+
+	// Waits for the first filter heading to appear, then returns the text of all headings.
+	// (findElements() alone does not wait, so a page that is still loading would look like "no filters".)
+	// If the panel never appears, an empty list is returned instead of an exception.
+	public List<String> getFilterNames(Duration timeout) {
+		List<String> names = new ArrayList<>();
+
+		try {
+			new WebDriverWait(driver, timeout)
+					.until(ExpectedConditions.visibilityOfElementLocated(filterNameHeadingsBy));
+		} catch (TimeoutException e) {
+			return names; // empty list: the panel did not show up in time
+		}
+
+		for (WebElement heading : driver.findElements(filterNameHeadingsBy)) {
+			String text = heading.getText().trim();
+			if (!text.isEmpty()) {
+				names.add(text);
+			}
+		}
+		return names;
+	}
 
 
 	// Locator rules:

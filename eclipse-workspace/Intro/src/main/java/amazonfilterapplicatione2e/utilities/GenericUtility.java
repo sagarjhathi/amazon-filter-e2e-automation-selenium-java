@@ -15,6 +15,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.SkipException;
 
 import main.java.amazonfilterapplicatione2e.logger.LoggerUtility;
 import main.java.amazonfilterapplicatione2e.pages.ProductListingPage;
@@ -26,30 +27,131 @@ public class GenericUtility extends ProductListingPage{
 	private  final Logger log = LoggerUtility.getLogger(GenericUtility.class);
 	
 
-	public boolean filterCheckUnderList(String filterName) {
-		log.info("[{}] Within filterCheckUnderList method", ThreadContext.get("testName"));
-		
-	    String target = filterName.trim().toLowerCase();
-
-	    for (WebElement el : listOfFilterNameInLeftNav) {
-	    
-	        if (el.getText().trim().toLowerCase().equals(target)) {
-	            System.out.println(filterName + " matches with assert text here");
-	    		log.info("[{}] Found the Filter within the filter check List", ThreadContext.get("testName"));
-	            return true;
-	        }
-	    }
+	
 
 
-	    System.out.println("Filter option '" + filterName + "' does not exist in the list. Skipping the test.");
-		log.info("[{}] Filter option does not exist within the filter check List", ThreadContext.get("testName"));
-	    return false;
+	
+	
+	// =====================================================================================
+	// OLD CODE (kept as comments so it is clear what changed).
+	// These two methods read the filter list with NO wait and only returned true/false,
+	// so a slow page looked the same as a missing filter. Replaced by skipIfFilterMissing(...) below.
+	// =====================================================================================
+
+	// ---- old: filterCheckUnderList(String filterName) ----
+// 	public boolean filterCheckUnderList(String filterName) {
+// 		log.info("[{}] Within filterCheckUnderList method", ThreadContext.get("testName"));
+// 		
+// 	    String target = filterName.trim().toLowerCase();
+// 
+// 	    for (WebElement el : listOfFilterNameInLeftNav) {
+// 	    
+// 	        if (el.getText().trim().toLowerCase().equals(target)) {
+// 	            System.out.println(filterName + " matches with assert text here");
+// 	    		log.info("[{}] Found the Filter within the filter check List", ThreadContext.get("testName"));
+// 	            return true;
+// 	        }
+// 	    }
+// 
+// 
+// 	    System.out.println("Filter option '" + filterName + "' does not exist in the list. Skipping the test.");
+// 		log.info("[{}] Filter option does not exist within the filter check List", ThreadContext.get("testName"));
+// 	    return false;
+// 	}
+
+	// ---- old: filterCheckUnderList(String filterName1, String filterName2) ----
+//     public boolean filterCheckUnderList(String filterName1,String filterName2) {
+// 	
+// 		log.info("[{}] Within filterCheckUnderList method", ThreadContext.get("testName"));
+// 
+//     List<String> filterNames = new ArrayList<>();
+//     String target1 = filterName1.trim().toLowerCase(); // convert input to lowercase
+//     String target2 = filterName2.trim().toLowerCase();
+// 
+// 
+//     for (WebElement el : listOfFilterNameInLeftNav) {
+//         String text = el.getText().trim().toLowerCase(); // convert element text to lowercase
+//         filterNames.add(text);
+//     }
+//     
+//     for (String filterName : filterNames) {
+//         System.out.println(filterName+"  Filter list printing here from filter checklist function in generic utility function");
+//     }
+// 
+//     if (filterNames.contains(target1) ||filterNames.contains(target2) ) {
+//         System.out.println(filterName1+ "  and " +filterName2 + " matches with assert text here");
+//         return true;
+//     } else {
+//         System.out.println("Filter option '" + filterName1 +"  " +filterName2+ "' does not exist in the list. Skipping the test.");
+//         return false;
+//     }
+// }
+
+	// =====================================================================================
+	// NEW CODE: skipIfFilterMissing(...) replaces the two methods above.
+	// =====================================================================================
+
+	// At most this many page headings are listed in a skip message (the rest is summarised as "+N more").
+	private static final int MAX_HEADINGS_IN_MESSAGE = 20;
+
+	// Call this right after the results page loads.
+	// If none of the wanted filters is in the left navigation, the test is SKIPPED and the
+	// skip message explains what the page really showed.
+	// More than one name can be given when the site may use either one (for example "Operating System").
+	public void skipIfFilterMissing(String... wantedFilters) {
+		// This waits for the filters panel before reading the headings.
+		List<String> foundFilters = getFilterNames(FILTER_PANEL_TIMEOUT);
+
+		// Lower-case the page headings once, so we can compare without worrying about upper/lower case.
+		List<String> foundLowerCase = new ArrayList<>();
+		for (String found : foundFilters) {
+			foundLowerCase.add(found.toLowerCase());
+		}
+
+		// The match is exact on purpose (no "contains").
+		for (String wanted : wantedFilters) {
+			if (foundLowerCase.contains(wanted.trim().toLowerCase())) {
+				return; // The filter exists, so the test carries on.
+			}
+		}
+
+		String reason = buildSkipReason(wantedFilters, foundFilters);
+		log.warn("[{}] {}", ThreadContext.get("testName"), reason);
+		throw new SkipException(reason);
 	}
-	
 
+	// One message with everything needed to understand the skip:
+	//   "no filters (...)"       -> page slow, blocked, or not the results page
+	//   list without the filter  -> different heading, or this product category does not have the filter
+	private String buildSkipReason(String[] wantedFilters, List<String> foundFilters) {
+		String wanted = "'" + String.join("' or '", wantedFilters) + "'";
 
-	
-	
+		// Reading the URL or title must never break the skip, so they stay empty if reading fails.
+		String url = "";
+		String title = "";
+		try {
+			url = driver.getCurrentUrl();
+			title = driver.getTitle();
+		} catch (Exception e) {
+			log.warn("[{}] Could not read URL or title for the skip message", ThreadContext.get("testName"));
+		}
+
+		return "Filter " + wanted + " not found in the left navigation; nothing was verified. Page showed: "
+				+ describeHeadings(foundFilters) + ". URL: " + url + " Title: '" + title + "'.";
+	}
+
+	// Turns the list of page headings into short text for the skip message.
+	private String describeHeadings(List<String> headings) {
+		if (headings.isEmpty()) {
+			return "no filters (the left navigation did not appear in time)";
+		}
+		if (headings.size() <= MAX_HEADINGS_IN_MESSAGE) {
+			return String.join(", ", headings);
+		}
+		int notShown = headings.size() - MAX_HEADINGS_IN_MESSAGE;
+		return String.join(", ", headings.subList(0, MAX_HEADINGS_IN_MESSAGE)) + " ... (+" + notShown + " more)";
+	}
+
 	public boolean isElementInViewport(By locator) throws TimeoutException {
 	    log.info("[{}] Waiting until element is visible in viewport", ThreadContext.get("testName"));
 
@@ -78,32 +180,6 @@ public class GenericUtility extends ProductListingPage{
 
 	
 
-    public boolean filterCheckUnderList(String filterName1,String filterName2) {
-	
-		log.info("[{}] Within filterCheckUnderList method", ThreadContext.get("testName"));
-
-    List<String> filterNames = new ArrayList<>();
-    String target1 = filterName1.trim().toLowerCase(); // convert input to lowercase
-    String target2 = filterName2.trim().toLowerCase();
-
-
-    for (WebElement el : listOfFilterNameInLeftNav) {
-        String text = el.getText().trim().toLowerCase(); // convert element text to lowercase
-        filterNames.add(text);
-    }
-    
-    for (String filterName : filterNames) {
-        System.out.println(filterName+"  Filter list printing here from filter checklist function in generic utility function");
-    }
-
-    if (filterNames.contains(target1) ||filterNames.contains(target2) ) {
-        System.out.println(filterName1+ "  and " +filterName2 + " matches with assert text here");
-        return true;
-    } else {
-        System.out.println("Filter option '" + filterName1 +"  " +filterName2+ "' does not exist in the list. Skipping the test.");
-        return false;
-    }
-}
     
 
     public void refreshIfServiceUnavailable() {
