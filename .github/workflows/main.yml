@@ -128,6 +128,7 @@ jobs:
           name: allure-results-${{ matrix.group }}
           path: ${{ env.WORKDIR }}/target/allure-results
           if-no-files-found: warn
+          retention-days: 1   # raw results are only an input for the publish job; the merged report is the artifact to download
 
 
   publish:
@@ -187,6 +188,19 @@ jobs:
         run: |
           npm install -g allure-commandline
           allure generate allure-results/BatteryProcessorStorage allure-results/BrandsScreenSizeTypeCamEtc allure-results/DeliveryPriceOs --clean --report-name "Amazon Filter E2E - Selenium + Java Report" -o allure-report
+
+      # The report above needs a web server (it is served from GitHub Pages). This copy is ONE self-contained
+      # html file, so it opens by double-click after downloading and unzipping the artifact.
+      - name: Generate single-file Allure report (for download)
+        run: |
+          allure generate allure-results/BatteryProcessorStorage allure-results/BrandsScreenSizeTypeCamEtc allure-results/DeliveryPriceOs --clean --single-file --report-name "Amazon Filter E2E - Selenium + Java Report" -o allure-report-single
+
+      - name: Upload merged Allure report (download this one)
+        uses: actions/upload-artifact@v4
+        with:
+          name: allure-report-merged
+          path: allure-report-single
+          retention-days: 30
 
 
       - name: Enable long paths (Windows)
