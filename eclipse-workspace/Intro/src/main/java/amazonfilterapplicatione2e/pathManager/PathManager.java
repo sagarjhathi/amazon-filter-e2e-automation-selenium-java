@@ -5,7 +5,6 @@ package main.java.amazonfilterapplicatione2e.pathManager;
 
 import java.io.File;
 
-import main.java.amazonfilterapplicatione2e.utilities.GenericUtility;
 
 public class PathManager {
 

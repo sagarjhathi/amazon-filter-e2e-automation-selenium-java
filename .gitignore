@@ -1,27 +1,19 @@
-
-
 # Local-only engineering notes - not part of the public-facing project
 docs/
 
 # Build output
 eclipse-workspace/Intro/target/
-
-screenshots/
-eclipse-workspace/Intro/test-output/
-eclipse-workspace/Intro/logs/
-logs/
-run_*/
-
 eclipse-workspace/Intro/bin
+eclipse-workspace/Intro/test-output/
 
-# Eclipse specific files
-eclipse-workspace/.metadata/
-eclipse-workspace/.settings/
-*.classpath
-*.project
+# Test run artifacts (generated per run)
+run_*/
+logs/
+screenshots/
 
-
-# Eclipse workspace metadata
-eclipse-workspace/.metadata/
-/.metadata/
-eclipse-workspace/Intro/.classpath
+# IDE files (Eclipse / VS Code) - machine specific
+.classpath
+.project
+.settings/
+.metadata/
+.vscode/

@@ -5,14 +5,14 @@
 
  <listeners>
         <listener class-name="test.java.retry.RetryListener"/>
-        <listener class-name="main.java.amazonfilterapplicatione2e.reporting.TestListenerUpdated"/>
+        <listener class-name="main.java.amazonfilterapplicatione2e.reporting.TestListener"/>
     </listeners>
   <test thread-count="2" parallel="methods" name="Test">
     <classes>
       <class name="test.java.tests.AmazonTests">
       
       <methods>
-      <include name="verifyingTheBrandsFilterFunctionality"></include>
+      <include name="verifyingBatteryCapacityFilterFunctionality"></include>
       </methods>
       </class>
       

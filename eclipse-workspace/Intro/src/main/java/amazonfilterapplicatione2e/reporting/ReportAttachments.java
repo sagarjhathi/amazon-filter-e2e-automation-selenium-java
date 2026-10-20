@@ -5,15 +5,18 @@ import java.io.File;
 import java.io.File;
 import java.io.InputStream;
 import java.nio.file.Files;
-import java.util.Arrays;
-import java.util.Comparator;
 
 import com.aventstack.extentreports.MediaEntityBuilder;
 
 import io.qameta.allure.Allure;
+import org.apache.logging.log4j.Logger;
+import main.java.amazonfilterapplicatione2e.logger.LoggerUtility;
 import main.java.amazonfilterapplicatione2e.pathManager.PathManager;
 
-public class Attachers {
+public class ReportAttachments {
+
+	// Called "logger" because the methods below already use a variable named "log" (a log file).
+	private static final Logger logger = LoggerUtility.getLogger(ReportAttachments.class);
 
 	
 	
@@ -42,7 +45,8 @@ public class Attachers {
                     try {
                         Allure.addAttachment(log.getName(), "text/plain", Files.readString(log.toPath()));
                     } catch (Exception e) {
-                        System.err.println("Allure log attach failed for " + log.getName() + ": " + e.getMessage());
+                        // [3.1] System.err.println("Allure log attach failed for " + log.getName() + ": " + e.getMessage());
+                        logger.error("Allure log attach failed for {}: {}", log.getName(), e.getMessage());
                     }
 					
 	              }
@@ -80,7 +84,8 @@ public class Attachers {
                     try (InputStream in = Files.newInputStream(img.toPath())) {
                         Allure.addAttachment(img.getName(), "image/png", in, "png");
                     } catch (Exception e) {
-                        System.err.println("Allure image attach failed for " + img.getName() + ": " + e.getMessage());
+                        // [3.1] System.err.println("Allure image attach failed for " + img.getName() + ": " + e.getMessage());
+                        logger.error("Allure image attach failed for {}: {}", img.getName(), e.getMessage());
                     }
 	              }
 	          }

@@ -1,22 +1,16 @@
 package main.java.amazonfilterapplicatione2e.fileReader;
 
-import main.java.amazonfilterapplicatione2e.fileReader.FileReader;
 
-import java.io.File;
-import java.io.FileInputStream;
 
 import org.apache.poi.ss.usermodel.DataFormatter;
 import org.apache.poi.ss.usermodel.Row;
-import org.apache.poi.ss.usermodel.Sheet;
-import org.apache.poi.ss.usermodel.Workbook;
-import org.apache.poi.ss.usermodel.WorkbookFactory;
 
 public class ExcelReader {
 
 	
 	  public static Object[][] readSingleColumn(String relativePath, String sheetName) {
 	       
-	       FileReader reader  = new FileReader();
+	       ExcelFileReader reader  = new ExcelFileReader();
 	       reader.loadWorkbook(relativePath);
 	       reader.loadSheet(sheetName);
 
@@ -37,7 +31,7 @@ public class ExcelReader {
 	            
 
 	        } catch (Exception e) {
-	            throw new RuntimeException("❌ Failed to read Excel", e);
+	            throw new RuntimeException("Failed to read Excel", e);
 	        }
 	        
 	        

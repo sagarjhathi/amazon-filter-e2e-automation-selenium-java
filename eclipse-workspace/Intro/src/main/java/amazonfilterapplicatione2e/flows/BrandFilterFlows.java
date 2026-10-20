@@ -9,12 +9,13 @@ import java.util.concurrent.TimeoutException;
 import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.ThreadContext;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.WebElement;
 
 import main.java.amazonfilterapplicatione2e.base.BasePage;
+import main.java.amazonfilterapplicatione2e.captcha.BlockerHandler;
 import main.java.amazonfilterapplicatione2e.configManager.ConfigManager;
 import main.java.amazonfilterapplicatione2e.logger.LoggerUtility;
-import main.java.amazonfilterapplicatione2e.pages.AmazonLandingPage;
 import main.java.amazonfilterapplicatione2e.pages.ProductListingPage;
 import main.java.amazonfilterapplicatione2e.safeActions.SafeActions;
 import main.java.amazonfilterapplicatione2e.utilities.GenericUtility;
@@ -29,11 +30,13 @@ public class BrandFilterFlows extends BasePage{
 	    private ProductListingPage productPage;
 	    private SafeActions safeAct;
 	    private GenericUtility genericUtility;
+	    private BlockerHandler blockerHandler;
 	
 	public BrandFilterFlows() {
         this.productPage = new ProductListingPage();
         this.safeAct = new SafeActions();
         this.genericUtility = new GenericUtility();
+        this.blockerHandler = new BlockerHandler();
     }
 	
 	
@@ -49,7 +52,7 @@ public class BrandFilterFlows extends BasePage{
 
 		log.info("[{}] Scrolling to the 'More' Button under brands filter section", ThreadContext.get("testName"));
 		
-		genericUtility.clickMoreButtonIfPresent(safeAct, genericUtility, productPage.seeMoreButtonUnderBrandFilter);
+		genericUtility.clickMoreButtonIfPresent(safeAct, genericUtility, productPage.seeMoreButtonUnderBrandFilterBy());
 
 
 		log.info("[{}] Clicked the 'More' Button under brands filter section", ThreadContext.get("testName"));
@@ -99,7 +102,7 @@ public class BrandFilterFlows extends BasePage{
 
 			// "More" can re-collapse or need re-triggering after a filter click, so this is
 			// called again here, not just once at the top of the method.
-			genericUtility.clickMoreButtonIfPresent(safeAct, genericUtility, productPage.seeMoreButtonUnderBrandFilter);
+			genericUtility.clickMoreButtonIfPresent(safeAct, genericUtility, productPage.seeMoreButtonUnderBrandFilterBy());
 
 			inloopParent = safeAct.safeFindElements(filterOptionsBy);
 
@@ -112,17 +115,25 @@ public class BrandFilterFlows extends BasePage{
 
 			String str = inloopParent.get(i).getText().trim();
 			// Soft-skip on click failure — one flaky/stale brand checkbox shouldn't fail the whole loop.
-			if (!safeAct.safeClickBooleanWithScreenShot(productPage.getfilterByTypeAndName(filterName, str),filterName,str)) {
-				System.out.println("Filter click failed for: " + str);
+			if (!safeAct.safeClickBooleanWithScreenShot(productPage.getFilterByTypeAndName(filterName, str),filterName,str)) {
+				// [3.1] System.out.println("Filter click failed for: " + str);
 				log.info("[{}] Checking if The Filter is being applied else continuing to next filter , filter option ->"+str+"  ", ThreadContext.get("testName"));
 				continue;
 			}
 
+			// [3.4] The click must really apply the filter. If not, the products are not filtered and every check below would be wrong.
+			if (!genericUtility.isFilterApplied(filterName, str)) {
+			    safeAct.safeClick(productPage.clearButtonBy()); // undo the click
+			    continue;
+			}
+
+			// [3.7] Clear a bot-check or error page, if one showed up after the click.
+			blockerHandler.clearBlockers();
 			log.info("[" + ThreadContext.get("testName") + "] Clicked on " + str+"Within the filterOptions loop");
 
 			
 
-			List<WebElement> productNameListingPage = safeAct.safeFindElements(productPage.productNameListingPageBy);
+			List<WebElement> productNameListingPage = safeAct.safeFindElements(productPage.productNameListingPageBy());
 			if (productNameListingPage == null) {
 				productNameListingPage = new ArrayList<>();
 			}
@@ -138,7 +149,7 @@ public class BrandFilterFlows extends BasePage{
 			// instead of silently leaving isValid = true with nothing checked.
 			if (productNameListingPage.isEmpty()) {
 				isValid = false;
-				mismatchDetails.add("❌ No products found for brand '" + str + "' — filter may not have applied correctly");
+				mismatchDetails.add("No products found for brand '" + str + "' — filter may not have applied correctly");
 			} else {
 				for (int k = 0; k < productNameListingPage.size(); k++) {
 
@@ -150,7 +161,7 @@ public class BrandFilterFlows extends BasePage{
 
 					if (!titleMatches) {
 						isValid = false;
-						mismatchDetails.add("❌ Index: " + k + ", Brand: " + str + ", Title: '" + title + "'");
+						mismatchDetails.add("Index: " + k + ", Brand: " + str + ", Title: '" + title + "'");
 						log.warn("[{}] Brand mismatch — index {}, brand '{}', title: '{}'",
 								ThreadContext.get("testName"), k, str, title);
 					}
@@ -170,12 +181,12 @@ public class BrandFilterFlows extends BasePage{
 			// Two ways to reset state for the next brand: prefer clicking "clear", but if
 			// that button isn't there (layout changed), fall back to navigating back instead.
 			try {
-				if (genericUtility.isElementInViewport(productPage.clearButtonBy)) {
-					safeAct.safeClick(productPage.clearButtonBy);
+				if (genericUtility.isElementInViewport(productPage.clearButtonBy())) {
+					safeAct.safeClick(productPage.clearButtonBy());
 					log.info("[" + ThreadContext.get("testName") + "] Clicked clear button for the filter ->"+str);
 
 				}
-			} catch (Exception e) {
+			} catch (WebDriverException e) {  // [3.2] was: catch (Exception e)
 				driver.navigate().back();
 				log.info("[" + ThreadContext.get("testName") + "] Cannot click clear button hence navigating back to fresh page for filter->"+str);
 

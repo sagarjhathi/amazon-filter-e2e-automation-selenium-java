@@ -8,11 +8,23 @@
     </Console>
 
     <Routing name="RoutingAppender">
-    <Routes pattern="$${ctx:logFileName}">
+    <!-- OLD: <Routes pattern="$${ctx:logFileName}"> -->
+    <!-- NEW: when a message is logged outside a test (data provider, standalone main) there is no log file name, so
+         the key becomes "none" and those messages go to the catch-all file below (no log4j errors, nothing dropped). -->
+    <Routes pattern="$${ctx:logFileName:-none}">
+        <Route key="none">
+            <!-- OLD: <Null name="NoTestContext"/>  (these lines were dropped from the files and only reached the Console) -->
+            <!-- NEW: lines logged with no test name (for example from the data provider) go to one catch-all file, so no log line is lost. -->
+            <File name="FileAppender-NoTestContext" fileName="logs/no-test-context.log">
+                <PatternLayout pattern="%d{HH:mm:ss} [%t] %-5level %logger - %msg%n"/>
+            </File>
+        </Route>
         <Route>
             <File name="FileAppender-${ctx:logFileName}"
                   fileName="${ctx:logPath}/${ctx:logFileName}.log">
-                <PatternLayout pattern="%d{HH:mm:ss} [%t] %-5level %X{testName} - %msg%n"/>
+                <!-- OLD: pattern="%d{HH:mm:ss} [%t] %-5level %X{testName} - %msg%n" -->
+                <!-- NEW: the logger (class) name is added, so a file line carries the same information as the console line. -->
+                <PatternLayout pattern="%d{HH:mm:ss} [%t] %-5level %X{testName} %logger - %msg%n"/>
             </File>
         </Route>
     </Routes>

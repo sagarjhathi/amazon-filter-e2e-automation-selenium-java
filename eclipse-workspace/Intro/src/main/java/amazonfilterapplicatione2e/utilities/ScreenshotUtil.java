@@ -1,9 +1,6 @@
 package main.java.amazonfilterapplicatione2e.utilities;
 
 import java.io.File;  
-import java.nio.file.Files;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.FileUtils;
@@ -16,18 +13,17 @@ import org.openqa.selenium.WebDriver;
 import main.java.amazonfilterapplicatione2e.configManager.ConfigManager;
 import main.java.amazonfilterapplicatione2e.driverManager.DriverManager;
 import main.java.amazonfilterapplicatione2e.logger.LoggerUtility;
-import main.java.amazonfilterapplicatione2e.pages.AmazonLandingPage;
 import main.java.amazonfilterapplicatione2e.pathManager.PathManager;
 
-public class ScreenshotUtilUpdated {
+public class ScreenshotUtil {
 
 	
-	private  final static Logger log = LoggerUtility.getLogger(ScreenshotUtilUpdated.class);
+	private  final static Logger log = LoggerUtility.getLogger(ScreenshotUtil.class);
 	
 	WebDriver driver;
 	
 	 public static String capture(String... names) {
-	        WebDriver driver = DriverManager.getDriver(); // ✅ get from ThreadLocal
+	        WebDriver driver = DriverManager.getDriver(); // get from ThreadLocal
 	        String inputNames=String.join("_", names);
 	        
 	        try {
@@ -41,7 +37,8 @@ public class ScreenshotUtilUpdated {
 	        	
 	        	//creating a final uniqe image file name
 	        	String finalPath= screenShotPath + File.separator + ThreadContext.get("testNameShort")+System.nanoTime()+".png";
-	        	System.out.println(finalPath+"   -->> final path if param exist");
+	        	// [3.1] System.out.println(finalPath+"   -->> final path if param exist");
+	        	log.info("[{}] {}", ThreadContext.get("testName"), finalPath+"   -->> final path if param exist");
 	        		        	
 	       
 	        	// capture
@@ -50,10 +47,12 @@ public class ScreenshotUtilUpdated {
 	        		  if(ConfigManager.getBoolean("compressImage", false)) {
 	                  	try{
 	                  		String imageQuality=ConfigManager.get("imageCompressionQuality");
-	                  		System.out.println(imageQuality);
+	                  		// [3.1] System.out.println(imageQuality);
+	                  		log.info("[{}] Image compression quality (from config): {}", ThreadContext.get("testName"), imageQuality);
 	                  		
 	                  		double parseImageQuality=Double.parseDouble(imageQuality);
-	                  		System.out.println(parseImageQuality);
+	                  		// [3.1] System.out.println(parseImageQuality);
+	                  		log.info("[{}] Image compression quality (as number): {}", ThreadContext.get("testName"), parseImageQuality);
 	                  		ImageCompressor.compressImage(src, finalPath,parseImageQuality);
 	                  	  }catch(Exception e) {
 	                  		  log.warn("[{}] compression quality / compressImage method failed, handling it the default way[No compression].", ThreadContext.get("testName"));
@@ -68,7 +67,8 @@ public class ScreenshotUtilUpdated {
 	        	return finalPath;
 
 	        } catch (Exception e) {
-	            System.out.println("Screenshot failed: " + e.getMessage()+ThreadContext.get("testName"));
+	            // [3.1] System.out.println("Screenshot failed: " + e.getMessage()+ThreadContext.get("testName"));
+	            log.error("[{}] {}", ThreadContext.get("testName"), "Screenshot failed: " + e.getMessage());
 	            return null;
 	        }
 	        

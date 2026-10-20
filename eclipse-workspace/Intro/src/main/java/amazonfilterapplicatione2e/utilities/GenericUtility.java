@@ -1,23 +1,22 @@
 package main.java.amazonfilterapplicatione2e.utilities;
 import java.time.Duration;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.NoSuchElementException;
 import java.util.Set;
 import java.util.concurrent.TimeoutException;
 
 import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.ThreadContext;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.SkipException;
 
 import main.java.amazonfilterapplicatione2e.logger.LoggerUtility;
 import main.java.amazonfilterapplicatione2e.pages.ProductListingPage;
@@ -29,30 +28,142 @@ public class GenericUtility extends ProductListingPage{
 	private  final Logger log = LoggerUtility.getLogger(GenericUtility.class);
 	
 
-	public boolean filterCheckUnderList(String filterName) {
-		log.info("[{}] Within filterCheckUnderList method", ThreadContext.get("testName"));
-		
-	    String target = filterName.trim().toLowerCase();
-
-	    for (WebElement el : listOfFilterNameInLeftNav) {
-	    
-	        if (el.getText().trim().toLowerCase().equals(target)) {
-	            System.out.println(filterName + " matches with assert text here");
-	    		log.info("[{}] Found the Filter within the filter check List", ThreadContext.get("testName"));
-	            return true;
-	        }
-	    }
+	
 
 
-	    System.out.println("Filter option '" + filterName + "' does not exist in the list. Skipping the test.");
-		log.info("[{}] Filter option does not exist within the filter check List", ThreadContext.get("testName"));
-	    return false;
+	
+	
+	// =====================================================================================
+	// OLD CODE (kept as comments so it is clear what changed).
+	// These two methods read the filter list with NO wait and only returned true/false,
+	// so a slow page looked the same as a missing filter. Replaced by skipIfFilterMissing(...) below.
+	// =====================================================================================
+
+	// ---- old: filterCheckUnderList(String filterName) ----
+// 	public boolean filterCheckUnderList(String filterName) {
+// 		log.info("[{}] Within filterCheckUnderList method", ThreadContext.get("testName"));
+// 		
+// 	    String target = filterName.trim().toLowerCase();
+// 
+// 	    for (WebElement el : listOfFilterNameInLeftNav) {
+// 	    
+// 	        if (el.getText().trim().toLowerCase().equals(target)) {
+// 	            System.out.println(filterName + " matches with assert text here");
+// 	    		log.info("[{}] Found the Filter within the filter check List", ThreadContext.get("testName"));
+// 	            return true;
+// 	        }
+// 	    }
+// 
+// 
+// 	    System.out.println("Filter option '" + filterName + "' does not exist in the list. Skipping the test.");
+// 		log.info("[{}] Filter option does not exist within the filter check List", ThreadContext.get("testName"));
+// 	    return false;
+// 	}
+
+	// ---- old: filterCheckUnderList(String filterName1, String filterName2) ----
+//     public boolean filterCheckUnderList(String filterName1,String filterName2) {
+// 	
+// 		log.info("[{}] Within filterCheckUnderList method", ThreadContext.get("testName"));
+// 
+//     List<String> filterNames = new ArrayList<>();
+//     String target1 = filterName1.trim().toLowerCase(); // convert input to lowercase
+//     String target2 = filterName2.trim().toLowerCase();
+// 
+// 
+//     for (WebElement el : listOfFilterNameInLeftNav) {
+//         String text = el.getText().trim().toLowerCase(); // convert element text to lowercase
+//         filterNames.add(text);
+//     }
+//     
+//     for (String filterName : filterNames) {
+//         System.out.println(filterName+"  Filter list printing here from filter checklist function in generic utility function");
+//     }
+// 
+//     if (filterNames.contains(target1) ||filterNames.contains(target2) ) {
+//         System.out.println(filterName1+ "  and " +filterName2 + " matches with assert text here");
+//         return true;
+//     } else {
+//         System.out.println("Filter option '" + filterName1 +"  " +filterName2+ "' does not exist in the list. Skipping the test.");
+//         return false;
+//     }
+// }
+
+	// =====================================================================================
+	// NEW CODE: skipIfFilterMissing(...) replaces the two methods above.
+	// =====================================================================================
+
+	// Call this right after the results page loads.
+	// Skips the test (with a reason) when none of the wanted filters is in the left navigation.
+	// Several names can be given when the site may use either one (for example "Operating System").
+	public void skipIfFilterMissing(String... wantedFilters) {
+		// Read the filter headings from the page (this waits for the filters panel to appear).
+		List<String> foundFilters = getFilterNames(FILTER_PANEL_TIMEOUT);
+
+		// The filter exists if one of the wanted names is on the page (upper/lower case does not matter).
+		for (String wanted : wantedFilters) {
+			for (String found : foundFilters) {
+				if (found.equalsIgnoreCase(wanted.trim())) {
+					return;
+				}
+			}
+		}
+
+		// Not found: skip the test and say what the page showed, so the cause is easy to see.
+		String pageShowed = "no filters (the left navigation did not appear in time)";
+		if (!foundFilters.isEmpty()) {
+			pageShowed = String.join(", ", foundFilters);
+		}
+
+		String reason = "Filter '" + String.join("' or '", wantedFilters) + "' not found in the left navigation; "
+				+ "nothing was verified. Page showed: " + pageShowed
+				+ ". URL: " + driver.getCurrentUrl() + " Title: '" + driver.getTitle() + "'.";
+
+		log.warn("[{}] {}", ThreadContext.get("testName"), reason);
+		throw new SkipException(reason);
 	}
-	
 
+	// ---- OLD (previous, longer version, kept as comments; code only). It had a lower-cased copy of the list,
+	// ---- a 20-heading limit, a try/catch around the URL and two helper methods (buildSkipReason, describeHeadings).
+// 	private static final int MAX_HEADINGS_IN_MESSAGE = 20;
+// 	public void skipIfFilterMissing(String... wantedFilters) {
+// 		List<String> foundFilters = getFilterNames(FILTER_PANEL_TIMEOUT);
+// 		List<String> foundLowerCase = new ArrayList<>();
+// 		for (String found : foundFilters) {
+// 			foundLowerCase.add(found.toLowerCase());
+// 		}
+// 		for (String wanted : wantedFilters) {
+// 			if (foundLowerCase.contains(wanted.trim().toLowerCase())) {
+// 				return; // The filter exists, so the test carries on.
+// 			}
+// 		}
+// 		String reason = buildSkipReason(wantedFilters, foundFilters);
+// 		log.warn("[{}] {}", ThreadContext.get("testName"), reason);
+// 		throw new SkipException(reason);
+// 	}
+// 	private String buildSkipReason(String[] wantedFilters, List<String> foundFilters) {
+// 		String wanted = "'" + String.join("' or '", wantedFilters) + "'";
+// 		String url = "";
+// 		String title = "";
+// 		try {
+// 			url = driver.getCurrentUrl();
+// 			title = driver.getTitle();
+// 		} catch (Exception e) {
+// 			log.warn("[{}] Could not read URL or title for the skip message", ThreadContext.get("testName"));
+// 		}
+// 		return "Filter " + wanted + " not found in the left navigation; nothing was verified. Page showed: "
+// 				+ describeHeadings(foundFilters) + ". URL: " + url + " Title: '" + title + "'.";
+// 	}
+// 	private String describeHeadings(List<String> headings) {
+// 		if (headings.isEmpty()) {
+// 			return "no filters (the left navigation did not appear in time)";
+// 		}
+// 		if (headings.size() <= MAX_HEADINGS_IN_MESSAGE) {
+// 			return String.join(", ", headings);
+// 		}
+// 		int notShown = headings.size() - MAX_HEADINGS_IN_MESSAGE;
+// 		return String.join(", ", headings.subList(0, MAX_HEADINGS_IN_MESSAGE)) + " ... (+" + notShown + " more)";
+// 	}
 
-	
-	
 	public boolean isElementInViewport(By locator) throws TimeoutException {
 	    log.info("[{}] Waiting until element is visible in viewport", ThreadContext.get("testName"));
 
@@ -73,7 +184,7 @@ public class GenericUtility extends ProductListingPage{
 	            "}                                        " +
 	            "return false;", element);
 
-	    } catch (Exception e) {
+	    } catch (WebDriverException e) {  // [3.2] was: catch (Exception e)
 	        return false;
 	    }
 	}
@@ -81,33 +192,97 @@ public class GenericUtility extends ProductListingPage{
 
 	
 
-    public boolean filterCheckUnderList(String filterName1,String filterName2) {
-	
-		log.info("[{}] Within filterCheckUnderList method", ThreadContext.get("testName"));
-
-    List<String> filterNames = new ArrayList<>();
-    String target1 = filterName1.trim().toLowerCase(); // convert input to lowercase
-    String target2 = filterName2.trim().toLowerCase();
-
-
-    for (WebElement el : listOfFilterNameInLeftNav) {
-        String text = el.getText().trim().toLowerCase(); // convert element text to lowercase
-        filterNames.add(text);
-    }
     
-    for (String filterName : filterNames) {
-        System.out.println(filterName+"  Filter list printing here from filter checklist function in generic utility function");
+
+    // NEW: simple "is the page there?" check. The element only has to be VISIBLE (up to 10 seconds).
+    // It does not care whether the element is scrolled out of view or covered by something,
+    // because reading text from it still works in those cases.
+    public boolean isElementVisible(By locator) {
+        try {
+            new WebDriverWait(driver, Duration.ofSeconds(10))
+                    .until(ExpectedConditions.visibilityOfElementLocated(locator));
+            return true;
+        } catch (WebDriverException e) {  // [3.2] was: catch (Exception e)
+            return false;
+        }
     }
 
-    if (filterNames.contains(target1) ||filterNames.contains(target2) ) {
-        System.out.println(filterName1+ "  and " +filterName2 + " matches with assert text here");
-        return true;
-    } else {
-        System.out.println("Filter option '" + filterName1 +"  " +filterName2+ "' does not exist in the list. Skipping the test.");
-        return false;
+    // NEW (3.4): true when the product page was read, i.e. at least one of title, key features, about or
+    // technical details has text. No details at all means the page was NOT captured, so comparing it with
+    // the filter would only produce a false "mismatch".
+    public boolean isProductCaptured(Map<String, Object> product) {
+        boolean captured = !safeLower(product.get("title")).trim().isEmpty()
+                || !safeLower(product.get("keyFeatures")).trim().isEmpty()
+                || !safeLower(product.get("about")).trim().isEmpty()
+                || !safeLower(product.get("techDetails")).trim().isEmpty();
+
+        if (!captured) {
+            log.warn("[{}] Product not captured (no details), not counted as a mismatch. Filter: {}",
+                    ThreadContext.get("testName"), product.get("filter"));
+        }
+        return captured;
     }
-}
-    
+
+    // NEW (3.4): true when the clicked filter option now shows as selected in the left navigation.
+    // If the click did not really apply the filter, the products on the page are not filtered, and checking them
+    // against the filter would produce false mismatches. Waits up to 10 seconds (same wait as isElementVisible).
+    public boolean isFilterApplied(String filterName, String filterValue) {
+        boolean applied = isElementVisible(getAppliedFilterByTypeAndName(filterName, filterValue));
+
+        if (!applied) {
+            log.error("[{}] Filter '{}' = '{}' does not show as applied", ThreadContext.get("testName"), filterName, filterValue);
+            ScreenshotUtil.capture(ThreadContext.get("logFileName"), filterValue, "Filter not applied");
+        }
+        return applied;
+    }
+
+    // NEW (3.3): for the delivery tests. Skips the test (with a reason) when a filter option is not on the page.
+    // "Visible" is enough here. The old isElementInViewport check also said "no" when the option was only
+    // covered or off-screen, and the test then ended as a pass.
+    public void skipIfFilterOptionMissing(By optionLocator, String optionName) {
+        if (isElementVisible(optionLocator)) {
+            return; // The option exists, so the test carries on.
+        }
+
+        String reason = "Filter option '" + optionName + "' not found on the results page; nothing was verified. "
+                + "URL: " + driver.getCurrentUrl() + " Title: '" + driver.getTitle() + "'.";
+        log.warn("[{}] {}", ThreadContext.get("testName"), reason);
+        throw new SkipException(reason);
+    }
+
+    // NEW: writes one WARN line that explains why an element could not be used, so the cause is
+    // visible in the log: window size, scroll position, where the element is, and what is on top of it.
+    // Never throws, so it is safe to call from any flow.
+    public void logElementDiagnostics(By locator, String description) {
+        String testName = ThreadContext.get("testName");
+        try {
+            List<WebElement> found = driver.findElements(locator);
+            if (found.isEmpty()) {
+                log.warn("[{}] {}: element NOT in the page at all. URL: {} Title: '{}' readyState: {}", testName, description,
+                        driver.getCurrentUrl(), driver.getTitle(),
+                        ((JavascriptExecutor) driver).executeScript("return document.readyState"));
+                return;
+            }
+
+            // The script reports the window size, the scroll position, the element position,
+            // and which element sits on top of the centre of our element (if any).
+            Object info = ((JavascriptExecutor) driver).executeScript(
+                    "var el = arguments[0];" +
+                    "var r = el.getBoundingClientRect();" +
+                    "var top = document.elementFromPoint(r.left + r.width / 2, r.top + r.height / 2);" +
+                    "var onTop = top ? top.tagName + '#' + top.id + '.' + String(top.className).substring(0, 80)" +
+                    "                : 'nothing (the centre is outside the window)';" +
+                    "return 'window=' + window.innerWidth + 'x' + window.innerHeight" +
+                    "     + ' scrollY=' + Math.round(window.scrollY)" +
+                    "     + ' element(top=' + Math.round(r.top) + ', left=' + Math.round(r.left)" +
+                    "     + ', size=' + Math.round(r.width) + 'x' + Math.round(r.height) + ')'" +
+                    "     + ' onTopOfCentre=' + onTop + ' readyState=' + document.readyState;",
+                    found.get(0));
+            log.warn("[{}] {}: {} URL: {}", testName, description, info, driver.getCurrentUrl());
+        } catch (Exception e) {
+            log.warn("[{}] {}: could not collect diagnostics: {}", testName, description, e.getMessage());
+        }
+    }
 
     public void refreshIfServiceUnavailable() {
 	    String pageSource = driver.getPageSource().toLowerCase();
@@ -118,7 +293,8 @@ public class GenericUtility extends ProductListingPage{
 	        title.contains("service unavailable") || 
 	        title.contains("oops")) {
 	        
-	        System.out.println("Detected error page. Refreshing...");
+	        // [3.1] System.out.println("Detected error page. Refreshing...");
+	        log.info("[{}] {}", ThreadContext.get("testName"), "Detected error page. Refreshing...");
 	        driver.navigate().refresh();
 	    }
 	}
@@ -157,7 +333,7 @@ public class GenericUtility extends ProductListingPage{
                 log.warn("[{}] Element not found for locator: {}", ThreadContext.get("testName"), locator);
             }
 
-        } catch (Exception e) {
+        } catch (WebDriverException e) {  // [3.2] was: catch (Exception e)
             log.error("[{}] Error while scrolling to element: {} - {}", ThreadContext.get("testName"), locator, e.getMessage());
         }
     }    
@@ -180,7 +356,7 @@ public class GenericUtility extends ProductListingPage{
                         log.info("[{}] Successfully switched to new tab/window -> {}", ThreadContext.get("testName"), handle);
                         driver.close();
                         log.info("[{}] Closed the newly opened tab/window -> {}", ThreadContext.get("testName"), handle);
-                    } catch (Exception e) {
+                    } catch (WebDriverException e) {  // [3.2] was: catch (Exception e)
                         log.warn("[{}] Failed to close or switch to window handle -> {} due to {}", 
                                  ThreadContext.get("testName"), handle, e.getMessage());
                     }
@@ -191,7 +367,7 @@ public class GenericUtility extends ProductListingPage{
             driver.switchTo().window(originalWindow);
             log.info("[{}] Switched back to the original window -> {}", ThreadContext.get("testName"), originalWindow);
 
-        } catch (Exception e) {
+        } catch (WebDriverException e) {  // [3.2] was: catch (Exception e)
             log.error("[{}] Exception while closing current window and switching back: {}", 
                       ThreadContext.get("testName"), e.getMessage(), e);
         }
@@ -212,8 +388,9 @@ public class GenericUtility extends ProductListingPage{
 	            } else {
 	           
 	            }
-	        } catch (Exception e) {
-	            System.out.println("Exception while fetching element text: " + e.getMessage());
+	        } catch (WebDriverException e) {  // [3.2] was: catch (Exception e)
+	            // [3.1] System.out.println("Exception while fetching element text: " + e.getMessage());
+	            log.warn("[{}] {}", ThreadContext.get("testName"), "Exception while fetching element text: " + e.getMessage());
 	        }
 
 	        retryCount++;
@@ -299,13 +476,13 @@ public class GenericUtility extends ProductListingPage{
 
 	        wait.until(ExpectedConditions.numberOfWindowsToBe(beforeCount + 1));
 	        return true; // success
-	    } catch (Exception e) {
+	    } catch (WebDriverException e) {  // [3.2] was: catch (Exception e)
 	        
 	        try {
 	            element.click();
 	            wait.until(ExpectedConditions.numberOfWindowsToBe(beforeCount + 1));
 	            return true;
-	        } catch (Exception ex) {
+	        } catch (WebDriverException ex) {  // [3.2] was: catch (Exception ex)
 	            return false; 
 	        }
 	    }
@@ -345,13 +522,15 @@ public class GenericUtility extends ProductListingPage{
 
 		for (String handle : allWindowHandles) {
 			if (!handle.equals(currentWindowHandle)) {
-				System.out.println("Found the new window. Switching now...");
+				// [3.1] System.out.println("Found the new window. Switching now...");
+				log.info("[{}] {}", ThreadContext.get("testName"), "Found the new window. Switching now...");
 				driver.switchTo().window(handle);
 				return;
 			}
 		}
 
-		System.out.println("No new window found to switch to.");
+		// [3.1] System.out.println("No new window found to switch to.");
+		log.warn("[{}] No new window found to switch to.", ThreadContext.get("testName"));
 	}
  
  

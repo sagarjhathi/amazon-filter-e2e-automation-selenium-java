@@ -18,7 +18,7 @@ import main.java.amazonfilterapplicatione2e.logger.LoggerUtility;
 import main.java.amazonfilterapplicatione2e.pages.ProductListingPage;
 import main.java.amazonfilterapplicatione2e.safeActions.SafeActions;
 import main.java.amazonfilterapplicatione2e.utilities.GenericUtility;
-import main.java.amazonfilterapplicatione2e.utilities.ScreenshotUtilUpdated;
+import main.java.amazonfilterapplicatione2e.utilities.ScreenshotUtil;
 
 public class SharedFilterFlows extends BasePage {
 
@@ -67,14 +67,16 @@ public class SharedFilterFlows extends BasePage {
 
 			log.info("[{}] Execution is scheduled type /CRON Job on CI Hence refering to CI keys from UtilData", ThreadContext.get("testName"));
 
-			System.out.println("Execution is scheduled type /CRON Job on CI Hence refering to CI keys from UtilData");
+			// [3.1] System.out.println("Execution is scheduled type /CRON Job on CI Hence refering to CI keys from UtilData");
 
 			boolean runAll= ConfigManager.getBoolean("runForAllFilterOptionsCI", false);
-			System.out.println("runAll is"+runAll);
+			// [3.1] System.out.println("runAll is"+runAll);
+			log.info("[{}] {}", ThreadContext.get("testName"), "runAll is"+runAll);
 			if(runAll==false) {
 				int overideFilteOptionsCountDefault=ConfigManager.getInt("overideFilteOptionsCountDefault");
 				filterOptionSize=ConfigManager.getInt("overideFilteOptionsCount", overideFilteOptionsCountDefault);
-				System.out.println(filterOptionSize +" is the  filterOptionSize");
+				// [3.1] System.out.println(filterOptionSize +" is the  filterOptionSize");
+				log.info("[{}] {}", ThreadContext.get("testName"), filterOptionSize +" is the  filterOptionSize");
 			}
 
 
@@ -82,13 +84,14 @@ public class SharedFilterFlows extends BasePage {
 		
 			log.info("[{}] Execution is Not CRON Job Hence refering to normal keys from UtilData", ThreadContext.get("testName"));
 
-	    	System.out.println("Execution is Not CRON Job Hence refering to normal keys from UtilData");
+	    	// [3.1] System.out.println("Execution is Not CRON Job Hence refering to normal keys from UtilData");
 			
 		    boolean runAll= ConfigManager.getBoolean("runForAllFilterOptions", false);
 	     	if(runAll==false) {
 	     	int overideFilteOptionsCountDefault=ConfigManager.getInt("overideFilteOptionsCountDefault");
 			filterOptionSize=ConfigManager.getInt("overideFilteOptionsCount", overideFilteOptionsCountDefault);
-			System.out.println(filterOptionSize +" is the  filterOptionSize");
+			// [3.1] System.out.println(filterOptionSize +" is the  filterOptionSize");
+			log.info("[{}] {}", ThreadContext.get("testName"), filterOptionSize +" is the  filterOptionSize");
 		   }
 		
 		
@@ -103,15 +106,22 @@ public class SharedFilterFlows extends BasePage {
 			List<WebElement> inloopParent = safeAct.safeFindElements(filterOptionsBy);
 			if (inloopParent == null || filterOption > inloopParent.size() - 1) {
 				log.info("[{}] Limiting traversal to in-loop size to prevent IndexOutOfBoundsException in applyFilterAndValidateProductsWithResult", ThreadContext.get("testName"));
-				System.out.println("Avoiding out of bounds issue by traversing only upto the inloop size");
+				// [3.1] System.out.println("Avoiding out of bounds issue by traversing only upto the inloop size");
 				return results;
 			}
 
 			String filterValue = safeAct.safeGetFilterOptionText(filterOptionsBy, filterOption);
 
-			if (!safeAct.safeClickBooleanWithScreenShot(productPage.getfilterByTypeAndName(filterName, filterValue),filterName,filterValue)) {
-				System.out.println("Filter click failed for: " + filterValue + ". Skipping this filter option.");
+			if (!safeAct.safeClickBooleanWithScreenShot(productPage.getFilterByTypeAndName(filterName, filterValue),filterName,filterValue)) {
+				// [3.1] System.out.println("Filter click failed for: " + filterValue + ". Skipping this filter option.");
+				log.warn("[{}] {}", ThreadContext.get("testName"), "Filter click failed for: " + filterValue + ". Skipping this filter option.");
 				continue;
+			}
+
+			// [3.4] The click must really apply the filter. If not, the products are not filtered and every check below would be wrong.
+			if (!genericUtility.isFilterApplied(filterName, filterValue)) {
+			    safeAct.safeClick(productPage.clearButtonBy()); // undo the click
+			    continue;
 			}
 
 			blockerHandler.clearBlockers();
@@ -120,7 +130,7 @@ public class SharedFilterFlows extends BasePage {
 		
 			String currentWindow = driver.getWindowHandle();
 
-			List<WebElement> productNameListingPage = safeAct.safeFindElements(productPage.productNameListingPageBy);
+			List<WebElement> productNameListingPage = safeAct.safeFindElements(productPage.productNameListingPageBy());
 			int productNameListingPageSize=productNameListingPage.size();
 			
 			
@@ -131,8 +141,9 @@ public class SharedFilterFlows extends BasePage {
 				if(runAllProducts==false) {
 					int overideProductsListingCountDefault=ConfigManager.getInt("overideProductsListingCountDefault");
 					productNameListingPageSize=ConfigManager.getInt("overideProductsListingCount", overideProductsListingCountDefault);
-					System.out.println(productNameListingPageSize +" is the  overideProductsListingCount");
-					log.info("[{}] Limiting traversal to in-loop size to prevent IndexOutOfBoundsException in applyFilterAndValidateProductsWithResult", ThreadContext.get("testName"));
+					// [3.1] System.out.println(productNameListingPageSize +" is the  overideProductsListingCount");
+					// [3.1] old: log.info("[{}] Limiting traversal to in-loop size to prevent IndexOutOfBoundsException in applyFilterAndValidateProductsWithResult", ThreadContext.get("testName"));
+					log.info("[{}] Limiting traversal to in-loop size to prevent IndexOutOfBoundsException in applyFilterAndValidateProductsWithResult (products to check: "+productNameListingPageSize+")", ThreadContext.get("testName"));
 
 				}
 			}else {
@@ -145,7 +156,8 @@ public class SharedFilterFlows extends BasePage {
 					int overideProductsListingCountDefault=ConfigManager.getInt("overideProductsListingCountDefault");
 
 					productNameListingPageSize=ConfigManager.getInt("overideProductsListingCount", overideProductsListingCountDefault);
-					System.out.println(productNameListingPageSize +" is the  overideProductsListingCount");
+					// [3.1] System.out.println(productNameListingPageSize +" is the  overideProductsListingCount");
+					log.info("[{}] {}", ThreadContext.get("testName"), productNameListingPageSize +" is the  overideProductsListingCount");
 				}
 			}
 			
@@ -157,13 +169,14 @@ public class SharedFilterFlows extends BasePage {
 				
 				
 			
-				productNameListingPage=safeAct.safeFindElements(productPage.productNameListingPageBy);
+				productNameListingPage=safeAct.safeFindElements(productPage.productNameListingPageBy());
 				
 				if (productIndex >= productNameListingPage.size()) {
 				    break;
 				}
-				log.info("[{}] Within productNameListingPage loop in applyFilterAndValidateProductsWithResult", ThreadContext.get("testName"));
-				System.out.println("inside the loop and product name is " + productNameListingPage.get(productIndex).getText());
+				// [3.1] old: log.info("[{}] Within productNameListingPage loop in applyFilterAndValidateProductsWithResult", ThreadContext.get("testName"));
+				log.info("[{}] Within productNameListingPage loop in applyFilterAndValidateProductsWithResult, product name is "+productNameListingPage.get(productIndex).getText(), ThreadContext.get("testName"));
+				// [3.1] System.out.println("inside the loop and product name is " + productNameListingPage.get(productIndex).getText());
 
 				Map<String, Object> productResult = applyFilterOptionsAndFetchProductDetailsGlobal(productIndex, filterValue, currentWindow, safeAct);
 				log.info("[{}]  Added 'filter','title','keyFeatures', 'about', 'techDetails' into the Map -> productResult", ThreadContext.get("testName"));
@@ -174,7 +187,7 @@ public class SharedFilterFlows extends BasePage {
 
 			}
 
-			safeAct.safeClick(productPage.clearButtonBy);
+			safeAct.safeClick(productPage.clearButtonBy());
 			log.info("[{}] Clearing the filter value ->"+filterValue+"within productNameListingPage loop", ThreadContext.get("testName"));
 
 			log.info("[{}]==========================================================================================================", ThreadContext.get("testName"));
@@ -214,7 +227,7 @@ public class SharedFilterFlows extends BasePage {
 	
 		boolean isWindowOpened=genericUtility.openClickOnNewPage(productElement,beforeProductClick);
 
-		System.out.println("Product clicked with Ctrl+Click to open in new tab.");
+		// [3.1] System.out.println("Product clicked with Ctrl+Click to open in new tab.");
 		log.info("[{}] Opened product in new tab via Ctrl+Click inside productNameListingPage loop", testName);
 
 		if(isWindowOpened) {
@@ -225,10 +238,10 @@ public class SharedFilterFlows extends BasePage {
 		}
 } catch (Exception e) {
 	log.info("[{}] Failed to Ctrl+Click product index " + productIndex+"  for filter value->"+filterValue, testName);
-    System.out.println("Failed to Ctrl+Click product index " + productIndex);
+    // [3.1] System.out.println("Failed to Ctrl+Click product index " + productIndex);
 }
 
-System.out.println("Clicked on the producct name new pop-up should open");
+// [3.1] System.out.println("Clicked on the producct name new pop-up should open");
 log.info("[{}] Clicked product name to open in new tab from productNameListingPage loop", testName);
 
 // If the click didn't open a new tab, it may have navigated in the same tab (fine, keep going)
@@ -240,18 +253,31 @@ try {
 	log.warn("[{}] Blocker on product page did not clear: {}", testName, e.getMessage());
 }
 
-boolean productPageLoaded = genericUtility.isElementInViewport(productPage.productNameIndividualPage);
+// OLD: the page counted as "loaded" only if the title was visible AND its centre was neither off-screen
+// nor covered. In a real run that strict check said "not loaded" for about 70% of product tabs, almost
+// instantly (so the page was there), and the whole scrape was skipped:
+// boolean productPageLoaded = genericUtility.isElementInViewport(productPage.productNameIndividualPageBy());
+
+// NEW: the page counts as loaded when the product title is visible (reading text does not need it in view).
+boolean productPageLoaded = genericUtility.isElementVisible(productPage.productNameIndividualPageBy());
 if (!productPageLoaded) {
 	log.warn("[{}] Product detail page did not load for index {} filter '{}'; skipping detail scrape to avoid redundant retries/timeouts", testName, productIndex, filterValue);
+	// Record WHY (window size, what is on top, ...) and keep a screenshot of this tab.
+	genericUtility.logElementDiagnostics(productPage.productNameIndividualPageBy(), "Product title not visible, index " + productIndex);
+	ScreenshotUtil.capture(testName, filterValue, "Product page not loaded, Product Index=" + productIndex);
+} else if (!genericUtility.isElementInViewport(productPage.productNameIndividualPageBy())) {
+	// The title is visible but off-screen or covered. We still scrape, but record the reason.
+	genericUtility.logElementDiagnostics(productPage.productNameIndividualPageBy(), "Product title visible but off-screen or covered, index " + productIndex);
+	ScreenshotUtil.capture(testName, filterValue, "Product title covered or off-screen, Product Index=" + productIndex);
 }
 
 String name="";
 try {
 if (productPageLoaded) {
-name = genericUtility.fetchTextWithRetries(productPage.productNameIndividualPage, safeAct);
-String keyFeatures = genericUtility.fetchTextWithRetries(productPage.productKeyFeatureBlock, safeAct);
-String about = genericUtility.fetchTextWithRetries(productPage.aboutThisItemBulletPoint, safeAct);
-String techDetails = genericUtility.fetchTextWithRetries(productPage.technicalDetailsBlockIndividualPage, safeAct);
+name = genericUtility.fetchTextWithRetries(productPage.productNameIndividualPageBy(), safeAct);
+String keyFeatures = genericUtility.fetchTextWithRetries(productPage.productKeyFeatureBlockBy(), safeAct);
+String about = genericUtility.fetchTextWithRetries(productPage.aboutThisItemBulletPointBy(), safeAct);
+String techDetails = genericUtility.fetchTextWithRetries(productPage.technicalDetailsBlockIndividualPageBy(), safeAct);
 
 genericUtility.addFieldIfPresent("title",name ,filterValue,productIndex,productResult);
 genericUtility.addFieldIfPresent("keyFeatures",keyFeatures ,filterValue,productIndex,productResult);
@@ -268,28 +294,28 @@ log.info("[{}] Extracting 'name' , 'keyFeatures', 'about' , 'techDetails' within
 
 try {
 	if (productPageLoaded) {
-	 if(genericUtility.isElementInViewport(productPage.showMoreOnlyIndividualPage)) {
+	 if(genericUtility.isElementInViewport(productPage.showMoreOnlyIndividualPageBy())) {
      	String productNamePlusIndex="Product Index="+productIndex;
-     	genericUtility.smoothScrollToElement(productPage.reportAnIssue);
+     	genericUtility.smoothScrollToElement(productPage.reportAnIssueBy());
 
-     	ScreenshotUtilUpdated.capture(testName, filterValue, productNamePlusIndex);
+     	ScreenshotUtil.capture(testName, filterValue, productNamePlusIndex);
 			log.info("[{}] Within Try block  clicking 'show more' hence Taking screen shot available button on ui", testName);
      }else {
-    	 genericUtility.smoothScrollToElement(genericUtility.seeMoreProductDetailsButtonIndividualPageBy);
+    	 genericUtility.smoothScrollToElement(genericUtility.seeMoreProductDetailsButtonIndividualPageBy());
 
-         safeAct.safeClick(genericUtility.seeMoreProductDetailsButtonIndividualPageBy);
+         safeAct.safeClick(genericUtility.seeMoreProductDetailsButtonIndividualPageBy());
 			 log.info("[{}] Within try block for clicking see more deatils within productNameListingPage loop", testName);
-         System.out.println("'See More Details' clicked.");
+         // [3.1] System.out.println("'See More Details' clicked.");
      }
 	}
 
 } catch (Exception e1) {
     
-	genericUtility.smoothScrollToElement(productPage.showMoreOnlyIndividualPage);
+	genericUtility.smoothScrollToElement(productPage.showMoreOnlyIndividualPageBy());
 	
 	
 	String productNamePlusIndex="Product Name="+name+"  "+"Product Index="+productIndex;
-	ScreenshotUtilUpdated.capture(testName, filterValue, productNamePlusIndex);
+	ScreenshotUtil.capture(testName, filterValue, productNamePlusIndex);
 	log.info("[{}] Within catch block Cannot click 'see more details' hence Taking screen shot available button on ui", testName);
 
    

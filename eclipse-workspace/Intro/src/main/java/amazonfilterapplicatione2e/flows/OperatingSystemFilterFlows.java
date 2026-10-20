@@ -9,16 +9,18 @@ import java.util.concurrent.TimeoutException;
 import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.ThreadContext;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.WebElement;
 
 
 import main.java.amazonfilterapplicatione2e.base.BasePage;
+import main.java.amazonfilterapplicatione2e.captcha.BlockerHandler;
 import main.java.amazonfilterapplicatione2e.configManager.ConfigManager;
 import main.java.amazonfilterapplicatione2e.logger.LoggerUtility;
 import main.java.amazonfilterapplicatione2e.pages.ProductListingPage;
 import main.java.amazonfilterapplicatione2e.safeActions.SafeActions;
 import main.java.amazonfilterapplicatione2e.utilities.GenericUtility;
-import main.java.amazonfilterapplicatione2e.utilities.ScreenshotUtilUpdated;
+import main.java.amazonfilterapplicatione2e.utilities.ScreenshotUtil;
 
 public class OperatingSystemFilterFlows extends BasePage{
 
@@ -32,10 +34,12 @@ public class OperatingSystemFilterFlows extends BasePage{
 	
     private ProductListingPage productPage;
     private GenericUtility genericUtility;
+    private BlockerHandler blockerHandler;
 
 public OperatingSystemFilterFlows() {
     this.productPage = new ProductListingPage();
     this.genericUtility = new GenericUtility();
+    this.blockerHandler = new BlockerHandler();
 }
 
 
@@ -109,15 +113,23 @@ public OperatingSystemFilterFlows() {
 
 			// safeClickBooleanWithScreenShot also clicks Amazon's "See more" toggle for this
 			// filter (before and after clicking the option) — expansion isn't done explicitly
-			if (!safeAct.safeClickBooleanWithScreenShot(productPage.getfilterByTypeAndName(filterName, str),filterName,str)) {
-				System.out.println("Filter click failed for: " + str);
+			if (!safeAct.safeClickBooleanWithScreenShot(productPage.getFilterByTypeAndName(filterName, str),filterName,str)) {
+				// [3.1] System.out.println("Filter click failed for: " + str);
 				log.info("[{}] Checking if The Filter is being applied else continuing to next filter , filter option ->"+str+"  ", ThreadContext.get("testName"));
 				continue;
 			}
 
+			// [3.4] The click must really apply the filter. If not, the products are not filtered and every check below would be wrong.
+			if (!genericUtility.isFilterApplied(filterName, str)) {
+			    safeAct.safeClick(productPage.clearButtonBy()); // undo the click
+			    continue;
+			}
+
 			
+			// [3.7] Clear a bot-check or error page, if one showed up after the click.
+			blockerHandler.clearBlockers();
 			String currentWindow = driver.getWindowHandle();
-			List<WebElement> productNameListingPage = safeAct.safeFindElements(productPage.productNameListingPageBy);
+			List<WebElement> productNameListingPage = safeAct.safeFindElements(productPage.productNameListingPageBy());
 
 
 			// Default to the real fetched list size 
@@ -127,14 +139,16 @@ public OperatingSystemFilterFlows() {
 				if(runAllProducts==false) {
 					int overideProductsListingCountDefault=ConfigManager.getInt("overideProductsListingCountDefault");
 					productNameListingPageSize=ConfigManager.getInt("overideProductsListingCount", overideProductsListingCountDefault);
-					System.out.println(productNameListingPageSize +" is the  overideProductsListingCount");
+					// [3.1] System.out.println(productNameListingPageSize +" is the  overideProductsListingCount");
+					log.info("[{}] {}", ThreadContext.get("testName"), productNameListingPageSize +" is the  overideProductsListingCount");
 				}
 			} else {
 				boolean runAllProducts= ConfigManager.getBoolean("runForAllProductsUnderListing", false);
 				if(runAllProducts==false) {
 					int overideProductsListingCountDefault=ConfigManager.getInt("overideProductsListingCountDefault");
 					productNameListingPageSize=ConfigManager.getInt("overideProductsListingCount", overideProductsListingCountDefault);
-					System.out.println(productNameListingPageSize +" is the  overideProductsListingCount");
+					// [3.1] System.out.println(productNameListingPageSize +" is the  overideProductsListingCount");
+					log.info("[{}] {}", ThreadContext.get("testName"), productNameListingPageSize +" is the  overideProductsListingCount");
 				}
 			}
 
@@ -147,7 +161,7 @@ public OperatingSystemFilterFlows() {
 				allResults.add(result);
 			}
 
-			safeAct.safeClick(productPage.clearButtonBy);
+			safeAct.safeClick(productPage.clearButtonBy());
 			if (i % 10 == 0 && i != 0) {
 				driver.navigate().refresh();
 				log.info("[{}] Refreshing the page to avoid storage issue ->"+str, ThreadContext.get("testName"));
@@ -205,17 +219,20 @@ public OperatingSystemFilterFlows() {
 		    	int after = driver.getWindowHandles().size();
 
 				if (after == before) {
-					System.out.println("Before click and AFTER CLICK count is same , trying again");
+					// [3.1] System.out.println("Before click and AFTER CLICK count is same , trying again");
+					log.info("[{}] {}", ThreadContext.get("testName"), "Before click and AFTER CLICK count is same , trying again");
 					safeAct.safeClick(productPage.getProductByIndex(productListIndex));
 		         }
 				
 		     
 		        genericUtility.switchToNewWindow(currentWindow);
+		        // [3.7] Same check in the product tab (a failure here is handled by the try/catch around this product).
+		        blockerHandler.clearBlockers();
 
-		        String name = genericUtility.fetchTextWithRetries(productPage.productNameIndividualPage, safeAct);
-		        String keyFeatures = genericUtility.fetchTextWithRetries(productPage.productKeyFeatureBlock, safeAct);
-		        String about = genericUtility.fetchTextWithRetries(productPage.aboutThisItemBulletPoint, safeAct);
-		        String techDetails = genericUtility.fetchTextWithRetries(productPage.technicalDetailsBlockIndividualPage, safeAct);
+		        String name = genericUtility.fetchTextWithRetries(productPage.productNameIndividualPageBy(), safeAct);
+		        String keyFeatures = genericUtility.fetchTextWithRetries(productPage.productKeyFeatureBlockBy(), safeAct);
+		        String about = genericUtility.fetchTextWithRetries(productPage.aboutThisItemBulletPointBy(), safeAct);
+		        String techDetails = genericUtility.fetchTextWithRetries(productPage.technicalDetailsBlockIndividualPageBy(), safeAct);
 
 		        genericUtility.addFieldIfPresent("title",name ,filterValue,productIndex,result);
 		        genericUtility.addFieldIfPresent("keyFeatures",keyFeatures ,filterValue,productIndex,result);
@@ -224,22 +241,22 @@ public OperatingSystemFilterFlows() {
 
 		
 		        try {
-		            if (genericUtility.isElementInViewport(productPage.showMoreOnlyIndividualPage) && techDetails.isEmpty()) {
+		            if (genericUtility.isElementInViewport(productPage.showMoreOnlyIndividualPageBy()) && techDetails.isEmpty()) {
 		                String productNamePlusIndex = "Product Index=" + productIndex;
-		                genericUtility.smoothScrollToElement(productPage.reportAnIssue);
+		                genericUtility.smoothScrollToElement(productPage.reportAnIssueBy());
 		              
-		                ScreenshotUtilUpdated.capture(testName, filterValue, productNamePlusIndex);
+		                ScreenshotUtil.capture(testName, filterValue, productNamePlusIndex);
 		                log.info("[{}] Took screenshot for missing tech details; show-more visible",
 		                         ThreadContext.get("testName"));
 		            }
-		        } catch (Exception screenshotEx) {
+		        } catch (WebDriverException screenshotEx) {  // [3.2] was: catch (Exception screenshotEx)
 		            log.info("[{}] Failed screenshot flow for empty tech details",
 		                     ThreadContext.get("testName"));
 		        }
 		        return result;
 
 		    } catch (Exception e) {
-		        System.out.println("Failed to validate product at index " + productListIndex + " for filter: " + filterValue);
+		        // [3.1] System.out.println("Failed to validate product at index " + productListIndex + " for filter: " + filterValue);
 		        log.warn("[{}] Exception while processing product index={} filter='{}': {}",
 		                 ThreadContext.get("testName"), productListIndex, filterValue, e.getMessage());
 		        // Returns the partial result (matches SharedFilterFlows) instead of null — it
@@ -250,7 +267,7 @@ public OperatingSystemFilterFlows() {
 		    } finally {
 		        try {
 		        	genericUtility.closeCurrentWindowAndSwitchBack(currentWindow);
-		        } catch (Exception ignored) {
+		        } catch (Exception ignored) {  // [3.2] kept broad: the call above can also throw InterruptedException
 		            log.warn("[{}] Failed to close product window or switch back", ThreadContext.get("testName"));
 		        }
 		    }

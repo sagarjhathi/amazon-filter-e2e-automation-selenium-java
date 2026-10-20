@@ -1,11 +1,9 @@
 package main.java.amazonfilterapplicatione2e.pages;
-import java.time.Duration;   
 import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.ThreadContext;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import main.java.amazonfilterapplicatione2e.base.BasePage;
 import main.java.amazonfilterapplicatione2e.configManager.ConfigManager;
 import main.java.amazonfilterapplicatione2e.logger.LoggerUtility;
@@ -21,15 +19,16 @@ public class AmazonLandingPage extends BasePage{
 	@FindBy(xpath="//input[@placeholder='Search Amazon.in']")
 	WebElement searchBarLandingPage;
 	
-	public By amazonLogoLandingPage= By.xpath("//a[@id='nav-logo-sprites']");
+	// Same rules as ProductListingPage: locator names end with "By", fields are private, use the accessors at the bottom.
+	private By amazonLogoLandingPageBy= By.xpath("//a[@id='nav-logo-sprites']");
 	
-	By searchBarLandingPageBy=By.xpath("//input[@placeholder='Search Amazon.in']");
+	private By searchBarLandingPageBy=By.xpath("//input[@placeholder='Search Amazon.in']");
 	
 	@FindBy(xpath="//input[@id='nav-search-submit-button']")
 	WebElement submitSearchButton;
 	
 	
-	By submitSearchButtonBy=By.xpath("//input[@id='nav-search-submit-button']");
+	private By submitSearchButtonBy=By.xpath("//input[@id='nav-search-submit-button']");
 	
 	public void givingInputWithinSearchBar(String input) throws InterruptedException {
 		searchBarLandingPage.click();
@@ -59,4 +58,17 @@ public class AmazonLandingPage extends BasePage{
 	}
 	
 	
+
+	// Accessors: the locator fields above are private, other classes read them through these methods.
+	public By amazonLogoLandingPageBy() {
+		return amazonLogoLandingPageBy;
+	}
+
+	public By searchBarLandingPageBy() {
+		return searchBarLandingPageBy;
+	}
+
+	public By submitSearchButtonBy() {
+		return submitSearchButtonBy;
+	}
 }

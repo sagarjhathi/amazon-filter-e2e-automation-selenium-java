@@ -1,43 +1,25 @@
 package main.java.amazonfilterapplicatione2e.driverManager;
-import java.net.URI;
-import java.net.URL;
-import java.util.List;
 import java.util.Locale;
-import java.util.Map;
-import java.util.Optional;
 
 import org.apache.logging.log4j.Logger;
-import org.openqa.selenium.remote.http.HttpHandler;
 
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.remote.RemoteWebDriver;
-
-
-import org.openqa.selenium.devtools.NetworkInterceptor;
-import org.openqa.selenium.remote.http.HttpHandler;
-import org.openqa.selenium.remote.http.HttpRequest;
-import org.openqa.selenium.remote.http.HttpResponse;
-import org.openqa.selenium.remote.http.Route;
 
 
 
-import org.openqa.selenium.remote.http.Routable;
 
-import java.util.function.Predicate;
+
+
 
 import main.java.amazonfilterapplicatione2e.SeleniumGrid.GlobalGridUtility;
 import main.java.amazonfilterapplicatione2e.configManager.ConfigManager;
 import main.java.amazonfilterapplicatione2e.logger.LoggerUtility;
 
 
-import org.openqa.selenium.devtools.NetworkInterceptor;
-import org.openqa.selenium.remote.http.HttpHandler;
-import org.openqa.selenium.remote.http.HttpRequest;
-import org.openqa.selenium.remote.http.Route;
 
-import java.util.List;
 
 
 public class DriverManager  {
@@ -80,6 +62,9 @@ public class DriverManager  {
 					}
 					if (ConfigManager.getBoolean("firefox.headless", false)) {
 						firefoxOptions.addArguments("-headless");
+						// NEW: same reason as for Chrome. Firefox takes the width and height as two separate arguments.
+						firefoxOptions.addArguments("--width=" + ConfigManager.getInt("headless.windowWidth", 1920));
+						firefoxOptions.addArguments("--height=" + ConfigManager.getInt("headless.windowHeight", 1080));
 					}
 					if(!ConfigManager.getBoolean("firefox.image.loading", true)) {
 						firefoxOptions.addArguments(
@@ -106,10 +91,10 @@ public class DriverManager  {
 					}
 
 					driver.set(firefoxDriver);
-					try { firefoxDriver.manage().deleteAllCookies(); } catch (Exception ignored) {}
+					try { firefoxDriver.manage().deleteAllCookies(); } catch (WebDriverException ignored) {}  // [3.2] was: catch (Exception ignored)
 
 					if (ConfigManager.getBoolean("firefox.startMaximized", true)) {
-						try { firefoxDriver.manage().window().maximize(); } catch (Exception ignored) {}
+						try { firefoxDriver.manage().window().maximize(); } catch (WebDriverException ignored) {}  // [3.2] was: catch (Exception ignored)
 					}
 					log.info("FirefoxDriver initialized successfully for thread: {}", Thread.currentThread().threadId());
 					break;
@@ -136,6 +121,9 @@ public class DriverManager  {
 					}
 					if(ConfigManager.getBoolean("edge.headless", false)) {
 						edgeOptions.addArguments("--headless");
+						// NEW: same reason as for Chrome (small default window in headless mode).
+						edgeOptions.addArguments("--window-size=" + ConfigManager.getInt("headless.windowWidth", 1920)
+								+ "," + ConfigManager.getInt("headless.windowHeight", 1080));
 					}
 					if(!ConfigManager.getBoolean("edge.image.loading", true)) {
 						edgeOptions.addArguments(
@@ -168,7 +156,7 @@ public class DriverManager  {
 						edgeDriver=GlobalGridUtility.createRemoteEdgeDriver(ConfigManager.get("edge.gridHubUrl"), edgeOptions);
 					}
 					driver.set(edgeDriver);
-					try { edgeDriver.manage().deleteAllCookies(); } catch (Exception ignored) {}
+					try { edgeDriver.manage().deleteAllCookies(); } catch (WebDriverException ignored) {}  // [3.2] was: catch (Exception ignored)
 					log.info("EdgeDriver initialized successfully for thread: {}", Thread.currentThread().threadId());
 					break;
 				}
@@ -201,6 +189,11 @@ public class DriverManager  {
 					}
 					if(ConfigManager.getBoolean("chrome.headless", false)) {
 						options.addArguments("--headless");
+						// NEW: a headless browser opens a small window by default, which changes the page layout
+						// (for example the filters panel can disappear). --start-maximized does nothing in headless mode,
+						// so the size is set directly (from UtilData.properties, default 1920x1080).
+						options.addArguments("--window-size=" + ConfigManager.getInt("headless.windowWidth", 1920)
+								+ "," + ConfigManager.getInt("headless.windowHeight", 1080));
 					}
 					if(!ConfigManager.getBoolean("chrome.image.loading", true)) {
 						options.addArguments(
@@ -230,7 +223,7 @@ public class DriverManager  {
 
 					driver.set(chromeDriver);
 
-					try { chromeDriver.manage().deleteAllCookies(); } catch (Exception ignored) {}
+					try { chromeDriver.manage().deleteAllCookies(); } catch (WebDriverException ignored) {}  // [3.2] was: catch (Exception ignored)
 					log.info("ChromeDriver initialized successfully for thread: {}", Thread.currentThread().threadId());
 					break;
 				}
@@ -259,7 +252,7 @@ public class DriverManager  {
 		if (currentDriver != null) {
 			try {
 				currentDriver.quit();
-			} catch (Exception e) {
+			} catch (WebDriverException e) {  // [3.2] was: catch (Exception e)
 
 			} finally {
 				driver.remove();

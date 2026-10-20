@@ -15,16 +15,18 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
 import main.java.amazonfilterapplicatione2e.base.BasePage;
+import main.java.amazonfilterapplicatione2e.captcha.BlockerHandler;
 import main.java.amazonfilterapplicatione2e.logger.LoggerUtility;
 import main.java.amazonfilterapplicatione2e.pages.ProductListingPage;
 import main.java.amazonfilterapplicatione2e.safeActions.SafeActions;
-import main.java.amazonfilterapplicatione2e.utilities.ScreenshotUtilUpdated;
+import main.java.amazonfilterapplicatione2e.utilities.ScreenshotUtil;
 
 public class DeliveryFilterFlows extends BasePage{
 
 	private  final Logger log = LoggerUtility.getLogger(DeliveryFilterFlows.class);
 	
 	ProductListingPage productPage;
+	BlockerHandler blockerHandler = new BlockerHandler();
 	SafeActions safeAct ;
 	
 	public DeliveryFilterFlows() {
@@ -41,6 +43,8 @@ public class DeliveryFilterFlows extends BasePage{
 
 		
 		safeAct.safeClick(filterOptions);
+		// [3.7] Clear a bot-check or error page, if one showed up after the click.
+		blockerHandler.clearBlockers();
 
 
 		String testName = ThreadContext.get("baseTestName");
@@ -48,7 +52,7 @@ public class DeliveryFilterFlows extends BasePage{
 		// filterOption is derived from the calling test's method name (see the switch in
 		// ProductListingPage.getDeliveryDayFilterByName) — renaming that test method breaks this.
 		String filterOption=productPage.getDeliveryDayFilterByName(testName);
-		ScreenshotUtilUpdated.capture(testName,filterOption);
+		ScreenshotUtil.capture(testName,filterOption);
 
 		log.info("[" + ThreadContext.get("testName") + "] Clicked on " + filterOptions);
 
@@ -57,7 +61,7 @@ public class DeliveryFilterFlows extends BasePage{
 		// Reads the whole card instead of the scoped data-cy='delivery-recipe' locator in
 		// ProductListingPage — not every card has that element due to Amazon's dynamic result
 		// layout, so scoping to it would throw/skip on cards where it's missing.
-		List<WebElement> deliveryElements = safeAct.safeFindElements(productPage.listProductCardsBy);
+		List<WebElement> deliveryElements = safeAct.safeFindElements(productPage.listProductCardsBy());
 
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("E, dd MMM");
 		String todayFormatted = LocalDate.now().format(formatter);
@@ -93,14 +97,14 @@ public class DeliveryFilterFlows extends BasePage{
 				if (text.contains(part)) {
 					log.info("[{}] Checking if the allowedDateParts have the assert text — index {}, text: {}",
 							ThreadContext.get("testName"), i, text);
-					System.out.println("Found the The text from delivery element --> " + text +
-							" | List size: " + deliveryElements.size() +
-							" | Index: " + i);
+					// [3.1] System.out.println("Found the The text from delivery element --> " + text +
+							// [3.1] " | List size: " + deliveryElements.size() +
+							// [3.1] " | Index: " + i);
 					found = true;
 					break;
 				}
 			}
-			System.out.println("------------------------------------------------------");
+			// [3.1] System.out.println("------------------------------------------------------");
 			if (!found) {
 
 				log.info("[{}] Assert text not found within AllowedDateParts — index {}, text: {}",
