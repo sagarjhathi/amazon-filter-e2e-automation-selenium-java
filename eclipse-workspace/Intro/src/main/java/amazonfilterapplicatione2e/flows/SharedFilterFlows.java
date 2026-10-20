@@ -67,14 +67,16 @@ public class SharedFilterFlows extends BasePage {
 
 			log.info("[{}] Execution is scheduled type /CRON Job on CI Hence refering to CI keys from UtilData", ThreadContext.get("testName"));
 
-			System.out.println("Execution is scheduled type /CRON Job on CI Hence refering to CI keys from UtilData");
+			// [3.1] System.out.println("Execution is scheduled type /CRON Job on CI Hence refering to CI keys from UtilData");
 
 			boolean runAll= ConfigManager.getBoolean("runForAllFilterOptionsCI", false);
-			System.out.println("runAll is"+runAll);
+			// [3.1] System.out.println("runAll is"+runAll);
+			log.info("[{}] {}", ThreadContext.get("testName"), "runAll is"+runAll);
 			if(runAll==false) {
 				int overideFilteOptionsCountDefault=ConfigManager.getInt("overideFilteOptionsCountDefault");
 				filterOptionSize=ConfigManager.getInt("overideFilteOptionsCount", overideFilteOptionsCountDefault);
-				System.out.println(filterOptionSize +" is the  filterOptionSize");
+				// [3.1] System.out.println(filterOptionSize +" is the  filterOptionSize");
+				log.info("[{}] {}", ThreadContext.get("testName"), filterOptionSize +" is the  filterOptionSize");
 			}
 
 
@@ -82,13 +84,14 @@ public class SharedFilterFlows extends BasePage {
 		
 			log.info("[{}] Execution is Not CRON Job Hence refering to normal keys from UtilData", ThreadContext.get("testName"));
 
-	    	System.out.println("Execution is Not CRON Job Hence refering to normal keys from UtilData");
+	    	// [3.1] System.out.println("Execution is Not CRON Job Hence refering to normal keys from UtilData");
 			
 		    boolean runAll= ConfigManager.getBoolean("runForAllFilterOptions", false);
 	     	if(runAll==false) {
 	     	int overideFilteOptionsCountDefault=ConfigManager.getInt("overideFilteOptionsCountDefault");
 			filterOptionSize=ConfigManager.getInt("overideFilteOptionsCount", overideFilteOptionsCountDefault);
-			System.out.println(filterOptionSize +" is the  filterOptionSize");
+			// [3.1] System.out.println(filterOptionSize +" is the  filterOptionSize");
+			log.info("[{}] {}", ThreadContext.get("testName"), filterOptionSize +" is the  filterOptionSize");
 		   }
 		
 		
@@ -103,15 +106,22 @@ public class SharedFilterFlows extends BasePage {
 			List<WebElement> inloopParent = safeAct.safeFindElements(filterOptionsBy);
 			if (inloopParent == null || filterOption > inloopParent.size() - 1) {
 				log.info("[{}] Limiting traversal to in-loop size to prevent IndexOutOfBoundsException in applyFilterAndValidateProductsWithResult", ThreadContext.get("testName"));
-				System.out.println("Avoiding out of bounds issue by traversing only upto the inloop size");
+				// [3.1] System.out.println("Avoiding out of bounds issue by traversing only upto the inloop size");
 				return results;
 			}
 
 			String filterValue = safeAct.safeGetFilterOptionText(filterOptionsBy, filterOption);
 
 			if (!safeAct.safeClickBooleanWithScreenShot(productPage.getFilterByTypeAndName(filterName, filterValue),filterName,filterValue)) {
-				System.out.println("Filter click failed for: " + filterValue + ". Skipping this filter option.");
+				// [3.1] System.out.println("Filter click failed for: " + filterValue + ". Skipping this filter option.");
+				log.warn("[{}] {}", ThreadContext.get("testName"), "Filter click failed for: " + filterValue + ". Skipping this filter option.");
 				continue;
+			}
+
+			// [3.4] The click must really apply the filter. If not, the products are not filtered and every check below would be wrong.
+			if (!genericUtility.isFilterApplied(filterName, filterValue)) {
+			    safeAct.safeClick(productPage.clearButtonBy()); // undo the click
+			    continue;
 			}
 
 			blockerHandler.clearBlockers();
@@ -131,8 +141,9 @@ public class SharedFilterFlows extends BasePage {
 				if(runAllProducts==false) {
 					int overideProductsListingCountDefault=ConfigManager.getInt("overideProductsListingCountDefault");
 					productNameListingPageSize=ConfigManager.getInt("overideProductsListingCount", overideProductsListingCountDefault);
-					System.out.println(productNameListingPageSize +" is the  overideProductsListingCount");
-					log.info("[{}] Limiting traversal to in-loop size to prevent IndexOutOfBoundsException in applyFilterAndValidateProductsWithResult", ThreadContext.get("testName"));
+					// [3.1] System.out.println(productNameListingPageSize +" is the  overideProductsListingCount");
+					// [3.1] old: log.info("[{}] Limiting traversal to in-loop size to prevent IndexOutOfBoundsException in applyFilterAndValidateProductsWithResult", ThreadContext.get("testName"));
+					log.info("[{}] Limiting traversal to in-loop size to prevent IndexOutOfBoundsException in applyFilterAndValidateProductsWithResult (products to check: "+productNameListingPageSize+")", ThreadContext.get("testName"));
 
 				}
 			}else {
@@ -145,7 +156,8 @@ public class SharedFilterFlows extends BasePage {
 					int overideProductsListingCountDefault=ConfigManager.getInt("overideProductsListingCountDefault");
 
 					productNameListingPageSize=ConfigManager.getInt("overideProductsListingCount", overideProductsListingCountDefault);
-					System.out.println(productNameListingPageSize +" is the  overideProductsListingCount");
+					// [3.1] System.out.println(productNameListingPageSize +" is the  overideProductsListingCount");
+					log.info("[{}] {}", ThreadContext.get("testName"), productNameListingPageSize +" is the  overideProductsListingCount");
 				}
 			}
 			
@@ -162,8 +174,9 @@ public class SharedFilterFlows extends BasePage {
 				if (productIndex >= productNameListingPage.size()) {
 				    break;
 				}
-				log.info("[{}] Within productNameListingPage loop in applyFilterAndValidateProductsWithResult", ThreadContext.get("testName"));
-				System.out.println("inside the loop and product name is " + productNameListingPage.get(productIndex).getText());
+				// [3.1] old: log.info("[{}] Within productNameListingPage loop in applyFilterAndValidateProductsWithResult", ThreadContext.get("testName"));
+				log.info("[{}] Within productNameListingPage loop in applyFilterAndValidateProductsWithResult, product name is "+productNameListingPage.get(productIndex).getText(), ThreadContext.get("testName"));
+				// [3.1] System.out.println("inside the loop and product name is " + productNameListingPage.get(productIndex).getText());
 
 				Map<String, Object> productResult = applyFilterOptionsAndFetchProductDetailsGlobal(productIndex, filterValue, currentWindow, safeAct);
 				log.info("[{}]  Added 'filter','title','keyFeatures', 'about', 'techDetails' into the Map -> productResult", ThreadContext.get("testName"));
@@ -214,7 +227,7 @@ public class SharedFilterFlows extends BasePage {
 	
 		boolean isWindowOpened=genericUtility.openClickOnNewPage(productElement,beforeProductClick);
 
-		System.out.println("Product clicked with Ctrl+Click to open in new tab.");
+		// [3.1] System.out.println("Product clicked with Ctrl+Click to open in new tab.");
 		log.info("[{}] Opened product in new tab via Ctrl+Click inside productNameListingPage loop", testName);
 
 		if(isWindowOpened) {
@@ -225,10 +238,10 @@ public class SharedFilterFlows extends BasePage {
 		}
 } catch (Exception e) {
 	log.info("[{}] Failed to Ctrl+Click product index " + productIndex+"  for filter value->"+filterValue, testName);
-    System.out.println("Failed to Ctrl+Click product index " + productIndex);
+    // [3.1] System.out.println("Failed to Ctrl+Click product index " + productIndex);
 }
 
-System.out.println("Clicked on the producct name new pop-up should open");
+// [3.1] System.out.println("Clicked on the producct name new pop-up should open");
 log.info("[{}] Clicked product name to open in new tab from productNameListingPage loop", testName);
 
 // If the click didn't open a new tab, it may have navigated in the same tab (fine, keep going)
@@ -292,7 +305,7 @@ try {
 
          safeAct.safeClick(genericUtility.seeMoreProductDetailsButtonIndividualPageBy());
 			 log.info("[{}] Within try block for clicking see more deatils within productNameListingPage loop", testName);
-         System.out.println("'See More Details' clicked.");
+         // [3.1] System.out.println("'See More Details' clicked.");
      }
 	}
 

@@ -33,6 +33,9 @@ import main.java.amazonfilterapplicatione2e.utilities.GenericUtility;
 import main.java.amazonfilterapplicatione2e.utilities.ScreenshotUtil;
 import test.testDataProvider.TestDataProvider;
 
+// Assertion rule used in this class:
+//  - SOFT assertions (softAssert.fail + assertAll) inside the loops over products, so one run reports every mismatch.
+//  - HARD assertions (Assert) for preconditions, where carrying on makes no sense (for example: nothing was checked).
 public class AmazonTests extends BaseTest {
 
 	
@@ -68,11 +71,14 @@ public class AmazonTests extends BaseTest {
         String testName=ThreadContext.get("testName");
        
        
-        if (!genericUtility.isElementInViewport(productPage.getItByTomorrowUnderDeliveryDayFilterBy())) {
-		    System.out.println("Filter option 'Get It by Tomorrow' does not exist. Skipping the test.");
-		    log.warn("[{}]   Filter option 'Get It by Tomorrow' does not exist. Skipping the test.", testName);
-		    return;
-		}
+        // [3.3] OLD (strict check, and a missing option ended the test as PASSED):
+        //   if (!genericUtility.isElementInViewport(productPage.getItByTomorrowUnderDeliveryDayFilterBy())) {
+        //   // [3.1] System.out.println("Filter option 'Get It by Tomorrow' does not exist. Skipping the test.");
+        //   log.warn("[{}]   Filter option 'Get It by Tomorrow' does not exist. Skipping the test.", testName);
+        //   return;
+        //   }
+        // [3.3] NEW (waits for the option; a missing option SKIPS the test with a reason):
+        genericUtility.skipIfFilterOptionMissing(productPage.getItByTomorrowUnderDeliveryDayFilterBy(), "Get It by Tomorrow");
         
 	
 		List<Object> result = deliveryFilterFlows.validateDeliveryFilterOptionsWithResult(productPage.getItByTomorrowUnderDeliveryDayFilterBy());
@@ -84,7 +90,7 @@ public class AmazonTests extends BaseTest {
 	    
 	    log.info("[{}] Asserting delivery filter: isValid={}, index={}, text={}",testName, isValid, productIndex, productName);
 	    Assert.assertTrue(isValid,"Delivery date mismatch at index " + productIndex + ". Text: " + productName);
-	    System.out.println(isValid+"  Text from function =>"+productName+" index no is "+productIndex);      
+	    // [3.1] System.out.println(isValid+"  Text from function =>"+productName+" index no is "+productIndex);      
 			
 		}
 	
@@ -118,11 +124,14 @@ public class AmazonTests extends BaseTest {
 		 String testName=ThreadContext.get("testName");
 		 
 		 
- 		if (!genericUtility.isElementInViewport(productPage.getItInTwoDaysUnderDeliveryDayFilterBy())) {
- 		    System.out.println("Filter option 'Get It in 2 Days' does not exist. Skipping the test.");
- 		    log.warn("[{}]  Filter option 'Get It in 2 Days' does not exist. Skipping the test.", testName);
- 		    return ;
- 		}                 
+ 		// [3.3] OLD (strict check, and a missing option ended the test as PASSED):
+ 		//   if (!genericUtility.isElementInViewport(productPage.getItInTwoDaysUnderDeliveryDayFilterBy())) {
+ 		//   // [3.1] System.out.println("Filter option 'Get It in 2 Days' does not exist. Skipping the test.");
+ 		//   log.warn("[{}]  Filter option 'Get It in 2 Days' does not exist. Skipping the test.", testName);
+ 		//   return ;
+ 		//   }
+ 		// [3.3] NEW (waits for the option; a missing option SKIPS the test with a reason):
+ 		genericUtility.skipIfFilterOptionMissing(productPage.getItInTwoDaysUnderDeliveryDayFilterBy(), "Get It in 2 Days");
 		            	
 		List<Object> result = deliveryFilterFlows.validateDeliveryFilterOptionsWithResult(productPage.getItInTwoDaysUnderDeliveryDayFilterBy());
 		
@@ -132,7 +141,7 @@ public class AmazonTests extends BaseTest {
 	    
 	    log.info("[{}] Asserting delivery filter: isValid={}, index={}, text={}",testName, isValid, productIndex, productName);
 	    Assert.assertTrue(isValid,"Delivery date mismatch at index " + productIndex + ". Text: " + productName);
-	    System.out.println(isValid+"  Text from function =>"+productName+" index no is "+productIndex);      		
+	    // [3.1] System.out.println(isValid+"  Text from function =>"+productName+" index no is "+productIndex);      		
 	    
 		}
 	
@@ -166,11 +175,14 @@ public class AmazonTests extends BaseTest {
  		blockerHandler.clearBlockers();
  		
  		 String testName=ThreadContext.get("testName");
- 		if (!genericUtility.isElementInViewport(productPage.getItTodayUnderDeliveryDayFilterBy())) {
- 		    System.out.println("Filter option 'Get It Today' does not exist. Skipping the test.");
- 		   log.warn("[{}]  Filter option 'Get It Today' does not exist. Skipping the test.", ThreadContext.get("testName"));
- 		    return;
- 		}                   
+ 		// [3.3] OLD (strict check, and a missing option ended the test as PASSED):
+ 		//   if (!genericUtility.isElementInViewport(productPage.getItTodayUnderDeliveryDayFilterBy())) {
+ 		//   // [3.1] System.out.println("Filter option 'Get It Today' does not exist. Skipping the test.");
+ 		//   log.warn("[{}]  Filter option 'Get It Today' does not exist. Skipping the test.", ThreadContext.get("testName"));
+ 		//   return;
+ 		//   }
+ 		// [3.3] NEW (waits for the option; a missing option SKIPS the test with a reason):
+ 		genericUtility.skipIfFilterOptionMissing(productPage.getItTodayUnderDeliveryDayFilterBy(), "Get It Today");
 		            		
 		            		
 		List<Object> result = deliveryFilterFlows.validateDeliveryFilterOptionsWithResult(productPage.getItTodayUnderDeliveryDayFilterBy());
@@ -181,7 +193,7 @@ public class AmazonTests extends BaseTest {
 	    
 	    log.info("[{}] Asserting delivery filter: isValid={}, index={}, text={}",testName, isValid, productIndex, productName);
 	    Assert.assertTrue(isValid,"Delivery date mismatch at index " + productIndex + ". Text: " + productName);
-	    System.out.println(isValid+"  Text from function =>"+productName+" index no is "+productIndex);                 		  
+	    // [3.1] System.out.println(isValid+"  Text from function =>"+productName+" index no is "+productIndex);                 		  
 		            	    
 	    
 	}
@@ -212,11 +224,14 @@ public class AmazonTests extends BaseTest {
  		blockerHandler.clearBlockers();
  		
  		 String testName=ThreadContext.get("testName");
- 		if (!genericUtility.isElementInViewport(productPage.eligibleForFreeDeliveryBy())) {
- 		    System.out.println("Filter option 'Eligible for Free Delivery does not. Skipping the test.");
- 		   log.warn("[{}]  Filter option 'Eligible for Free Delivery' does not exist. Skipping the test.", ThreadContext.get("testName"));
- 		    return;
- 		}                   
+ 		// [3.3] OLD (strict check, and a missing option ended the test as PASSED):
+ 		//   if (!genericUtility.isElementInViewport(productPage.eligibleForFreeDeliveryBy())) {
+ 		//   // [3.1] System.out.println("Filter option 'Eligible for Free Delivery does not. Skipping the test.");
+ 		//   log.warn("[{}]  Filter option 'Eligible for Free Delivery' does not exist. Skipping the test.", ThreadContext.get("testName"));
+ 		//   return;
+ 		//   }
+ 		// [3.3] NEW (waits for the option; a missing option SKIPS the test with a reason):
+ 		genericUtility.skipIfFilterOptionMissing(productPage.eligibleForFreeDeliveryBy(), "Eligible for Free Delivery");
 		            		
 		            		
 		List<Object> result = deliveryFilterFlows.validateDeliveryFilterOptionsWithResult(productPage.eligibleForFreeDeliveryBy());
@@ -227,7 +242,7 @@ public class AmazonTests extends BaseTest {
 	    
 	    log.info("[{}] Asserting delivery filter: isValid={}, index={}, text={}",testName, isValid, productIndex, productName);
 	    Assert.assertTrue(isValid,"Delivery date mismatch at index " + productIndex + ". Text: " + productName);
-	    System.out.println(isValid+"  Text from function =>"+productName+" index no is "+productIndex);                 		  
+	    // [3.1] System.out.println(isValid+"  Text from function =>"+productName+" index no is "+productIndex);                 		  
 		            	    
 	    
 	}
@@ -282,6 +297,8 @@ public class AmazonTests extends BaseTest {
 		}
 
 
+		// [3.4] Nothing was checked, so the test must not pass.
+		Assert.assertFalse(allResults == null || allResults.isEmpty(), "No brands were checked.");
 		for (Map<Object, Object> result : allResults) {
 
 			boolean isValid = (boolean) result.get("isValid");
@@ -290,15 +307,15 @@ public class AmazonTests extends BaseTest {
 
 			if (!isValid) {
 				log.error("[{}] Brand validation failed for '{}'. {} mismatches found.", testName, brand, mismatches.size());
-				System.out.println("Brand validation failed for brand: " + brand);
+				// [3.1] System.out.println("Brand validation failed for brand: " + brand);
 				for (String detail : mismatches) {
-					System.out.println(detail);
+					// [3.1] System.out.println(detail);
 					log.error("[{}]  Mismatch for '{}': {}", testName, brand, detail);
 					softAssert.fail(detail);
 				}
 			} else {
 				log.info("[{}] All product titles matched for brand: '{}'", testName, brand);
-				System.out.println("All product titles matched for brand: " + brand);
+				// [3.1] System.out.println("All product titles matched for brand: " + brand);
 			}
 		}
 
@@ -350,10 +367,19 @@ public class AmazonTests extends BaseTest {
 
 
 		List<Map<String, Object>> results = sharedFilterFlows.applyFilterAndValidateProductsWithResult(productPage.listStorageCapacityOptionsBy(),"storagecapacity");
+		// [3.4] Nothing was checked, so the test must not pass.
+		Assert.assertFalse(results == null || results.isEmpty(), "No products were checked for filter 'Storage Capacity'.");
 		log.info("[{}] Retrieved {} results from applyFilterAndValidateProductsWithResult.",testName,"And result size->" +results.size());
 		
 
+		int verifiedProducts = 0;
 		for (Map<String, Object> product : results) {
+		    // [3.4] No details = the product page was not captured, so there is nothing to compare.
+		    if (!genericUtility.isProductCaptured(product)) {
+		        continue;
+		    }
+		    verifiedProducts++;
+
 			String filter = genericUtility.safeLower(product.get("filter"));
     	    String title = genericUtility.safeLower(product.get("title"));
     	    String keyFeatures = genericUtility.safeLower(product.get("keyFeatures"));
@@ -384,10 +410,13 @@ public class AmazonTests extends BaseTest {
 
 				softAssert.fail(failureMessage.toString());
 			} else {
-				System.out.println(" Filter '" + filter + "' matched in at least one section of product details.");
+				// [3.1] System.out.println(" Filter '" + filter + "' matched in at least one section of product details.");
+				log.info("[{}] {}", ThreadContext.get("testName"), " Filter '" + filter + "' matched in at least one section of product details.");
 			}
 		}
 
+		// [3.4] Nothing was verified, so the test must not pass.
+		Assert.assertTrue(verifiedProducts > 0, "No product could be verified for filter 'Storage Capacity' (product pages not captured).");
 		softAssert.assertAll(); 
 
 	}
@@ -438,6 +467,8 @@ public class AmazonTests extends BaseTest {
 		List<Map<String, Object>> results = priceSliderFlows.applyPriceSliderAndValidateWithResult(minValues, maxValues);
 
 
+		// [3.4] Nothing was checked, so the test must not pass.
+		Assert.assertFalse(results == null || results.isEmpty(), "No price ranges were checked.");
 		for (Map<String, Object> result : results) {
 			boolean isValid = (boolean) result.get("isValid");
 			int min = (int) result.get("min");
@@ -446,18 +477,18 @@ public class AmazonTests extends BaseTest {
 
 			if (!isValid) {
 				log.error("[{}]  Validation failed for price range: {} - {}", testName, min, max);
-				System.out.println(" Validation failed for price range: " + min + " - " + max);
+				// [3.1] System.out.println(" Validation failed for price range: " + min + " - " + max);
 				for (String msg : mismatches) {
-					System.out.println(msg);
+					// [3.1] System.out.println(msg);
 					log.error("[{}]  {}", testName, msg);
 					softAssert.fail(msg);
 				}
 
 			} else {
 				log.info("[{}]  Price range validated successfully: {} - {}", testName, min, max);
-				System.out.println("Price range validated: " + min + " - " + max);
+				// [3.1] System.out.println("Price range validated: " + min + " - " + max);
 			}
-			System.out.println("------------------------------------------------------------");		
+			// [3.1] System.out.println("------------------------------------------------------------");		
 			log.info("[{}] ------------------------------------------------------------", testName);
 		}
 
@@ -474,7 +505,6 @@ public class AmazonTests extends BaseTest {
 		)
 	public void verifyingBatteryCapacityFilterFunctionality(String input) throws InterruptedException, TimeoutException {
 		ReportManager.getTest().info("Test Input Parameter: <b>" + input + "</b>");
-		input="laptop";
 		AmazonLandingPage landingPage = new AmazonLandingPage();
 		CaptchaHandler capHandler=new CaptchaHandler();
 		BlockerHandler blockerHandler = new BlockerHandler();
@@ -505,14 +535,24 @@ public class AmazonTests extends BaseTest {
 
 
 		List<Map<String, Object>> results = sharedFilterFlows.applyFilterAndValidateProductsWithResult(productPage.listBatteryCapacityOptionsBy(),"batterylife");
+		// [3.4] Nothing was checked, so the test must not pass.
+		Assert.assertFalse(results == null || results.isEmpty(), "No products were checked for filter 'Battery Life'.");
 
 		
 
 
-		if(results.size()==0) {
-			softAssert.fail();
-		}
+		// [3.4] OLD (soft; replaced by the hard check above):
+		//   if(results.size()==0) {
+		//   softAssert.fail();
+		//   }
+		int verifiedProducts = 0;
 		for (Map<String, Object> product : results) {
+		    // [3.4] No details = the product page was not captured, so there is nothing to compare.
+		    if (!genericUtility.isProductCaptured(product)) {
+		        continue;
+		    }
+		    verifiedProducts++;
+
 			String filter = genericUtility.safeLower(product.get("filter"));
 			String title = genericUtility.safeLower(product.get("title"));
 			String keyFeatures = genericUtility.safeLower(product.get("keyFeatures"));
@@ -545,11 +585,13 @@ public class AmazonTests extends BaseTest {
 
 			} else {
 				log.info("[{}]  Filter '{}' matched in product details.", testName, filter);
-				System.out.println(" Filter '" + filter + "' matched in at least one section of product details.");
+				// [3.1] System.out.println(" Filter '" + filter + "' matched in at least one section of product details.");
 			}
 		}
 
 		log.info("[{}] Asserting all soft assertions now...", testName);
+		// [3.4] Nothing was verified, so the test must not pass.
+		Assert.assertTrue(verifiedProducts > 0, "No product could be verified for filter 'Battery Life' (product pages not captured).");
 		softAssert.assertAll(); 
 	}
 
@@ -593,10 +635,19 @@ public class AmazonTests extends BaseTest {
 
 
         List<Map<String, Object>> results = sharedFilterFlows.applyFilterAndValidateProductsWithResult(productPage.listDisplaySizeOptionsBy(),"screensize");
+        // [3.4] Nothing was checked, so the test must not pass.
+        Assert.assertFalse(results == null || results.isEmpty(), "No products were checked for filter 'Screen Size'.");
 
 
 
+        int verifiedProducts = 0;
         for (Map<String, Object> product : results) {
+            // [3.4] No details = the product page was not captured, so there is nothing to compare.
+            if (!genericUtility.isProductCaptured(product)) {
+                continue;
+            }
+            verifiedProducts++;
+
         	String filter = genericUtility.safeLower(product.get("filter"));
         	String title = genericUtility.safeLower(product.get("title"));
         	String keyFeatures = genericUtility.safeLower(product.get("keyFeatures"));
@@ -631,11 +682,13 @@ public class AmazonTests extends BaseTest {
         	} else {
         		log.info("[{}]  Filter '{}' matched in at least one section.",testName, filter);
 
-        		System.out.println(" Filter '" + filter + "' matched in at least one section of product details.");
+        		// [3.1] System.out.println(" Filter '" + filter + "' matched in at least one section of product details.");
         	}
         }
 
         log.info("[{}]  Final assertion for display size filter validation starting...", testName);
+        // [3.4] Nothing was verified, so the test must not pass.
+        Assert.assertTrue(verifiedProducts > 0, "No product could be verified for filter 'Screen Size' (product pages not captured).");
         softAssert.assertAll(); 
 	
 	}
@@ -681,10 +734,19 @@ public class AmazonTests extends BaseTest {
 
 
         List<Map<String, Object>> results = sharedFilterFlows.applyFilterAndValidateProductsWithResult(productPage.listProcessorSpeedOptionsBy(),"processorspeed");
+        // [3.4] Nothing was checked, so the test must not pass.
+        Assert.assertFalse(results == null || results.isEmpty(), "No products were checked for filter 'Processor Speed'.");
 
 
 
+        int verifiedProducts = 0;
         for (Map<String, Object> product : results) {
+            // [3.4] No details = the product page was not captured, so there is nothing to compare.
+            if (!genericUtility.isProductCaptured(product)) {
+                continue;
+            }
+            verifiedProducts++;
+
         	String filter = genericUtility.safeLower(product.get("filter"));
         	String title = genericUtility.safeLower(product.get("title"));
         	String keyFeatures = genericUtility.safeLower(product.get("keyFeatures"));
@@ -718,10 +780,12 @@ public class AmazonTests extends BaseTest {
         		softAssert.fail(failureMessage.toString());
         	} else {
         		log.info("[{}]  Filter '{}' matched in at least one section.", testName, filter);
-        		System.out.println(" Filter '" + filter + "' matched in at least one section of product details.");
+        		// [3.1] System.out.println(" Filter '" + filter + "' matched in at least one section of product details.");
         	}
         }
         log.info("[{}] Final assertion for processor speed filter validation starting...", testName);
+        // [3.4] Nothing was verified, so the test must not pass.
+        Assert.assertTrue(verifiedProducts > 0, "No product could be verified for filter 'Processor Speed' (product pages not captured).");
         softAssert.assertAll(); 
 		
 	}
@@ -766,10 +830,19 @@ public class AmazonTests extends BaseTest {
 
 
 		List<Map<String, Object>> results = sharedFilterFlows.applyFilterAndValidateProductsWithResult(productPage.listDisplayTypeOptionsBy() ,"displaytype");
+		// [3.4] Nothing was checked, so the test must not pass.
+		Assert.assertFalse(results == null || results.isEmpty(), "No products were checked for filter 'Display Type'.");
 
 
 
+		int verifiedProducts = 0;
 		for (Map<String, Object> product : results) {
+		    // [3.4] No details = the product page was not captured, so there is nothing to compare.
+		    if (!genericUtility.isProductCaptured(product)) {
+		        continue;
+		    }
+		    verifiedProducts++;
+
 			String filter = genericUtility.safeLower(product.get("filter"));
 			String title = genericUtility.safeLower(product.get("title"));
 			String keyFeatures = genericUtility.safeLower(product.get("keyFeatures"));
@@ -801,11 +874,13 @@ public class AmazonTests extends BaseTest {
 				softAssert.fail(failureMessage.toString());
 			} else {
 				log.info("[{}]  Filter '{}' matched in at least one section.", testName, filter);
-				System.out.println(" Filter '" + filter + "' matched in at least one section of product details.");
+				// [3.1] System.out.println(" Filter '" + filter + "' matched in at least one section of product details.");
 			}
 		}
 
 		log.info("[{}]  Final assertion for display type filter validation...", testName);
+		// [3.4] Nothing was verified, so the test must not pass.
+		Assert.assertTrue(verifiedProducts > 0, "No product could be verified for filter 'Display Type' (product pages not captured).");
 		softAssert.assertAll(); 
 	    
 		}
@@ -851,10 +926,19 @@ public class AmazonTests extends BaseTest {
 
 
 		  List<Map<String, Object>> results = operatingSystemFilterFlows.applyOperatingSystemFilterAndValidateProductsWithResults(productPage.listOperatingSystemVersionOptionsBy(), "operatingsystem");
+		  // [3.4] Nothing was checked, so the test must not pass.
+		  Assert.assertFalse(results == null || results.isEmpty(), "No products were checked for filter 'Operating System'.");
 
 
 
+		  int verifiedProducts = 0;
 		  for (Map<String, Object> product : results) {
+		      // [3.4] No details = the product page was not captured, so there is nothing to compare.
+		      if (!genericUtility.isProductCaptured(product)) {
+		          continue;
+		      }
+		      verifiedProducts++;
+
 			  String filter = genericUtility.safeLower(product.get("filter"));
 			  String title = genericUtility.safeLower(product.get("title"));
 			  String keyFeatures = genericUtility.safeLower(product.get("keyFeatures"));
@@ -887,11 +971,13 @@ public class AmazonTests extends BaseTest {
 				  softAssert.fail(failureMessage.toString());
 			  } else {
 				  log.info("[{}]  Filter '{}' matched in at least one section.", testName, filter);
-				  System.out.println("Filter '" + filter + "' matched in at least one section of product details.");
+				  // [3.1] System.out.println("Filter '" + filter + "' matched in at least one section of product details.");
 			  }
 		  }
 
 		  log.info("[{}]  Final assertion for OS Version filter validation...", testName);
+		  // [3.4] Nothing was verified, so the test must not pass.
+		  Assert.assertTrue(verifiedProducts > 0, "No product could be verified for filter 'Operating System' (product pages not captured).");
 		  softAssert.assertAll(); 
 		
 	}
@@ -938,10 +1024,19 @@ public class AmazonTests extends BaseTest {
 
 
 		List<Map<String, Object>> results = sharedFilterFlows.applyFilterAndValidateProductsWithResult(productPage.listMobilePhonePrimaryCameraResolutionOptionsBy(), "mobilephoneprimarycameraresolution");
+		// [3.4] Nothing was checked, so the test must not pass.
+		Assert.assertFalse(results == null || results.isEmpty(), "No products were checked for filter 'Mobile Phone Primary Camera Resolution'.");
 
 
 
+		int verifiedProducts = 0;
 		for (Map<String, Object> product : results) {
+		    // [3.4] No details = the product page was not captured, so there is nothing to compare.
+		    if (!genericUtility.isProductCaptured(product)) {
+		        continue;
+		    }
+		    verifiedProducts++;
+
 			String filter = genericUtility.safeLower(product.get("filter"));
 			String title = genericUtility.safeLower(product.get("title"));
 			String keyFeatures = genericUtility.safeLower(product.get("keyFeatures"));
@@ -974,11 +1069,13 @@ public class AmazonTests extends BaseTest {
 				softAssert.fail(failureMessage.toString());
 			} else {
 				log.info("[{}]  Filter '{}' matched in product details.", testName, filter);
-				System.out.println(" Filter '" + filter + "' matched in at least one section of product details.");
+				// [3.1] System.out.println(" Filter '" + filter + "' matched in at least one section of product details.");
 			}
 		}
 
 		log.info("[{}]  Final assertion for Camera Resolution filter validation...", testName);
+		// [3.4] Nothing was verified, so the test must not pass.
+		Assert.assertTrue(verifiedProducts > 0, "No product could be verified for filter 'Mobile Phone Primary Camera Resolution' (product pages not captured).");
 		softAssert.assertAll(); 
 		    
 	}
@@ -1026,10 +1123,19 @@ public class AmazonTests extends BaseTest {
 
 
 		List<Map<String, Object>> results = sharedFilterFlows.applyFilterAndValidateProductsWithResult(productPage.listDiscountOptionsBy(),"discount");
+		// [3.4] Nothing was checked, so the test must not pass.
+		Assert.assertFalse(results == null || results.isEmpty(), "No products were checked for filter 'Discount'.");
 
 
 
+		int verifiedProducts = 0;
 		for (Map<String, Object> product : results) {
+		    // [3.4] No details = the product page was not captured, so there is nothing to compare.
+		    if (!genericUtility.isProductCaptured(product)) {
+		        continue;
+		    }
+		    verifiedProducts++;
+
 			String filter = genericUtility.safeLower(product.get("filter"));
 			String title = genericUtility.safeLower(product.get("title"));
 			String keyFeatures = genericUtility.safeLower(product.get("keyFeatures"));
@@ -1061,11 +1167,13 @@ public class AmazonTests extends BaseTest {
 				softAssert.fail(failureMessage.toString());
 			} else {
 				log.info("[{}]  Filter '{}' matched in at least one product section.", testName, filter);
-				System.out.println("Filter '" + filter + "' matched in at least one section of product details.");
+				// [3.1] System.out.println("Filter '" + filter + "' matched in at least one section of product details.");
 			}
 		}
 
 		log.info("[{}]  Final assertion for Discount filter validation...", testName);
+		// [3.4] Nothing was verified, so the test must not pass.
+		Assert.assertTrue(verifiedProducts > 0, "No product could be verified for filter 'Discount' (product pages not captured).");
 		softAssert.assertAll(); 
 	}
 }

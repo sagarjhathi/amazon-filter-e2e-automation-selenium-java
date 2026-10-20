@@ -9,6 +9,7 @@ import java.util.concurrent.TimeoutException;
 import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.ThreadContext;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
@@ -183,7 +184,7 @@ public class GenericUtility extends ProductListingPage{
 	            "}                                        " +
 	            "return false;", element);
 
-	    } catch (Exception e) {
+	    } catch (WebDriverException e) {  // [3.2] was: catch (Exception e)
 	        return false;
 	    }
 	}
@@ -201,9 +202,52 @@ public class GenericUtility extends ProductListingPage{
             new WebDriverWait(driver, Duration.ofSeconds(10))
                     .until(ExpectedConditions.visibilityOfElementLocated(locator));
             return true;
-        } catch (Exception e) {
+        } catch (WebDriverException e) {  // [3.2] was: catch (Exception e)
             return false;
         }
+    }
+
+    // NEW (3.4): true when the product page was read, i.e. at least one of title, key features, about or
+    // technical details has text. No details at all means the page was NOT captured, so comparing it with
+    // the filter would only produce a false "mismatch".
+    public boolean isProductCaptured(Map<String, Object> product) {
+        boolean captured = !safeLower(product.get("title")).trim().isEmpty()
+                || !safeLower(product.get("keyFeatures")).trim().isEmpty()
+                || !safeLower(product.get("about")).trim().isEmpty()
+                || !safeLower(product.get("techDetails")).trim().isEmpty();
+
+        if (!captured) {
+            log.warn("[{}] Product not captured (no details), not counted as a mismatch. Filter: {}",
+                    ThreadContext.get("testName"), product.get("filter"));
+        }
+        return captured;
+    }
+
+    // NEW (3.4): true when the clicked filter option now shows as selected in the left navigation.
+    // If the click did not really apply the filter, the products on the page are not filtered, and checking them
+    // against the filter would produce false mismatches. Waits up to 10 seconds (same wait as isElementVisible).
+    public boolean isFilterApplied(String filterName, String filterValue) {
+        boolean applied = isElementVisible(getAppliedFilterByTypeAndName(filterName, filterValue));
+
+        if (!applied) {
+            log.error("[{}] Filter '{}' = '{}' does not show as applied", ThreadContext.get("testName"), filterName, filterValue);
+            ScreenshotUtil.capture(ThreadContext.get("logFileName"), filterValue, "Filter not applied");
+        }
+        return applied;
+    }
+
+    // NEW (3.3): for the delivery tests. Skips the test (with a reason) when a filter option is not on the page.
+    // "Visible" is enough here. The old isElementInViewport check also said "no" when the option was only
+    // covered or off-screen, and the test then ended as a pass.
+    public void skipIfFilterOptionMissing(By optionLocator, String optionName) {
+        if (isElementVisible(optionLocator)) {
+            return; // The option exists, so the test carries on.
+        }
+
+        String reason = "Filter option '" + optionName + "' not found on the results page; nothing was verified. "
+                + "URL: " + driver.getCurrentUrl() + " Title: '" + driver.getTitle() + "'.";
+        log.warn("[{}] {}", ThreadContext.get("testName"), reason);
+        throw new SkipException(reason);
     }
 
     // NEW: writes one WARN line that explains why an element could not be used, so the cause is
@@ -249,7 +293,8 @@ public class GenericUtility extends ProductListingPage{
 	        title.contains("service unavailable") || 
 	        title.contains("oops")) {
 	        
-	        System.out.println("Detected error page. Refreshing...");
+	        // [3.1] System.out.println("Detected error page. Refreshing...");
+	        log.info("[{}] {}", ThreadContext.get("testName"), "Detected error page. Refreshing...");
 	        driver.navigate().refresh();
 	    }
 	}
@@ -288,7 +333,7 @@ public class GenericUtility extends ProductListingPage{
                 log.warn("[{}] Element not found for locator: {}", ThreadContext.get("testName"), locator);
             }
 
-        } catch (Exception e) {
+        } catch (WebDriverException e) {  // [3.2] was: catch (Exception e)
             log.error("[{}] Error while scrolling to element: {} - {}", ThreadContext.get("testName"), locator, e.getMessage());
         }
     }    
@@ -311,7 +356,7 @@ public class GenericUtility extends ProductListingPage{
                         log.info("[{}] Successfully switched to new tab/window -> {}", ThreadContext.get("testName"), handle);
                         driver.close();
                         log.info("[{}] Closed the newly opened tab/window -> {}", ThreadContext.get("testName"), handle);
-                    } catch (Exception e) {
+                    } catch (WebDriverException e) {  // [3.2] was: catch (Exception e)
                         log.warn("[{}] Failed to close or switch to window handle -> {} due to {}", 
                                  ThreadContext.get("testName"), handle, e.getMessage());
                     }
@@ -322,7 +367,7 @@ public class GenericUtility extends ProductListingPage{
             driver.switchTo().window(originalWindow);
             log.info("[{}] Switched back to the original window -> {}", ThreadContext.get("testName"), originalWindow);
 
-        } catch (Exception e) {
+        } catch (WebDriverException e) {  // [3.2] was: catch (Exception e)
             log.error("[{}] Exception while closing current window and switching back: {}", 
                       ThreadContext.get("testName"), e.getMessage(), e);
         }
@@ -343,8 +388,9 @@ public class GenericUtility extends ProductListingPage{
 	            } else {
 	           
 	            }
-	        } catch (Exception e) {
-	            System.out.println("Exception while fetching element text: " + e.getMessage());
+	        } catch (WebDriverException e) {  // [3.2] was: catch (Exception e)
+	            // [3.1] System.out.println("Exception while fetching element text: " + e.getMessage());
+	            log.warn("[{}] {}", ThreadContext.get("testName"), "Exception while fetching element text: " + e.getMessage());
 	        }
 
 	        retryCount++;
@@ -430,13 +476,13 @@ public class GenericUtility extends ProductListingPage{
 
 	        wait.until(ExpectedConditions.numberOfWindowsToBe(beforeCount + 1));
 	        return true; // success
-	    } catch (Exception e) {
+	    } catch (WebDriverException e) {  // [3.2] was: catch (Exception e)
 	        
 	        try {
 	            element.click();
 	            wait.until(ExpectedConditions.numberOfWindowsToBe(beforeCount + 1));
 	            return true;
-	        } catch (Exception ex) {
+	        } catch (WebDriverException ex) {  // [3.2] was: catch (Exception ex)
 	            return false; 
 	        }
 	    }
@@ -476,13 +522,15 @@ public class GenericUtility extends ProductListingPage{
 
 		for (String handle : allWindowHandles) {
 			if (!handle.equals(currentWindowHandle)) {
-				System.out.println("Found the new window. Switching now...");
+				// [3.1] System.out.println("Found the new window. Switching now...");
+				log.info("[{}] {}", ThreadContext.get("testName"), "Found the new window. Switching now...");
 				driver.switchTo().window(handle);
 				return;
 			}
 		}
 
-		System.out.println("No new window found to switch to.");
+		// [3.1] System.out.println("No new window found to switch to.");
+		log.warn("[{}] No new window found to switch to.", ThreadContext.get("testName"));
 	}
  
  

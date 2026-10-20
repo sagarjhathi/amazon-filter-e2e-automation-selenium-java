@@ -10,6 +10,7 @@ import org.apache.logging.log4j.ThreadContext;
 import org.openqa.selenium.WebElement;
 
 import main.java.amazonfilterapplicatione2e.base.BasePage;
+import main.java.amazonfilterapplicatione2e.captcha.BlockerHandler;
 import main.java.amazonfilterapplicatione2e.logger.LoggerUtility;
 import main.java.amazonfilterapplicatione2e.pages.ProductListingPage;
 import main.java.amazonfilterapplicatione2e.safeActions.SafeActions;
@@ -35,6 +36,7 @@ public class PriceSliderFlows extends BasePage{
 		ProductListingPage productPage = new ProductListingPage();
 		GenericUtility genericUtility=new GenericUtility();
 		SafeActions safeAct = new SafeActions();
+		BlockerHandler blockerHandler = new BlockerHandler();
 		
 		
 		List<Map<String, Object>> results = new ArrayList<>();
@@ -66,6 +68,8 @@ public class PriceSliderFlows extends BasePage{
 				wait.until(d -> !d.getCurrentUrl().equals(urlBeforeApply)
 						&& d.getCurrentUrl().contains("low-price")
 						&& d.getCurrentUrl().contains("high-price"));
+						// [3.7] Clear a bot-check or error page, if one showed up after the slider was applied.
+						blockerHandler.clearBlockers();
 
 				String maxPriceApplied = safeAct.safeFindElement(productPage.maxPriceFilterAppliedBy()).getText();
 				String minPriceApplied = safeAct.safeFindElement(productPage.minPriceFilterAppliedBy()).getText();

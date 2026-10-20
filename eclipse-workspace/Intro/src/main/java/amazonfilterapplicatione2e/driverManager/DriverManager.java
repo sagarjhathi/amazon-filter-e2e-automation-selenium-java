@@ -4,6 +4,7 @@ import java.util.Locale;
 import org.apache.logging.log4j.Logger;
 
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
@@ -90,10 +91,10 @@ public class DriverManager  {
 					}
 
 					driver.set(firefoxDriver);
-					try { firefoxDriver.manage().deleteAllCookies(); } catch (Exception ignored) {}
+					try { firefoxDriver.manage().deleteAllCookies(); } catch (WebDriverException ignored) {}  // [3.2] was: catch (Exception ignored)
 
 					if (ConfigManager.getBoolean("firefox.startMaximized", true)) {
-						try { firefoxDriver.manage().window().maximize(); } catch (Exception ignored) {}
+						try { firefoxDriver.manage().window().maximize(); } catch (WebDriverException ignored) {}  // [3.2] was: catch (Exception ignored)
 					}
 					log.info("FirefoxDriver initialized successfully for thread: {}", Thread.currentThread().threadId());
 					break;
@@ -155,7 +156,7 @@ public class DriverManager  {
 						edgeDriver=GlobalGridUtility.createRemoteEdgeDriver(ConfigManager.get("edge.gridHubUrl"), edgeOptions);
 					}
 					driver.set(edgeDriver);
-					try { edgeDriver.manage().deleteAllCookies(); } catch (Exception ignored) {}
+					try { edgeDriver.manage().deleteAllCookies(); } catch (WebDriverException ignored) {}  // [3.2] was: catch (Exception ignored)
 					log.info("EdgeDriver initialized successfully for thread: {}", Thread.currentThread().threadId());
 					break;
 				}
@@ -222,7 +223,7 @@ public class DriverManager  {
 
 					driver.set(chromeDriver);
 
-					try { chromeDriver.manage().deleteAllCookies(); } catch (Exception ignored) {}
+					try { chromeDriver.manage().deleteAllCookies(); } catch (WebDriverException ignored) {}  // [3.2] was: catch (Exception ignored)
 					log.info("ChromeDriver initialized successfully for thread: {}", Thread.currentThread().threadId());
 					break;
 				}
@@ -251,7 +252,7 @@ public class DriverManager  {
 		if (currentDriver != null) {
 			try {
 				currentDriver.quit();
-			} catch (Exception e) {
+			} catch (WebDriverException e) {  // [3.2] was: catch (Exception e)
 
 			} finally {
 				driver.remove();

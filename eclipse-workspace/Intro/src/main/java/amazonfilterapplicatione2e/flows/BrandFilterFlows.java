@@ -9,9 +9,11 @@ import java.util.concurrent.TimeoutException;
 import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.ThreadContext;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.WebElement;
 
 import main.java.amazonfilterapplicatione2e.base.BasePage;
+import main.java.amazonfilterapplicatione2e.captcha.BlockerHandler;
 import main.java.amazonfilterapplicatione2e.configManager.ConfigManager;
 import main.java.amazonfilterapplicatione2e.logger.LoggerUtility;
 import main.java.amazonfilterapplicatione2e.pages.ProductListingPage;
@@ -28,11 +30,13 @@ public class BrandFilterFlows extends BasePage{
 	    private ProductListingPage productPage;
 	    private SafeActions safeAct;
 	    private GenericUtility genericUtility;
+	    private BlockerHandler blockerHandler;
 	
 	public BrandFilterFlows() {
         this.productPage = new ProductListingPage();
         this.safeAct = new SafeActions();
         this.genericUtility = new GenericUtility();
+        this.blockerHandler = new BlockerHandler();
     }
 	
 	
@@ -112,11 +116,19 @@ public class BrandFilterFlows extends BasePage{
 			String str = inloopParent.get(i).getText().trim();
 			// Soft-skip on click failure — one flaky/stale brand checkbox shouldn't fail the whole loop.
 			if (!safeAct.safeClickBooleanWithScreenShot(productPage.getFilterByTypeAndName(filterName, str),filterName,str)) {
-				System.out.println("Filter click failed for: " + str);
+				// [3.1] System.out.println("Filter click failed for: " + str);
 				log.info("[{}] Checking if The Filter is being applied else continuing to next filter , filter option ->"+str+"  ", ThreadContext.get("testName"));
 				continue;
 			}
 
+			// [3.4] The click must really apply the filter. If not, the products are not filtered and every check below would be wrong.
+			if (!genericUtility.isFilterApplied(filterName, str)) {
+			    safeAct.safeClick(productPage.clearButtonBy()); // undo the click
+			    continue;
+			}
+
+			// [3.7] Clear a bot-check or error page, if one showed up after the click.
+			blockerHandler.clearBlockers();
 			log.info("[" + ThreadContext.get("testName") + "] Clicked on " + str+"Within the filterOptions loop");
 
 			
@@ -174,7 +186,7 @@ public class BrandFilterFlows extends BasePage{
 					log.info("[" + ThreadContext.get("testName") + "] Clicked clear button for the filter ->"+str);
 
 				}
-			} catch (Exception e) {
+			} catch (WebDriverException e) {  // [3.2] was: catch (Exception e)
 				driver.navigate().back();
 				log.info("[" + ThreadContext.get("testName") + "] Cannot click clear button hence navigating back to fresh page for filter->"+str);
 

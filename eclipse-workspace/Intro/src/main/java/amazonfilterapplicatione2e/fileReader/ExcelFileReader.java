@@ -5,14 +5,18 @@ import java.io.IOException;
 import java.net.URL;
 import java.nio.file.Path;
 
+import org.apache.logging.log4j.Logger;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.DataFormatter;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.ss.usermodel.WorkbookFactory;
+import main.java.amazonfilterapplicatione2e.logger.LoggerUtility;
 
 public class ExcelFileReader {
+
+	private static final Logger log = LoggerUtility.getLogger(ExcelFileReader.class);
 
 	
     private Workbook workbook;
@@ -94,7 +98,8 @@ public class ExcelFileReader {
         try {
             if (workbook != null) workbook.close();
         } catch (IOException e) {
-            System.err.println("Failed to close workbook: " + e.getMessage());
+            // [3.1] System.err.println("Failed to close workbook: " + e.getMessage());
+            log.error("Failed to close workbook: {}", e.getMessage());
         }
     }
 
@@ -112,7 +117,8 @@ public class ExcelFileReader {
             return new File(resource.getPath());
         }
 
-        System.err.println("File not found: " + fileName);
+        // [3.1] System.err.println("File not found: " + fileName);
+        log.error("File not found: {}", fileName);
         return null;
     }
 	 

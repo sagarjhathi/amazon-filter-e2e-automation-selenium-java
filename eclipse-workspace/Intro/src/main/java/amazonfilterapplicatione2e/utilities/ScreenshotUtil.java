@@ -37,7 +37,8 @@ public class ScreenshotUtil {
 	        	
 	        	//creating a final uniqe image file name
 	        	String finalPath= screenShotPath + File.separator + ThreadContext.get("testNameShort")+System.nanoTime()+".png";
-	        	System.out.println(finalPath+"   -->> final path if param exist");
+	        	// [3.1] System.out.println(finalPath+"   -->> final path if param exist");
+	        	log.info("[{}] {}", ThreadContext.get("testName"), finalPath+"   -->> final path if param exist");
 	        		        	
 	       
 	        	// capture
@@ -46,10 +47,12 @@ public class ScreenshotUtil {
 	        		  if(ConfigManager.getBoolean("compressImage", false)) {
 	                  	try{
 	                  		String imageQuality=ConfigManager.get("imageCompressionQuality");
-	                  		System.out.println(imageQuality);
+	                  		// [3.1] System.out.println(imageQuality);
+	                  		log.info("[{}] Image compression quality (from config): {}", ThreadContext.get("testName"), imageQuality);
 	                  		
 	                  		double parseImageQuality=Double.parseDouble(imageQuality);
-	                  		System.out.println(parseImageQuality);
+	                  		// [3.1] System.out.println(parseImageQuality);
+	                  		log.info("[{}] Image compression quality (as number): {}", ThreadContext.get("testName"), parseImageQuality);
 	                  		ImageCompressor.compressImage(src, finalPath,parseImageQuality);
 	                  	  }catch(Exception e) {
 	                  		  log.warn("[{}] compression quality / compressImage method failed, handling it the default way[No compression].", ThreadContext.get("testName"));
@@ -64,7 +67,8 @@ public class ScreenshotUtil {
 	        	return finalPath;
 
 	        } catch (Exception e) {
-	            System.out.println("Screenshot failed: " + e.getMessage()+ThreadContext.get("testName"));
+	            // [3.1] System.out.println("Screenshot failed: " + e.getMessage()+ThreadContext.get("testName"));
+	            log.error("[{}] {}", ThreadContext.get("testName"), "Screenshot failed: " + e.getMessage());
 	            return null;
 	        }
 	        

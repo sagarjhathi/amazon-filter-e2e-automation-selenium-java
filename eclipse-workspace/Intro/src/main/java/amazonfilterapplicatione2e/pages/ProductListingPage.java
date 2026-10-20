@@ -50,7 +50,8 @@ public class ProductListingPage extends  BasePage{
 			new WebDriverWait(driver, timeout)
 					.until(ExpectedConditions.visibilityOfElementLocated(filterNameHeadingsBy));
 		} catch (TimeoutException e) {
-			System.out.println("EMPTY LISTTTTTTTTTT");
+			// [3.1] System.out.println("EMPTY LISTTTTTTTTTT");
+			log.warn("[{}] Filters panel did not appear in time, returning an empty list", ThreadContext.get("testName"));
 			return names; // empty list: the panel did not show up in time
 		}
 
@@ -245,7 +246,10 @@ public class ProductListingPage extends  BasePage{
 		case "Operating System Version":
 			return By.xpath("//span[@class='a-size-base a-color-base puis-bold-weight-text' and text()='Operating System Version']/parent::div/following-sibling::ul//span[@class='a-size-base a-color-base a-text-bold' and text()='"+ filterOption + "']");
 		case "brandsold":
-			return By.xpath("//ul[@id='filter-p_123']//span[@class='a-size-base a-color-base' and text()='"+ filterOption + "']");
+			// [3.7] OLD (this was the same as the click locator, so it could never match once the brand was selected):
+			// return By.xpath("//ul[@id='filter-p_123']//span[@class='a-size-base a-color-base' and text()='"+ filterOption + "']");
+			// A selected brand gets the extra class "a-text-bold" (checked on the live site), like the other filters.
+			return By.xpath("//ul[@id='filter-p_123']//span[@class='a-size-base a-color-base a-text-bold' and text()='"+ filterOption + "']");
 		case "screensize" :
 			return By.xpath("//span[@class='a-size-base a-color-base puis-bold-weight-text' and text()='Screen Size']/parent::div/following-sibling::ul//span[@class='a-size-base a-color-base a-text-bold' and text()='"+ filterOption + "']");
 		default:
