@@ -1,18 +1,23 @@
 package main.java.amazonfilterapplicatione2e.flows;
 
-import java.time.LocalDate; 
+import java.time.Duration;
+import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Locale;
 import java.util.Set;
 
 
 import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.ThreadContext;
 import org.openqa.selenium.By;
+import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import main.java.amazonfilterapplicatione2e.base.BasePage;
 import main.java.amazonfilterapplicatione2e.logger.LoggerUtility;
@@ -52,6 +57,19 @@ public class DeliveryFilterFlows extends BasePage{
 
 		log.info("[" + ThreadContext.get("testName") + "] Clicked on " + filterOptions);
 
+		// Make sure the option really shows as selected (Amazon makes a selected option bold).
+		// If the click did not work, the cards below are unfiltered and checking them proves nothing.
+		// OLD: built the selected locator by editing the clicked xpath text (hardcoded here)
+		// By selectedOption = By.xpath(filterOptions.toString().replace("By.xpath: ", "")
+		// 		.replace("a-color-base' and text", "a-color-base a-text-bold' and text"));
+		By selectedOption = productPage.getSelectedDeliveryOptionBy(filterOption);
+		try {
+			new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.presenceOfElementLocated(selectedOption));
+		} catch (TimeoutException e) {
+			log.error("[{}] '{}' is not shown as selected after clicking it", ThreadContext.get("testName"), filterOption);
+			return Arrays.asList(false, "'" + filterOption + "' was not shown as selected after clicking it", -1);
+		}
+
 
 
 		// Reads the whole card instead of the scoped data-cy='delivery-recipe' locator in
@@ -59,20 +77,52 @@ public class DeliveryFilterFlows extends BasePage{
 		// layout, so scoping to it would throw/skip on cards where it's missing.
 		List<WebElement> deliveryElements = safeAct.safeFindElements(productPage.listProductCardsBy);
 
-		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("E, dd MMM");
-		String todayFormatted = LocalDate.now().format(formatter);
-		String tomorrowFormatted = LocalDate.now().plusDays(1).format(formatter);
+		// No cards means nothing can be checked, so report it as a failure instead of "all valid".
+		if (deliveryElements == null || deliveryElements.isEmpty()) {
+			log.error("[{}] No product cards found after applying the delivery filter", ThreadContext.get("testName"));
+			return Arrays.asList(false, "No product cards were found after applying the filter", -1);
+		}
 
-		// Split into loose word/number fragments (not whole date strings) and matched with
-		// contains() below because Amazon's delivery text on the card is inconsistently
-		// formatted/dynamic — an exact or full-phrase match against the card text was too brittle.
+		// OLD: one shared set for all four tests, so a card could pass on another option's text
+		// DateTimeFormatter formatter = DateTimeFormatter.ofPattern("E, dd MMM");
+		// String todayFormatted = LocalDate.now().format(formatter);
+		// String tomorrowFormatted = LocalDate.now().plusDays(1).format(formatter);
+		// 
+		// // Split into loose word/number fragments (not whole date strings) and matched with
+		// // contains() below because Amazon's delivery text on the card is inconsistently
+		// // formatted/dynamic — an exact or full-phrase match against the card text was too brittle.
+		// Set<String> allowedDateParts = new HashSet<>();
+		// Collections.addAll(allowedDateParts, todayFormatted.replace(",", "").split(" "));
+		// Collections.addAll(allowedDateParts, tomorrowFormatted.replace(",", "").split(" "));
+		// allowedDateParts.add("Today");
+		// allowedDateParts.add("Tomorrow");
+		// // Not date-based — this method also backs the Free Delivery filter test, which has no date to check.
+		// allowedDateParts.add("FREE delivery");
+
+		// Each option accepts only its own text, so Tomorrow cannot pass on Today's text and so on.
+		// Dates are matched as day + month (e.g. "22 Oct"), which fits "Thu, 22 Oct" on the card.
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d MMM", Locale.ENGLISH);
+		String today = LocalDate.now().format(formatter);
+		String tomorrow = LocalDate.now().plusDays(1).format(formatter);
+		String inTwoDays = LocalDate.now().plusDays(2).format(formatter);
+
 		Set<String> allowedDateParts = new HashSet<>();
-		Collections.addAll(allowedDateParts, todayFormatted.replace(",", "").split(" "));
-		Collections.addAll(allowedDateParts, tomorrowFormatted.replace(",", "").split(" "));
-		allowedDateParts.add("Today");
-		allowedDateParts.add("Tomorrow");
-		// Not date-based — this method also backs the Free Delivery filter test, which has no date to check.
-		allowedDateParts.add("FREE delivery");
+		switch (filterOption) {
+		case "Get It By Today":
+			Collections.addAll(allowedDateParts, "Today", today);
+			break;
+		case "Get It by Tomorrow":
+			Collections.addAll(allowedDateParts, "Tomorrow", tomorrow);
+			break;
+		case "Get It in 2 Days":
+			allowedDateParts.add(inTwoDays);
+			break;
+		case "Eligible for Free Delivery":
+			allowedDateParts.add("FREE delivery");
+			break;
+		default:
+			throw new IllegalArgumentException("No allowed delivery text defined for: " + filterOption);
+		}
 
 		
 		

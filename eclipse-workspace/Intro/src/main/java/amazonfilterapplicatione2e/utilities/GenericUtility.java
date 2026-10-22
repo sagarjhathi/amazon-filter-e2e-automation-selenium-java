@@ -335,6 +335,26 @@ public class GenericUtility extends ProductListingPage{
 	    return value.toString().toLowerCase();
 	}
 
+ // Keeps only the products whose details were really read (the product page can fail to load,
+ // leaving title/features/about/tech all empty). Those would show up as false "filter not found" failures.
+ public List<Map<String, Object>> onlyCapturedProducts(List<Map<String, Object>> results, String testName) {
+	    List<Map<String, Object>> captured = new ArrayList<>();
+	    if (results == null) return captured;
+
+	    for (Map<String, Object> product : results) {
+	        String details = safeLower(product.get("title")) + safeLower(product.get("keyFeatures"))
+	                + safeLower(product.get("about")) + safeLower(product.get("techDetails"));
+
+	        if (details.trim().isEmpty()) {
+	            log.warn("[{}] Product details were not captured for filter '{}'. Not counting it as a mismatch.",
+	                    testName, product.get("filter"));
+	        } else {
+	            captured.add(product);
+	        }
+	    }
+	    return captured;
+	}
+
  
  
  

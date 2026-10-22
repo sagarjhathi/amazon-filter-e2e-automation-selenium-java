@@ -251,6 +251,27 @@ public class ProductListingPage extends  BasePage{
 			throw new IllegalArgumentException("Unknown filter type: " + filterName);
 		}
 	}
+
+	// The same delivery option once it is selected (Amazon makes a selected option bold: a-text-bold).
+	// filterOption is the name returned by getDeliveryDayFilterByName.
+	public By getSelectedDeliveryOptionBy(String filterOption) {
+		String deliveryDay = "//span[@class='a-size-base a-color-base puis-bold-weight-text' and text()='Delivery Day']"
+				+ "/parent::div/following-sibling::ul//span[@class='a-size-base a-color-base a-text-bold' and text()='";
+
+		switch (filterOption) {
+		case "Get It By Today":
+			return By.xpath(deliveryDay + "Get It Today']");
+		case "Get It by Tomorrow":
+			return By.xpath(deliveryDay + "Get It by Tomorrow']");
+		case "Get It in 2 Days":
+			return By.xpath(deliveryDay + "Get It in 2 Days']");
+		case "Eligible for Free Delivery":
+			return By.xpath("//span[@class='a-size-base a-color-base puis-bold-weight-text' and text()='Eligible for Free Delivery']"
+					+ "/parent::div/following-sibling::ul//span[@class='a-size-base a-color-base a-text-bold' and text()='Free Shipping']");
+		default:
+			throw new IllegalArgumentException("Unknown delivery option: " + filterOption);
+		}
+	}
 	    
 	
 	

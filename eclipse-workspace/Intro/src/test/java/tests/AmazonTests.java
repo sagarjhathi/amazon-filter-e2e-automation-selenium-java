@@ -27,6 +27,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
+import org.testng.SkipException;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
@@ -90,7 +91,8 @@ public class AmazonTests extends BaseTest {
         if (!genericUtility.isElementInViewport(productPage.getItByTomorrowUnderDeliveryDayFilterBy)) {
 		    System.out.println("Filter option 'Get It by Tomorrow' does not exist. Skipping the test.");
 		    log.warn("[{}]   Filter option 'Get It by Tomorrow' does not exist. Skipping the test.", testName);
-		    return;
+		    // OLD: return;   (TestNG counts a plain return as a PASS)
+		    throw new SkipException("Filter 'Get It by Tomorrow' is not available for the search term '" + input + "'");
 		}
         
 	
@@ -102,7 +104,7 @@ public class AmazonTests extends BaseTest {
 	    int productIndex = (int) result.get(2);
 	    
 	    log.info("[{}] Asserting delivery filter: isValid={}, index={}, text={}",testName, isValid, productIndex, productName);
-	    Assert.assertTrue(isValid,"Delivery date mismatch at index " + productIndex + ". Text: " + productName);
+	    Assert.assertTrue(isValid,"Delivery filter validation failed at index " + productIndex + ". Text: " + productName);
 	    System.out.println(isValid+"  Text from function =>"+productName+" index no is "+productIndex);      
 			
 		}
@@ -141,7 +143,8 @@ public class AmazonTests extends BaseTest {
  		if (!genericUtility.isElementInViewport(productPage.getItInTwoDaysUnderDeliveryDayFilterBy)) {
  		    System.out.println("Filter option 'Get It in 2 Days' does not exist. Skipping the test.");
  		    log.warn("[{}]  Filter option 'Get It in 2 Days' does not exist. Skipping the test.", testName);
- 		    return ;
+ 		    // OLD: return;   (TestNG counts a plain return as a PASS)
+ 		    throw new SkipException("Filter 'Get It in 2 Days' is not available for the search term '" + input + "'");
  		}                 
 		            	
 		List<Object> result = deliveryFilterFlows.validateDeliveryFilterOptionsWithResult(productPage.getItInTwoDaysUnderDeliveryDayFilterBy);
@@ -151,7 +154,7 @@ public class AmazonTests extends BaseTest {
 	    int productIndex = (int) result.get(2);
 	    
 	    log.info("[{}] Asserting delivery filter: isValid={}, index={}, text={}",testName, isValid, productIndex, productName);
-	    Assert.assertTrue(isValid,"Delivery date mismatch at index " + productIndex + ". Text: " + productName);
+	    Assert.assertTrue(isValid,"Delivery filter validation failed at index " + productIndex + ". Text: " + productName);
 	    System.out.println(isValid+"  Text from function =>"+productName+" index no is "+productIndex);      		
 	    
 		}
@@ -190,7 +193,8 @@ public class AmazonTests extends BaseTest {
  		if (!genericUtility.isElementInViewport(productPage.getItTodayUnderDeliveryDayFilterBy)) {
  		    System.out.println("Filter option 'Get It Today' does not exist. Skipping the test.");
  		   log.warn("[{}]  Filter option 'Get It Today' does not exist. Skipping the test.", ThreadContext.get("testName"));
- 		    return;
+ 		    // OLD: return;   (TestNG counts a plain return as a PASS)
+ 		    throw new SkipException("Filter 'Get It Today' is not available for the search term '" + input + "'");
  		}                   
 		            		
 		            		
@@ -201,7 +205,7 @@ public class AmazonTests extends BaseTest {
 	    int productIndex = (int) result.get(2);
 	    
 	    log.info("[{}] Asserting delivery filter: isValid={}, index={}, text={}",testName, isValid, productIndex, productName);
-	    Assert.assertTrue(isValid,"Delivery date mismatch at index " + productIndex + ". Text: " + productName);
+	    Assert.assertTrue(isValid,"Delivery filter validation failed at index " + productIndex + ". Text: " + productName);
 	    System.out.println(isValid+"  Text from function =>"+productName+" index no is "+productIndex);                 		  
 		            	    
 	    
@@ -237,7 +241,8 @@ public class AmazonTests extends BaseTest {
  		if (!genericUtility.isElementInViewport(productPage.eligibleForFreeDelivery)) {
  		    System.out.println("Filter option 'Eligible for Free Delivery does not. Skipping the test.");
  		   log.warn("[{}]  Filter option 'Eligible for Free Delivery' does not exist. Skipping the test.", ThreadContext.get("testName"));
- 		    return;
+ 		    // OLD: return;   (TestNG counts a plain return as a PASS)
+ 		    throw new SkipException("Filter 'Eligible for Free Delivery' is not available for the search term '" + input + "'");
  		}                   
 		            		
 		            		
@@ -248,7 +253,7 @@ public class AmazonTests extends BaseTest {
 	    int productIndex = (int) result.get(2);
 	    
 	    log.info("[{}] Asserting delivery filter: isValid={}, index={}, text={}",testName, isValid, productIndex, productName);
-	    Assert.assertTrue(isValid,"Delivery date mismatch at index " + productIndex + ". Text: " + productName);
+	    Assert.assertTrue(isValid,"Delivery filter validation failed at index " + productIndex + ". Text: " + productName);
 	    System.out.println(isValid+"  Text from function =>"+productName+" index no is "+productIndex);                 		  
 		            	    
 	    
@@ -287,7 +292,8 @@ public class AmazonTests extends BaseTest {
 		if (!genericUtility.filterCheckUnderList("brands")) {
 			System.out.println("Filter option 'brands' does not exist in the list. Skipping the test.");
 			log.warn("[{}] Filter option 'brands' does not exist in the list. Skipping the test.", testName);
-			return ;
+			// OLD: return;   (TestNG counts a plain return as a PASS)
+			throw new SkipException("Filter 'brands' is not available for the search term '" + input + "'");
 		}
 
 
@@ -301,6 +307,9 @@ public class AmazonTests extends BaseTest {
 			allResults = brandFilterFlows.applyFilterAndValidateBrandsFilterWithResult(productPage.listBrandsOptionsByNew, "brands");
 		}
 
+
+		// Nothing validated means the test checked nothing, so fail instead of passing.
+		Assert.assertTrue(allResults != null && !allResults.isEmpty(), "No products were validated for the filter 'brands' (search term '" + input + "')");
 
 		for (Map<Object, Object> result : allResults) {
 
@@ -363,13 +372,19 @@ public class AmazonTests extends BaseTest {
 		if (!genericUtility.filterCheckUnderList("Storage Capacity")) {
 			System.out.println("Filter option 'Storage Capacity' does not exist in the list. Skipping the test.");
 			log.warn("[{}]  Filter option 'Storage Capacity' does not exist in the list. Skipping the test.", ThreadContext.get("testName"));
-			return ;
+			// OLD: return;   (TestNG counts a plain return as a PASS)
+			throw new SkipException("Filter 'Storage Capacity' is not available for the search term '" + input + "'");
 		}
 
 
 		List<Map<String, Object>> results = sharedFilterFlows.applyFilterAndValidateProductsWithResult(productPage.listStorageCapacityOptionsBy,"storagecapacity");
 		log.info("[{}] Retrieved {} results from applyFilterAndValidateProductsWithResult.",testName,"And result size->" +results.size());
 		
+
+		// Drop products whose page details were not captured, so they are not reported as mismatches.
+		results = genericUtility.onlyCapturedProducts(results, testName);
+		// Nothing validated means the test checked nothing, so fail instead of passing.
+		Assert.assertTrue(results != null && !results.isEmpty(), "No products were validated for the filter 'Storage Capacity' (search term '" + input + "')");
 
 		for (Map<String, Object> product : results) {
 			String filter = genericUtility.safeLower(product.get("filter"));
@@ -444,7 +459,8 @@ public class AmazonTests extends BaseTest {
 		if (!genericUtility.filterCheckUnderList("Price")) {
 			System.out.println("Filter option 'Price' does not exist in the list. Skipping the test.");
 			log.warn("[{}]   Filter option 'Price' does not exist in the list. Skipping the test.", testName);
-			return ;
+			// OLD: return;   (TestNG counts a plain return as a PASS)
+			throw new SkipException("Filter 'Price' is not available for the search term '" + str + "'");
 		}
 
 		List<Integer> minValues = Arrays.asList(61, 91, 131);
@@ -453,6 +469,9 @@ public class AmazonTests extends BaseTest {
 
 		List<Map<String, Object>> results = priceSliderFlows.applyPriceSliderAndValidateWithResult(minValues, maxValues);
 
+
+		// Nothing validated means the test checked nothing, so fail instead of passing.
+		Assert.assertTrue(results != null && !results.isEmpty(), "No products were validated for the filter 'Price' (search term '" + str + "')");
 
 		for (Map<String, Object> result : results) {
 			boolean isValid = (boolean) result.get("isValid");
@@ -513,7 +532,8 @@ public class AmazonTests extends BaseTest {
 		if (!genericUtility.filterCheckUnderList("Battery Capacity")) {
 			log.warn("[{}]  Filter option 'Battery Capacity' does not exist in the list. Skipping the test.", testName);
 			System.out.println("Filter option 'Battery Capacity' does not exist in the list. Skipping the test.");
-			return ;
+			// OLD: return;   (TestNG counts a plain return as a PASS)
+			throw new SkipException("Filter 'Battery Capacity' is not available for the search term '" + input + "'");
 		}
 
 
@@ -525,6 +545,11 @@ public class AmazonTests extends BaseTest {
 		if(results.size()==0) {
 			softAssert.fail();
 		}
+		// Drop products whose page details were not captured, so they are not reported as mismatches.
+		results = genericUtility.onlyCapturedProducts(results, testName);
+		// Nothing validated means the test checked nothing, so fail instead of passing.
+		Assert.assertTrue(results != null && !results.isEmpty(), "No products were validated for the filter 'Battery Capacity' (search term '" + input + "')");
+
 		for (Map<String, Object> product : results) {
 			String filter = genericUtility.safeLower(product.get("filter"));
 			String title = genericUtility.safeLower(product.get("title"));
@@ -598,7 +623,8 @@ public class AmazonTests extends BaseTest {
         if (!genericUtility.filterCheckUnderList("Screen Size")) {
         	log.warn("[{}]  Filter option 'Display Size' does not exist in the list. Skipping the test.", testName);
         	System.out.println("Filter option 'Display Size' does not exist in the list. Skipping the test.");
-        	return ;
+        	// OLD: return;   (TestNG counts a plain return as a PASS)
+        	throw new SkipException("Filter 'Display Size' is not available for the search term '" + input + "'");
         }
 
 
@@ -606,6 +632,11 @@ public class AmazonTests extends BaseTest {
         List<Map<String, Object>> results = sharedFilterFlows.applyFilterAndValidateProductsWithResult(productPage.listDisplaySizeOptionsBy,"screensize");
 
 
+
+        // Drop products whose page details were not captured, so they are not reported as mismatches.
+        results = genericUtility.onlyCapturedProducts(results, testName);
+        // Nothing validated means the test checked nothing, so fail instead of passing.
+        Assert.assertTrue(results != null && !results.isEmpty(), "No products were validated for the filter 'Display Size' (search term '" + input + "')");
 
         for (Map<String, Object> product : results) {
         	String filter = genericUtility.safeLower(product.get("filter"));
@@ -684,7 +715,8 @@ public class AmazonTests extends BaseTest {
 
         if (!genericUtility.filterCheckUnderList("Processor Speed")) {
         	log.warn("[{}]  Filter option 'Processor Speed' not available. Skipping test.", testName);
-        	return ;
+        	// OLD: return;   (TestNG counts a plain return as a PASS)
+        	throw new SkipException("Filter 'Processor Speed' is not available for the search term '" + input + "'");
         }
 
 
@@ -692,6 +724,11 @@ public class AmazonTests extends BaseTest {
         List<Map<String, Object>> results = sharedFilterFlows.applyFilterAndValidateProductsWithResult(productPage.listProcessorSpeedOptionsBy,"processorspeed");
 
 
+
+        // Drop products whose page details were not captured, so they are not reported as mismatches.
+        results = genericUtility.onlyCapturedProducts(results, testName);
+        // Nothing validated means the test checked nothing, so fail instead of passing.
+        Assert.assertTrue(results != null && !results.isEmpty(), "No products were validated for the filter 'Processor Speed' (search term '" + input + "')");
 
         for (Map<String, Object> product : results) {
         	String filter = genericUtility.safeLower(product.get("filter"));
@@ -768,13 +805,19 @@ public class AmazonTests extends BaseTest {
 		if (!genericUtility.filterCheckUnderList("Display Type")){
 			System.out.println("Filter option 'Display Type' does not exist. Skipping the test.");
 			log.warn("[{}]  Filter option 'Display Type' does not exist. Skipping the test.", testName);
-			return ;
+			// OLD: return;   (TestNG counts a plain return as a PASS)
+			throw new SkipException("Filter 'Display Type' is not available for the search term '" + input + "'");
 		}
 
 
 		List<Map<String, Object>> results = sharedFilterFlows.applyFilterAndValidateProductsWithResult(productPage.listDisplayTypeOptionsBy ,"displaytype");
 
 
+
+		// Drop products whose page details were not captured, so they are not reported as mismatches.
+		results = genericUtility.onlyCapturedProducts(results, testName);
+		// Nothing validated means the test checked nothing, so fail instead of passing.
+		Assert.assertTrue(results != null && !results.isEmpty(), "No products were validated for the filter 'Display Type' (search term '" + input + "')");
 
 		for (Map<String, Object> product : results) {
 			String filter = genericUtility.safeLower(product.get("filter"));
@@ -850,7 +893,8 @@ public class AmazonTests extends BaseTest {
 		  if (!genericUtility.filterCheckUnderList("Operating System", "Operating System Version")) {
 			  System.out.println("Filter option 'Operating System' or 'Operating System Version' does not exist in the list. Skipping the test.");
 			  log.warn("[{}]  Filter option 'Operating System' or 'Operating System Version' not found. Skipping test.", ThreadContext.get("testName"));
-			  return;
+			  // OLD: return;   (TestNG counts a plain return as a PASS)
+			  throw new SkipException("Filter 'Operating System' is not available for the search term '" + input + "'");
 		  }
 
 
@@ -858,6 +902,11 @@ public class AmazonTests extends BaseTest {
 		  List<Map<String, Object>> results = operatingSystemFilterFlows.applyOperatingSystemFilterAndValidateProductsWithResults(productPage.listOperatingSystemVersionOptionsBy, "operatingsystem");
 
 
+
+		  // Drop products whose page details were not captured, so they are not reported as mismatches.
+		  results = genericUtility.onlyCapturedProducts(results, testName);
+		  // Nothing validated means the test checked nothing, so fail instead of passing.
+		  Assert.assertTrue(results != null && !results.isEmpty(), "No products were validated for the filter 'Operating System' (search term '" + input + "')");
 
 		  for (Map<String, Object> product : results) {
 			  String filter = genericUtility.safeLower(product.get("filter"));
@@ -935,7 +984,8 @@ public class AmazonTests extends BaseTest {
 			System.out.println("Filter option 'Mobile Phone Primary Camera Resolution' does not exist in the list. Skipping the test.");
 			log.warn("[{}]   Filter 'Mobile Phone Primary Camera Resolution' not found. Skipping test.",
 					ThreadContext.get("testName"));
-			return;
+			// OLD: return;   (TestNG counts a plain return as a PASS)
+			throw new SkipException("Filter 'Mobile Phone Primary Camera Resolution' is not available for the search term '" + input + "'");
 		}
 
 
@@ -943,6 +993,11 @@ public class AmazonTests extends BaseTest {
 		List<Map<String, Object>> results = sharedFilterFlows.applyFilterAndValidateProductsWithResult(productPage.listMobilePhonePrimaryCameraResolutionOptionsBy, "mobilephoneprimarycameraresolution");
 
 
+
+		// Drop products whose page details were not captured, so they are not reported as mismatches.
+		results = genericUtility.onlyCapturedProducts(results, testName);
+		// Nothing validated means the test checked nothing, so fail instead of passing.
+		Assert.assertTrue(results != null && !results.isEmpty(), "No products were validated for the filter 'Mobile Phone Primary Camera Resolution' (search term '" + input + "')");
 
 		for (Map<String, Object> product : results) {
 			String filter = genericUtility.safeLower(product.get("filter"));
@@ -1020,7 +1075,8 @@ public class AmazonTests extends BaseTest {
 		if (!genericUtility.filterCheckUnderList("Discount")) {
 			log.warn("[{}]   Filter 'Discount' not available. Skipping test.", ThreadContext.get("testName"));
 			System.out.println("Filter option 'Discount' does not exist in the list. Skipping the test.");
-			return ;
+			// OLD: return;   (TestNG counts a plain return as a PASS)
+			throw new SkipException("Filter 'Discount' is not available for the search term '" + input + "'");
 		}
 
 
@@ -1029,6 +1085,11 @@ public class AmazonTests extends BaseTest {
 		List<Map<String, Object>> results = sharedFilterFlows.applyFilterAndValidateProductsWithResult(productPage.listDiscountOptionsBy,"discount");
 
 
+
+		// Drop products whose page details were not captured, so they are not reported as mismatches.
+		results = genericUtility.onlyCapturedProducts(results, testName);
+		// Nothing validated means the test checked nothing, so fail instead of passing.
+		Assert.assertTrue(results != null && !results.isEmpty(), "No products were validated for the filter 'Discount' (search term '" + input + "')");
 
 		for (Map<String, Object> product : results) {
 			String filter = genericUtility.safeLower(product.get("filter"));

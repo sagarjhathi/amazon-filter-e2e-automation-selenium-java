@@ -52,12 +52,16 @@ public class TestListenerUpdated implements ITestListener{
             ReportManager.getTest().warning(result.getThrowable());
         } else {
             ReportManager.getTest().skip("Test Skipped");
-            ReportManager.getTest().fail(result.getThrowable());
+            // OLD: ReportManager.getTest().fail(result.getThrowable());   (marked the skipped test as Failed in Extent)
+            // Show the skip reason (the SkipException message) as info, so the test stays Skipped.
+            if (result.getThrowable() != null) {
+                ReportManager.getTest().info("Skip reason: " + result.getThrowable().getMessage());
+            }
         }
         Attachers.attachAllLogFolders(ThreadContext.get("testName"));
         Attachers.attachAllImageFolders(ThreadContext.get("testName"));
     }
-    
+
     @Override
     public void onFinish(ITestContext context) {
         ReportManager.flush();
