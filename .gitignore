@@ -25,3 +25,8 @@ eclipse-workspace/.settings/
 eclipse-workspace/.metadata/
 /.metadata/
 eclipse-workspace/Intro/.classpath
+
+# Eclipse project files: machine specific, so they are not shared (they were tracked before; now untracked)
+.classpath
+.project
+.settings/

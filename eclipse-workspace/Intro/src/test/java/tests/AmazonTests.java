@@ -59,7 +59,8 @@ public class AmazonTests extends BaseTest {
 	
 	
 	@Test(
-		    dataProvider = "ExcelData",
+		    // OLD: dataProvider = "ExcelData",   (every search term from Products.xlsx)
+		    dataProvider = "TestRuns",   // the search terms for this test come from data/testInputs.json
 		    dataProviderClass = TestDataProvider.class, groups = { "DeliveryPriceOs" }
 		)
 	public void verifyingGetItByTomorrowFilterFunctionality(String input) throws InterruptedException, TimeoutException{
@@ -109,7 +110,8 @@ public class AmazonTests extends BaseTest {
 	
 
 	@Test(
-		    dataProvider = "ExcelData",
+		    // OLD: dataProvider = "ExcelData",   (every search term from Products.xlsx)
+		    dataProvider = "TestRuns",   // the search terms for this test come from data/testInputs.json
 		    dataProviderClass = TestDataProvider.class,groups = { "DeliveryPriceOs" }
 		)
 	public void verifyingGetItIn2DaysFilterFunctionality(String input) throws InterruptedException, TimeoutException{
@@ -158,7 +160,8 @@ public class AmazonTests extends BaseTest {
 
 
 	@Test(
-		    dataProvider = "ExcelData",
+		    // OLD: dataProvider = "ExcelData",   (every search term from Products.xlsx)
+		    dataProvider = "TestRuns",   // the search terms for this test come from data/testInputs.json
 		    dataProviderClass = TestDataProvider.class, groups = { "DeliveryPriceOs" }
 		)
 	public void verifyingGetItByTodayFilterFunctionality(String input) throws InterruptedException, TimeoutException{
@@ -207,7 +210,8 @@ public class AmazonTests extends BaseTest {
 	
 	
 	@Test(
-		    dataProvider = "ExcelData",
+		    // OLD: dataProvider = "ExcelData",   (every search term from Products.xlsx)
+		    dataProvider = "TestRuns",   // the search terms for this test come from data/testInputs.json
 		    dataProviderClass = TestDataProvider.class, groups = { "DeliveryPriceOs" }
 		)
 	public void verifyingFreeDeliveryFilterFunctionality(String input) throws InterruptedException, TimeoutException{
@@ -253,7 +257,8 @@ public class AmazonTests extends BaseTest {
 	
 	
 	@Test(
-		    dataProvider = "ExcelData",
+		    // OLD: dataProvider = "ExcelData",   (every search term from Products.xlsx)
+		    dataProvider = "TestRuns",   // the search terms for this test come from data/testInputs.json
 		    dataProviderClass = TestDataProvider.class, groups = { "BrandsScreenSizeTypeCamEtc" }
 		)
 	public void verifyingTheBrandsFilterFunctionality(String input) throws InterruptedException, TimeoutException {
@@ -326,7 +331,8 @@ public class AmazonTests extends BaseTest {
 	
 
 	@Test(
-		    dataProvider = "ExcelData",
+		    // OLD: dataProvider = "ExcelData",   (every search term from Products.xlsx)
+		    dataProvider = "TestRuns",   // the search terms for this test come from data/testInputs.json
 		    dataProviderClass = TestDataProvider.class, groups = { "BatteryProcessorStorage" }
 		)
 	public void verifyingStorageCapacityFilterFunctionality(String input) throws InterruptedException, TimeoutException {
@@ -407,7 +413,8 @@ public class AmazonTests extends BaseTest {
 	
 	
 	@Test(
-		    dataProvider = "ExcelData",
+		    // OLD: dataProvider = "ExcelData",   (every search term from Products.xlsx)
+		    dataProvider = "TestRuns",   // the search terms for this test come from data/testInputs.json
 		    dataProviderClass = TestDataProvider.class, groups = { "DeliveryPriceOs" }
 		)
 	public void verifyingPriceSilderFunctionality(String str) throws InterruptedException {
@@ -478,7 +485,8 @@ public class AmazonTests extends BaseTest {
 	
 
 	@Test(
-		    dataProvider = "ExcelData",
+		    // OLD: dataProvider = "ExcelData",   (every search term from Products.xlsx)
+		    dataProvider = "TestRuns",   // the search terms for this test come from data/testInputs.json
 		    dataProviderClass = TestDataProvider.class, groups = { "BatteryProcessorStorage" }
 		)
 	public void verifyingBatteryCapacityFilterFunctionality(String input) throws InterruptedException, TimeoutException {
@@ -561,7 +569,8 @@ public class AmazonTests extends BaseTest {
 	
 
 	@Test(
-		    dataProvider = "ExcelData",
+		    // OLD: dataProvider = "ExcelData",   (every search term from Products.xlsx)
+		    dataProvider = "TestRuns",   // the search terms for this test come from data/testInputs.json
 		    dataProviderClass = TestDataProvider.class, groups = { "BrandsScreenSizeTypeCamEtc" }
 		)
 	public void verifyingDisplaySizeFilterFunctionality(String input) throws InterruptedException, TimeoutException {
@@ -645,7 +654,8 @@ public class AmazonTests extends BaseTest {
 	
 
 	@Test(
-		    dataProvider = "ExcelData",
+		    // OLD: dataProvider = "ExcelData",   (every search term from Products.xlsx)
+		    dataProvider = "TestRuns",   // the search terms for this test come from data/testInputs.json
 		    dataProviderClass = TestDataProvider.class, groups = { "BatteryProcessorStorage" }
 		)
 	public void verifyingProcessorSpeedFilterFunctionality(String input) throws InterruptedException, TimeoutException {
@@ -728,7 +738,8 @@ public class AmazonTests extends BaseTest {
 	
 
 	@Test(
-		    dataProvider = "ExcelData",
+		    // OLD: dataProvider = "ExcelData",   (every search term from Products.xlsx)
+		    dataProvider = "TestRuns",   // the search terms for this test come from data/testInputs.json
 		    dataProviderClass = TestDataProvider.class, groups = { "BrandsScreenSizeTypeCamEtc" }
 		)
 	public void verifyingDisplayTypeFilterFunctionality(String input) throws InterruptedException, TimeoutException {
@@ -809,7 +820,8 @@ public class AmazonTests extends BaseTest {
 	
 
 	@Test(
-		    dataProvider = "ExcelData",
+		    // OLD: dataProvider = "ExcelData",   (every search term from Products.xlsx)
+		    dataProvider = "TestRuns",   // the search terms for this test come from data/testInputs.json
 		    dataProviderClass = TestDataProvider.class, groups = { "DeliveryPriceOs" }
 		)
 	public void verifyingOperatingSystemVersionFilterFunctionality(String input) throws InterruptedException, TimeoutException {
@@ -892,7 +904,8 @@ public class AmazonTests extends BaseTest {
 	
 
 	@Test(
-		    dataProvider = "ExcelData",
+		    // OLD: dataProvider = "ExcelData",   (every search term from Products.xlsx)
+		    dataProvider = "TestRuns",   // the search terms for this test come from data/testInputs.json
 		    dataProviderClass = TestDataProvider.class, groups = { "BrandsScreenSizeTypeCamEtc" }
 		)
 	public void verifyingMobilePhonePrimaryCameraResolutionFilterFunctionality(String input) throws InterruptedException, TimeoutException {
@@ -976,7 +989,8 @@ public class AmazonTests extends BaseTest {
 	
 
 	@Test(
-		    dataProvider = "ExcelData",
+		    // OLD: dataProvider = "ExcelData",   (every search term from Products.xlsx)
+		    dataProvider = "TestRuns",   // the search terms for this test come from data/testInputs.json
 		    dataProviderClass = TestDataProvider.class, groups = { "BatteryProcessorStorage" }
 		)
 	public void verifyingDiscountFilterFunctionality(String input) throws InterruptedException, TimeoutException {
