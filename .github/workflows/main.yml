@@ -188,6 +188,16 @@ jobs:
           npm install -g allure-commandline
           allure generate allure-results/BatteryProcessorStorage allure-results/BrandsScreenSizeTypeCamEtc allure-results/DeliveryPriceOs --clean --report-name "Amazon Filter E2E - Selenium + Java Report" -o allure-report
 
+      # Same merged report as ONE self-contained html file, downloadable from the run's Artifacts section.
+      - name: Generate single-file merged Allure report
+        run: allure generate allure-results/BatteryProcessorStorage allure-results/BrandsScreenSizeTypeCamEtc allure-results/DeliveryPriceOs --clean --single-file --report-name "Amazon Filter E2E - Selenium + Java Report" -o allure-report-single
+
+      - name: Upload merged Allure report
+        uses: actions/upload-artifact@v4
+        with:
+          name: allure-report-merged
+          path: allure-report-single
+          retention-days: 30
 
       - name: Enable long paths (Windows)
         shell: pwsh
