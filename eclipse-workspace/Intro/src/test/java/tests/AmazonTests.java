@@ -104,7 +104,7 @@ public class AmazonTests extends BaseTest {
 	    int productIndex = (int) result.get(2);
 	    
 	    log.info("[{}] Asserting delivery filter: isValid={}, index={}, text={}",testName, isValid, productIndex, productName);
-	    Assert.assertTrue(isValid,"Delivery date mismatch at index " + productIndex + ". Text: " + productName);
+	    Assert.assertTrue(isValid,"Delivery filter validation failed at index " + productIndex + ". Text: " + productName);
 	    System.out.println(isValid+"  Text from function =>"+productName+" index no is "+productIndex);      
 			
 		}
@@ -154,7 +154,7 @@ public class AmazonTests extends BaseTest {
 	    int productIndex = (int) result.get(2);
 	    
 	    log.info("[{}] Asserting delivery filter: isValid={}, index={}, text={}",testName, isValid, productIndex, productName);
-	    Assert.assertTrue(isValid,"Delivery date mismatch at index " + productIndex + ". Text: " + productName);
+	    Assert.assertTrue(isValid,"Delivery filter validation failed at index " + productIndex + ". Text: " + productName);
 	    System.out.println(isValid+"  Text from function =>"+productName+" index no is "+productIndex);      		
 	    
 		}
@@ -205,7 +205,7 @@ public class AmazonTests extends BaseTest {
 	    int productIndex = (int) result.get(2);
 	    
 	    log.info("[{}] Asserting delivery filter: isValid={}, index={}, text={}",testName, isValid, productIndex, productName);
-	    Assert.assertTrue(isValid,"Delivery date mismatch at index " + productIndex + ". Text: " + productName);
+	    Assert.assertTrue(isValid,"Delivery filter validation failed at index " + productIndex + ". Text: " + productName);
 	    System.out.println(isValid+"  Text from function =>"+productName+" index no is "+productIndex);                 		  
 		            	    
 	    
@@ -253,7 +253,7 @@ public class AmazonTests extends BaseTest {
 	    int productIndex = (int) result.get(2);
 	    
 	    log.info("[{}] Asserting delivery filter: isValid={}, index={}, text={}",testName, isValid, productIndex, productName);
-	    Assert.assertTrue(isValid,"Delivery date mismatch at index " + productIndex + ". Text: " + productName);
+	    Assert.assertTrue(isValid,"Delivery filter validation failed at index " + productIndex + ". Text: " + productName);
 	    System.out.println(isValid+"  Text from function =>"+productName+" index no is "+productIndex);                 		  
 		            	    
 	    
@@ -307,6 +307,9 @@ public class AmazonTests extends BaseTest {
 			allResults = brandFilterFlows.applyFilterAndValidateBrandsFilterWithResult(productPage.listBrandsOptionsByNew, "brands");
 		}
 
+
+		// Nothing validated means the test checked nothing, so fail instead of passing.
+		Assert.assertTrue(allResults != null && !allResults.isEmpty(), "No products were validated for the filter 'brands' (search term '" + input + "')");
 
 		for (Map<Object, Object> result : allResults) {
 
@@ -377,6 +380,11 @@ public class AmazonTests extends BaseTest {
 		List<Map<String, Object>> results = sharedFilterFlows.applyFilterAndValidateProductsWithResult(productPage.listStorageCapacityOptionsBy,"storagecapacity");
 		log.info("[{}] Retrieved {} results from applyFilterAndValidateProductsWithResult.",testName,"And result size->" +results.size());
 		
+
+		// Drop products whose page details were not captured, so they are not reported as mismatches.
+		results = genericUtility.onlyCapturedProducts(results, testName);
+		// Nothing validated means the test checked nothing, so fail instead of passing.
+		Assert.assertTrue(results != null && !results.isEmpty(), "No products were validated for the filter 'Storage Capacity' (search term '" + input + "')");
 
 		for (Map<String, Object> product : results) {
 			String filter = genericUtility.safeLower(product.get("filter"));
@@ -462,6 +470,9 @@ public class AmazonTests extends BaseTest {
 		List<Map<String, Object>> results = priceSliderFlows.applyPriceSliderAndValidateWithResult(minValues, maxValues);
 
 
+		// Nothing validated means the test checked nothing, so fail instead of passing.
+		Assert.assertTrue(results != null && !results.isEmpty(), "No products were validated for the filter 'Price' (search term '" + str + "')");
+
 		for (Map<String, Object> result : results) {
 			boolean isValid = (boolean) result.get("isValid");
 			int min = (int) result.get("min");
@@ -534,6 +545,11 @@ public class AmazonTests extends BaseTest {
 		if(results.size()==0) {
 			softAssert.fail();
 		}
+		// Drop products whose page details were not captured, so they are not reported as mismatches.
+		results = genericUtility.onlyCapturedProducts(results, testName);
+		// Nothing validated means the test checked nothing, so fail instead of passing.
+		Assert.assertTrue(results != null && !results.isEmpty(), "No products were validated for the filter 'Battery Capacity' (search term '" + input + "')");
+
 		for (Map<String, Object> product : results) {
 			String filter = genericUtility.safeLower(product.get("filter"));
 			String title = genericUtility.safeLower(product.get("title"));
@@ -616,6 +632,11 @@ public class AmazonTests extends BaseTest {
         List<Map<String, Object>> results = sharedFilterFlows.applyFilterAndValidateProductsWithResult(productPage.listDisplaySizeOptionsBy,"screensize");
 
 
+
+        // Drop products whose page details were not captured, so they are not reported as mismatches.
+        results = genericUtility.onlyCapturedProducts(results, testName);
+        // Nothing validated means the test checked nothing, so fail instead of passing.
+        Assert.assertTrue(results != null && !results.isEmpty(), "No products were validated for the filter 'Display Size' (search term '" + input + "')");
 
         for (Map<String, Object> product : results) {
         	String filter = genericUtility.safeLower(product.get("filter"));
@@ -704,6 +725,11 @@ public class AmazonTests extends BaseTest {
 
 
 
+        // Drop products whose page details were not captured, so they are not reported as mismatches.
+        results = genericUtility.onlyCapturedProducts(results, testName);
+        // Nothing validated means the test checked nothing, so fail instead of passing.
+        Assert.assertTrue(results != null && !results.isEmpty(), "No products were validated for the filter 'Processor Speed' (search term '" + input + "')");
+
         for (Map<String, Object> product : results) {
         	String filter = genericUtility.safeLower(product.get("filter"));
         	String title = genericUtility.safeLower(product.get("title"));
@@ -788,6 +814,11 @@ public class AmazonTests extends BaseTest {
 
 
 
+		// Drop products whose page details were not captured, so they are not reported as mismatches.
+		results = genericUtility.onlyCapturedProducts(results, testName);
+		// Nothing validated means the test checked nothing, so fail instead of passing.
+		Assert.assertTrue(results != null && !results.isEmpty(), "No products were validated for the filter 'Display Type' (search term '" + input + "')");
+
 		for (Map<String, Object> product : results) {
 			String filter = genericUtility.safeLower(product.get("filter"));
 			String title = genericUtility.safeLower(product.get("title"));
@@ -871,6 +902,11 @@ public class AmazonTests extends BaseTest {
 		  List<Map<String, Object>> results = operatingSystemFilterFlows.applyOperatingSystemFilterAndValidateProductsWithResults(productPage.listOperatingSystemVersionOptionsBy, "operatingsystem");
 
 
+
+		  // Drop products whose page details were not captured, so they are not reported as mismatches.
+		  results = genericUtility.onlyCapturedProducts(results, testName);
+		  // Nothing validated means the test checked nothing, so fail instead of passing.
+		  Assert.assertTrue(results != null && !results.isEmpty(), "No products were validated for the filter 'Operating System' (search term '" + input + "')");
 
 		  for (Map<String, Object> product : results) {
 			  String filter = genericUtility.safeLower(product.get("filter"));
@@ -958,6 +994,11 @@ public class AmazonTests extends BaseTest {
 
 
 
+		// Drop products whose page details were not captured, so they are not reported as mismatches.
+		results = genericUtility.onlyCapturedProducts(results, testName);
+		// Nothing validated means the test checked nothing, so fail instead of passing.
+		Assert.assertTrue(results != null && !results.isEmpty(), "No products were validated for the filter 'Mobile Phone Primary Camera Resolution' (search term '" + input + "')");
+
 		for (Map<String, Object> product : results) {
 			String filter = genericUtility.safeLower(product.get("filter"));
 			String title = genericUtility.safeLower(product.get("title"));
@@ -1044,6 +1085,11 @@ public class AmazonTests extends BaseTest {
 		List<Map<String, Object>> results = sharedFilterFlows.applyFilterAndValidateProductsWithResult(productPage.listDiscountOptionsBy,"discount");
 
 
+
+		// Drop products whose page details were not captured, so they are not reported as mismatches.
+		results = genericUtility.onlyCapturedProducts(results, testName);
+		// Nothing validated means the test checked nothing, so fail instead of passing.
+		Assert.assertTrue(results != null && !results.isEmpty(), "No products were validated for the filter 'Discount' (search term '" + input + "')");
 
 		for (Map<String, Object> product : results) {
 			String filter = genericUtility.safeLower(product.get("filter"));
