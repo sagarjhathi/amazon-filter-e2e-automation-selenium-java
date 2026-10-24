@@ -4,7 +4,7 @@ A fully engineered end to end automation framework designed to validate Amazon p
 
 The framework performs real world validation of Amazon filter flows such as battery capacity, discount ranges, operating system, brand, delivery options, price sliders, display attributes, and more. It searches for a product category, navigates to the listing page, applies filter combinations based on configuration rules, extracts product sets, validates attributes on the product detail pages, and produces a complete visual and textual report. Every step is logged and every important action is captured through screenshots.
 
-This project is designed to feel polished, easy to understand, and impressive to anyone reading its README. The structure below leads the reader through an intuitive narrative that clearly communicates what the project does, how it is engineered, and why it stands out.
+The sections below explain how it is built, how to run it, and how results are decided, including where it is still weak.
 
 ---
 
@@ -21,6 +21,9 @@ Use this index to quickly navigate the README. Click any entry to jump to that s
 - [Discord Notifications](#discord-notifications)
 - [Folder Structure](#folder-structure)
 - [Running Tests](#running-tests)
+- [Test Inputs](#test-inputs)
+- [How Results Are Decided](#how-results-are-decided)
+- [Known Limitations](#known-limitations)
 - [Engineering Decisions Explained](#engineering-decisions-explained)
 - [Extending the Framework](#extending-the-framework)
 - [Troubleshooting](#troubleshooting)
@@ -34,10 +37,10 @@ This framework is built using a rich, modern, and production oriented technology
 ## Programming Language and Ecosystem
 - **Java 21** as the core language, providing strong typing, modern syntax, and long term support.
 - **Maven** as the build and dependency management system.
-- **JUnit-style annotations and TestNG structure** for clean test orchestration.
+- **TestNG annotations and groups** for clean test orchestration.
 
 ## Automation and Browser Tooling
-- **Selenium 4.27 (W3C-compliant)** for browser automation.
+- **Selenium 4.40 (W3C-compliant)** for browser automation.
 - **WebDriverManager 6.1.0** for automatic driver provisioning, eliminating manual driver downloads.
 - **Multi-browser compatibility** built in (Chrome, Firefox, Edge).
 - **Customizable browser configurations** including user agents, headless mode, window sizing, GPU control, and sandbox settings.
@@ -50,7 +53,8 @@ This framework is built using a rich, modern, and production oriented technology
   - Retry analyzers for flaky test handling
 
 ## Data and Input Systems
-- **Apache POI 5.4.1** for reading structured Excel files.
+- **`data/testInputs.json` (read with Gson)** lists the search terms each test runs for, so a test only runs for products where its filter applies.
+- **Apache POI 5.4.1** for reading Excel files (`Products.xlsx` is still available through the `ExcelData` data provider).
 - **Custom FileReader classes** for handling property files and environment configurations.
 - **ConfigManager** for centralized configuration control.
 
@@ -63,7 +67,7 @@ This framework is built using a rich, modern, and production oriented technology
   - Standardized exceptions and logs.
 - **WaitUtility** for explicit waits with reusable conditions.
 - **GenericUtility** for parsing, URL handling, string normalization, and product detail extraction.
-- **Failsafe-inspired retry patterns** built into the workflows.
+- **TestNG retry analyzer** that re-runs a test once after a technical error (assertion failures are not retried).
 
 ## Logging and Diagnostics
 - **Log4j2** with routing appenders that dynamically create per-run folders.
@@ -88,6 +92,7 @@ This framework is built using a rich, modern, and production oriented technology
 - **CI aware configuration toggling** that adjusts execution scale based on the trigger source.
 - **Artifact storage** for preserving logs, screenshots, and Allure results.
 - **GitHub Pages deployment** of a report hub page linking the merged Allure report and each shard's Extent report.
+- **Downloadable merged Allure report**: each run also uploads it as a single HTML file (artifact `allure-report-merged`, kept 30 days) that opens without a server.
 
 ## Team Communication and Alerting
 - **Discord Webhooks** integrated into the CI for:
@@ -252,7 +257,7 @@ project-root/
 │       │   ├── configManager/     ConfigManager
 │       │   ├── constants/         GlobalConstants
 │       │   ├── driverManager/     DriverManager
-│       │   ├── fileReader/        ExcelReader, FileReader
+│       │   ├── fileReader/        ExcelReader, FileReader, TestInputs
 │       │   ├── flows/             SharedFilterFlows, BrandFilterFlows,
 │       │   │                      PriceSliderFlows, DeliveryFilterFlows,
 │       │   │                      OperatingSystemFilterFlows
@@ -268,13 +273,13 @@ project-root/
 │       │
 │       ├── main/resources/
 │       │   ├── configs/           UtilData.properties
-│       │   ├── data/              Products.xlsx
+│       │   ├── data/              testInputs.json (search terms per test), Products.xlsx
 │       │   └── log4j2.xml
 │       │
 │       └── test/
 │           ├── java/tests/            AmazonTests (tests tagged with groups)
 │           ├── java/retry/            RetryFailedTest, RetryListener
-│           ├── testDataProvider/      TestDataProvider
+│           ├── testDataProvider/      TestDataProvider (TestRuns, ExcelData)
 │           └── runners/               AllTestsGlobal.xml (default suite)
 │                                      plus older per-area suite files
 │
@@ -316,6 +321,41 @@ mvn clean test -Dgroups=DeliveryPriceOs
 ```
 
 Available groups: `BatteryProcessorStorage`, `BrandsScreenSizeTypeCamEtc`, `DeliveryPriceOs`. Every new test should carry a `groups` tag, otherwise CI shards will skip it.
+
+Note: the smoke-run flags are read by most filter flows; the Operating System flow reads its CI variants (`runForAllFilterOptionsCI`, `overideFilteOptionsCountDefault`) from the properties file.
+
+---
+
+# Test Inputs
+
+Each test runs only for the search terms listed for it in `src/main/resources/data/testInputs.json`, one line per test method:
+
+```json
+"verifyingStorageCapacityFilterFunctionality": ["Mobile", "Tablet"]
+```
+
+A single `TestRuns` data provider reads that file (TestNG passes in the test method, so the provider knows which line to use). This keeps a filter from running on a category where Amazon does not show it, which used to end in a silent pass. To run a test for one more product, add its search term to that test's line. A test with no line fails with a clear message.
+
+---
+
+# How Results Are Decided
+
+A result should mean something, so the tests follow these rules:
+
+- **Skipped**: the filter (or the option) is not shown for that search term. The skip message names the filter and the search term.
+- **Failed, nothing validated**: the filter exists but no products could be checked.
+- **Not counted as a mismatch**: a product whose page details could not be captured. It is logged as a warning, not reported as "filter not found".
+- **Delivery filters**: the option must show as selected after the click, and each option accepts only its own text (Today, Tomorrow, In 2 Days, Free Delivery). A listed card with no delivery text fails the test on purpose.
+- **Soft assertions** are used inside product loops so one run reports every mismatch; hard assertions are used for preconditions.
+
+---
+
+# Known Limitations
+
+- Product checks are text based. Correct data can still fail, for example "iPhone" vs "Apple", "Alienware" vs "Dell", mAh values vs a range such as "3,000 to 3,999 mAh", and Discount percentages that never appear in product text.
+- Results depend on live Amazon data, so a filter option, a brand order or a price can differ from one day to the next.
+- Delivery Day options (Today, Tomorrow, In 2 Days) are often not shown, so those tests skip.
+- The tests are meant for occasional demonstration runs, not continuous execution against the live site.
 
 ---
 

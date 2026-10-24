@@ -2,6 +2,7 @@ package main.java.amazonfilterapplicatione2e.flows;
 
 import java.time.Duration;
 import java.time.LocalDate;
+import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 import java.util.Arrays;
 import java.util.Collections;
@@ -99,12 +100,34 @@ public class DeliveryFilterFlows extends BasePage{
 		// // Not date-based — this method also backs the Free Delivery filter test, which has no date to check.
 		// allowedDateParts.add("FREE delivery");
 
-		// Each option accepts only its own text, so Tomorrow cannot pass on Today's text and so on.
+		// OLD (first version): each option accepted only its own text and used the runner's date.
+		// // Each option accepts only its own text, so Tomorrow cannot pass on Today's text and so on.
+		// // Dates are matched as day + month (e.g. "22 Oct"), which fits "Thu, 22 Oct" on the card.
+		// DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d MMM", Locale.ENGLISH);
+		// String today = LocalDate.now().format(formatter);
+		// String tomorrow = LocalDate.now().plusDays(1).format(formatter);
+		// String inTwoDays = LocalDate.now().plusDays(2).format(formatter);
+		// 
+		// Set<String> allowedDateParts = new HashSet<>();
+		// switch (filterOption) {
+		// case "Get It By Today":
+		// 	Collections.addAll(allowedDateParts, "Today", today);
+		// 	break;
+		// case "Get It by Tomorrow":
+		// 	Collections.addAll(allowedDateParts, "Tomorrow", tomorrow);
+		// 	break;
+		// case "Get It in 2 Days":
+		// 	allowedDateParts.add(inTwoDays);
+
+		// "Get It by Tomorrow" and "Get It in 2 Days" mean "by" that day, so a card with fastest delivery
+		// Today also qualifies. Each option therefore accepts its own text plus the earlier days.
 		// Dates are matched as day + month (e.g. "22 Oct"), which fits "Thu, 22 Oct" on the card.
+		// Amazon.in uses the India date, while the CI runner uses UTC, so take the date in India.
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d MMM", Locale.ENGLISH);
-		String today = LocalDate.now().format(formatter);
-		String tomorrow = LocalDate.now().plusDays(1).format(formatter);
-		String inTwoDays = LocalDate.now().plusDays(2).format(formatter);
+		LocalDate indiaToday = LocalDate.now(ZoneId.of("Asia/Kolkata"));
+		String today = indiaToday.format(formatter);
+		String tomorrow = indiaToday.plusDays(1).format(formatter);
+		String inTwoDays = indiaToday.plusDays(2).format(formatter);
 
 		Set<String> allowedDateParts = new HashSet<>();
 		switch (filterOption) {
@@ -112,10 +135,10 @@ public class DeliveryFilterFlows extends BasePage{
 			Collections.addAll(allowedDateParts, "Today", today);
 			break;
 		case "Get It by Tomorrow":
-			Collections.addAll(allowedDateParts, "Tomorrow", tomorrow);
+			Collections.addAll(allowedDateParts, "Today", today, "Tomorrow", tomorrow);
 			break;
 		case "Get It in 2 Days":
-			allowedDateParts.add(inTwoDays);
+			Collections.addAll(allowedDateParts, "Today", today, "Tomorrow", tomorrow, inTwoDays);
 			break;
 		case "Eligible for Free Delivery":
 			allowedDateParts.add("FREE delivery");

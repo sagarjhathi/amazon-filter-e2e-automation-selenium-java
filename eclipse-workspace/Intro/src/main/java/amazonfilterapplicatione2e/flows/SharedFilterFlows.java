@@ -240,7 +240,9 @@ try {
 	log.warn("[{}] Blocker on product page did not clear: {}", testName, e.getMessage());
 }
 
-boolean productPageLoaded = genericUtility.isElementInViewport(productPage.productNameIndividualPage);
+// OLD: boolean productPageLoaded = genericUtility.isElementInViewport(productPage.productNameIndividualPage);
+// (said "not loaded" for about half of the loaded pages: a wrapped title is covered by its parent at the centre point)
+boolean productPageLoaded = genericUtility.isElementVisible(productPage.productNameIndividualPage);
 if (!productPageLoaded) {
 	log.warn("[{}] Product detail page did not load for index {} filter '{}'; skipping detail scrape to avoid redundant retries/timeouts", testName, productIndex, filterValue);
 }

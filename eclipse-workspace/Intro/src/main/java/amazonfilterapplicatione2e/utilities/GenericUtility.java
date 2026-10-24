@@ -78,6 +78,19 @@ public class GenericUtility extends ProductListingPage{
 	    }
 	}
 
+	// True when the element becomes visible within 10 seconds.
+	// Used to decide if a product page has loaded. Unlike isElementInViewport it does not
+	// require the element to be the top element at its centre, which a wrapped title or a
+	// parent <h1> breaks even on a fully loaded page.
+	public boolean isElementVisible(By locator) {
+	    try {
+	        new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.visibilityOfElementLocated(locator));
+	        return true;
+	    } catch (Exception e) {
+	        return false;
+	    }
+	}
+
 
 	
 
