@@ -1,0 +1,236 @@
+11:17:21 [TestNG-test-Test-1] INFO  verifyingFreeDeliveryFilterFunctionality_Tablet_11-17-21 - No existing WebDriver found for current thread. Initializing a new ChromeDriver...
+11:17:21 [TestNG-test-Test-1] INFO  verifyingFreeDeliveryFilterFunctionality_Tablet_11-17-21 - WebDriverManager: chromedriver setup OK
+11:17:24 [TestNG-test-Test-1] INFO  verifyingFreeDeliveryFilterFunctionality_Tablet_11-17-21 - ChromeDriver initialized successfully for thread: 34
+11:17:27 [TestNG-test-Test-1] INFO  verifyingFreeDeliveryFilterFunctionality_Tablet_11-17-21 - [verifyingFreeDeliveryFilterFunctionality_Tablet_11-17-21] Opening amazon Landing page
+11:17:27 [TestNG-test-Test-1] INFO  verifyingFreeDeliveryFilterFunctionality_Tablet_11-17-21 - [verifyingFreeDeliveryFilterFunctionality_Tablet_11-17-21] Within safeFindElement method
+11:17:27 [TestNG-test-Test-1] INFO  verifyingFreeDeliveryFilterFunctionality_Tablet_11-17-21 - [verifyingFreeDeliveryFilterFunctionality_Tablet_11-17-21]Found the element returning it ,element ->[[ChromeDriver: chrome on windows (e52a513ba68f81ca12e2d31af44b0efd)] -> xpath: //a[@id='nav-logo-sprites']]
+11:17:28 [TestNG-test-Test-1] INFO  verifyingFreeDeliveryFilterFunctionality_Tablet_11-17-21 - [verifyingFreeDeliveryFilterFunctionality_Tablet_11-17-21] clearBlockers (full) took 1086 ms
+11:17:29 [TestNG-test-Test-1] INFO  verifyingFreeDeliveryFilterFunctionality_Tablet_11-17-21 - [verifyingFreeDeliveryFilterFunctionality_Tablet_11-17-21] Giving input within the search bar
+11:17:29 [TestNG-test-Test-1] INFO  verifyingFreeDeliveryFilterFunctionality_Tablet_11-17-21 - [verifyingFreeDeliveryFilterFunctionality_Tablet_11-17-21] Within safeClick method
+11:17:32 [TestNG-test-Test-1] INFO  verifyingFreeDeliveryFilterFunctionality_Tablet_11-17-21 - [verifyingFreeDeliveryFilterFunctionality_Tablet_11-17-21] Clicked the  [[ChromeDriver: chrome on windows (e52a513ba68f81ca12e2d31af44b0efd)] -> xpath: //input[@id='nav-search-submit-button']]   using safeClick
+11:17:32 [TestNG-test-Test-1] INFO  verifyingFreeDeliveryFilterFunctionality_Tablet_11-17-21 - [verifyingFreeDeliveryFilterFunctionality_Tablet_11-17-21] Clicking on the submit in the search bar
+11:17:32 [TestNG-test-Test-1] INFO  verifyingFreeDeliveryFilterFunctionality_Tablet_11-17-21 - [verifyingFreeDeliveryFilterFunctionality_Tablet_11-17-21] clearBlockers (full) took 588 ms
+11:17:32 [TestNG-test-Test-1] INFO  verifyingFreeDeliveryFilterFunctionality_Tablet_11-17-21 - [verifyingFreeDeliveryFilterFunctionality_Tablet_11-17-21] Waiting until element is visible in viewport
+11:17:32 [TestNG-test-Test-1] INFO  verifyingFreeDeliveryFilterFunctionality_Tablet_11-17-21 - [verifyingFreeDeliveryFilterFunctionality_Tablet_11-17-21] Within validateDeliveryFilterOptionsWithResult method
+11:17:32 [TestNG-test-Test-1] INFO  verifyingFreeDeliveryFilterFunctionality_Tablet_11-17-21 - [verifyingFreeDeliveryFilterFunctionality_Tablet_11-17-21] Within safeClick method
+11:17:33 [TestNG-test-Test-1] INFO  verifyingFreeDeliveryFilterFunctionality_Tablet_11-17-21 - [verifyingFreeDeliveryFilterFunctionality_Tablet_11-17-21] Clicked the  [[ChromeDriver: chrome on windows (e52a513ba68f81ca12e2d31af44b0efd)] -> xpath: //span[@class='a-size-base a-color-base puis-bold-weight-text' and text()='Eligible for Free Delivery']/parent::div/following-sibling::ul//span[@class='a-size-base a-color-base' and text()='Free Shipping']]   using safeClick
+11:17:33 [TestNG-test-Test-1] INFO  verifyingFreeDeliveryFilterFunctionality_Tablet_11-17-21 - [verifyingFreeDeliveryFilterFunctionality_Tablet_11-17-21] Within getMoreButtonByFilterTypeAndName method
+11:17:33 [TestNG-test-Test-1] INFO  verifyingFreeDeliveryFilterFunctionality_Tablet_11-17-21 - [verifyingFreeDeliveryFilterFunctionality_Tablet_11-17-21] Clicked on By.xpath: //span[@class='a-size-base a-color-base puis-bold-weight-text' and text()='Eligible for Free Delivery']/parent::div/following-sibling::ul//span[@class='a-size-base a-color-base' and text()='Free Shipping']
+11:17:34 [TestNG-test-Test-1] INFO  verifyingFreeDeliveryFilterFunctionality_Tablet_11-17-21 - [verifyingFreeDeliveryFilterFunctionality_Tablet_11-17-21] Within safeFindElements 
+11:17:34 [TestNG-test-Test-1] INFO  verifyingFreeDeliveryFilterFunctionality_Tablet_11-17-21 - [verifyingFreeDeliveryFilterFunctionality_Tablet_11-17-21] Returning the  [[[ChromeDriver: chrome on windows (e52a513ba68f81ca12e2d31af44b0efd)] -> xpath: //div[@class='a-section a-spacing-small a-spacing-top-small']], [[ChromeDriver: chrome on windows (e52a513ba68f81ca12e2d31af44b0efd)] -> xpath: //div[@class='a-section a-spacing-small a-spacing-top-small']], [[ChromeDriver: chrome on windows (e52a513ba68f81ca12e2d31af44b0efd)] -> xpath: //div[@class='a-section a-spacing-small a-spacing-top-small']], [[ChromeDriver: chrome on windows (e52a513ba68f81ca12e2d31af44b0efd)] -> xpath: //div[@class='a-section a-spacing-small a-spacing-top-small']], [[ChromeDriver: chrome on windows (e52a513ba68f81ca12e2d31af44b0efd)] -> xpath: //div[@class='a-section a-spacing-small a-spacing-top-small']], [[ChromeDriver: chrome on windows (e52a513ba68f81ca12e2d31af44b0efd)] -> xpath: //div[@class='a-section a-spacing-small a-spacing-top-small']], [[ChromeDriver: chrome on windows (e52a513ba68f81ca12e2d31af44b0efd)] -> xpath: //div[@class='a-section a-spacing-small a-spacing-top-small']], [[ChromeDriver: chrome on windows (e52a513ba68f81ca12e2d31af44b0efd)] -> xpath: //div[@class='a-section a-spacing-small a-spacing-top-small']], [[ChromeDriver: chrome on windows (e52a513ba68f81ca12e2d31af44b0efd)] -> xpath: //div[@class='a-section a-spacing-small a-spacing-top-small']], [[ChromeDriver: chrome on windows (e52a513ba68f81ca12e2d31af44b0efd)] -> xpath: //div[@class='a-section a-spacing-small a-spacing-top-small']], [[ChromeDriver: chrome on windows (e52a513ba68f81ca12e2d31af44b0efd)] -> xpath: //div[@class='a-section a-spacing-small a-spacing-top-small']], [[ChromeDriver: chrome on windows (e52a513ba68f81ca12e2d31af44b0efd)] -> xpath: //div[@class='a-section a-spacing-small a-spacing-top-small']], [[ChromeDriver: chrome on windows (e52a513ba68f81ca12e2d31af44b0efd)] -> xpath: //div[@class='a-section a-spacing-small a-spacing-top-small']], [[ChromeDriver: chrome on windows (e52a513ba68f81ca12e2d31af44b0efd)] -> xpath: //div[@class='a-section a-spacing-small a-spacing-top-small']], [[ChromeDriver: chrome on windows (e52a513ba68f81ca12e2d31af44b0efd)] -> xpath: //div[@class='a-section a-spacing-small a-spacing-top-small']], [[ChromeDriver: chrome on windows (e52a513ba68f81ca12e2d31af44b0efd)] -> xpath: //div[@class='a-section a-spacing-small a-spacing-top-small']]] from the safeFindElements method
+11:17:34 [TestNG-test-Test-1] INFO  verifyingFreeDeliveryFilterFunctionality_Tablet_11-17-21 - [verifyingFreeDeliveryFilterFunctionality_Tablet_11-17-21] Created hashset with required data to assert with Within validateDeliveryFilterOptionsWithResult method
+11:17:34 [TestNG-test-Test-1] INFO  verifyingFreeDeliveryFilterFunctionality_Tablet_11-17-21 - [verifyingFreeDeliveryFilterFunctionality_Tablet_11-17-21] this is the set  [FREE delivery]
+11:17:34 [TestNG-test-Test-1] INFO  verifyingFreeDeliveryFilterFunctionality_Tablet_11-17-21 - [verifyingFreeDeliveryFilterFunctionality_Tablet_11-17-21] Within deliveryElements loop iterating over the products  Within validateDeliveryFilterOptionsWithResult method
+11:17:34 [TestNG-test-Test-1] INFO  verifyingFreeDeliveryFilterFunctionality_Tablet_11-17-21 - [verifyingFreeDeliveryFilterFunctionality_Tablet_11-17-21] Checking if the allowedDateParts have the assert text — index 0, text: Samsung Galaxy Tab A11+ [Smartchoice], 11-inch (27.82 CM), LCD Display, 6GB RAM, 128GB ROM, Wi-Fi, Quad Speakers, Dolby Atmos, Gray, AI Enabled
+4.4
+(281)
+3K+ bought in past month
+Great Indian Festival
+₹21,999
+M.R.P:
+₹27,999 (21% off)
+Flat INR 128700 Off on ALL BanksC...
+FREE delivery Tue, 27 Oct
+Or fastest delivery Tomorrow 8 am - 12 pm
+Arrives before Diwali
+Add to cart
+11:17:34 [TestNG-test-Test-1] INFO  verifyingFreeDeliveryFilterFunctionality_Tablet_11-17-21 - [verifyingFreeDeliveryFilterFunctionality_Tablet_11-17-21] Within deliveryElements loop iterating over the products  Within validateDeliveryFilterOptionsWithResult method
+11:17:34 [TestNG-test-Test-1] INFO  verifyingFreeDeliveryFilterFunctionality_Tablet_11-17-21 - [verifyingFreeDeliveryFilterFunctionality_Tablet_11-17-21] Checking if the allowedDateParts have the assert text — index 1, text: Lenovo Tab (Smartchoice) | 10.1 Inch Display| Wi-Fi Only| 4 GB RAM + 64 GB ROM (Expandable up to 1 TB)| Metal Body| Dual Speakers with Dolby Atmos| Android 14| Color: Polar Blue
+4.2
+(661)
+1K+ bought in past month
+₹15,998
+M.R.P:
+₹18,000 (11% off)
+You pay ₹15,248 with coupon
+FREE delivery Tue, 27 Oct
+Or fastest delivery Mon, 26 Oct
+Arrives before Diwali
+Add to cart
+11:17:34 [TestNG-test-Test-1] INFO  verifyingFreeDeliveryFilterFunctionality_Tablet_11-17-21 - [verifyingFreeDeliveryFilterFunctionality_Tablet_11-17-21] Within deliveryElements loop iterating over the products  Within validateDeliveryFilterOptionsWithResult method
+11:17:34 [TestNG-test-Test-1] INFO  verifyingFreeDeliveryFilterFunctionality_Tablet_11-17-21 - [verifyingFreeDeliveryFilterFunctionality_Tablet_11-17-21] Checking if the allowedDateParts have the assert text — index 2, text: Lenovo Idea Tab ( Smartchoice) with Tab Pen | WiFi+5G |11" 2.5K IPS Display |6GB RAM + 128GB ROM (Expandable Upto 2TB)| MediaTek Dimensity 6300|7040mAh|4 Speakers| Grey
+3.8
+(22)
+3K+ bought in past month
+Great Indian Festival
+₹23,999
+M.R.P:
+₹53,000 (55% off)
+Up to 5% back with Amazon Pay ICI...
+FREE delivery Tue, 27 Oct
+Or fastest delivery Tomorrow 8 am - 12 pm
+Arrives before Diwali
+Add to cart
+11:17:34 [TestNG-test-Test-1] INFO  verifyingFreeDeliveryFilterFunctionality_Tablet_11-17-21 - [verifyingFreeDeliveryFilterFunctionality_Tablet_11-17-21] Within deliveryElements loop iterating over the products  Within validateDeliveryFilterOptionsWithResult method
+11:17:34 [TestNG-test-Test-1] INFO  verifyingFreeDeliveryFilterFunctionality_Tablet_11-17-21 - [verifyingFreeDeliveryFilterFunctionality_Tablet_11-17-21] Checking if the allowedDateParts have the assert text — index 3, text: OnePlus, Pad Go 2 [Smartchoice], 12.1 inch (30.73 CM), LCD, 8GB RAM, 256GB ROM, Wi-Fi + 5G, Quad Speakers, Eye Care,Shadow Black, AI Enabled
+4.3
+(1K)
+3K+ bought in past month
+₹35,999
+Up to 5% back with Amazon Pay ICI...
+FREE delivery Tue, 27 Oct
+Or fastest delivery Tomorrow 8 am - 12 pm
+Arrives before Diwali
+Add to cart
+11:17:34 [TestNG-test-Test-1] INFO  verifyingFreeDeliveryFilterFunctionality_Tablet_11-17-21 - [verifyingFreeDeliveryFilterFunctionality_Tablet_11-17-21] Within deliveryElements loop iterating over the products  Within validateDeliveryFilterOptionsWithResult method
+11:17:34 [TestNG-test-Test-1] INFO  verifyingFreeDeliveryFilterFunctionality_Tablet_11-17-21 - [verifyingFreeDeliveryFilterFunctionality_Tablet_11-17-21] Checking if the allowedDateParts have the assert text — index 4, text: Redmi Pad 2, 11-inch (27.94 CM), LCD Display - 2.5K Sharp & Clear, 4GB RAM, 128GB ROM, Wi-Fi + Cellular (4G), Quad Speakers, Dolby Atmos, Graphite Grey, AI Enabled
+3.7
+(45)
+500+ bought in past month
+₹18,788
+M.R.P:
+₹28,999 (35% off)
+Up to 5% back with Amazon Pay ICI...
+FREE delivery Tue, 27 Oct
+Or fastest delivery Tomorrow 8 am - 12 pm
+Arrives before Diwali
+Add to cart
+More Buying Choices
+₹18,699(3 new offers)
+11:17:34 [TestNG-test-Test-1] INFO  verifyingFreeDeliveryFilterFunctionality_Tablet_11-17-21 - [verifyingFreeDeliveryFilterFunctionality_Tablet_11-17-21] Within deliveryElements loop iterating over the products  Within validateDeliveryFilterOptionsWithResult method
+11:17:34 [TestNG-test-Test-1] INFO  verifyingFreeDeliveryFilterFunctionality_Tablet_11-17-21 - [verifyingFreeDeliveryFilterFunctionality_Tablet_11-17-21] Checking if the allowedDateParts have the assert text — index 5, text: Lenovo Idea Tab Plus with Pen | Wifi |12.1" 2.5K Display, 800nits Peak Brightness |12GB RAM + 256GB ROM (Expandable upto 2TB)| MediaTek Dimensity 6400| 10200mAh|4 Speakers with Dolby Atmos| Cloud Grey
+4.4
+(63)
+500+ bought in past month
+₹29,999
+M.R.P:
+₹40,000 (25% off)
+Save extra with No Cost EMI
+FREE delivery Tue, 27 Oct
+Or fastest delivery Tomorrow 8 am - 12 pm
+Arrives before Diwali
+Add to cart
+More Buying Choices
+₹29,890(6 new offers)
+11:17:34 [TestNG-test-Test-1] INFO  verifyingFreeDeliveryFilterFunctionality_Tablet_11-17-21 - [verifyingFreeDeliveryFilterFunctionality_Tablet_11-17-21] Within deliveryElements loop iterating over the products  Within validateDeliveryFilterOptionsWithResult method
+11:17:34 [TestNG-test-Test-1] INFO  verifyingFreeDeliveryFilterFunctionality_Tablet_11-17-21 - [verifyingFreeDeliveryFilterFunctionality_Tablet_11-17-21] Checking if the allowedDateParts have the assert text — index 6, text: DOMO Slate SL40 2C 10 Inch Android Tablet, IPS Display, 4G Dual SIM, 4GB RAM+32GB Storage (Expandable to 1TB) Octa-Core Processor, GPS, WiFi, Bluetooth, for Students Foundation Exams -Grey
+4.0
+(13)
+Great Indian Festival
+₹7,940
+M.R.P:
+₹24,990 (68% off)
+You pay ₹7,781.20 with coupon
+FREE delivery Wed, 28 Oct
+Arrives before Diwali
+Add to cart
+11:17:34 [TestNG-test-Test-1] INFO  verifyingFreeDeliveryFilterFunctionality_Tablet_11-17-21 - [verifyingFreeDeliveryFilterFunctionality_Tablet_11-17-21] Within deliveryElements loop iterating over the products  Within validateDeliveryFilterOptionsWithResult method
+11:17:34 [TestNG-test-Test-1] INFO  verifyingFreeDeliveryFilterFunctionality_Tablet_11-17-21 - [verifyingFreeDeliveryFilterFunctionality_Tablet_11-17-21] Checking if the allowedDateParts have the assert text — index 7, text: Redmi Pad 2, 11-inch (27.94 CM), LCD Display - 2.5K Sharp & Clear, 6GB RAM, 128GB ROM, Wi-Fi + Cellular (4G), Quad Speakers, Dolby Atmos, Graphite Grey, AI Enabled
+4.3
+(559)
+500+ bought in past month
+Great Indian Festival
+₹21,999
+M.R.P:
+₹24,999 (12% off)
+Save extra with No Cost EMI
+FREE delivery Tue, 27 Oct
+Or fastest delivery Tomorrow 8 am - 12 pm
+Arrives before Diwali
+Add to cart
+11:17:34 [TestNG-test-Test-1] INFO  verifyingFreeDeliveryFilterFunctionality_Tablet_11-17-21 - [verifyingFreeDeliveryFilterFunctionality_Tablet_11-17-21] Within deliveryElements loop iterating over the products  Within validateDeliveryFilterOptionsWithResult method
+11:17:34 [TestNG-test-Test-1] INFO  verifyingFreeDeliveryFilterFunctionality_Tablet_11-17-21 - [verifyingFreeDeliveryFilterFunctionality_Tablet_11-17-21] Checking if the allowedDateParts have the assert text — index 8, text: OnePlus,Pad Lite, 11-inch (27.94 CM), LCD, 8GB RAM, 128GB ROM, WiFi + LTE, Quad Speakers, 9340mAh Battery, Aero Blue, Not AI Enabled
+4.4
+(966)
+1K+ bought in past month
+₹23,999
+M.R.P:
+₹24,999 (4% off)
+Save extra with No Cost EMI
+FREE delivery Tue, 27 Oct
+Arrives before Diwali
+Add to cart
+11:17:34 [TestNG-test-Test-1] INFO  verifyingFreeDeliveryFilterFunctionality_Tablet_11-17-21 - [verifyingFreeDeliveryFilterFunctionality_Tablet_11-17-21] Within deliveryElements loop iterating over the products  Within validateDeliveryFilterOptionsWithResult method
+11:17:35 [TestNG-test-Test-1] INFO  verifyingFreeDeliveryFilterFunctionality_Tablet_11-17-21 - [verifyingFreeDeliveryFilterFunctionality_Tablet_11-17-21] Checking if the allowedDateParts have the assert text — index 9, text: Samsung Galaxy Tab S10 Lite [Smartchoice], 10.9-inch (27.7 CM), LCD Display, 6GB RAM, 128GB ROM, Wi-Fi+5G, Dual Speakers, S Pen, Gray, AI Enabled
+4.4
+(305)
+2K+ bought in past month
+Great Indian Festival
+₹34,999
+M.R.P:
+₹41,999 (17% off)
+Save extra with No Cost EMI
+FREE delivery Tue, 27 Oct
+Or fastest delivery Tomorrow 8 am - 12 pm
+Arrives before Diwali
+Add to cart
+11:17:35 [TestNG-test-Test-1] INFO  verifyingFreeDeliveryFilterFunctionality_Tablet_11-17-21 - [verifyingFreeDeliveryFilterFunctionality_Tablet_11-17-21] Within deliveryElements loop iterating over the products  Within validateDeliveryFilterOptionsWithResult method
+11:17:35 [TestNG-test-Test-1] INFO  verifyingFreeDeliveryFilterFunctionality_Tablet_11-17-21 - [verifyingFreeDeliveryFilterFunctionality_Tablet_11-17-21] Checking if the allowedDateParts have the assert text — index 10, text: Motorola Pad 60 Neo 6 GB RAM 128 GB ROM 11 inch with Wi-Fi Only Mediatek Dimensity 6300 Tablet (MABILBU Blue)
+5.0
+(1)
+₹20,790
+M.R.P:
+₹50,000 (58% off)
+Up to 5% back with Amazon Pay ICI...
+FREE delivery Wed, 28 Oct
+Or fastest delivery Mon, 26 Oct
+Arrives before Diwali
+Add to cart
+11:17:35 [TestNG-test-Test-1] INFO  verifyingFreeDeliveryFilterFunctionality_Tablet_11-17-21 - [verifyingFreeDeliveryFilterFunctionality_Tablet_11-17-21] Within deliveryElements loop iterating over the products  Within validateDeliveryFilterOptionsWithResult method
+11:17:35 [TestNG-test-Test-1] INFO  verifyingFreeDeliveryFilterFunctionality_Tablet_11-17-21 - [verifyingFreeDeliveryFilterFunctionality_Tablet_11-17-21] Checking if the allowedDateParts have the assert text — index 11, text: OnePlus, Pad 2, 12.1 inch (30.73 CM), LCD, 12GB RAM, 256GB ROM, Wi-Fi + Cellular Data Sharing, 6 Speakers, Snapdragon 8 Gen 3, Nimbus Gray, AI Enabled
+4.4
+(942)
+5K+ bought in past month
+₹39,999
+M.R.P:
+₹47,999 (17% off)
+Save extra with No Cost EMI
+FREE delivery
+Add to cart
+11:17:35 [TestNG-test-Test-1] INFO  verifyingFreeDeliveryFilterFunctionality_Tablet_11-17-21 - [verifyingFreeDeliveryFilterFunctionality_Tablet_11-17-21] Within deliveryElements loop iterating over the products  Within validateDeliveryFilterOptionsWithResult method
+11:17:35 [TestNG-test-Test-1] INFO  verifyingFreeDeliveryFilterFunctionality_Tablet_11-17-21 - [verifyingFreeDeliveryFilterFunctionality_Tablet_11-17-21] Checking if the allowedDateParts have the assert text — index 12, text: DOMO Slate SL39 4G Tablet 10.1 inch Tab, 4G Connectivity, 4GB RAM + 32GB ROM, inbuilt Storage, 1TB Expandable, Dual SIM Slot, Bluetooth, Octa Core CPU GPS, [Grey]
+3.8
+(3)
+300+ bought in past month
+Great Indian Festival
+₹7,499
+M.R.P:
+₹24,990 (70% off)
+You pay ₹7,349.02 with coupon
+FREE delivery Tue, 27 Oct
+Arrives before Diwali
+Add to cart
+11:17:35 [TestNG-test-Test-1] INFO  verifyingFreeDeliveryFilterFunctionality_Tablet_11-17-21 - [verifyingFreeDeliveryFilterFunctionality_Tablet_11-17-21] Within deliveryElements loop iterating over the products  Within validateDeliveryFilterOptionsWithResult method
+11:17:35 [TestNG-test-Test-1] INFO  verifyingFreeDeliveryFilterFunctionality_Tablet_11-17-21 - [verifyingFreeDeliveryFilterFunctionality_Tablet_11-17-21] Checking if the allowedDateParts have the assert text — index 13, text: Lenovo Idea Tab Pro Gen 2 with Pen Plus {Smartchoice} 13" Display, 3.5K Resolution, 144Hz Refresh | 8GB, 256GB | Snapdragon 8s Gen 4 | 10200mAh, 4 JBL Speakers, USB 3.0 with DP-Out, Wi-Fi 7, Luna Grey
+4.2
+(217)
+2K+ bought in past month
+Mega Festival Deal
+₹41,999
+M.R.P:
+₹70,000 (40% off)
+Save extra with No Cost EMI
+FREE delivery Tue, 27 Oct
+Or fastest delivery Tomorrow 8 am - 12 pm
+Arrives before Diwali
+Add to cart
+11:17:35 [TestNG-test-Test-1] INFO  verifyingFreeDeliveryFilterFunctionality_Tablet_11-17-21 - [verifyingFreeDeliveryFilterFunctionality_Tablet_11-17-21] Within deliveryElements loop iterating over the products  Within validateDeliveryFilterOptionsWithResult method
+11:17:35 [TestNG-test-Test-1] INFO  verifyingFreeDeliveryFilterFunctionality_Tablet_11-17-21 - [verifyingFreeDeliveryFilterFunctionality_Tablet_11-17-21] Checking if the allowedDateParts have the assert text — index 14, text: Lenovo Idea Tab Smartchoice |11-inch 2.5K Clear Display, 90Hz Refresh Rate, 8GB RAM, 256GB ROM| MediaTek Dimensity 6300| 7040mAh Battery|4 Speakers| USB-C |Wi-Fi |AI-Enabled, Dolby Atmos, Luna Grey
+4.4
+(412)
+400+ bought in past month
+Great Indian Festival
+₹24,998
+M.R.P:
+₹35,000 (29% off)
+Save extra with No Cost EMI
+FREE delivery Tue, 27 Oct
+Or fastest delivery Tomorrow 8 am - 12 pm
+Arrives before Diwali
+Add to cart
+11:17:35 [TestNG-test-Test-1] INFO  verifyingFreeDeliveryFilterFunctionality_Tablet_11-17-21 - [verifyingFreeDeliveryFilterFunctionality_Tablet_11-17-21] Within deliveryElements loop iterating over the products  Within validateDeliveryFilterOptionsWithResult method
+11:17:35 [TestNG-test-Test-1] INFO  verifyingFreeDeliveryFilterFunctionality_Tablet_11-17-21 - [verifyingFreeDeliveryFilterFunctionality_Tablet_11-17-21] Checking if the allowedDateParts have the assert text — index 15, text: Apple iPad 11″: A16 chip, 27.69 cm (11″) Model, Liquid Retina Display, 128GB, Wi-Fi 6 + 5G Cellular, 12MP Front/12MP Back Camera, Touch ID, All-Day Battery Life — Blue
+4.4
+(141)
+400+ bought in past month
+Limited time deal
+₹59,990
+M.R.P:
+₹67,900 (12% off)
+Flat INR 8000 Off on ALL BanksCards
+FREE delivery Tue, 27 Oct
+Or fastest delivery Tomorrow 8 am - 12 pm
+Arrives before Diwali
+Add to cart
+11:17:35 [TestNG-test-Test-1] INFO  verifyingFreeDeliveryFilterFunctionality_Tablet_11-17-21 - [verifyingFreeDeliveryFilterFunctionality_Tablet_11-17-21] Returning the list with boolean values   Within validateDeliveryFilterOptionsWithResult method
+11:17:35 [TestNG-test-Test-1] INFO  verifyingFreeDeliveryFilterFunctionality_Tablet_11-17-21 - [verifyingFreeDeliveryFilterFunctionality_Tablet_11-17-21] Asserting delivery filter: isValid=true, index=-1, text=All the things are valid no errors

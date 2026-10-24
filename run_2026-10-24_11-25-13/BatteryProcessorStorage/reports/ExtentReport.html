@@ -1,0 +1,3635 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Selenium + Java | Amazon Filter E2E</title>
+<link rel="apple-touch-icon" href="https://cdn.jsdelivr.net/gh/extent-framework/extent-github-cdn@b00a2d0486596e73dd7326beacf352c639623a0e/commons/img/logo.png">
+<link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/extent-framework/extent-github-cdn@b00a2d0486596e73dd7326beacf352c639623a0e/commons/img/logo.png">
+<link href="https://cdn.jsdelivr.net/gh/extent-framework/extent-github-cdn@ce8b10435bcbae260c334c0d0c6b61d2c19b6168/spark/css/spark-style.css" rel="stylesheet" />
+<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/gh/extent-framework/extent-github-cdn@7cc78ce/spark/js/jsontree.js"></script>
+<style type="text/css"></style></head><body class="spa -report dark">
+  <div class="app">
+    <div class="layout">
+<div class="header navbar">
+<div class="vheader">
+<div class="nav-logo">
+<a href="#">
+<div class="logo" style="background-image: url('https://cdn.jsdelivr.net/gh/extent-framework/extent-github-cdn@b00a2d0486596e73dd7326beacf352c639623a0e/commons/img/logo.png')"></div>
+</a>
+</div>
+<ul class="nav-left">
+<li class="search-box">
+<a class="search-toggle" href="#">
+<i class="search-icon fa fa-search"></i>
+<i class="search-icon-close fa fa-close"></i>
+</a>
+</li>
+<li class="search-input"><input id="search-tests" class="form-control" type="text" placeholder="Search..."></li>
+</ul>
+<ul class="nav-right">
+<li class="m-r-10">
+<a href="#"><span class="badge badge-primary">Amazon Filter E2E - Selenium + Java Automation Report</span></a>
+</li>
+<li class="m-r-10">
+<a href="#"><span class="badge badge-primary">Oct 24, 2026 11:16:37 AM</span></a>
+</li>
+</ul>
+</div>
+</div><div class="side-nav">
+<div class="side-nav-inner">
+<ul class="side-nav-menu">
+<li class="nav-item dropdown" onclick="toggleView('test-view')">
+<a id="nav-test" class="dropdown-toggle" href="#">
+<span class="ico"><i class="fa fa-list"></i></span>
+</a>
+</li>
+<li class="nav-item dropdown" onclick="toggleView('exception-view')">
+<a id="nav-exception" class="dropdown-toggle" href="#">
+<span class="ico"><i class="fa fa-bug"></i></span>
+</a>
+</li>
+<li class="nav-item dropdown" onclick="toggleView('dashboard-view')">
+<a id="nav-dashboard" class="dropdown-toggle" href="#">
+<span class="ico"><i class="fa fa-bar-chart"></i></span>
+</a>
+</li>
+</ul>
+</div>
+</div>      <div class="vcontainer">
+        <div class="main-content">
+<div class="test-wrapper row view test-view">
+  <div class="test-list">
+    <div class="test-list-tools">
+<ul class="tools pull-left">
+<li><a href="#"><span class="font-size-14">Tests</span></a></li>
+</ul>
+<ul class="tools text-right">
+<li class="dropdown">
+<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-exclamation-circle"></i></a>
+<ul id="status-toggle" class="dropdown-menu dropdown-md p-v-0">
+<a class="dropdown-item" status="fail" href="#"><span>Fail</span><span class="status danger"></span></a>
+<div class="dropdown-divider"></div>
+<a status="clear" class="dropdown-item" href="#"><span>Clear</span><span class="pull-right"><i class="fa fa-close"></i></span></a>
+</ul>
+</li>
+</ul>
+</div>    <div class="test-list-wrapper scrollable">
+      <ul class="test-list-item">
+        <li class="test-item"  status="fail" test-id="1"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">verifyingProcessorSpeedFilterFunctionality_Mobile_11-16-37</p>
+            <p class="text-sm">
+              <span>11:16:54 AM</span> / <span>00:02:31:129</span>
+              <span class="badge fail-bg log float-right">Fail</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-fail">verifyingProcessorSpeedFilterFunctionality_Mobile_11-16-37</h5>
+<span class='badge badge-success'>10.24.2026 11:16:54 AM</span>
+<span class='badge badge-danger'>10.24.2026 11:19:25 AM</span>
+<span class='badge badge-default'>00:02:31:129</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=1</span>
+<span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
+<span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
+<span title='Expand all nodes' class='badge badge-default pointer float-right et'><i class="fa fa-expand"></i></span>
+</div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:16:54 AM</td>
+        <td>
+          Test Input Parameter: <b>Mobile</b>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log fail-bg">Fail</span></td>
+        <td>11:19:25 AM</td>
+        <td>
+          <textarea readonly class="code-block">java.lang.AssertionError: The following asserts failed:
+	 filter 'less than 0.99 ghz' not found in product details.
+-------------------------------------------------------------
+ Title: google pixel 10 5g (obsidian, 12gb ram, 256gb storage)
+ Key Features: brand google
+operating system android 16
+ram memory installed size 12 gb
+cpu model google tensor
+memory storage capacity 256 gb
+ About: about this item
+google pixel 10 is the everyday phone unlike anything else; it has google tensor g5, pixel’s most powerful chip, an incredible camera, and advanced ai - gemini built in.
+the upgraded triple rear camera system has a new 5x telephoto lens - up to 20x super res zoom for stunning detail from far away; night sight takes crisp, clear photos in low-light settings; and camera coach helps you snap your best pics.
+pixel 10 is designed - scratch-resistant corning gorilla glass victus 2 and has an ip68 rating for water and dust protection; plus, the actua display - 3,000-nit peak brightness is easy on the eyes, even in direct sunlight
+curated & regularly updated content – discover new apps and games added frequently to keep your experience fresh.
+instead of typing, use gemini live to have a natural, free-flowing conversation; point your camera at what you're curious about – like a sea creature at the aquarium – or chat - gemini to brainstorm ideas or get things done across app
+› see more product details
+ Tech Details: google pixel 10 5g mobile phone information
+additional details
+camera
+battery
+battery life
+navigation
+feedback
+would you like to tell us about a lower price?
+display
+connectivity
+item details
+
+measurements
+video
+-------------------------------------------------------------,
+	 filter 'less than 0.99 ghz' not found in product details.
+-------------------------------------------------------------
+ Title: google pixel 10 5g (obsidian, 12gb ram, 256gb storage)
+ Key Features: brand google
+operating system android 16
+ram memory installed size 12 gb
+cpu model google tensor
+memory storage capacity 256 gb
+ About: about this item
+google pixel 10 is the everyday phone unlike anything else; it has google tensor g5, pixel’s most powerful chip, an incredible camera, and advanced ai - gemini built in.
+the upgraded triple rear camera system has a new 5x telephoto lens - up to 20x super res zoom for stunning detail from far away; night sight takes crisp, clear photos in low-light settings; and camera coach helps you snap your best pics.
+pixel 10 is designed - scratch-resistant corning gorilla glass victus 2 and has an ip68 rating for water and dust protection; plus, the actua display - 3,000-nit peak brightness is easy on the eyes, even in direct sunlight
+curated & regularly updated content – discover new apps and games added frequently to keep your experience fresh.
+instead of typing, use gemini live to have a natural, free-flowing conversation; point your camera at what you're curious about – like a sea creature at the aquarium – or chat - gemini to brainstorm ideas or get things done across app
+› see more product details
+ Tech Details: google pixel 10 5g mobile phone information
+additional details
+camera
+battery
+battery life
+navigation
+feedback
+would you like to tell us about a lower price?
+display
+connectivity
+item details
+
+measurements
+video
+------------------------------------------------------------- filter 'less than 0.99 ghz' not found in product details.
+-------------------------------------------------------------
+ Title: apple iphone 17 pro 512 gb: 15.93 cm (6.3″) display with promotion up to 120hz, a19 pro chip, breakthrough battery life, pro fusion camera system with center stage front camera; cosmic orange
+ Key Features: brand apple
+operating system ios
+ram memory installed size 0.1 gb
+cpu speed 0.1 ghz
+memory storage capacity 512 gb
+ About: about this item
+unibody design. for exceptional power — heat-forged aluminium unibody enclosure for the most powerful iphone ever made.
+durable ceramic shield. front and back — ceramic shield protects the back of iphone 17 pro max, making it 4x more resistant to cracks. and the new ceramic shield 2 on the front has 3x better scratch resistance.
+the ultimate pro camera system — with all 48mp rear cameras and 8x optical-quality zoom — the longest zoom ever on an iphone. it’s the equivalent of 8 pro lenses in your pocket.
+18mp center stage front camera — flexible ways to frame your shot. smarter group selfies, dual capture video for simultaneous front and rear recording, and more.
+a19 pro chip. vapour cooled. lightning fast — a19 pro is the most powerful iphone chip yet, delivering up to 40% better sustained performance.
+breakthrough battery life — the unibody design creates massive additional battery capacity, for up to 31 hours of video playback. charge up to 50% in 20 minutes.
+ios — a fresh design with liquid glass. beautiful, delightful and instantly familiar. with a more vibrant lock screen, customisable backgrounds and polls in messages, call screening and more.
+show more
+ Tech Details: apple iphone 17 pro 512 gb: 15.93 cm mobile phone information
+technical details
+manufacturer apple
+country of origin india
+item model number mg8m4hn/a
+product dimensions 0.87 x 7.19 x 15 cm; 206 g
+asin b0fqfqf6d1
+additional information
+manufacturer apple, apple inc, one apple park way, cupertino, ca 95014, usa. or apple india private limited 13th floor, prestige minsk square, municipal no. 6, cubbon road, bengaluru, karnataka - 560001, india
+packer not applicable for apple (always)
+importer (if applicable) apple india private limited 13th floor, prestige minsk square, municipal no. 6, cubbon road, bengaluru, karnataka - 560001, india
+item weight 206 g
+item dimensions lxwxh 9 x 72 x 150 millimeters
+net quantity 1 count
+included components usb-c charge cable, iphone 17 pro
+generic name iphone 17 pro
+-------------------------------------------------------------,
+	 filter 'less than 0.99 ghz' not found in product details.
+-------------------------------------------------------------
+ Title: google pixel 10 5g (obsidian, 12gb ram, 256gb storage)
+ Key Features: brand google
+operating system android 16
+ram memory installed size 12 gb
+cpu model google tensor
+memory storage capacity 256 gb
+ About: about this item
+google pixel 10 is the everyday phone unlike anything else; it has google tensor g5, pixel’s most powerful chip, an incredible camera, and advanced ai - gemini built in.
+the upgraded triple rear camera system has a new 5x telephoto lens - up to 20x super res zoom for stunning detail from far away; night sight takes crisp, clear photos in low-light settings; and camera coach helps you snap your best pics.
+pixel 10 is designed - scratch-resistant corning gorilla glass victus 2 and has an ip68 rating for water and dust protection; plus, the actua display - 3,000-nit peak brightness is easy on the eyes, even in direct sunlight
+curated & regularly updated content – discover new apps and games added frequently to keep your experience fresh.
+instead of typing, use gemini live to have a natural, free-flowing conversation; point your camera at what you're curious about – like a sea creature at the aquarium – or chat - gemini to brainstorm ideas or get things done across app
+› see more product details
+ Tech Details: google pixel 10 5g mobile phone information
+additional details
+camera
+battery
+battery life
+navigation
+feedback
+would you like to tell us about a lower price?
+display
+connectivity
+item details
+
+measurements
+video
+------------------------------------------------------------- filter 'less than 0.99 ghz' not found in product details.
+-------------------------------------------------------------
+ Title: apple iphone 17 pro 512 gb: 15.93 cm (6.3″) display with promotion up to 120hz, a19 pro chip, breakthrough battery life, pro fusion camera system with center stage front camera; cosmic orange
+ Key Features: brand apple
+operating system ios
+ram memory installed size 0.1 gb
+cpu speed 0.1 ghz
+memory storage capacity 512 gb
+ About: about this item
+unibody design. for exceptional power — heat-forged aluminium unibody enclosure for the most powerful iphone ever made.
+durable ceramic shield. front and back — ceramic shield protects the back of iphone 17 pro max, making it 4x more resistant to cracks. and the new ceramic shield 2 on the front has 3x better scratch resistance.
+the ultimate pro camera system — with all 48mp rear cameras and 8x optical-quality zoom — the longest zoom ever on an iphone. it’s the equivalent of 8 pro lenses in your pocket.
+18mp center stage front camera — flexible ways to frame your shot. smarter group selfies, dual capture video for simultaneous front and rear recording, and more.
+a19 pro chip. vapour cooled. lightning fast — a19 pro is the most powerful iphone chip yet, delivering up to 40% better sustained performance.
+breakthrough battery life — the unibody design creates massive additional battery capacity, for up to 31 hours of video playback. charge up to 50% in 20 minutes.
+ios — a fresh design with liquid glass. beautiful, delightful and instantly familiar. with a more vibrant lock screen, customisable backgrounds and polls in messages, call screening and more.
+show more
+ Tech Details: apple iphone 17 pro 512 gb: 15.93 cm mobile phone information
+technical details
+manufacturer apple
+country of origin india
+item model number mg8m4hn/a
+product dimensions 0.87 x 7.19 x 15 cm; 206 g
+asin b0fqfqf6d1
+additional information
+manufacturer apple, apple inc, one apple park way, cupertino, ca 95014, usa. or apple india private limited 13th floor, prestige minsk square, municipal no. 6, cubbon road, bengaluru, karnataka - 560001, india
+packer not applicable for apple (always)
+importer (if applicable) apple india private limited 13th floor, prestige minsk square, municipal no. 6, cubbon road, bengaluru, karnataka - 560001, india
+item weight 206 g
+item dimensions lxwxh 9 x 72 x 150 millimeters
+net quantity 1 count
+included components usb-c charge cable, iphone 17 pro
+generic name iphone 17 pro
+------------------------------------------------------------- filter '1 - 1.49 ghz' not found in product details.
+-------------------------------------------------------------
+ Title: peace sx-26 5g 6gb/64 gb smartphone (silver)
+ Key Features: brand xifo
+operating system android 12.0
+ram memory installed size 6 gb
+cpu model mediatek mt8125
+cpu speed 1.4 ghz
+ About: about this item
+4g volte network / 5g network support
+6 gb ram / 64 gb internal memory and microsd card support up to 512 gb
+camera: 20+8 mp rear camera w and 8 mpix selfie front facing camera
+display: 6.56 inch hd capacitive touchscreen display with 720x1440 pixels
+battery: 5000 mah lithium ion battery providing talk-time of 13.2 hours
+android 12 with mtk6763 quad-core processor
+included in box: 10 w rapid charger, usb cable, headset, back cover, headphone
+› see more product details
+ Tech Details: xifo peace sx-26 5g 6gb/64 gb smartphone mobile phone information
+additional details
+camera
+battery
+measurements
+navigation
+feedback
+would you like to tell us about a lower price?
+display
+connectivity
+item details
+
+battery life
+-------------------------------------------------------------,
+	 filter 'less than 0.99 ghz' not found in product details.
+-------------------------------------------------------------
+ Title: google pixel 10 5g (obsidian, 12gb ram, 256gb storage)
+ Key Features: brand google
+operating system android 16
+ram memory installed size 12 gb
+cpu model google tensor
+memory storage capacity 256 gb
+ About: about this item
+google pixel 10 is the everyday phone unlike anything else; it has google tensor g5, pixel’s most powerful chip, an incredible camera, and advanced ai - gemini built in.
+the upgraded triple rear camera system has a new 5x telephoto lens - up to 20x super res zoom for stunning detail from far away; night sight takes crisp, clear photos in low-light settings; and camera coach helps you snap your best pics.
+pixel 10 is designed - scratch-resistant corning gorilla glass victus 2 and has an ip68 rating for water and dust protection; plus, the actua display - 3,000-nit peak brightness is easy on the eyes, even in direct sunlight
+curated & regularly updated content – discover new apps and games added frequently to keep your experience fresh.
+instead of typing, use gemini live to have a natural, free-flowing conversation; point your camera at what you're curious about – like a sea creature at the aquarium – or chat - gemini to brainstorm ideas or get things done across app
+› see more product details
+ Tech Details: google pixel 10 5g mobile phone information
+additional details
+camera
+battery
+battery life
+navigation
+feedback
+would you like to tell us about a lower price?
+display
+connectivity
+item details
+
+measurements
+video
+------------------------------------------------------------- filter 'less than 0.99 ghz' not found in product details.
+-------------------------------------------------------------
+ Title: apple iphone 17 pro 512 gb: 15.93 cm (6.3″) display with promotion up to 120hz, a19 pro chip, breakthrough battery life, pro fusion camera system with center stage front camera; cosmic orange
+ Key Features: brand apple
+operating system ios
+ram memory installed size 0.1 gb
+cpu speed 0.1 ghz
+memory storage capacity 512 gb
+ About: about this item
+unibody design. for exceptional power — heat-forged aluminium unibody enclosure for the most powerful iphone ever made.
+durable ceramic shield. front and back — ceramic shield protects the back of iphone 17 pro max, making it 4x more resistant to cracks. and the new ceramic shield 2 on the front has 3x better scratch resistance.
+the ultimate pro camera system — with all 48mp rear cameras and 8x optical-quality zoom — the longest zoom ever on an iphone. it’s the equivalent of 8 pro lenses in your pocket.
+18mp center stage front camera — flexible ways to frame your shot. smarter group selfies, dual capture video for simultaneous front and rear recording, and more.
+a19 pro chip. vapour cooled. lightning fast — a19 pro is the most powerful iphone chip yet, delivering up to 40% better sustained performance.
+breakthrough battery life — the unibody design creates massive additional battery capacity, for up to 31 hours of video playback. charge up to 50% in 20 minutes.
+ios — a fresh design with liquid glass. beautiful, delightful and instantly familiar. with a more vibrant lock screen, customisable backgrounds and polls in messages, call screening and more.
+show more
+ Tech Details: apple iphone 17 pro 512 gb: 15.93 cm mobile phone information
+technical details
+manufacturer apple
+country of origin india
+item model number mg8m4hn/a
+product dimensions 0.87 x 7.19 x 15 cm; 206 g
+asin b0fqfqf6d1
+additional information
+manufacturer apple, apple inc, one apple park way, cupertino, ca 95014, usa. or apple india private limited 13th floor, prestige minsk square, municipal no. 6, cubbon road, bengaluru, karnataka - 560001, india
+packer not applicable for apple (always)
+importer (if applicable) apple india private limited 13th floor, prestige minsk square, municipal no. 6, cubbon road, bengaluru, karnataka - 560001, india
+item weight 206 g
+item dimensions lxwxh 9 x 72 x 150 millimeters
+net quantity 1 count
+included components usb-c charge cable, iphone 17 pro
+generic name iphone 17 pro
+------------------------------------------------------------- filter '1 - 1.49 ghz' not found in product details.
+-------------------------------------------------------------
+ Title: peace sx-26 5g 6gb/64 gb smartphone (silver)
+ Key Features: brand xifo
+operating system android 12.0
+ram memory installed size 6 gb
+cpu model mediatek mt8125
+cpu speed 1.4 ghz
+ About: about this item
+4g volte network / 5g network support
+6 gb ram / 64 gb internal memory and microsd card support up to 512 gb
+camera: 20+8 mp rear camera w and 8 mpix selfie front facing camera
+display: 6.56 inch hd capacitive touchscreen display with 720x1440 pixels
+battery: 5000 mah lithium ion battery providing talk-time of 13.2 hours
+android 12 with mtk6763 quad-core processor
+included in box: 10 w rapid charger, usb cable, headset, back cover, headphone
+› see more product details
+ Tech Details: xifo peace sx-26 5g 6gb/64 gb smartphone mobile phone information
+additional details
+camera
+battery
+measurements
+navigation
+feedback
+would you like to tell us about a lower price?
+display
+connectivity
+item details
+
+battery life
+------------------------------------------------------------- filter '1 - 1.49 ghz' not found in product details.
+-------------------------------------------------------------
+ Title: peace air 5g 6 gb/64 gb smartphone (orange)
+ Key Features: brand xifo
+operating system android 12.0
+ram memory installed size 6 gb
+cpu model mediatek mt8125
+cpu speed 1.4 ghz
+ About: about this item
+5g network support / 4g volte
+6 gb ram / 64 gb internal memory and microsd card support up to 256gb
+camera: 20 mp rear camera w and 8 mpix selfie front facing camera
+display: 6.56 inch hd capacitive touchscreen display with 720x1440 pixels
+battery: 5000 mah lithium ion battery providing talk-time of 13.2 hours
+android 12 with mtk6762 quad-core processor
+included in box: 10w rapid charger, usb cable, headset, back cover, headphone
+› see more product details
+ Tech Details: xifo peace air 5g 6 gb/64 gb smartphone mobile phone information
+additional details
+camera
+battery
+measurements
+navigation
+feedback
+would you like to tell us about a lower price?
+display
+connectivity
+item details
+battery life
+-------------------------------------------------------------,
+	 filter 'less than 0.99 ghz' not found in product details.
+-------------------------------------------------------------
+ Title: google pixel 10 5g (obsidian, 12gb ram, 256gb storage)
+ Key Features: brand google
+operating system android 16
+ram memory installed size 12 gb
+cpu model google tensor
+memory storage capacity 256 gb
+ About: about this item
+google pixel 10 is the everyday phone unlike anything else; it has google tensor g5, pixel’s most powerful chip, an incredible camera, and advanced ai - gemini built in.
+the upgraded triple rear camera system has a new 5x telephoto lens - up to 20x super res zoom for stunning detail from far away; night sight takes crisp, clear photos in low-light settings; and camera coach helps you snap your best pics.
+pixel 10 is designed - scratch-resistant corning gorilla glass victus 2 and has an ip68 rating for water and dust protection; plus, the actua display - 3,000-nit peak brightness is easy on the eyes, even in direct sunlight
+curated & regularly updated content – discover new apps and games added frequently to keep your experience fresh.
+instead of typing, use gemini live to have a natural, free-flowing conversation; point your camera at what you're curious about – like a sea creature at the aquarium – or chat - gemini to brainstorm ideas or get things done across app
+› see more product details
+ Tech Details: google pixel 10 5g mobile phone information
+additional details
+camera
+battery
+battery life
+navigation
+feedback
+would you like to tell us about a lower price?
+display
+connectivity
+item details
+
+measurements
+video
+------------------------------------------------------------- filter 'less than 0.99 ghz' not found in product details.
+-------------------------------------------------------------
+ Title: apple iphone 17 pro 512 gb: 15.93 cm (6.3″) display with promotion up to 120hz, a19 pro chip, breakthrough battery life, pro fusion camera system with center stage front camera; cosmic orange
+ Key Features: brand apple
+operating system ios
+ram memory installed size 0.1 gb
+cpu speed 0.1 ghz
+memory storage capacity 512 gb
+ About: about this item
+unibody design. for exceptional power — heat-forged aluminium unibody enclosure for the most powerful iphone ever made.
+durable ceramic shield. front and back — ceramic shield protects the back of iphone 17 pro max, making it 4x more resistant to cracks. and the new ceramic shield 2 on the front has 3x better scratch resistance.
+the ultimate pro camera system — with all 48mp rear cameras and 8x optical-quality zoom — the longest zoom ever on an iphone. it’s the equivalent of 8 pro lenses in your pocket.
+18mp center stage front camera — flexible ways to frame your shot. smarter group selfies, dual capture video for simultaneous front and rear recording, and more.
+a19 pro chip. vapour cooled. lightning fast — a19 pro is the most powerful iphone chip yet, delivering up to 40% better sustained performance.
+breakthrough battery life — the unibody design creates massive additional battery capacity, for up to 31 hours of video playback. charge up to 50% in 20 minutes.
+ios — a fresh design with liquid glass. beautiful, delightful and instantly familiar. with a more vibrant lock screen, customisable backgrounds and polls in messages, call screening and more.
+show more
+ Tech Details: apple iphone 17 pro 512 gb: 15.93 cm mobile phone information
+technical details
+manufacturer apple
+country of origin india
+item model number mg8m4hn/a
+product dimensions 0.87 x 7.19 x 15 cm; 206 g
+asin b0fqfqf6d1
+additional information
+manufacturer apple, apple inc, one apple park way, cupertino, ca 95014, usa. or apple india private limited 13th floor, prestige minsk square, municipal no. 6, cubbon road, bengaluru, karnataka - 560001, india
+packer not applicable for apple (always)
+importer (if applicable) apple india private limited 13th floor, prestige minsk square, municipal no. 6, cubbon road, bengaluru, karnataka - 560001, india
+item weight 206 g
+item dimensions lxwxh 9 x 72 x 150 millimeters
+net quantity 1 count
+included components usb-c charge cable, iphone 17 pro
+generic name iphone 17 pro
+------------------------------------------------------------- filter '1 - 1.49 ghz' not found in product details.
+-------------------------------------------------------------
+ Title: peace sx-26 5g 6gb/64 gb smartphone (silver)
+ Key Features: brand xifo
+operating system android 12.0
+ram memory installed size 6 gb
+cpu model mediatek mt8125
+cpu speed 1.4 ghz
+ About: about this item
+4g volte network / 5g network support
+6 gb ram / 64 gb internal memory and microsd card support up to 512 gb
+camera: 20+8 mp rear camera w and 8 mpix selfie front facing camera
+display: 6.56 inch hd capacitive touchscreen display with 720x1440 pixels
+battery: 5000 mah lithium ion battery providing talk-time of 13.2 hours
+android 12 with mtk6763 quad-core processor
+included in box: 10 w rapid charger, usb cable, headset, back cover, headphone
+› see more product details
+ Tech Details: xifo peace sx-26 5g 6gb/64 gb smartphone mobile phone information
+additional details
+camera
+battery
+measurements
+navigation
+feedback
+would you like to tell us about a lower price?
+display
+connectivity
+item details
+
+battery life
+------------------------------------------------------------- filter '1 - 1.49 ghz' not found in product details.
+-------------------------------------------------------------
+ Title: peace air 5g 6 gb/64 gb smartphone (orange)
+ Key Features: brand xifo
+operating system android 12.0
+ram memory installed size 6 gb
+cpu model mediatek mt8125
+cpu speed 1.4 ghz
+ About: about this item
+5g network support / 4g volte
+6 gb ram / 64 gb internal memory and microsd card support up to 256gb
+camera: 20 mp rear camera w and 8 mpix selfie front facing camera
+display: 6.56 inch hd capacitive touchscreen display with 720x1440 pixels
+battery: 5000 mah lithium ion battery providing talk-time of 13.2 hours
+android 12 with mtk6762 quad-core processor
+included in box: 10w rapid charger, usb cable, headset, back cover, headphone
+› see more product details
+ Tech Details: xifo peace air 5g 6 gb/64 gb smartphone mobile phone information
+additional details
+camera
+battery
+measurements
+navigation
+feedback
+would you like to tell us about a lower price?
+display
+connectivity
+item details
+battery life
+------------------------------------------------------------- filter '1.5 - 1.99 ghz' not found in product details.
+-------------------------------------------------------------
+ Title: poco c81x, ice blue (3gb, 64gb)
+ Key Features: brand poco
+operating system android 15
+ram memory installed size 3 gb
+cpu model cortex
+cpu speed 1.8 ghz
+ About: about this item
+3 gb ram | 64 gb rom
+› see more product details
+ Tech Details: poco c81x, ice blue mobile phone information
+additional details
+item details
+
+feedback
+would you like to tell us about a lower price?
+display
+connectivity
+camera
+battery
+measurements
+battery life
+-------------------------------------------------------------,
+	 filter 'less than 0.99 ghz' not found in product details.
+-------------------------------------------------------------
+ Title: google pixel 10 5g (obsidian, 12gb ram, 256gb storage)
+ Key Features: brand google
+operating system android 16
+ram memory installed size 12 gb
+cpu model google tensor
+memory storage capacity 256 gb
+ About: about this item
+google pixel 10 is the everyday phone unlike anything else; it has google tensor g5, pixel’s most powerful chip, an incredible camera, and advanced ai - gemini built in.
+the upgraded triple rear camera system has a new 5x telephoto lens - up to 20x super res zoom for stunning detail from far away; night sight takes crisp, clear photos in low-light settings; and camera coach helps you snap your best pics.
+pixel 10 is designed - scratch-resistant corning gorilla glass victus 2 and has an ip68 rating for water and dust protection; plus, the actua display - 3,000-nit peak brightness is easy on the eyes, even in direct sunlight
+curated & regularly updated content – discover new apps and games added frequently to keep your experience fresh.
+instead of typing, use gemini live to have a natural, free-flowing conversation; point your camera at what you're curious about – like a sea creature at the aquarium – or chat - gemini to brainstorm ideas or get things done across app
+› see more product details
+ Tech Details: google pixel 10 5g mobile phone information
+additional details
+camera
+battery
+battery life
+navigation
+feedback
+would you like to tell us about a lower price?
+display
+connectivity
+item details
+
+measurements
+video
+------------------------------------------------------------- filter 'less than 0.99 ghz' not found in product details.
+-------------------------------------------------------------
+ Title: apple iphone 17 pro 512 gb: 15.93 cm (6.3″) display with promotion up to 120hz, a19 pro chip, breakthrough battery life, pro fusion camera system with center stage front camera; cosmic orange
+ Key Features: brand apple
+operating system ios
+ram memory installed size 0.1 gb
+cpu speed 0.1 ghz
+memory storage capacity 512 gb
+ About: about this item
+unibody design. for exceptional power — heat-forged aluminium unibody enclosure for the most powerful iphone ever made.
+durable ceramic shield. front and back — ceramic shield protects the back of iphone 17 pro max, making it 4x more resistant to cracks. and the new ceramic shield 2 on the front has 3x better scratch resistance.
+the ultimate pro camera system — with all 48mp rear cameras and 8x optical-quality zoom — the longest zoom ever on an iphone. it’s the equivalent of 8 pro lenses in your pocket.
+18mp center stage front camera — flexible ways to frame your shot. smarter group selfies, dual capture video for simultaneous front and rear recording, and more.
+a19 pro chip. vapour cooled. lightning fast — a19 pro is the most powerful iphone chip yet, delivering up to 40% better sustained performance.
+breakthrough battery life — the unibody design creates massive additional battery capacity, for up to 31 hours of video playback. charge up to 50% in 20 minutes.
+ios — a fresh design with liquid glass. beautiful, delightful and instantly familiar. with a more vibrant lock screen, customisable backgrounds and polls in messages, call screening and more.
+show more
+ Tech Details: apple iphone 17 pro 512 gb: 15.93 cm mobile phone information
+technical details
+manufacturer apple
+country of origin india
+item model number mg8m4hn/a
+product dimensions 0.87 x 7.19 x 15 cm; 206 g
+asin b0fqfqf6d1
+additional information
+manufacturer apple, apple inc, one apple park way, cupertino, ca 95014, usa. or apple india private limited 13th floor, prestige minsk square, municipal no. 6, cubbon road, bengaluru, karnataka - 560001, india
+packer not applicable for apple (always)
+importer (if applicable) apple india private limited 13th floor, prestige minsk square, municipal no. 6, cubbon road, bengaluru, karnataka - 560001, india
+item weight 206 g
+item dimensions lxwxh 9 x 72 x 150 millimeters
+net quantity 1 count
+included components usb-c charge cable, iphone 17 pro
+generic name iphone 17 pro
+------------------------------------------------------------- filter '1 - 1.49 ghz' not found in product details.
+-------------------------------------------------------------
+ Title: peace sx-26 5g 6gb/64 gb smartphone (silver)
+ Key Features: brand xifo
+operating system android 12.0
+ram memory installed size 6 gb
+cpu model mediatek mt8125
+cpu speed 1.4 ghz
+ About: about this item
+4g volte network / 5g network support
+6 gb ram / 64 gb internal memory and microsd card support up to 512 gb
+camera: 20+8 mp rear camera w and 8 mpix selfie front facing camera
+display: 6.56 inch hd capacitive touchscreen display with 720x1440 pixels
+battery: 5000 mah lithium ion battery providing talk-time of 13.2 hours
+android 12 with mtk6763 quad-core processor
+included in box: 10 w rapid charger, usb cable, headset, back cover, headphone
+› see more product details
+ Tech Details: xifo peace sx-26 5g 6gb/64 gb smartphone mobile phone information
+additional details
+camera
+battery
+measurements
+navigation
+feedback
+would you like to tell us about a lower price?
+display
+connectivity
+item details
+
+battery life
+------------------------------------------------------------- filter '1 - 1.49 ghz' not found in product details.
+-------------------------------------------------------------
+ Title: peace air 5g 6 gb/64 gb smartphone (orange)
+ Key Features: brand xifo
+operating system android 12.0
+ram memory installed size 6 gb
+cpu model mediatek mt8125
+cpu speed 1.4 ghz
+ About: about this item
+5g network support / 4g volte
+6 gb ram / 64 gb internal memory and microsd card support up to 256gb
+camera: 20 mp rear camera w and 8 mpix selfie front facing camera
+display: 6.56 inch hd capacitive touchscreen display with 720x1440 pixels
+battery: 5000 mah lithium ion battery providing talk-time of 13.2 hours
+android 12 with mtk6762 quad-core processor
+included in box: 10w rapid charger, usb cable, headset, back cover, headphone
+› see more product details
+ Tech Details: xifo peace air 5g 6 gb/64 gb smartphone mobile phone information
+additional details
+camera
+battery
+measurements
+navigation
+feedback
+would you like to tell us about a lower price?
+display
+connectivity
+item details
+battery life
+------------------------------------------------------------- filter '1.5 - 1.99 ghz' not found in product details.
+-------------------------------------------------------------
+ Title: poco c81x, ice blue (3gb, 64gb)
+ Key Features: brand poco
+operating system android 15
+ram memory installed size 3 gb
+cpu model cortex
+cpu speed 1.8 ghz
+ About: about this item
+3 gb ram | 64 gb rom
+› see more product details
+ Tech Details: poco c81x, ice blue mobile phone information
+additional details
+item details
+
+feedback
+would you like to tell us about a lower price?
+display
+connectivity
+camera
+battery
+measurements
+battery life
+------------------------------------------------------------- filter '1.5 - 1.99 ghz' not found in product details.
+-------------------------------------------------------------
+ Title: redmi a7 pro 4g (black, 4gb ram, 64gb storage) | segment's slimmest smartphone | segment's largest 6300mah battery | segment's largest 17.53cm and smoothest 120hz display | charger in the box
+ Key Features: brand redmi
+operating system android 16
+ram memory installed size 4 gb
+cpu model core 2 duo t7250
+cpu speed 1.6 ghz
+ About: about this item
+segment's slimmest smartphone
+segment's largest 17.53cm(6.9) and smoothest 120hz display
+segment's largest 6300mah battery
+royale design
+8mp selfie shooter
+powerful octa-core processor
+› see more product details
+ Tech Details: redmi a7 pro 4g mobile phone information
+additional details
+camera
+battery
+measurements
+feedback
+would you like to tell us about a lower price?
+display
+connectivity
+item details
+-------------------------------------------------------------
+	at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:46)
+	at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:30)
+	at test.java.tests.AmazonTests.verifyingProcessorSpeedFilterFunctionality(AmazonTests.java:771)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:686)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:992)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:545)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328)
+	at org.testng.internal.thread.graph.TestNGFutureTask.run(TestNGFutureTask.java:22)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1095)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:619)
+	at java.base/java.lang.Thread.run(Thread.java:1447)
+</textarea>
+          
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:19:25 AM</td>
+        <td>
+          📂 Logs:
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:19:25 AM</td>
+        <td>
+          📄 <a href='../logs/verifyingProcessorSpeedFilterFunctionality_Mobile_11-16-37/verifyingProcessorSpeedFilterFunctionality_Mobile_11-16-37.log' target='_blank'>verifyingProcessorSpeedFilterFunctionality_Mobile_11-16-37.log</a>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:19:25 AM</td>
+        <td>
+          📸 Screenshots:
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:19:25 AM</td>
+        <td>
+          
+    <div class="row mb-3"><div class="col-md-3">
+    
+
+<img data-featherlight='../screenshots/verifyingProcessorSpeedFilterFunctionality_Mobile_11-16-37/Mobile493483498700.png' src="../screenshots/verifyingProcessorSpeedFilterFunctionality_Mobile_11-16-37/Mobile493483498700.png">
+  
+    
+
+    </div></div>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:19:25 AM</td>
+        <td>
+          
+    <div class="row mb-3"><div class="col-md-3">
+    
+
+<img data-featherlight='../screenshots/verifyingProcessorSpeedFilterFunctionality_Mobile_11-16-37/Mobile556434231800.png' src="../screenshots/verifyingProcessorSpeedFilterFunctionality_Mobile_11-16-37/Mobile556434231800.png">
+  
+    
+
+    </div></div>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:19:25 AM</td>
+        <td>
+          
+    <div class="row mb-3"><div class="col-md-3">
+    
+
+<img data-featherlight='../screenshots/verifyingProcessorSpeedFilterFunctionality_Mobile_11-16-37/Mobile591445980500.png' src="../screenshots/verifyingProcessorSpeedFilterFunctionality_Mobile_11-16-37/Mobile591445980500.png">
+  
+    
+
+    </div></div>
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="fail" test-id="2"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">verifyingBatteryCapacityFilterFunctionality_Mobile_11-16-37</p>
+            <p class="text-sm">
+              <span>11:16:56 AM</span> / <span>00:02:50:820</span>
+              <span class="badge fail-bg log float-right">Fail</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-fail">verifyingBatteryCapacityFilterFunctionality_Mobile_11-16-37</h5>
+<span class='badge badge-success'>10.24.2026 11:16:56 AM</span>
+<span class='badge badge-danger'>10.24.2026 11:19:47 AM</span>
+<span class='badge badge-default'>00:02:50:820</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=2</span>
+<span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
+<span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
+<span title='Expand all nodes' class='badge badge-default pointer float-right et'><i class="fa fa-expand"></i></span>
+</div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:16:56 AM</td>
+        <td>
+          Test Input Parameter: <b>Mobile</b>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log fail-bg">Fail</span></td>
+        <td>11:19:47 AM</td>
+        <td>
+          <textarea readonly class="code-block">java.lang.AssertionError: The following asserts failed:
+	 filter 'up to 2,999 mah' not found in product details.
+---------------------------------------------------------------------------------------
+ Title: apple iphone 17 pro 512 gb: 15.93 cm (6.3″) display with promotion up to 120hz, a19 pro chip, breakthrough battery life, pro fusion camera system with center stage front camera; deep blue
+ Key Features: brand apple
+operating system ios
+ram memory installed size 0.1 gb
+cpu model others
+cpu speed 0.1 ghz
+ About: about this item
+unibody design. for exceptional power — heat-forged aluminium unibody enclosure for the most powerful iphone ever made.
+durable ceramic shield. front and back — ceramic shield protects the back of iphone 17 pro max, making it 4x more resistant to cracks. and the new ceramic shield 2 on the front has 3x better scratch resistance.
+the ultimate pro camera system — with all 48mp rear cameras and 8x optical-quality zoom — the longest zoom ever on an iphone. it’s the equivalent of 8 pro lenses in your pocket.
+18mp center stage front camera — flexible ways to frame your shot. smarter group selfies, dual capture video for simultaneous front and rear recording, and more.
+a19 pro chip. vapour cooled. lightning fast — a19 pro is the most powerful iphone chip yet, delivering up to 40% better sustained performance.
+breakthrough battery life — the unibody design creates massive additional battery capacity, for up to 31 hours of video playback. charge up to 50% in 20 minutes.
+ios — a fresh design with liquid glass. beautiful, delightful and instantly familiar. with a more vibrant lock screen, customisable backgrounds and polls in messages, call screening and more.
+show more
+ Tech Details: apple iphone 17 pro 512 gb: 15.93 cm mobile phone information
+technical details
+manufacturer apple
+country of origin india
+item model number mg8n4hn/a
+product dimensions 0.87 x 7.19 x 15 cm; 206 g
+asin b0fqf5dg3p
+additional information
+manufacturer apple, apple inc, one apple park way, cupertino, ca 95014, usa. or apple india private limited 13th floor, prestige minsk square, municipal no. 6, cubbon road, bengaluru, karnataka - 560001, india
+packer not applicable for apple (always)
+importer (if applicable) apple india private limited 13th floor, prestige minsk square, municipal no. 6, cubbon road, bengaluru, karnataka - 560001, india
+item weight 206 g
+item dimensions lxwxh 9 x 72 x 150 millimeters
+net quantity 1 count
+included components usb-c charge cable, iphone 17 pro
+generic name iphone 17 pro
+-----------------------------------------------------------------------------------------,
+	 filter 'up to 2,999 mah' not found in product details.
+---------------------------------------------------------------------------------------
+ Title: iphone 18 pro (1 tb) - glacier
+ Key Features: brand apple
+operating system ios
+memory storage capacity 1000 gb
+screen size 6.3 inches
+model name iphone 18 pro
+ About: about this item
+four gorgeous colours. one durable design — built to last with an aluminium unibody design featuring colour-matched back glass for a more uniform look.
+immersive pro display — a 15.93 cm (6.3″) super retina xdr display. brighter. better anti-reflection. promotion up to 120hz.
+durable ceramic shield. front and back — built to last with ceramic shield back — and ceramic shield 2 front, with 3x better scratch resistance than iphone 16 pro.
+ultimate pro camera system — 48mp fusion main camera with variable aperture for improved low-light photos and video and impressive depth of field. custom pro controls. and 8x optical-quality zoom.
+18mp center stage front camera — flexible ways to frame your shot. fit more people in the picture. front and rear dual capture video. and more.
+a20 pro chip with next-generation vapour chamber and dual 16-core neural engine. up to 40% better gpu performance than iphone 17 pro. purpose-built for ai.
+big leap in battery life — up to 3 more hours video playback than iphone 17 pro. up to 23 hours of use per charge. faster wired charging, up to 50% in around 15 minutes with compatible adapter.
+show more
+ Tech Details: iphone 18 pro mobile phone information
+technical details
+manufacturer apple
+country of origin china
+item model number mjt24hn/a
+product dimensions 0.87 x 7.19 x 15 cm; 212 g
+asin b0hj9ty8lw
+additional information
+manufacturer apple, apple inc, one apple park way, cupertino, ca 95014, usa. or apple india private limited 13th floor, prestige minsk square, municipal no. 6, cubbon road, bengaluru, karnataka - 560001, india
+packer not applicable for apple (always)
+importer (if applicable) apple india private limited 13th floor, prestige minsk square, municipal no. 6, cubbon road, bengaluru, karnataka - 560001, india
+item weight 212 g
+item dimensions lxwxh 9 x 72 x 150 millimeters
+net quantity 1 count
+included components usb-c charge cable, iphone 18 pro
+generic name iphone
+-----------------------------------------------------------------------------------------,
+	 filter '3,000 to 3,999 mah' not found in product details.
+---------------------------------------------------------------------------------------
+ Title: poco c81, sunset gold (4gb, 64gb)
+ Key Features: brand poco
+operating system android 16
+ram memory installed size 4 gb
+cpu model cortex
+cpu speed 1.8 ghz
+ About: about this item
+4 gb ram | 64 gb rom
+t7250 | octa core processor | 1.8 ghz clock speed
+13mp rear camera
+8mp front camera
+6.9 inch screen display & 6300 mah battery
+› see more product details
+ Tech Details: poco c81, sunset gold mobile phone information
+additional details
+item details
+
+feedback
+would you like to tell us about a lower price?
+display
+connectivity
+camera
+battery
+measurements
+battery life
+-----------------------------------------------------------------------------------------,
+	 filter '3,000 to 3,999 mah' not found in product details.
+---------------------------------------------------------------------------------------
+ Title: vivo t5 lite 5g smartphone, wave blue, 128gb, 4gb ram
+ Key Features: brand vivo
+operating system origin os 6.0
+ram memory installed size 4 gb
+cpu model mediatek dimensity 6300
+cpu speed 6 ghz
+ About: about this item
+powerful battery & fast charging: equipped with a 6500 mah battery and 44w flash charge for rapid top-ups
+performance: powered by mediatek dimensity 6300 5g processor
+camera system: 50 mp rear camera with sony imx852 sensor, multiple scene modes, and a 5 mp front camera
+durability: ip65 dust and water resistance with triple anti-drop sgs certification for added protection
+display & connectivity: 6.74-inch lcd display, 5g dual sim dual standby, wi-fi 2.4/5 ghz, and bluetooth 5.4
+operating system & storage: runs on origin os 6.0 with 128 gb internal storage and 4 gb ram for smooth multitasking and ample space for apps and media
+security & convenience: side-mounted fingerprint sensor for quick and secure unlocking, along with ai creation and ai caption features for enhanced photography experience
+lightweight design & accessories: weighs only 209g for comfortable handling, comes with protective phone case and pre-applied protective film included in the box
+› see more product details
+ Tech Details: product information
+additional details
+camera
+battery
+feedback
+would you like to tell us about a lower price?
+display
+connectivity
+item details
+-----------------------------------------------------------------------------------------,
+	 filter '4,000 to 4,999 mah' not found in product details.
+---------------------------------------------------------------------------------------
+ Title: motorola g67 power 5g (pantone cilantro, 256 gb) (12 gb ram)
+ Key Features: brand motorola
+operating system android 15
+ram memory installed size 12 gb
+cpu model cortex a7
+cpu speed 2.4 ghz
+ About: about this item
+50mp ai camera: sony lytia 600 sensor with f/1.8 aperture, pdaf, and 8mp ultrawide lens for stunning photos and 4k video recording
+7000mah battery: segment-leading silicon carbon battery lasts over 2 days, with 30w turbopower charging to power up quickly
+powerful performance: qualcomm snapdragon 7s gen 2 (4nm) octa-core processor with up to 24gb adaptive ram via ram boost and 5g connectivity
+brilliant display: 6.7-inch fhd+ lcd with 120hz refresh rate, corning gorilla glass 7i, pantone validated colours, and hdr10+ support
+durable build: ip64 water and dust resistance, mil-810h military-grade durability, vegan leather body, and stereo speakers with dolby atmos
+advanced front camera: 32mp front-facing camera with 4k video recording capability for high-quality selfies and video calls
+latest android os: runs on android 15 operating system with ram boost 4.0 technology for smooth and responsive user experience
+premium color options: available in pantone cilantro, parachute purple, and blue curacao with premium vegan leather body finish
+› see more product details
+ Tech Details: motorola g67 power 5g mobile phone information
+additional details
+camera
+battery
+battery life
+navigation
+feedback
+would you like to tell us about a lower price?
+display
+connectivity
+item details
+
+measurements
+video
+-----------------------------------------------------------------------------------------,
+	 filter '4,000 to 4,999 mah' not found in product details.
+---------------------------------------------------------------------------------------
+ Title: realme narzo 80 lite 4g (obsidian black 2026, 4gb+64gb) | 6300mah segment's biggest battery | 7.94mm slim design | 300% ultra volume | pulse light: 9 colors, 5 glow modes | ai assist
+ Key Features: brand realme
+operating system android 15
+ram memory installed size 4 gb
+cpu model others
+cpu speed 1.8 ghz
+ About: about this item
+6300mah massive battery: stay powered all day with a long-lasting battery built for nonstop performance.
+7.94mm slim design: sleek enough for your pocket. light enough for all-day carry.
+pulse light — lighting up every moment: supports 9 colors and 5 customizable glow modes that light up for calls, messages, app notifications, battery status, charging, photo countdown, and music rhythm.
+300% ultra volume: enjoy triple the sound for an immersive experience, without any unwanted noise.
+ip54 water & dust resistance: built to stay protected through dust, spills, and everyday messes.
+› see more product details
+ Tech Details: realme narzo 80 lite 4g mobile phone information
+additional details
+camera
+battery
+measurements
+video
+feedback
+would you like to tell us about a lower price?
+display
+connectivity
+item details
+
+battery life
+navigation
+-----------------------------------------------------------------------------------------
+	at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:46)
+	at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:30)
+	at test.java.tests.AmazonTests.verifyingBatteryCapacityFilterFunctionality(AmazonTests.java:591)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:686)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:992)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:545)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328)
+	at org.testng.internal.thread.graph.TestNGFutureTask.run(TestNGFutureTask.java:22)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1095)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:619)
+	at java.base/java.lang.Thread.run(Thread.java:1447)
+</textarea>
+          
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:19:47 AM</td>
+        <td>
+          📂 Logs:
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:19:47 AM</td>
+        <td>
+          📄 <a href='../logs/verifyingBatteryCapacityFilterFunctionality_Mobile_11-16-37/verifyingBatteryCapacityFilterFunctionality_Mobile_11-16-37.log' target='_blank'>verifyingBatteryCapacityFilterFunctionality_Mobile_11-16-37.log</a>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:19:47 AM</td>
+        <td>
+          📸 Screenshots:
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:19:47 AM</td>
+        <td>
+          
+    <div class="row mb-3"><div class="col-md-3">
+    
+
+<img data-featherlight='../screenshots/verifyingBatteryCapacityFilterFunctionality_Mobile_11-16-37/Mobile494375513500.png' src="../screenshots/verifyingBatteryCapacityFilterFunctionality_Mobile_11-16-37/Mobile494375513500.png">
+  
+    
+
+    </div></div>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:19:47 AM</td>
+        <td>
+          
+    <div class="row mb-3"><div class="col-md-3">
+    
+
+<img data-featherlight='../screenshots/verifyingBatteryCapacityFilterFunctionality_Mobile_11-16-37/Mobile578547873100.png' src="../screenshots/verifyingBatteryCapacityFilterFunctionality_Mobile_11-16-37/Mobile578547873100.png">
+  
+    
+
+    </div></div>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:19:47 AM</td>
+        <td>
+          
+    <div class="row mb-3"><div class="col-md-3">
+    
+
+<img data-featherlight='../screenshots/verifyingBatteryCapacityFilterFunctionality_Mobile_11-16-37/Mobile615520657600.png' src="../screenshots/verifyingBatteryCapacityFilterFunctionality_Mobile_11-16-37/Mobile615520657600.png">
+  
+    
+
+    </div></div>
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="fail" test-id="3"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">verifyingDiscountFilterFunctionality_Mobile_11-16-37</p>
+            <p class="text-sm">
+              <span>11:16:56 AM</span> / <span>00:02:09:819</span>
+              <span class="badge fail-bg log float-right">Fail</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-fail">verifyingDiscountFilterFunctionality_Mobile_11-16-37</h5>
+<span class='badge badge-success'>10.24.2026 11:16:56 AM</span>
+<span class='badge badge-danger'>10.24.2026 11:19:06 AM</span>
+<span class='badge badge-default'>00:02:09:819</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=3</span>
+<span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
+<span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
+<span title='Expand all nodes' class='badge badge-default pointer float-right et'><i class="fa fa-expand"></i></span>
+</div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:16:56 AM</td>
+        <td>
+          Test Input Parameter: <b>Mobile</b>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log fail-bg">Fail</span></td>
+        <td>11:19:06 AM</td>
+        <td>
+          <textarea readonly class="code-block">java.lang.AssertionError: The following asserts failed:
+	 filter '10% off or more' not found in product details.
+-------------------------------------------------------------
+ Title: iqoo z11xa 5g (titan black, 8gb ram, 128 gb storage) | massive 7200mah battery | dimensity 7400 turbo processor | originos 6 with 4 years of security updates*
+ Key Features: bundles with this item
+iqoo z11xa 5g (titan black, 8+128 gb) bud…
+-34% ₹28,856.12
+list: ₹43,989.00
+see all bundles
+ About: about this item
+performance: powered by dimensity 7400 turbo chipset with an antutu score of 890k+*, paired with ufs 2.2 and 128gb storage. gaming features include dual 10x super touch control, monster mode, in-game overlay notifications, 4d game vibration, and game voice changer for an immersive gaming experience.
+battery: z11xa packs a massive 7200mah battery. supports 1600 complete charging cycles maintaining battery health for up to 6 years. 44w flashcharge, battery temperature control, and overnight charging protection ensure fast and safe charging. supports bypass charging, with 25-dimension security protection and pps support.
+operating system: running on originos 6, the z11xa offers 2 years of android updates and 4 years of security patches*. key features include ai captions, ai creation, ai transcript assist, circle to search, and screen translation. it also includes private space for added privacy, origin island with drag & go, copy & go, and lock screen customization.
+camera: the z11xa includes a 50mp sony imx 852 ultra-hd ai-powered main camera with a 32mp front camera. it supports 4k video recording on both front and rear cameras, 4k video-to-live photo conversion, dual-view video recording, video electronic image stabilisation (eis), and live photo.
+› see more product details
+ Tech Details: iqoo z11xa 5g mobile phone information
+additional details
+camera
+battery
+measurements
+video
+navigation
+feedback
+would you like to tell us about a lower price?
+display
+connectivity
+item details
+-------------------------------------------------------------,
+	 filter '10% off or more' not found in product details.
+-------------------------------------------------------------
+ Title: samsung galaxy s25 ultra 5g ai smartphone (titanium black, 12gb ram, 256gb storage), 200mp camera, 5000mah ultra long battery, qhd+ dynamic amoled 2x, galaxy ai, knox security, s pen included
+ Key Features: brand samsung
+operating system android 16 with one ui 8.5
+ram memory installed size 12 gb
+cpu model snapdragon 8 elite
+cpu speed 4.47 ghz
+ About: about this item
+𝐆𝐀𝐋𝐀𝐗𝐘 𝐀𝐈 𝐀𝐍𝐃 𝐍𝐎𝐖 𝐁𝐑𝐈𝐄𝐅 – enter the new era of 5g smartphone ai with a companion that stays one-step ahead of your needs. let natural conversation guide you through everyday tasks without switching between multiple apps, while now brief keeps you updated with your schedule, reminders, battery status, and energy score, all within one ui.
+𝐆𝐄𝐌𝐈𝐍𝐈 𝐋𝐈𝐕𝐄 – get real-time answers and ideas with google gemini live. chat freely, attach images, and prepare for presentations with quick responses that adapt to your style. simply press and hold the side button to access google gemini for help.
+𝐔𝐋𝐓𝐑𝐀 𝐖𝐈𝐃𝐄 𝐂𝐀𝐌𝐄𝐑𝐀 – capture razor-sharp details from wide to telephoto and even ultra wide. whether shooting landscapes or zoomed-in portraits, the ai-enhanced provisual engine and 200mp camera delivers vivid colors with exceptional clarity, showcased beautifully on an immersive display. store it all with 12gb of memory and up to 256gb, 512gb or 1tb of storage.
+𝐒𝐍𝐀𝐏𝐃𝐑𝐀𝐆𝐎𝐍 𝟖 𝐄𝐋𝐈𝐓𝐄 – experience unmatched power with the snapdragon 8 elite processor, custom-tuned for galaxy. enjoy smoother gaming, real-time ray tracing, and advanced vulkan optimization for immersive gameplay.
+𝐄𝐗𝐂𝐋𝐔𝐒𝐈𝐕𝐄 𝐁𝐑𝐀𝐍𝐃 𝐏𝐑𝐎𝐌𝐈𝐒𝐄 – the galaxy s25 ultra 5g mobile is made in india, and combining it with its 5000mah ultra long battery life, one can now safeguard their data with defense-grade samsung knox security and enjoy fast, reliable, and secure payments anywhere with samsung wallet. stay worry free with the largest service network for smartphones, now serviced at more than 3300 touchpoints.
+› see more product details
+ Tech Details: samsung galaxy s25 ultra 5g ai smartphone mobile phone information
+additional details
+camera
+battery
+measurements
+video
+feedback
+would you like to tell us about a lower price?
+display
+connectivity
+item details
+
+battery life
+navigation
+-------------------------------------------------------------,
+	 filter '25% off or more' not found in product details.
+-------------------------------------------------------------
+ Title: redmi 15c 5g prime edition (midnight black, 6gb + 128gb) | massive 6000mah battery | segment's largest 17.53cm display up to 120hz | mediatek dimensity 6300 | 33w fast charging | 50mp ai dual camera
+ Key Features: brand redmi
+operating system android 15, xiaomi hyperos
+ram memory installed size 6 gb
+cpu model mediatek dimensity 6300
+memory storage capacity 128 gb
+ About: about this item
+royale design
+massive 6000mah battery
+segment's largest & smoothest display 17.53cm(6.9) up to 120hz
+mediatek dimensity 6300
+50mp ai dual camera
+ip64 rated
+supports 33w fast charging and comes with a 33w charger in the box
+› see more product details
+ Tech Details: redmi 15c 5g prime edition mobile phone information
+additional details
+camera
+battery
+measurements
+video
+navigation
+feedback
+would you like to tell us about a lower price?
+display
+connectivity
+item details
+-------------------------------------------------------------,
+	 filter '25% off or more' not found in product details.
+-------------------------------------------------------------
+ Title: oneplus n6x | 6gb+128gb | burgundy red | 7000mah battery | power for days | smooth 120hz display | largest 5300mm2 cooling system | military-grade durability
+ Key Features: brand oneplus
+operating system oxygenos 16
+ram memory installed size 6 gb
+cpu speed 2.4 ghz
+memory storage capacity 128 gb
+ About: about this item
+packed with a massive 7000mah battery, the oneplus n6x carries you through daily tasks, long video streams, and extended browsing sessions without hunting for an outlet. engineered with long-term health optimization, it provides up to 6-year battery health to maintain peak performance over time.
+experience seamless software experience. engineered for long-term system optimization, every app launch, swipe, and multitasking transition remains snappy, fluid, and lag-free over time.
+powered by the dimensity 6360 apex processor and backed by a large 5300mm² cooling system, this setup handles daily multitasking and continuous app switching without slowing down or heating up. paired with a liquid-fluid 120hz refresh rate display, it ensures smooth scrolling, instant touch response, and seamless visual rendering throughout your everyday use.
+built to withstand everyday accidents, unexpected weather, and sudden impacts with certified military-grade durability (mil-std-810h) for shock resistance. paired with an ip64 rating for dust and water resistance, it gives you reliable peace of mind during everyday carry.
+capture clear, natural photos with rich contrast using the main 13mp camera system, preserving details across diverse lighting conditions. up front, the 5mp camera locks in sharp, clear selfies for photos and video calls.
+› see more product details
+ Tech Details: oneplus n6x mobile phone information
+additional details
+camera
+battery
+measurements
+battery life
+navigation
+feedback
+would you like to tell us about a lower price?
+display
+connectivity
+item details
+
+video
+-------------------------------------------------------------,
+	 filter '35% off or more' not found in product details.
+-------------------------------------------------------------
+ Title: redmi 15c 5g prime edition (midnight black, 6gb + 128gb) | massive 6000mah battery | segment's largest 17.53cm display up to 120hz | mediatek dimensity 6300 | 33w fast charging | 50mp ai dual camera
+ Key Features: brand redmi
+operating system android 15, xiaomi hyperos
+ram memory installed size 6 gb
+cpu model mediatek dimensity 6300
+memory storage capacity 128 gb
+ About: about this item
+royale design
+massive 6000mah battery
+segment's largest & smoothest display 17.53cm(6.9) up to 120hz
+mediatek dimensity 6300
+50mp ai dual camera
+ip64 rated
+supports 33w fast charging and comes with a 33w charger in the box
+› see more product details
+ Tech Details: redmi 15c 5g prime edition mobile phone information
+additional details
+camera
+battery
+measurements
+video
+navigation
+feedback
+would you like to tell us about a lower price?
+display
+connectivity
+item details
+-------------------------------------------------------------,
+	 filter '35% off or more' not found in product details.
+-------------------------------------------------------------
+ Title: poco c85x 5g smartphone, sunset gold, 6.9 inch display, 32mp dual ai camera, 6300mah battery, 64gb storage
+ Key Features: brand poco
+operating system android 16
+ram memory installed size 4 gb
+cpu model cortex a5
+cpu speed 2.2 ghz
+ About: about this item
+5g connectivity: the poco c85x 5g supports next-generation 5g networks, enabling faster download and upload speeds for seamless browsing and streaming.
+camera system: equipped with a 32mp rear camera, the poco c85x 5g captures sharp, detailed photos and videos for every occasion.
+performance: powered by 4gb ram and 64gb internal storage, this smartphone handles everyday tasks, apps, and media with ease.
+vibrant display: features a large waterdrop notch display that delivers vivid visuals, making it ideal for watching content and browsing.
+stylish design: the emerald green finish with a subtle poco-branded pattern on the back gives this smartphone a distinctive and premium look.
+› see more product details
+ Tech Details: product information
+additional details
+camera
+battery
+battery life
+navigation
+feedback
+would you like to tell us about a lower price?
+display
+connectivity
+item details
+
+measurements
+video
+-------------------------------------------------------------
+	at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:46)
+	at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:30)
+	at test.java.tests.AmazonTests.verifyingDiscountFilterFunctionality(AmazonTests.java:1131)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:686)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:992)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:545)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328)
+	at org.testng.internal.thread.graph.TestNGFutureTask.run(TestNGFutureTask.java:22)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1095)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:619)
+	at java.base/java.lang.Thread.run(Thread.java:1447)
+</textarea>
+          
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:19:06 AM</td>
+        <td>
+          📂 Logs:
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:19:06 AM</td>
+        <td>
+          📄 <a href='../logs/verifyingDiscountFilterFunctionality_Mobile_11-16-37/verifyingDiscountFilterFunctionality_Mobile_11-16-37.log' target='_blank'>verifyingDiscountFilterFunctionality_Mobile_11-16-37.log</a>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:19:06 AM</td>
+        <td>
+          📸 Screenshots:
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:19:06 AM</td>
+        <td>
+          
+    <div class="row mb-3"><div class="col-md-3">
+    
+
+<img data-featherlight='../screenshots/verifyingDiscountFilterFunctionality_Mobile_11-16-37/Mobile493457133900.png' src="../screenshots/verifyingDiscountFilterFunctionality_Mobile_11-16-37/Mobile493457133900.png">
+  
+    
+
+    </div></div>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:19:06 AM</td>
+        <td>
+          
+    <div class="row mb-3"><div class="col-md-3">
+    
+
+<img data-featherlight='../screenshots/verifyingDiscountFilterFunctionality_Mobile_11-16-37/Mobile536421453400.png' src="../screenshots/verifyingDiscountFilterFunctionality_Mobile_11-16-37/Mobile536421453400.png">
+  
+    
+
+    </div></div>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:19:06 AM</td>
+        <td>
+          
+    <div class="row mb-3"><div class="col-md-3">
+    
+
+<img data-featherlight='../screenshots/verifyingDiscountFilterFunctionality_Mobile_11-16-37/Mobile574265780400.png' src="../screenshots/verifyingDiscountFilterFunctionality_Mobile_11-16-37/Mobile574265780400.png">
+  
+    
+
+    </div></div>
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="fail" test-id="4"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">verifyingDiscountFilterFunctionality_Laptop_11-19-07</p>
+            <p class="text-sm">
+              <span>11:19:09 AM</span> / <span>00:02:10:464</span>
+              <span class="badge fail-bg log float-right">Fail</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-fail">verifyingDiscountFilterFunctionality_Laptop_11-19-07</h5>
+<span class='badge badge-success'>10.24.2026 11:19:09 AM</span>
+<span class='badge badge-danger'>10.24.2026 11:21:20 AM</span>
+<span class='badge badge-default'>00:02:10:464</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=4</span>
+<span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
+<span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
+<span title='Expand all nodes' class='badge badge-default pointer float-right et'><i class="fa fa-expand"></i></span>
+</div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:19:09 AM</td>
+        <td>
+          Test Input Parameter: <b>Laptop</b>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log fail-bg">Fail</span></td>
+        <td>11:21:20 AM</td>
+        <td>
+          <textarea readonly class="code-block">java.lang.AssertionError: The following asserts failed:
+	 filter '10% off or more' not found in product details.
+-------------------------------------------------------------
+ Title: acer smartchoice aspire one, amd ryzen 3-7320u, 8gb lpddr5 ram/ 256gb ssd, 14.0"/35.56cm tn hd display, win 11 home, pure silver, 1.48kg, a114-43, thin and light laptop
+ Key Features: brand acer
+model name aspire one
+screen size 14 inches
+colour pure silver
+hard disk size 256 gb
+cpu model ryzen 3
+ram memory installed size 8 gb
+ About: about this item
+processor : whether you're at home, school, or work, get all the performance you need with the latest amd ryzen 3-7320u processor @ 2.4ghz ( 4 cores, 4mb cache, up to 4.1 ghz); maintaining order and keeping your apps running consistently and smoothly.
+operating system: windows 11 home |preinstalled software: none
+performance : 8gb lpddr5 ram for full-power multitasking; 256gb ssd; this thin and light laptop offers a good experience for watching videos, browsing the web, remote work, or study from home.
+display : 14.0-inch hd 1366 x 768 resolution display keeps images and videos stunning while the narrow border offers-up more viewable space. to protect user’s eyes from harmful blue light, it also includes acer blueligh shield.
+wireless connectivity : dual band wi-fi 5 (802.11a/b/g/n/ac) provides fast internet access. for enhanced video calls this laptop also includes and optimized camera and microphones.
+plenty of ports : flexible connectivity options through usb 2.0/ 3.0/3.2 ports. users can also connect an external display through the hdmi port.
+› see more product details
+ Tech Details: product information
+additional details
+display
+memory
+ports & slots
+input devices
+feedback
+would you like to tell us about a lower price?
+processor
+item details
+
+connectivity
+battery
+-------------------------------------------------------------,
+	 filter '10% off or more' not found in product details.
+-------------------------------------------------------------
+ Title: acer smartchoice aspire one, intel core celeron n4500, 12gb lpddr4 ram/ 256gb ssd, 14.0"/35.56cm wxga display, intel uhd graphics, win 11 home, pure silver, 1.3 kg, a114-45, thin and light laptop
+ Key Features: brand acer
+model name aspire one
+screen size 14 inches
+colour pure silver
+hard disk size 256 gb
+cpu model celeron
+ram memory installed size 12 gb
+ About: about this item
+processor : intel celeron n4500 processor (1.1 ghz base clock, up to 2.8 ghz max boost clock, 4 mb l3 cache, 2 cores) | memory: 8 gb of onboard lpddr4 system memory | storage: 256 gb ssd, pcie gen 3, nvme support up to 1tb
+operating system: windows 11 home |preinstalled software: none
+display : 14.0-inch wxga 1366 x 768 resolution display keeps images and videos stunning while the narrow border offers-up more viewable space. to protect user’s eyes from harmful blue light, it also includes acer blueligh shield.
+wireless connectivity : dual band wi-fi 5 (802.11a/b/g/n/ac) provides fast internet access. for enhanced video calls this laptop also includes and optimized camera and microphones.
+plenty of ports : flexible connectivity options through usb 3.0 ports. users can also connect an external display through the hdmi port.secure your desktop computer and prevent unauthorized removal by using kensington lock slot
+› see more product details
+ Tech Details: product information
+additional details
+display
+connectivity
+battery
+input devices
+feedback
+would you like to tell us about a lower price?
+processor
+item details
+
+memory
+ports & slots
+-------------------------------------------------------------,
+	 filter '25% off or more' not found in product details.
+-------------------------------------------------------------
+ Title: acer smartchoice aspire one, amd ryzen 3-7320u, 8gb lpddr5 ram/ 256gb ssd, 14.0"/35.56cm tn hd display, win 11 home, pure silver, 1.48kg, a114-43, thin and light laptop
+ Key Features: brand acer
+model name aspire one
+screen size 14 inches
+colour pure silver
+hard disk size 256 gb
+cpu model ryzen 3
+ram memory installed size 8 gb
+ About: about this item
+processor : whether you're at home, school, or work, get all the performance you need with the latest amd ryzen 3-7320u processor @ 2.4ghz ( 4 cores, 4mb cache, up to 4.1 ghz); maintaining order and keeping your apps running consistently and smoothly.
+operating system: windows 11 home |preinstalled software: none
+performance : 8gb lpddr5 ram for full-power multitasking; 256gb ssd; this thin and light laptop offers a good experience for watching videos, browsing the web, remote work, or study from home.
+display : 14.0-inch hd 1366 x 768 resolution display keeps images and videos stunning while the narrow border offers-up more viewable space. to protect user’s eyes from harmful blue light, it also includes acer blueligh shield.
+wireless connectivity : dual band wi-fi 5 (802.11a/b/g/n/ac) provides fast internet access. for enhanced video calls this laptop also includes and optimized camera and microphones.
+plenty of ports : flexible connectivity options through usb 2.0/ 3.0/3.2 ports. users can also connect an external display through the hdmi port.
+› see more product details
+ Tech Details: product information
+additional details
+display
+memory
+ports & slots
+input devices
+feedback
+would you like to tell us about a lower price?
+processor
+item details
+
+connectivity
+battery
+-------------------------------------------------------------,
+	 filter '25% off or more' not found in product details.
+-------------------------------------------------------------
+ Title: acer smartchoice aspire one, intel core celeron n4500, 12gb lpddr4 ram/ 256gb ssd, 14.0"/35.56cm wxga display, intel uhd graphics, win 11 home, pure silver, 1.3 kg, a114-45, thin and light laptop
+ Key Features: brand acer
+model name aspire one
+screen size 14 inches
+colour pure silver
+hard disk size 256 gb
+cpu model celeron
+ram memory installed size 12 gb
+ About: about this item
+processor : intel celeron n4500 processor (1.1 ghz base clock, up to 2.8 ghz max boost clock, 4 mb l3 cache, 2 cores) | memory: 8 gb of onboard lpddr4 system memory | storage: 256 gb ssd, pcie gen 3, nvme support up to 1tb
+operating system: windows 11 home |preinstalled software: none
+display : 14.0-inch wxga 1366 x 768 resolution display keeps images and videos stunning while the narrow border offers-up more viewable space. to protect user’s eyes from harmful blue light, it also includes acer blueligh shield.
+wireless connectivity : dual band wi-fi 5 (802.11a/b/g/n/ac) provides fast internet access. for enhanced video calls this laptop also includes and optimized camera and microphones.
+plenty of ports : flexible connectivity options through usb 3.0 ports. users can also connect an external display through the hdmi port.secure your desktop computer and prevent unauthorized removal by using kensington lock slot
+› see more product details
+ Tech Details: product information
+additional details
+display
+connectivity
+battery
+input devices
+feedback
+would you like to tell us about a lower price?
+processor
+item details
+
+memory
+ports & slots
+-------------------------------------------------------------,
+	 filter '35% off or more' not found in product details.
+-------------------------------------------------------------
+ Title: acer smartchoice aspire one, amd ryzen 3-7320u, 8gb lpddr5 ram/ 256gb ssd, 14.0"/35.56cm tn hd display, win 11 home, pure silver, 1.48kg, a114-43, thin and light laptop
+ Key Features: brand acer
+model name aspire one
+screen size 14 inches
+colour pure silver
+hard disk size 256 gb
+cpu model ryzen 3
+ram memory installed size 8 gb
+ About: about this item
+processor : whether you're at home, school, or work, get all the performance you need with the latest amd ryzen 3-7320u processor @ 2.4ghz ( 4 cores, 4mb cache, up to 4.1 ghz); maintaining order and keeping your apps running consistently and smoothly.
+operating system: windows 11 home |preinstalled software: none
+performance : 8gb lpddr5 ram for full-power multitasking; 256gb ssd; this thin and light laptop offers a good experience for watching videos, browsing the web, remote work, or study from home.
+display : 14.0-inch hd 1366 x 768 resolution display keeps images and videos stunning while the narrow border offers-up more viewable space. to protect user’s eyes from harmful blue light, it also includes acer blueligh shield.
+wireless connectivity : dual band wi-fi 5 (802.11a/b/g/n/ac) provides fast internet access. for enhanced video calls this laptop also includes and optimized camera and microphones.
+plenty of ports : flexible connectivity options through usb 2.0/ 3.0/3.2 ports. users can also connect an external display through the hdmi port.
+› see more product details
+ Tech Details: product information
+additional details
+display
+memory
+ports & slots
+input devices
+feedback
+would you like to tell us about a lower price?
+processor
+item details
+
+connectivity
+battery
+-------------------------------------------------------------,
+	 filter '35% off or more' not found in product details.
+-------------------------------------------------------------
+ Title: acer smartchoice aspire one, intel core celeron n4500, 12gb lpddr4 ram/ 256gb ssd, 14.0"/35.56cm wxga display, intel uhd graphics, win 11 home, pure silver, 1.3 kg, a114-45, thin and light laptop
+ Key Features: brand acer
+model name aspire one
+screen size 14 inches
+colour pure silver
+hard disk size 256 gb
+cpu model celeron
+ram memory installed size 12 gb
+ About: about this item
+processor : intel celeron n4500 processor (1.1 ghz base clock, up to 2.8 ghz max boost clock, 4 mb l3 cache, 2 cores) | memory: 8 gb of onboard lpddr4 system memory | storage: 256 gb ssd, pcie gen 3, nvme support up to 1tb
+operating system: windows 11 home |preinstalled software: none
+display : 14.0-inch wxga 1366 x 768 resolution display keeps images and videos stunning while the narrow border offers-up more viewable space. to protect user’s eyes from harmful blue light, it also includes acer blueligh shield.
+wireless connectivity : dual band wi-fi 5 (802.11a/b/g/n/ac) provides fast internet access. for enhanced video calls this laptop also includes and optimized camera and microphones.
+plenty of ports : flexible connectivity options through usb 3.0 ports. users can also connect an external display through the hdmi port.secure your desktop computer and prevent unauthorized removal by using kensington lock slot
+› see more product details
+ Tech Details: product information
+additional details
+display
+connectivity
+battery
+input devices
+feedback
+would you like to tell us about a lower price?
+processor
+item details
+
+memory
+ports & slots
+-------------------------------------------------------------
+	at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:46)
+	at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:30)
+	at test.java.tests.AmazonTests.verifyingDiscountFilterFunctionality(AmazonTests.java:1131)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:686)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:992)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:545)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328)
+	at org.testng.internal.thread.graph.TestNGFutureTask.run(TestNGFutureTask.java:22)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1095)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:619)
+	at java.base/java.lang.Thread.run(Thread.java:1447)
+</textarea>
+          
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:21:20 AM</td>
+        <td>
+          📂 Logs:
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:21:20 AM</td>
+        <td>
+          📄 <a href='../logs/verifyingDiscountFilterFunctionality_Laptop_11-19-07/verifyingDiscountFilterFunctionality_Laptop_11-19-07.log' target='_blank'>verifyingDiscountFilterFunctionality_Laptop_11-19-07.log</a>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:21:20 AM</td>
+        <td>
+          📸 Screenshots:
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:21:20 AM</td>
+        <td>
+          
+    <div class="row mb-3"><div class="col-md-3">
+    
+
+<img data-featherlight='../screenshots/verifyingDiscountFilterFunctionality_Laptop_11-19-07/Laptop623513499700.png' src="../screenshots/verifyingDiscountFilterFunctionality_Laptop_11-19-07/Laptop623513499700.png">
+  
+    
+
+    </div></div>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:21:20 AM</td>
+        <td>
+          
+    <div class="row mb-3"><div class="col-md-3">
+    
+
+<img data-featherlight='../screenshots/verifyingDiscountFilterFunctionality_Laptop_11-19-07/Laptop660296525800.png' src="../screenshots/verifyingDiscountFilterFunctionality_Laptop_11-19-07/Laptop660296525800.png">
+  
+    
+
+    </div></div>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:21:20 AM</td>
+        <td>
+          
+    <div class="row mb-3"><div class="col-md-3">
+    
+
+<img data-featherlight='../screenshots/verifyingDiscountFilterFunctionality_Laptop_11-19-07/Laptop706983503400.png' src="../screenshots/verifyingDiscountFilterFunctionality_Laptop_11-19-07/Laptop706983503400.png">
+  
+    
+
+    </div></div>
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="fail" test-id="5"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">verifyingProcessorSpeedFilterFunctionality_Laptop_11-19-26</p>
+            <p class="text-sm">
+              <span>11:19:28 AM</span> / <span>00:02:09:605</span>
+              <span class="badge fail-bg log float-right">Fail</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-fail">verifyingProcessorSpeedFilterFunctionality_Laptop_11-19-26</h5>
+<span class='badge badge-success'>10.24.2026 11:19:28 AM</span>
+<span class='badge badge-danger'>10.24.2026 11:21:37 AM</span>
+<span class='badge badge-default'>00:02:09:605</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=5</span>
+<span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
+<span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
+<span title='Expand all nodes' class='badge badge-default pointer float-right et'><i class="fa fa-expand"></i></span>
+</div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:19:28 AM</td>
+        <td>
+          Test Input Parameter: <b>Laptop</b>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log fail-bg">Fail</span></td>
+        <td>11:21:37 AM</td>
+        <td>
+          <textarea readonly class="code-block">java.lang.AssertionError: The following asserts failed:
+	 filter '1 to 1.59 ghz' not found in product details.
+-------------------------------------------------------------
+ Title: acer smartchoice aspire one, intel core celeron n4500, 12gb lpddr4 ram/ 256gb ssd, 14.0"/35.56cm wxga display, intel uhd graphics, win 11 home, pure silver, 1.3 kg, a114-45, thin and light laptop
+ Key Features: brand acer
+model name aspire one
+screen size 14 inches
+colour pure silver
+hard disk size 256 gb
+cpu model celeron
+ram memory installed size 12 gb
+ About: about this item
+processor : intel celeron n4500 processor (1.1 ghz base clock, up to 2.8 ghz max boost clock, 4 mb l3 cache, 2 cores) | memory: 8 gb of onboard lpddr4 system memory | storage: 256 gb ssd, pcie gen 3, nvme support up to 1tb
+operating system: windows 11 home |preinstalled software: none
+display : 14.0-inch wxga 1366 x 768 resolution display keeps images and videos stunning while the narrow border offers-up more viewable space. to protect user’s eyes from harmful blue light, it also includes acer blueligh shield.
+wireless connectivity : dual band wi-fi 5 (802.11a/b/g/n/ac) provides fast internet access. for enhanced video calls this laptop also includes and optimized camera and microphones.
+plenty of ports : flexible connectivity options through usb 3.0 ports. users can also connect an external display through the hdmi port.secure your desktop computer and prevent unauthorized removal by using kensington lock slot
+› see more product details
+ Tech Details: product information
+additional details
+display
+connectivity
+battery
+input devices
+feedback
+would you like to tell us about a lower price?
+processor
+item details
+
+memory
+ports & slots
+-------------------------------------------------------------,
+	 filter '1 to 1.59 ghz' not found in product details.
+-------------------------------------------------------------
+ Title: acer smartchoice aspire one, intel core celeron n4500, 12gb lpddr4 ram/ 256gb ssd, 14.0"/35.56cm wxga display, intel uhd graphics, win 11 home, pure silver, 1.3 kg, a114-45, thin and light laptop
+ Key Features: brand acer
+model name aspire one
+screen size 14 inches
+colour pure silver
+hard disk size 256 gb
+cpu model celeron
+ram memory installed size 12 gb
+ About: about this item
+processor : intel celeron n4500 processor (1.1 ghz base clock, up to 2.8 ghz max boost clock, 4 mb l3 cache, 2 cores) | memory: 8 gb of onboard lpddr4 system memory | storage: 256 gb ssd, pcie gen 3, nvme support up to 1tb
+operating system: windows 11 home |preinstalled software: none
+display : 14.0-inch wxga 1366 x 768 resolution display keeps images and videos stunning while the narrow border offers-up more viewable space. to protect user’s eyes from harmful blue light, it also includes acer blueligh shield.
+wireless connectivity : dual band wi-fi 5 (802.11a/b/g/n/ac) provides fast internet access. for enhanced video calls this laptop also includes and optimized camera and microphones.
+plenty of ports : flexible connectivity options through usb 3.0 ports. users can also connect an external display through the hdmi port.secure your desktop computer and prevent unauthorized removal by using kensington lock slot
+› see more product details
+ Tech Details: product information
+additional details
+display
+connectivity
+battery
+input devices
+feedback
+would you like to tell us about a lower price?
+processor
+item details
+
+memory
+ports & slots
+------------------------------------------------------------- filter '1 to 1.59 ghz' not found in product details.
+-------------------------------------------------------------
+ Title: bellaluz b410 laptop | 14.1" hd display | 8gb ddr4 ram | 256gb storage| intel n4100 quad-core processor with uhd 4k graphics | windows 11 pro | 1 + 3 yr warranty | thin & light laptop for office use
+ Key Features: brand bellaluz
+model name b410
+screen size 14.1 inches
+colour silver
+hard disk size 256 gb
+cpu model celeron
+ram memory installed size 8 gb
+ About: about this item
+manufactured in india | 1year warranty + 3 year extended warranty** | after sales services & warranty claims available all over india - laptops & notebooks by bellaluz – a leading laptops & pc manufacturer in india
+smooth everyday performance: powered by the intel n4100 quad-core processor with 8gb ddr4 ram, the bellaluz b410 is designed for everyday tasks such as web browsing, online classes, document creation, video calls, emails and office productivity.
+8gb ddr4 ram + 256gb storage: get responsive multitasking with 8gb ddr4 memory along with 256gb of built-in storage for your documents, applications, study material, photos and everyday files.
+14.1" hd display for work & entertainment: the 14.1-inch display with 1366 × 768 resolution offers a comfortable viewing experience for studying, working on documents, browsing the web, attending online meetings and streaming content.
+windows 11 pro ready to work: comes preloaded with windows 11 pro, giving you a familiar, productive windows experience suitable for students, professionals, home users and small-business workloads.
+lightweight at just ~1.3 kg: designed for mobility, the bellaluz b410 weighs approximately 1.3 kg, making it easy to carry to college, office, meetings or while travelling. its compact 14.1-inch form factor slips easily into most laptop bags and backpacks without adding unnecessary bulk.
+built for reliable everyday computing: a practical thin-and-light laptop designed for study, office work and everyday use, backed by a 1-year domestic manufacturer warranty for added peace of mind.
+**[warranty & service details] 1 year manufacturer warranty + 3 year extended warranty on purchase. door to door after sales services available all across india by bellaluz until warranty period. for more details on the product please connect with bellaluz sales representatives.
+› see more product details
+ Tech Details: bellaluz b410 laptop information
+additional details
+display
+battery
+input devices
+feedback
+would you like to tell us about a lower price?
+processor
+item details
+
+memory
+connectivity
+ports & slots
+audio
+-------------------------------------------------------------,
+	 filter '1 to 1.59 ghz' not found in product details.
+-------------------------------------------------------------
+ Title: acer smartchoice aspire one, intel core celeron n4500, 12gb lpddr4 ram/ 256gb ssd, 14.0"/35.56cm wxga display, intel uhd graphics, win 11 home, pure silver, 1.3 kg, a114-45, thin and light laptop
+ Key Features: brand acer
+model name aspire one
+screen size 14 inches
+colour pure silver
+hard disk size 256 gb
+cpu model celeron
+ram memory installed size 12 gb
+ About: about this item
+processor : intel celeron n4500 processor (1.1 ghz base clock, up to 2.8 ghz max boost clock, 4 mb l3 cache, 2 cores) | memory: 8 gb of onboard lpddr4 system memory | storage: 256 gb ssd, pcie gen 3, nvme support up to 1tb
+operating system: windows 11 home |preinstalled software: none
+display : 14.0-inch wxga 1366 x 768 resolution display keeps images and videos stunning while the narrow border offers-up more viewable space. to protect user’s eyes from harmful blue light, it also includes acer blueligh shield.
+wireless connectivity : dual band wi-fi 5 (802.11a/b/g/n/ac) provides fast internet access. for enhanced video calls this laptop also includes and optimized camera and microphones.
+plenty of ports : flexible connectivity options through usb 3.0 ports. users can also connect an external display through the hdmi port.secure your desktop computer and prevent unauthorized removal by using kensington lock slot
+› see more product details
+ Tech Details: product information
+additional details
+display
+connectivity
+battery
+input devices
+feedback
+would you like to tell us about a lower price?
+processor
+item details
+
+memory
+ports & slots
+------------------------------------------------------------- filter '1 to 1.59 ghz' not found in product details.
+-------------------------------------------------------------
+ Title: bellaluz b410 laptop | 14.1" hd display | 8gb ddr4 ram | 256gb storage| intel n4100 quad-core processor with uhd 4k graphics | windows 11 pro | 1 + 3 yr warranty | thin & light laptop for office use
+ Key Features: brand bellaluz
+model name b410
+screen size 14.1 inches
+colour silver
+hard disk size 256 gb
+cpu model celeron
+ram memory installed size 8 gb
+ About: about this item
+manufactured in india | 1year warranty + 3 year extended warranty** | after sales services & warranty claims available all over india - laptops & notebooks by bellaluz – a leading laptops & pc manufacturer in india
+smooth everyday performance: powered by the intel n4100 quad-core processor with 8gb ddr4 ram, the bellaluz b410 is designed for everyday tasks such as web browsing, online classes, document creation, video calls, emails and office productivity.
+8gb ddr4 ram + 256gb storage: get responsive multitasking with 8gb ddr4 memory along with 256gb of built-in storage for your documents, applications, study material, photos and everyday files.
+14.1" hd display for work & entertainment: the 14.1-inch display with 1366 × 768 resolution offers a comfortable viewing experience for studying, working on documents, browsing the web, attending online meetings and streaming content.
+windows 11 pro ready to work: comes preloaded with windows 11 pro, giving you a familiar, productive windows experience suitable for students, professionals, home users and small-business workloads.
+lightweight at just ~1.3 kg: designed for mobility, the bellaluz b410 weighs approximately 1.3 kg, making it easy to carry to college, office, meetings or while travelling. its compact 14.1-inch form factor slips easily into most laptop bags and backpacks without adding unnecessary bulk.
+built for reliable everyday computing: a practical thin-and-light laptop designed for study, office work and everyday use, backed by a 1-year domestic manufacturer warranty for added peace of mind.
+**[warranty & service details] 1 year manufacturer warranty + 3 year extended warranty on purchase. door to door after sales services available all across india by bellaluz until warranty period. for more details on the product please connect with bellaluz sales representatives.
+› see more product details
+ Tech Details: bellaluz b410 laptop information
+additional details
+display
+battery
+input devices
+feedback
+would you like to tell us about a lower price?
+processor
+item details
+
+memory
+connectivity
+ports & slots
+audio
+------------------------------------------------------------- filter '1.60 to 1.79 ghz' not found in product details.
+-------------------------------------------------------------
+ Title: acer aspire 3,intel core i3-1315u, 16gb ddr4 ram/512gb ssd, 39.62 cm /15.6" fhd ips display, win 11home, silver, 1.7 kg, a325-53, bl keyboard, thin & light laptop
+ Key Features: brand acer
+model name aspire 3
+screen size 15.6 inches
+colour silver
+cpu model intel core i3
+ram memory installed size 16 gb
+ About: about this item
+processor: intel core i3-1315u processor(1.6 ghz base clock, up to 4.5 ghz max boost clock, 10 mb l3 cache, 5 cores) | memory: 16 gb of ddr4 system memory, upgradable to 32 gb | storage: 512 gb, pcie.
+operating system: windows 11 home |preinstalled software: non
+display: 15.6" display with ips (in-plane switching) technology, full hd 1920 x 1080, acer comfyview led-backlit tft lcd|intel graphics
+ports : 2 x usb 3.0, 1 x usb 3.2 port,1x hdmi port, 1 x kensington lock slot,1xusb type-c port, 1xdc-in jack for power adapter
+camera: fhd camera | audio:two built-in stereo speakers,|99-/100-/103-key acer keyboard layout with international language support including indicators of capslock and f4/microphone mute
+› see more product details
+ Tech Details: product information
+additional details
+display
+memory
+battery
+feedback
+would you like to tell us about a lower price?
+processor
+item details
+connectivity
+ports & slots
+input devices
+-------------------------------------------------------------,
+	 filter '1 to 1.59 ghz' not found in product details.
+-------------------------------------------------------------
+ Title: acer smartchoice aspire one, intel core celeron n4500, 12gb lpddr4 ram/ 256gb ssd, 14.0"/35.56cm wxga display, intel uhd graphics, win 11 home, pure silver, 1.3 kg, a114-45, thin and light laptop
+ Key Features: brand acer
+model name aspire one
+screen size 14 inches
+colour pure silver
+hard disk size 256 gb
+cpu model celeron
+ram memory installed size 12 gb
+ About: about this item
+processor : intel celeron n4500 processor (1.1 ghz base clock, up to 2.8 ghz max boost clock, 4 mb l3 cache, 2 cores) | memory: 8 gb of onboard lpddr4 system memory | storage: 256 gb ssd, pcie gen 3, nvme support up to 1tb
+operating system: windows 11 home |preinstalled software: none
+display : 14.0-inch wxga 1366 x 768 resolution display keeps images and videos stunning while the narrow border offers-up more viewable space. to protect user’s eyes from harmful blue light, it also includes acer blueligh shield.
+wireless connectivity : dual band wi-fi 5 (802.11a/b/g/n/ac) provides fast internet access. for enhanced video calls this laptop also includes and optimized camera and microphones.
+plenty of ports : flexible connectivity options through usb 3.0 ports. users can also connect an external display through the hdmi port.secure your desktop computer and prevent unauthorized removal by using kensington lock slot
+› see more product details
+ Tech Details: product information
+additional details
+display
+connectivity
+battery
+input devices
+feedback
+would you like to tell us about a lower price?
+processor
+item details
+
+memory
+ports & slots
+------------------------------------------------------------- filter '1 to 1.59 ghz' not found in product details.
+-------------------------------------------------------------
+ Title: bellaluz b410 laptop | 14.1" hd display | 8gb ddr4 ram | 256gb storage| intel n4100 quad-core processor with uhd 4k graphics | windows 11 pro | 1 + 3 yr warranty | thin & light laptop for office use
+ Key Features: brand bellaluz
+model name b410
+screen size 14.1 inches
+colour silver
+hard disk size 256 gb
+cpu model celeron
+ram memory installed size 8 gb
+ About: about this item
+manufactured in india | 1year warranty + 3 year extended warranty** | after sales services & warranty claims available all over india - laptops & notebooks by bellaluz – a leading laptops & pc manufacturer in india
+smooth everyday performance: powered by the intel n4100 quad-core processor with 8gb ddr4 ram, the bellaluz b410 is designed for everyday tasks such as web browsing, online classes, document creation, video calls, emails and office productivity.
+8gb ddr4 ram + 256gb storage: get responsive multitasking with 8gb ddr4 memory along with 256gb of built-in storage for your documents, applications, study material, photos and everyday files.
+14.1" hd display for work & entertainment: the 14.1-inch display with 1366 × 768 resolution offers a comfortable viewing experience for studying, working on documents, browsing the web, attending online meetings and streaming content.
+windows 11 pro ready to work: comes preloaded with windows 11 pro, giving you a familiar, productive windows experience suitable for students, professionals, home users and small-business workloads.
+lightweight at just ~1.3 kg: designed for mobility, the bellaluz b410 weighs approximately 1.3 kg, making it easy to carry to college, office, meetings or while travelling. its compact 14.1-inch form factor slips easily into most laptop bags and backpacks without adding unnecessary bulk.
+built for reliable everyday computing: a practical thin-and-light laptop designed for study, office work and everyday use, backed by a 1-year domestic manufacturer warranty for added peace of mind.
+**[warranty & service details] 1 year manufacturer warranty + 3 year extended warranty on purchase. door to door after sales services available all across india by bellaluz until warranty period. for more details on the product please connect with bellaluz sales representatives.
+› see more product details
+ Tech Details: bellaluz b410 laptop information
+additional details
+display
+battery
+input devices
+feedback
+would you like to tell us about a lower price?
+processor
+item details
+
+memory
+connectivity
+ports & slots
+audio
+------------------------------------------------------------- filter '1.60 to 1.79 ghz' not found in product details.
+-------------------------------------------------------------
+ Title: acer aspire 3,intel core i3-1315u, 16gb ddr4 ram/512gb ssd, 39.62 cm /15.6" fhd ips display, win 11home, silver, 1.7 kg, a325-53, bl keyboard, thin & light laptop
+ Key Features: brand acer
+model name aspire 3
+screen size 15.6 inches
+colour silver
+cpu model intel core i3
+ram memory installed size 16 gb
+ About: about this item
+processor: intel core i3-1315u processor(1.6 ghz base clock, up to 4.5 ghz max boost clock, 10 mb l3 cache, 5 cores) | memory: 16 gb of ddr4 system memory, upgradable to 32 gb | storage: 512 gb, pcie.
+operating system: windows 11 home |preinstalled software: non
+display: 15.6" display with ips (in-plane switching) technology, full hd 1920 x 1080, acer comfyview led-backlit tft lcd|intel graphics
+ports : 2 x usb 3.0, 1 x usb 3.2 port,1x hdmi port, 1 x kensington lock slot,1xusb type-c port, 1xdc-in jack for power adapter
+camera: fhd camera | audio:two built-in stereo speakers,|99-/100-/103-key acer keyboard layout with international language support including indicators of capslock and f4/microphone mute
+› see more product details
+ Tech Details: product information
+additional details
+display
+memory
+battery
+feedback
+would you like to tell us about a lower price?
+processor
+item details
+connectivity
+ports & slots
+input devices
+------------------------------------------------------------- filter '1.60 to 1.79 ghz' not found in product details.
+-------------------------------------------------------------
+ Title: 𝗗𝗲𝗹𝗹laptop model 3410 business laptop | core i5 10th gen | 8gb ddr4 ram | 256gb ssd | 14" full hd display | win 11 (pre-owned & tested)
+ Key Features: brand generic
+model name 3410
+screen size 14 inches
+colour grey
+hard disk size 256 gb
+cpu model core i5-10210u
+ram memory installed size 8 gb
+ About: about this item
+this product is tested to work and look like new with minimal to no signs of wear & tear; the product comes with relevant accessories and is backed by a minimum 1 month seller warranty; box may be generic
+› see more product details
+ Tech Details: 𝗗𝗲𝗹𝗹laptop information
+additional details
+display
+memory
+feedback
+would you like to tell us about a lower price?
+processor
+item details
+connectivity
+ports & slots
+input devices
+-------------------------------------------------------------,
+	 filter '1 to 1.59 ghz' not found in product details.
+-------------------------------------------------------------
+ Title: acer smartchoice aspire one, intel core celeron n4500, 12gb lpddr4 ram/ 256gb ssd, 14.0"/35.56cm wxga display, intel uhd graphics, win 11 home, pure silver, 1.3 kg, a114-45, thin and light laptop
+ Key Features: brand acer
+model name aspire one
+screen size 14 inches
+colour pure silver
+hard disk size 256 gb
+cpu model celeron
+ram memory installed size 12 gb
+ About: about this item
+processor : intel celeron n4500 processor (1.1 ghz base clock, up to 2.8 ghz max boost clock, 4 mb l3 cache, 2 cores) | memory: 8 gb of onboard lpddr4 system memory | storage: 256 gb ssd, pcie gen 3, nvme support up to 1tb
+operating system: windows 11 home |preinstalled software: none
+display : 14.0-inch wxga 1366 x 768 resolution display keeps images and videos stunning while the narrow border offers-up more viewable space. to protect user’s eyes from harmful blue light, it also includes acer blueligh shield.
+wireless connectivity : dual band wi-fi 5 (802.11a/b/g/n/ac) provides fast internet access. for enhanced video calls this laptop also includes and optimized camera and microphones.
+plenty of ports : flexible connectivity options through usb 3.0 ports. users can also connect an external display through the hdmi port.secure your desktop computer and prevent unauthorized removal by using kensington lock slot
+› see more product details
+ Tech Details: product information
+additional details
+display
+connectivity
+battery
+input devices
+feedback
+would you like to tell us about a lower price?
+processor
+item details
+
+memory
+ports & slots
+------------------------------------------------------------- filter '1 to 1.59 ghz' not found in product details.
+-------------------------------------------------------------
+ Title: bellaluz b410 laptop | 14.1" hd display | 8gb ddr4 ram | 256gb storage| intel n4100 quad-core processor with uhd 4k graphics | windows 11 pro | 1 + 3 yr warranty | thin & light laptop for office use
+ Key Features: brand bellaluz
+model name b410
+screen size 14.1 inches
+colour silver
+hard disk size 256 gb
+cpu model celeron
+ram memory installed size 8 gb
+ About: about this item
+manufactured in india | 1year warranty + 3 year extended warranty** | after sales services & warranty claims available all over india - laptops & notebooks by bellaluz – a leading laptops & pc manufacturer in india
+smooth everyday performance: powered by the intel n4100 quad-core processor with 8gb ddr4 ram, the bellaluz b410 is designed for everyday tasks such as web browsing, online classes, document creation, video calls, emails and office productivity.
+8gb ddr4 ram + 256gb storage: get responsive multitasking with 8gb ddr4 memory along with 256gb of built-in storage for your documents, applications, study material, photos and everyday files.
+14.1" hd display for work & entertainment: the 14.1-inch display with 1366 × 768 resolution offers a comfortable viewing experience for studying, working on documents, browsing the web, attending online meetings and streaming content.
+windows 11 pro ready to work: comes preloaded with windows 11 pro, giving you a familiar, productive windows experience suitable for students, professionals, home users and small-business workloads.
+lightweight at just ~1.3 kg: designed for mobility, the bellaluz b410 weighs approximately 1.3 kg, making it easy to carry to college, office, meetings or while travelling. its compact 14.1-inch form factor slips easily into most laptop bags and backpacks without adding unnecessary bulk.
+built for reliable everyday computing: a practical thin-and-light laptop designed for study, office work and everyday use, backed by a 1-year domestic manufacturer warranty for added peace of mind.
+**[warranty & service details] 1 year manufacturer warranty + 3 year extended warranty on purchase. door to door after sales services available all across india by bellaluz until warranty period. for more details on the product please connect with bellaluz sales representatives.
+› see more product details
+ Tech Details: bellaluz b410 laptop information
+additional details
+display
+battery
+input devices
+feedback
+would you like to tell us about a lower price?
+processor
+item details
+
+memory
+connectivity
+ports & slots
+audio
+------------------------------------------------------------- filter '1.60 to 1.79 ghz' not found in product details.
+-------------------------------------------------------------
+ Title: acer aspire 3,intel core i3-1315u, 16gb ddr4 ram/512gb ssd, 39.62 cm /15.6" fhd ips display, win 11home, silver, 1.7 kg, a325-53, bl keyboard, thin & light laptop
+ Key Features: brand acer
+model name aspire 3
+screen size 15.6 inches
+colour silver
+cpu model intel core i3
+ram memory installed size 16 gb
+ About: about this item
+processor: intel core i3-1315u processor(1.6 ghz base clock, up to 4.5 ghz max boost clock, 10 mb l3 cache, 5 cores) | memory: 16 gb of ddr4 system memory, upgradable to 32 gb | storage: 512 gb, pcie.
+operating system: windows 11 home |preinstalled software: non
+display: 15.6" display with ips (in-plane switching) technology, full hd 1920 x 1080, acer comfyview led-backlit tft lcd|intel graphics
+ports : 2 x usb 3.0, 1 x usb 3.2 port,1x hdmi port, 1 x kensington lock slot,1xusb type-c port, 1xdc-in jack for power adapter
+camera: fhd camera | audio:two built-in stereo speakers,|99-/100-/103-key acer keyboard layout with international language support including indicators of capslock and f4/microphone mute
+› see more product details
+ Tech Details: product information
+additional details
+display
+memory
+battery
+feedback
+would you like to tell us about a lower price?
+processor
+item details
+connectivity
+ports & slots
+input devices
+------------------------------------------------------------- filter '1.60 to 1.79 ghz' not found in product details.
+-------------------------------------------------------------
+ Title: 𝗗𝗲𝗹𝗹laptop model 3410 business laptop | core i5 10th gen | 8gb ddr4 ram | 256gb ssd | 14" full hd display | win 11 (pre-owned & tested)
+ Key Features: brand generic
+model name 3410
+screen size 14 inches
+colour grey
+hard disk size 256 gb
+cpu model core i5-10210u
+ram memory installed size 8 gb
+ About: about this item
+this product is tested to work and look like new with minimal to no signs of wear & tear; the product comes with relevant accessories and is backed by a minimum 1 month seller warranty; box may be generic
+› see more product details
+ Tech Details: 𝗗𝗲𝗹𝗹laptop information
+additional details
+display
+memory
+feedback
+would you like to tell us about a lower price?
+processor
+item details
+connectivity
+ports & slots
+input devices
+------------------------------------------------------------- filter '1.80 to 1.99 ghz' not found in product details.
+-------------------------------------------------------------
+ Title: 𝗟𝗲𝗻𝗼𝘃𝗼model t480s laptop |𝗜𝗡𝗧𝗘𝗟i7 8th gen processor | 8gb fast ram | 256gb ssd |14-inch display | win 10 | a+ condition(pre-owned & tested)
+ Key Features: brand generic
+model name t480s-8-256
+screen size 14 inches
+colour black
+hard disk size 256 gb
+cpu model core i7
+ram memory installed size 8 gb
+ About: about this item
+disclaimer: the laptop shown in the images is for reference only. as this is a pre-owned product, the actual unit may vary in appearance, including cosmetic differences, while maintaining the same specifications and functionality. this product is tested to work and look like new with minimal to no signs of wear & tear; the product comes with relevant accessories and is backed by a minimum 3 month seller warranty; box may be generic (warranty doesn't includes physical damage and battery and motherboard issues)
+⚡ powerful performance – core i7 8th gen processor paired with 8gb ram delivers fast multitasking, smooth office work, online meetings, browsing & business productivity.
+💻 premium display – 14-inch full hd display offers sharp visuals, vibrant colors, and an interactive user experience for work & entertainment.
+🚀 fast ssd storage – 256gb ssd ensures quick boot-up, faster file access, and smooth overall system performance compared to traditional hard drives.
+🔋 slim, light & business ready – premium thinkpad t480s design with durable build quality, comfortable keyboard, wi-fi, webcam & multiple connectivity ports.
+✅ pre-owned & tested – professionally inspected, fully tested, and certified for stable performance. a+ condition laptop ideal for office, students, work-from-home & business use.
+essential connectivity - usb ports, hdmi, lan & more for connecting accessories and external devices
+professionally tested - checked for performance, durability, and smooth functioning for everyday use
+› see more product details
+ Tech Details: 𝗟𝗲𝗻𝗼𝘃𝗼model t480s laptop information
+additional details
+memory
+connectivity
+ports & slots
+feedback
+would you like to tell us about a lower price?
+processor
+item details
+display
+battery
+input devices
+audio
+-------------------------------------------------------------,
+	 filter '1 to 1.59 ghz' not found in product details.
+-------------------------------------------------------------
+ Title: acer smartchoice aspire one, intel core celeron n4500, 12gb lpddr4 ram/ 256gb ssd, 14.0"/35.56cm wxga display, intel uhd graphics, win 11 home, pure silver, 1.3 kg, a114-45, thin and light laptop
+ Key Features: brand acer
+model name aspire one
+screen size 14 inches
+colour pure silver
+hard disk size 256 gb
+cpu model celeron
+ram memory installed size 12 gb
+ About: about this item
+processor : intel celeron n4500 processor (1.1 ghz base clock, up to 2.8 ghz max boost clock, 4 mb l3 cache, 2 cores) | memory: 8 gb of onboard lpddr4 system memory | storage: 256 gb ssd, pcie gen 3, nvme support up to 1tb
+operating system: windows 11 home |preinstalled software: none
+display : 14.0-inch wxga 1366 x 768 resolution display keeps images and videos stunning while the narrow border offers-up more viewable space. to protect user’s eyes from harmful blue light, it also includes acer blueligh shield.
+wireless connectivity : dual band wi-fi 5 (802.11a/b/g/n/ac) provides fast internet access. for enhanced video calls this laptop also includes and optimized camera and microphones.
+plenty of ports : flexible connectivity options through usb 3.0 ports. users can also connect an external display through the hdmi port.secure your desktop computer and prevent unauthorized removal by using kensington lock slot
+› see more product details
+ Tech Details: product information
+additional details
+display
+connectivity
+battery
+input devices
+feedback
+would you like to tell us about a lower price?
+processor
+item details
+
+memory
+ports & slots
+------------------------------------------------------------- filter '1 to 1.59 ghz' not found in product details.
+-------------------------------------------------------------
+ Title: bellaluz b410 laptop | 14.1" hd display | 8gb ddr4 ram | 256gb storage| intel n4100 quad-core processor with uhd 4k graphics | windows 11 pro | 1 + 3 yr warranty | thin & light laptop for office use
+ Key Features: brand bellaluz
+model name b410
+screen size 14.1 inches
+colour silver
+hard disk size 256 gb
+cpu model celeron
+ram memory installed size 8 gb
+ About: about this item
+manufactured in india | 1year warranty + 3 year extended warranty** | after sales services & warranty claims available all over india - laptops & notebooks by bellaluz – a leading laptops & pc manufacturer in india
+smooth everyday performance: powered by the intel n4100 quad-core processor with 8gb ddr4 ram, the bellaluz b410 is designed for everyday tasks such as web browsing, online classes, document creation, video calls, emails and office productivity.
+8gb ddr4 ram + 256gb storage: get responsive multitasking with 8gb ddr4 memory along with 256gb of built-in storage for your documents, applications, study material, photos and everyday files.
+14.1" hd display for work & entertainment: the 14.1-inch display with 1366 × 768 resolution offers a comfortable viewing experience for studying, working on documents, browsing the web, attending online meetings and streaming content.
+windows 11 pro ready to work: comes preloaded with windows 11 pro, giving you a familiar, productive windows experience suitable for students, professionals, home users and small-business workloads.
+lightweight at just ~1.3 kg: designed for mobility, the bellaluz b410 weighs approximately 1.3 kg, making it easy to carry to college, office, meetings or while travelling. its compact 14.1-inch form factor slips easily into most laptop bags and backpacks without adding unnecessary bulk.
+built for reliable everyday computing: a practical thin-and-light laptop designed for study, office work and everyday use, backed by a 1-year domestic manufacturer warranty for added peace of mind.
+**[warranty & service details] 1 year manufacturer warranty + 3 year extended warranty on purchase. door to door after sales services available all across india by bellaluz until warranty period. for more details on the product please connect with bellaluz sales representatives.
+› see more product details
+ Tech Details: bellaluz b410 laptop information
+additional details
+display
+battery
+input devices
+feedback
+would you like to tell us about a lower price?
+processor
+item details
+
+memory
+connectivity
+ports & slots
+audio
+------------------------------------------------------------- filter '1.60 to 1.79 ghz' not found in product details.
+-------------------------------------------------------------
+ Title: acer aspire 3,intel core i3-1315u, 16gb ddr4 ram/512gb ssd, 39.62 cm /15.6" fhd ips display, win 11home, silver, 1.7 kg, a325-53, bl keyboard, thin & light laptop
+ Key Features: brand acer
+model name aspire 3
+screen size 15.6 inches
+colour silver
+cpu model intel core i3
+ram memory installed size 16 gb
+ About: about this item
+processor: intel core i3-1315u processor(1.6 ghz base clock, up to 4.5 ghz max boost clock, 10 mb l3 cache, 5 cores) | memory: 16 gb of ddr4 system memory, upgradable to 32 gb | storage: 512 gb, pcie.
+operating system: windows 11 home |preinstalled software: non
+display: 15.6" display with ips (in-plane switching) technology, full hd 1920 x 1080, acer comfyview led-backlit tft lcd|intel graphics
+ports : 2 x usb 3.0, 1 x usb 3.2 port,1x hdmi port, 1 x kensington lock slot,1xusb type-c port, 1xdc-in jack for power adapter
+camera: fhd camera | audio:two built-in stereo speakers,|99-/100-/103-key acer keyboard layout with international language support including indicators of capslock and f4/microphone mute
+› see more product details
+ Tech Details: product information
+additional details
+display
+memory
+battery
+feedback
+would you like to tell us about a lower price?
+processor
+item details
+connectivity
+ports & slots
+input devices
+------------------------------------------------------------- filter '1.60 to 1.79 ghz' not found in product details.
+-------------------------------------------------------------
+ Title: 𝗗𝗲𝗹𝗹laptop model 3410 business laptop | core i5 10th gen | 8gb ddr4 ram | 256gb ssd | 14" full hd display | win 11 (pre-owned & tested)
+ Key Features: brand generic
+model name 3410
+screen size 14 inches
+colour grey
+hard disk size 256 gb
+cpu model core i5-10210u
+ram memory installed size 8 gb
+ About: about this item
+this product is tested to work and look like new with minimal to no signs of wear & tear; the product comes with relevant accessories and is backed by a minimum 1 month seller warranty; box may be generic
+› see more product details
+ Tech Details: 𝗗𝗲𝗹𝗹laptop information
+additional details
+display
+memory
+feedback
+would you like to tell us about a lower price?
+processor
+item details
+connectivity
+ports & slots
+input devices
+------------------------------------------------------------- filter '1.80 to 1.99 ghz' not found in product details.
+-------------------------------------------------------------
+ Title: 𝗟𝗲𝗻𝗼𝘃𝗼model t480s laptop |𝗜𝗡𝗧𝗘𝗟i7 8th gen processor | 8gb fast ram | 256gb ssd |14-inch display | win 10 | a+ condition(pre-owned & tested)
+ Key Features: brand generic
+model name t480s-8-256
+screen size 14 inches
+colour black
+hard disk size 256 gb
+cpu model core i7
+ram memory installed size 8 gb
+ About: about this item
+disclaimer: the laptop shown in the images is for reference only. as this is a pre-owned product, the actual unit may vary in appearance, including cosmetic differences, while maintaining the same specifications and functionality. this product is tested to work and look like new with minimal to no signs of wear & tear; the product comes with relevant accessories and is backed by a minimum 3 month seller warranty; box may be generic (warranty doesn't includes physical damage and battery and motherboard issues)
+⚡ powerful performance – core i7 8th gen processor paired with 8gb ram delivers fast multitasking, smooth office work, online meetings, browsing & business productivity.
+💻 premium display – 14-inch full hd display offers sharp visuals, vibrant colors, and an interactive user experience for work & entertainment.
+🚀 fast ssd storage – 256gb ssd ensures quick boot-up, faster file access, and smooth overall system performance compared to traditional hard drives.
+🔋 slim, light & business ready – premium thinkpad t480s design with durable build quality, comfortable keyboard, wi-fi, webcam & multiple connectivity ports.
+✅ pre-owned & tested – professionally inspected, fully tested, and certified for stable performance. a+ condition laptop ideal for office, students, work-from-home & business use.
+essential connectivity - usb ports, hdmi, lan & more for connecting accessories and external devices
+professionally tested - checked for performance, durability, and smooth functioning for everyday use
+› see more product details
+ Tech Details: 𝗟𝗲𝗻𝗼𝘃𝗼model t480s laptop information
+additional details
+memory
+connectivity
+ports & slots
+feedback
+would you like to tell us about a lower price?
+processor
+item details
+display
+battery
+input devices
+audio
+------------------------------------------------------------- filter '1.80 to 1.99 ghz' not found in product details.
+-------------------------------------------------------------
+ Title: 𝗗𝗲𝗹𝗹modei 5420 laptop | core i5 11th gen (1145g7) processor | fast 8gb ddr4 ram | 256gb ssd | 14" fhd| win 10 |uhd graphics 620 | seller warranty | (pre-owned & tested)
+ Key Features: brand generic
+model name modei 5420 laptop
+screen size 14 inches
+colour silver
+hard disk size 256 gb
+cpu model core i5
+ram memory installed size 8 gb
+ About: about this item
+disclaimer: the laptop shown in the images is for reference only. as this is a pre-owned product, the actual unit may vary in appearance, including cosmetic differences, while maintaining the same specifications and functionality. this product is tested to work and look like new with minimal to no signs of wear & tear; the product comes with relevant accessories and is backed by a minimum 3 month seller warranty; box may be generic (warranty doesn't includes physical damage, battery issues and motherboard issues)
+2. smooth & fast performance: powered by intei core i5 11th gen processor with 8gb ddr4 ram for lag-free multitasking, office work, study, and daily use.
+3. fast ssd storage: 256gb ssd ensures quick boot-up, faster file access, and improved performance - say goodbye to slow loading systems.
+4. crisp full hd display: 14” full hd anti-glare display with intei uhd graphics delivers clear visuals, comfortable viewing, and better productivity for long work sessions.
+5. all essential ports: includes usb-c, usb 3.1, hdmi, lan, and more - perfect for office setup, online classes, and everyday connectivity needs.
+as this is a pre-owned product, the actual unit may vary in appearance, including cosmetic differences, while maintaining the same specifications and functionality. note: physical, liquid, electrical damages, unauthorized repair and any type of software issue are not covered in warranty.
+› see more product details
+ Tech Details: 𝗗𝗲𝗹𝗹modei 5420 laptop information
+additional details
+memory
+connectivity
+input devices
+audio
+feedback
+would you like to tell us about a lower price?
+processor
+item details
+display
+battery
+ports & slots
+-------------------------------------------------------------
+	at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:46)
+	at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:30)
+	at test.java.tests.AmazonTests.verifyingProcessorSpeedFilterFunctionality(AmazonTests.java:771)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:686)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:992)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:545)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328)
+	at org.testng.internal.thread.graph.TestNGFutureTask.run(TestNGFutureTask.java:22)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1095)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:619)
+	at java.base/java.lang.Thread.run(Thread.java:1447)
+</textarea>
+          
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:21:37 AM</td>
+        <td>
+          📂 Logs:
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:21:37 AM</td>
+        <td>
+          📄 <a href='../logs/verifyingProcessorSpeedFilterFunctionality_Laptop_11-19-26/verifyingProcessorSpeedFilterFunctionality_Laptop_11-19-26.log' target='_blank'>verifyingProcessorSpeedFilterFunctionality_Laptop_11-19-26.log</a>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:21:37 AM</td>
+        <td>
+          📸 Screenshots:
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:21:37 AM</td>
+        <td>
+          
+    <div class="row mb-3"><div class="col-md-3">
+    
+
+<img data-featherlight='../screenshots/verifyingProcessorSpeedFilterFunctionality_Laptop_11-19-26/Laptop641869680100.png' src="../screenshots/verifyingProcessorSpeedFilterFunctionality_Laptop_11-19-26/Laptop641869680100.png">
+  
+    
+
+    </div></div>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:21:37 AM</td>
+        <td>
+          
+    <div class="row mb-3"><div class="col-md-3">
+    
+
+<img data-featherlight='../screenshots/verifyingProcessorSpeedFilterFunctionality_Laptop_11-19-26/Laptop677410785700.png' src="../screenshots/verifyingProcessorSpeedFilterFunctionality_Laptop_11-19-26/Laptop677410785700.png">
+  
+    
+
+    </div></div>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:21:37 AM</td>
+        <td>
+          
+    <div class="row mb-3"><div class="col-md-3">
+    
+
+<img data-featherlight='../screenshots/verifyingProcessorSpeedFilterFunctionality_Laptop_11-19-26/Laptop728093769300.png' src="../screenshots/verifyingProcessorSpeedFilterFunctionality_Laptop_11-19-26/Laptop728093769300.png">
+  
+    
+
+    </div></div>
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="fail" test-id="6"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">verifyingStorageCapacityFilterFunctionality_Mobile_11-19-47</p>
+            <p class="text-sm">
+              <span>11:19:49 AM</span> / <span>00:02:09:715</span>
+              <span class="badge fail-bg log float-right">Fail</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-fail">verifyingStorageCapacityFilterFunctionality_Mobile_11-19-47</h5>
+<span class='badge badge-success'>10.24.2026 11:19:49 AM</span>
+<span class='badge badge-danger'>10.24.2026 11:21:59 AM</span>
+<span class='badge badge-default'>00:02:09:715</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=6</span>
+<span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
+<span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
+<span title='Expand all nodes' class='badge badge-default pointer float-right et'><i class="fa fa-expand"></i></span>
+</div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:19:49 AM</td>
+        <td>
+          Test Input Parameter: <b>Mobile</b>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log fail-bg">Fail</span></td>
+        <td>11:21:59 AM</td>
+        <td>
+          <textarea readonly class="code-block">java.lang.AssertionError: The following asserts failed:
+	 filter 'up to 3.9 gb' not found in product details.
+-------------------------------------------------------------
+ Title: realme c30 (denim black, 3gb ram, 32gb storage)
+ Key Features: brand realme
+operating system android
+ram memory installed size 3 gb
+cpu model snapdragon
+memory storage capacity 3 gb
+ About: about this item
+3 gb ram | 32 gb rom | expandable upto 1 tb;16.51 cm (6.5 inch) hd+ display
+8mp rear camera | 5mp front camera;5000 mah lithium ion battery
+unisoc t612 processor;ultra saving mode reliability
+display type: lcd
+› see more product details
+ Tech Details: realme c30 mobile phone information
+additional details
+camera
+battery
+video
+navigation
+feedback
+would you like to tell us about a lower price?
+display
+connectivity
+item details
+
+measurements
+-------------------------------------------------------------,
+	 filter 'up to 3.9 gb' not found in product details.
+-------------------------------------------------------------
+ Title: realme c30 (bamboo green, 3gb ram, 32gb storage)
+ Key Features: brand realme
+operating system android 11.0
+ram memory installed size 3 gb
+cpu model snapdragon
+memory storage capacity 3 gb
+ About: about this item
+5000 mah lithium ion battery; unisoc t612 processor; display type: lcd
+human interface input: touch screen
+› see more product details
+ Tech Details: realme c30 mobile phone information
+additional details
+camera
+measurements
+video
+feedback
+would you like to tell us about a lower price?
+display
+connectivity
+item details
+
+battery
+navigation
+-------------------------------------------------------------,
+	 filter '8 gb' not found in product details.
+-------------------------------------------------------------
+ Title: nothing phone (4a) pro (black, 12gb, 256gb)
+ Key Features: brand nothing
+operating system android 14
+ram memory installed size 12 gb
+cpu model g4
+cpu speed 2.5 ghz
+ About: about this item
+memory and storage capacity: features 12gb ram and 256gb internal storage for seamless multitasking and ample space for your apps, photos, and videos
+premium design: sleek black finish that combines modern aesthetics with sophisticated styling for a premium look and feel
+advanced performance: powered by high-performance processor to handle demanding applications and gaming with smooth efficiency
+display technology: immersive screen experience with vibrant colors and sharp resolution for enhanced viewing of content and media
+camera system: advanced camera setup designed to capture stunning photos and videos in various lighting conditions
+› see more product details
+ Tech Details: nothing phone mobile phone information
+additional details
+battery
+measurements
+feedback
+would you like to tell us about a lower price?
+display
+connectivity
+item details
+-------------------------------------------------------------
+	at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:46)
+	at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:30)
+	at test.java.tests.AmazonTests.verifyingStorageCapacityFilterFunctionality(AmazonTests.java:424)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:686)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:992)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:545)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328)
+	at org.testng.internal.thread.graph.TestNGFutureTask.run(TestNGFutureTask.java:22)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1095)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:619)
+	at java.base/java.lang.Thread.run(Thread.java:1447)
+</textarea>
+          
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:21:59 AM</td>
+        <td>
+          📂 Logs:
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:21:59 AM</td>
+        <td>
+          📄 <a href='../logs/verifyingStorageCapacityFilterFunctionality_Mobile_11-19-47/verifyingStorageCapacityFilterFunctionality_Mobile_11-19-47.log' target='_blank'>verifyingStorageCapacityFilterFunctionality_Mobile_11-19-47.log</a>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:21:59 AM</td>
+        <td>
+          📸 Screenshots:
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:21:59 AM</td>
+        <td>
+          
+    <div class="row mb-3"><div class="col-md-3">
+    
+
+<img data-featherlight='../screenshots/verifyingStorageCapacityFilterFunctionality_Mobile_11-19-47/Mobile663492271100.png' src="../screenshots/verifyingStorageCapacityFilterFunctionality_Mobile_11-19-47/Mobile663492271100.png">
+  
+    
+
+    </div></div>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:21:59 AM</td>
+        <td>
+          
+    <div class="row mb-3"><div class="col-md-3">
+    
+
+<img data-featherlight='../screenshots/verifyingStorageCapacityFilterFunctionality_Mobile_11-19-47/Mobile712772667800.png' src="../screenshots/verifyingStorageCapacityFilterFunctionality_Mobile_11-19-47/Mobile712772667800.png">
+  
+    
+
+    </div></div>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:21:59 AM</td>
+        <td>
+          
+    <div class="row mb-3"><div class="col-md-3">
+    
+
+<img data-featherlight='../screenshots/verifyingStorageCapacityFilterFunctionality_Mobile_11-19-47/Mobile750654409500.png' src="../screenshots/verifyingStorageCapacityFilterFunctionality_Mobile_11-19-47/Mobile750654409500.png">
+  
+    
+
+    </div></div>
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="fail" test-id="7"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">verifyingDiscountFilterFunctionality_Tablet_11-21-21</p>
+            <p class="text-sm">
+              <span>11:21:22 AM</span> / <span>00:01:53:777</span>
+              <span class="badge fail-bg log float-right">Fail</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-fail">verifyingDiscountFilterFunctionality_Tablet_11-21-21</h5>
+<span class='badge badge-success'>10.24.2026 11:21:22 AM</span>
+<span class='badge badge-danger'>10.24.2026 11:23:16 AM</span>
+<span class='badge badge-default'>00:01:53:777</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=7</span>
+<span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
+<span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
+<span title='Expand all nodes' class='badge badge-default pointer float-right et'><i class="fa fa-expand"></i></span>
+</div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:21:22 AM</td>
+        <td>
+          Test Input Parameter: <b>Tablet</b>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log fail-bg">Fail</span></td>
+        <td>11:23:16 AM</td>
+        <td>
+          <textarea readonly class="code-block">java.lang.AssertionError: The following asserts failed:
+	 filter '10% off or more' not found in product details.
+-------------------------------------------------------------
+ Title: samsung galaxy tab a11+ [smartchoice], 11-inch (27.82 cm), lcd display, 6gb ram, 128gb rom, wi-fi, quad speakers, dolby atmos, gray, ai enabled
+ Key Features: brand samsung
+model name samsung galaxy tab a11+
+memory storage capacity 128 gb
+screen size 11
+display resolution maximum 1920 x 1200 pixels per inch
+ About: about this item
+display: lose yourself in a 11-inch (27.82 cm) tft lcd touch display running at 90hz — every frame rendered in crisp, smooth detail. color & design: 6gb ram + 128gb storage, wifi only tablet
+ram & storage: the galaxy tab a11+ offers ample memory and storage capacity. with up to 8 gb of memory and 256 gb of storage, it enables fast, seamless multitasking and support for large files. if needed, you can even expand storage up to 2 tb with a microsd card.
+connectivity: wi-fi 5 and bluetooth 5.3 keep you latency-free in competitive lobbies; usb 2.0 for rapid file transfers. unique feature: talk to google gemini about anything
+speakers & audio: the galaxy tab a11+ features dolby engineered quad speakers that deliver a rich, multidimensional audio experience. from your favorite playlists to the latest movies, the immersive 3d sound draws you into a soundscape that’s crisp, clear, and deeply engaging. the galaxy tab a11+ also comes with a 3.5 mm audio jack, so you can conveniently enjoy your content with wired headphones.
+ai capabilities: go live and share your camera with gemini on your galaxy tab a11+ to get help about what you see. just long press the side button to get started and share your screen or camera view with google gemini to ask for advice. have a free flowing conversation that can help you get the answers you're looking for.
+› see more product details
+ Tech Details: product information
+item details
+
+connectivity
+features
+audio
+feedback
+would you like to tell us about a lower price?
+additional details
+display
+memory
+battery
+processor
+camera
+-------------------------------------------------------------,
+	 filter '10% off or more' not found in product details.
+-------------------------------------------------------------
+ Title: lenovo tab (smartchoice) | 10.1 inch display| wi-fi only| 4 gb ram + 64 gb rom (expandable up to 1 tb)| metal body| dual speakers with dolby atmos| android 14| color: polar blue
+ Key Features: brand lenovo
+model name lenovo tab
+memory storage capacity 64 gb
+screen size 10.1 inches
+display resolution maximum 1920x1200 pixels
+ About: about this item
+your everyday companion, morning to night: from the first news update in the morning to the last video call at night, the lenovo tab keeps up with your entire day — its dependable 4gb ram ensures smooth multitasking across apps, while the dual dolby atmos speakers deliver clear, crisp audio for every conversation, show, and song that matters to you.
+everyday viewing made better – the 10.1-inch wuxga ips display delivers crisp detail and wide viewing angles, making it ideal for online classes, browsing, streaming, and multitasking. with 400 nits brightness and vivid 72% ntsc colors, your content stays clear and vibrant throughout the day.
+efficient performance for daily tasks – the mediatek helio g85 processor combines performance and efficiency to handle everyday apps, video streaming, browsing, and light gaming with ease. paired with wi-fi 5 and bluetooth 5.3, it ensures reliable connectivity for work, study, and entertainment.
+reliable multitasking with expandable storage – featuring 4gb lpddr4x ram and 64gb emmc 5.1 storage, this device is built for everyday entertainment, productivity, and browsing. with microsd support up to 1tb, you can easily carry more movies, photos, files, and apps wherever you go.
+dolby atmos sound with practical camera setup – experience clear and immersive audio through dual side speakers tuned with dolby atmos for movies, music, and streaming. the 5mp front camera supports smooth video chats, while the 8mp rear camera is perfect for capturing photos and scanning notes or documents.
+built for everyday browsing and streaming – the integrated 5100mah battery provides reliable all-day support for work, study, and entertainment. with up to 9.5 hours of youtube streaming and 10.5 hours of chrome browsing, you can stay productive and entertained longer.
+› see more product details
+ Tech Details: product information
+item details
+
+connectivity
+camera
+feedback
+would you like to tell us about a lower price?
+additional details
+display
+memory
+battery
+processor
+features
+audio
+-------------------------------------------------------------,
+	 filter '25% off or more' not found in product details.
+-------------------------------------------------------------
+ Title: redmi pad 2, 11-inch (27.94 cm cm), lcd display - 2.5k sharp & clear, 4gb ram, 128gb rom, wi-fi, quad speakers, dolby atmos, graphite grey, ai enabled
+ Key Features: brand redmi
+model name redmi pad 2
+memory storage capacity 128 gb
+screen size 11 inches
+display resolution maximum 2560x1600 pixels
+ About: about this item
+display: 11-inch (27.94 cm), lcd display, 2.5k sharp & clear resolution , 90hz refresh rate, 600 nits brightness, 274 ppi, tüv rheinland triple certification (tüv rheinland low blue light certified, tüv rheinland flicker free certified, tüv rheinland circadian friendly certified)
+ram & storage: 4 gb ram, 128 gb rom, expandable storage upto 2tb, up to 16gb ram*, lpddr4x ram
+connectivity: wi-fi 5 (802.11a/b/g/n/ac), wi-fi direct dual band support 2.4ghz & 5ghz, miracast, bluetooth 5.3, usb 2.0
+speakers & audio: quad speakers for immersive sound, supports dolby atmos and hi-res audio, 3.5mm headphone jack, mp3, flac, aac, ogg, wav, ota, midi, amr, 3gp, afpe, awb
+unique feature: active pen support, face unlock feature
+› see more product details
+ Tech Details: product information
+item details
+
+battery
+processor
+camera
+feedback
+would you like to tell us about a lower price?
+additional details
+display
+memory
+connectivity
+features
+audio
+-------------------------------------------------------------,
+	 filter '25% off or more' not found in product details.
+-------------------------------------------------------------
+ Title: samsung galaxy tab s10 lite [smartchoice], 10.9-inch (27.7 cm), lcd display, 6gb ram, 128gb rom, wi-fi, dual speakers, s pen, gray, ai enabled
+ Key Features: brand samsung
+model name samsung galaxy tab s10 lite
+memory storage capacity 128 gb
+screen size 10.9
+display resolution maximum 2112 × 1320 pixels per inch
+ About: about this item
+display: lose yourself in a 10.9-inch (27.7 cm) tft lcd touch display. color & design: 6gb ram + 128gb storage, wifi only tablet
+ram & storage: with up to 8gb of memory and 256gb of storage, it enables fast, seamless multitasking and support for large files. if needed, you can even expand storage up to 2tb with a microsd card.
+connectivity: wi-fi 6e and bluetooth 5.3 keep you latency-free in competitive lobbies; usb 2.0 for rapid file transfers. unique feature: s pen included
+speakers & audio: dual stereo speakers with dolby atmos, high-bitrate audio support
+ai capabilities: tap the dedicated galaxy ai key to instantly access smart help when you need it. with just one press, you can launch your favorite ai assistant to get quick answers, helpful suggestions, or real-time support while you stay productive. with ai at your fingertips, tasks feel simpler and faster on your galaxy tab s10 lite.
+› see more product details
+ Tech Details: product information
+item details
+
+connectivity
+camera
+feedback
+would you like to tell us about a lower price?
+additional details
+display
+memory
+battery
+processor
+features
+audio
+-------------------------------------------------------------,
+	 filter '35% off or more' not found in product details.
+-------------------------------------------------------------
+ Title: samsung galaxy tab s10 lite [smartchoice], 10.9-inch (27.7 cm), lcd display, 6gb ram, 128gb rom, wi-fi, dual speakers, s pen, gray, ai enabled
+ Key Features: brand samsung
+model name samsung galaxy tab s10 lite
+memory storage capacity 128 gb
+screen size 10.9
+display resolution maximum 2112 × 1320 pixels per inch
+ About: about this item
+display: lose yourself in a 10.9-inch (27.7 cm) tft lcd touch display. color & design: 6gb ram + 128gb storage, wifi only tablet
+ram & storage: with up to 8gb of memory and 256gb of storage, it enables fast, seamless multitasking and support for large files. if needed, you can even expand storage up to 2tb with a microsd card.
+connectivity: wi-fi 6e and bluetooth 5.3 keep you latency-free in competitive lobbies; usb 2.0 for rapid file transfers. unique feature: s pen included
+speakers & audio: dual stereo speakers with dolby atmos, high-bitrate audio support
+ai capabilities: tap the dedicated galaxy ai key to instantly access smart help when you need it. with just one press, you can launch your favorite ai assistant to get quick answers, helpful suggestions, or real-time support while you stay productive. with ai at your fingertips, tasks feel simpler and faster on your galaxy tab s10 lite.
+› see more product details
+ Tech Details: product information
+item details
+
+connectivity
+camera
+feedback
+would you like to tell us about a lower price?
+additional details
+display
+memory
+battery
+processor
+features
+audio
+-------------------------------------------------------------,
+	 filter '35% off or more' not found in product details.
+-------------------------------------------------------------
+ Title: redmi pad 2, 11-inch (27.94 cm cm), lcd display - 2.5k sharp & clear, 4gb ram, 128gb rom, wi-fi, quad speakers, dolby atmos, graphite grey, ai enabled
+ Key Features: brand redmi
+model name redmi pad 2
+memory storage capacity 128 gb
+screen size 11 inches
+display resolution maximum 2560x1600 pixels
+ About: about this item
+display: 11-inch (27.94 cm), lcd display, 2.5k sharp & clear resolution , 90hz refresh rate, 600 nits brightness, 274 ppi, tüv rheinland triple certification (tüv rheinland low blue light certified, tüv rheinland flicker free certified, tüv rheinland circadian friendly certified)
+ram & storage: 4 gb ram, 128 gb rom, expandable storage upto 2tb, up to 16gb ram*, lpddr4x ram
+connectivity: wi-fi 5 (802.11a/b/g/n/ac), wi-fi direct dual band support 2.4ghz & 5ghz, miracast, bluetooth 5.3, usb 2.0
+speakers & audio: quad speakers for immersive sound, supports dolby atmos and hi-res audio, 3.5mm headphone jack, mp3, flac, aac, ogg, wav, ota, midi, amr, 3gp, afpe, awb
+unique feature: active pen support, face unlock feature
+› see more product details
+ Tech Details: product information
+item details
+
+battery
+processor
+camera
+feedback
+would you like to tell us about a lower price?
+additional details
+display
+memory
+connectivity
+features
+audio
+-------------------------------------------------------------
+	at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:46)
+	at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:30)
+	at test.java.tests.AmazonTests.verifyingDiscountFilterFunctionality(AmazonTests.java:1131)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:686)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:992)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:545)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328)
+	at org.testng.internal.thread.graph.TestNGFutureTask.run(TestNGFutureTask.java:22)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1095)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:619)
+	at java.base/java.lang.Thread.run(Thread.java:1447)
+</textarea>
+          
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:23:16 AM</td>
+        <td>
+          📂 Logs:
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:23:16 AM</td>
+        <td>
+          📄 <a href='../logs/verifyingDiscountFilterFunctionality_Tablet_11-21-21/verifyingDiscountFilterFunctionality_Tablet_11-21-21.log' target='_blank'>verifyingDiscountFilterFunctionality_Tablet_11-21-21.log</a>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:23:16 AM</td>
+        <td>
+          📸 Screenshots:
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:23:16 AM</td>
+        <td>
+          
+    <div class="row mb-3"><div class="col-md-3">
+    
+
+<img data-featherlight='../screenshots/verifyingDiscountFilterFunctionality_Tablet_11-21-21/Tablet756077576300.png' src="../screenshots/verifyingDiscountFilterFunctionality_Tablet_11-21-21/Tablet756077576300.png">
+  
+    
+
+    </div></div>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:23:16 AM</td>
+        <td>
+          
+    <div class="row mb-3"><div class="col-md-3">
+    
+
+<img data-featherlight='../screenshots/verifyingDiscountFilterFunctionality_Tablet_11-21-21/Tablet792373940000.png' src="../screenshots/verifyingDiscountFilterFunctionality_Tablet_11-21-21/Tablet792373940000.png">
+  
+    
+
+    </div></div>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:23:16 AM</td>
+        <td>
+          
+    <div class="row mb-3"><div class="col-md-3">
+    
+
+<img data-featherlight='../screenshots/verifyingDiscountFilterFunctionality_Tablet_11-21-21/Tablet828340839400.png' src="../screenshots/verifyingDiscountFilterFunctionality_Tablet_11-21-21/Tablet828340839400.png">
+  
+    
+
+    </div></div>
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="fail" test-id="8"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">verifyingStorageCapacityFilterFunctionality_Tablet_11-22-00</p>
+            <p class="text-sm">
+              <span>11:22:02 AM</span> / <span>00:01:36:363</span>
+              <span class="badge fail-bg log float-right">Fail</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-fail">verifyingStorageCapacityFilterFunctionality_Tablet_11-22-00</h5>
+<span class='badge badge-success'>10.24.2026 11:22:02 AM</span>
+<span class='badge badge-danger'>10.24.2026 11:23:38 AM</span>
+<span class='badge badge-default'>00:01:36:363</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=8</span>
+<span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
+<span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
+<span title='Expand all nodes' class='badge badge-default pointer float-right et'><i class="fa fa-expand"></i></span>
+</div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:22:02 AM</td>
+        <td>
+          Test Input Parameter: <b>Tablet</b>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log fail-bg">Fail</span></td>
+        <td>11:23:38 AM</td>
+        <td>
+          <textarea readonly class="code-block">java.lang.AssertionError: The following asserts failed:
+	 filter '7 to 11.9 gb' not found in product details.
+-------------------------------------------------------------
+ Title: lexibook, paw patrol learning tablet, jcpad002pai2
+ Key Features: report
+ About: talking educational tablet
+bilingual tablet (spanish/english).
+touch-sensitive tablet with sounds: press any button and the tablet will announce the matching letter, number or word.
+perfect for toddlers!
+"where is..?" quiz: this game mode promotes the love of learning thanks to interactive questions and answers. the child presses the quiz button, looks for the matching picture and answers with a simple click!
+convenient size: easy to bring everywhere!
+letters learning, words learning, spelling games, interactive quiz, introduction to music.
+show more
+› see more product details
+ Tech Details: product information
+item details
+
+feedback
+would you like to tell us about a lower price?
+features & specs
+measurements
+style
+additional details
+-------------------------------------------------------------,
+	 filter '7 to 11.9 gb' not found in product details.
+-------------------------------------------------------------
+ Title: lenovo tab k11 gen 2 tab k11 gen 2
+ Key Features: brand lenovo
+model name zafs0383us
+memory storage capacity 8 gb
+screen size 11 inches
+display resolution maximum 2560x1600
+ About: about this item
+combined processor core: octa-core
+processor manufacturer: arm
+processor type: cortex a76
+processor speed: 2.40 ghz
+processor core: dual-core (2 core)
+› see more product details
+ Tech Details: product information
+item details
+
+battery
+processor
+camera
+feedback
+would you like to tell us about a lower price?
+additional details
+display
+memory
+connectivity
+features
+-------------------------------------------------------------,
+	 filter '12 to 16.9 gb' not found in product details.
+-------------------------------------------------------------
+ Title: lenovo 8.8" legion tab multi-touch tablet 12gb/256gb 3040x1904 resolution
+ Key Features: brand lenovo
+model name zah20126us
+memory storage capacity 12 gb
+screen size 8.8 inches
+display resolution maximum 3040 x 1904
+ About: about this item
+powerful processor: equipped with the qualcomm snapdragon 8 elite gen 5 chipset, delivering exceptional performance for gaming and multitasking.
+stunning display: features an 8.8-inch multi-touch screen with a native resolution of 3040 x 1904 for sharp, vivid visuals.
+ample memory & storage: comes with 12gb of ram and 256gb of onboard storage, providing plenty of space for apps, games, and media.
+gaming-ready design: the legion tab is purpose-built for mobile gaming, featuring a sleek, bold aesthetic with an rgb camera ring accent.
+included protective case: comes with a tri-fold folio case that offers full front and back protection while supporting multiple viewing angles.
+› see more product details
+ Tech Details: product information
+item details
+
+battery
+connectivity
+camera
+audio
+feedback
+would you like to tell us about a lower price?
+additional details
+display
+memory
+processor
+features
+-------------------------------------------------------------,
+	 filter '12 to 16.9 gb' not found in product details.
+-------------------------------------------------------------
+ Title: ikall n11 tablet – 7 inch hd display, android 8.0, quad-core processor, 2gb ram, 16gb storage & 3000mah battery - black
+ Key Features: brand ikall
+model name n11
+memory storage capacity 16 gb
+screen size 7 inches
+display resolution maximum 1024 x 600 pixels
+ About: about this item
+2mp rear camera capture clear photos and videos with ease. 0.3mp front camera ideal for video calls and selfies. | made in india
+17.78 cm 7-inch display: enjoy vibrant visuals and an immersive viewing experience on a compact screen. |1024*600 resolution
+android 8.0 with 1.3 ghz quad core 3000mah battery long-lasting power for extended usage, perfect for streaming and browsing.
+2gb ram and 16gb internal storage ample space for your apps, documents, and media. expandable memory up to 32gb additional storage with a dedicated memory card slot.
+in box (tablet, traveling adapter, usb cable, user manual)
+› see more product details
+ Tech Details: product information
+item details
+
+battery
+processor
+features
+audio
+feedback
+would you like to tell us about a lower price?
+additional details
+display
+memory
+connectivity
+camera
+-------------------------------------------------------------,
+	 filter '17 gb & above' not found in product details.
+-------------------------------------------------------------
+ Title: samsung galaxy tab a11+ [smartchoice], 11-inch (27.82 cm), lcd display, 6gb ram, 128gb rom, wi-fi, quad speakers, dolby atmos, gray, ai enabled
+ Key Features: brand samsung
+model name samsung galaxy tab a11+
+memory storage capacity 128 gb
+screen size 11
+display resolution maximum 1920 x 1200 pixels per inch
+ About: about this item
+display: lose yourself in a 11-inch (27.82 cm) tft lcd touch display running at 90hz — every frame rendered in crisp, smooth detail. color & design: 6gb ram + 128gb storage, wifi only tablet
+ram & storage: the galaxy tab a11+ offers ample memory and storage capacity. with up to 8 gb of memory and 256 gb of storage, it enables fast, seamless multitasking and support for large files. if needed, you can even expand storage up to 2 tb with a microsd card.
+connectivity: wi-fi 5 and bluetooth 5.3 keep you latency-free in competitive lobbies; usb 2.0 for rapid file transfers. unique feature: talk to google gemini about anything
+speakers & audio: the galaxy tab a11+ features dolby engineered quad speakers that deliver a rich, multidimensional audio experience. from your favorite playlists to the latest movies, the immersive 3d sound draws you into a soundscape that’s crisp, clear, and deeply engaging. the galaxy tab a11+ also comes with a 3.5 mm audio jack, so you can conveniently enjoy your content with wired headphones.
+ai capabilities: go live and share your camera with gemini on your galaxy tab a11+ to get help about what you see. just long press the side button to get started and share your screen or camera view with google gemini to ask for advice. have a free flowing conversation that can help you get the answers you're looking for.
+› see more product details
+ Tech Details: product information
+item details
+
+connectivity
+features
+audio
+feedback
+would you like to tell us about a lower price?
+additional details
+display
+memory
+battery
+processor
+camera
+-------------------------------------------------------------,
+	 filter '17 gb & above' not found in product details.
+-------------------------------------------------------------
+ Title: lenovo tab (smartchoice) | 10.1 inch display| wi-fi only| 4 gb ram + 64 gb rom (expandable up to 1 tb)| metal body| dual speakers with dolby atmos| android 14| color: polar blue
+ Key Features: brand lenovo
+model name lenovo tab
+memory storage capacity 64 gb
+screen size 10.1 inches
+display resolution maximum 1920x1200 pixels
+ About: about this item
+your everyday companion, morning to night: from the first news update in the morning to the last video call at night, the lenovo tab keeps up with your entire day — its dependable 4gb ram ensures smooth multitasking across apps, while the dual dolby atmos speakers deliver clear, crisp audio for every conversation, show, and song that matters to you.
+everyday viewing made better – the 10.1-inch wuxga ips display delivers crisp detail and wide viewing angles, making it ideal for online classes, browsing, streaming, and multitasking. with 400 nits brightness and vivid 72% ntsc colors, your content stays clear and vibrant throughout the day.
+efficient performance for daily tasks – the mediatek helio g85 processor combines performance and efficiency to handle everyday apps, video streaming, browsing, and light gaming with ease. paired with wi-fi 5 and bluetooth 5.3, it ensures reliable connectivity for work, study, and entertainment.
+reliable multitasking with expandable storage – featuring 4gb lpddr4x ram and 64gb emmc 5.1 storage, this device is built for everyday entertainment, productivity, and browsing. with microsd support up to 1tb, you can easily carry more movies, photos, files, and apps wherever you go.
+dolby atmos sound with practical camera setup – experience clear and immersive audio through dual side speakers tuned with dolby atmos for movies, music, and streaming. the 5mp front camera supports smooth video chats, while the 8mp rear camera is perfect for capturing photos and scanning notes or documents.
+built for everyday browsing and streaming – the integrated 5100mah battery provides reliable all-day support for work, study, and entertainment. with up to 9.5 hours of youtube streaming and 10.5 hours of chrome browsing, you can stay productive and entertained longer.
+› see more product details
+ Tech Details: product information
+item details
+
+connectivity
+camera
+feedback
+would you like to tell us about a lower price?
+additional details
+display
+memory
+battery
+processor
+features
+audio
+-------------------------------------------------------------
+	at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:46)
+	at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:30)
+	at test.java.tests.AmazonTests.verifyingStorageCapacityFilterFunctionality(AmazonTests.java:424)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:686)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:992)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:545)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328)
+	at org.testng.internal.thread.graph.TestNGFutureTask.run(TestNGFutureTask.java:22)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1095)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:619)
+	at java.base/java.lang.Thread.run(Thread.java:1447)
+</textarea>
+          
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:23:38 AM</td>
+        <td>
+          📂 Logs:
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:23:38 AM</td>
+        <td>
+          📄 <a href='../logs/verifyingStorageCapacityFilterFunctionality_Tablet_11-22-00/verifyingStorageCapacityFilterFunctionality_Tablet_11-22-00.log' target='_blank'>verifyingStorageCapacityFilterFunctionality_Tablet_11-22-00.log</a>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:23:38 AM</td>
+        <td>
+          📸 Screenshots:
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:23:38 AM</td>
+        <td>
+          
+    <div class="row mb-3"><div class="col-md-3">
+    
+
+<img data-featherlight='../screenshots/verifyingStorageCapacityFilterFunctionality_Tablet_11-22-00/Tablet793824644200.png' src="../screenshots/verifyingStorageCapacityFilterFunctionality_Tablet_11-22-00/Tablet793824644200.png">
+  
+    
+
+    </div></div>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:23:38 AM</td>
+        <td>
+          
+    <div class="row mb-3"><div class="col-md-3">
+    
+
+<img data-featherlight='../screenshots/verifyingStorageCapacityFilterFunctionality_Tablet_11-22-00/Tablet816906848600.png' src="../screenshots/verifyingStorageCapacityFilterFunctionality_Tablet_11-22-00/Tablet816906848600.png">
+  
+    
+
+    </div></div>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:23:38 AM</td>
+        <td>
+          
+    <div class="row mb-3"><div class="col-md-3">
+    
+
+<img data-featherlight='../screenshots/verifyingStorageCapacityFilterFunctionality_Tablet_11-22-00/Tablet850537660500.png' src="../screenshots/verifyingStorageCapacityFilterFunctionality_Tablet_11-22-00/Tablet850537660500.png">
+  
+    
+
+    </div></div>
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+<div class="test-content scrollable">
+<div class="test-content-tools">
+<ul><li><a class="back-to-test" href="#"><i class="fa fa-arrow-left"></i></a></li></ul>
+</div>
+<div class="test-content-detail"><div class="detail-body"></div></div>
+</div></div>
+<div class="test-wrapper row view exception-view attributes-view">
+<div class="test-list">
+<div class="test-list-tools">
+<ul class="tools pull-left"><li><a href=""><span class="font-size-14">Exception</span></a></li></ul>
+<ul class="tools text-right"><li><a href="#"><span class="badge badge-primary">1</span></a></li></ul>
+</div>
+<div class="test-list-wrapper scrollable">
+<ul class="test-list-item">
+<li class="test-item">
+<div class="test-detail">
+<span class="meta">
+<span class='badge log badge-danger'>8</span>
+</span>
+<p class="name">java.lang.AssertionError</p>
+<p class="duration text-sm">8 tests</p>
+</div>
+<div class="test-contents d-none">
+<div class="info">
+<h4>java.lang.AssertionError</h4>
+<span status="fail" class='badge log badge-danger'>8 failed</span>
+</div>
+<table class='table table-sm mt-4'>
+<thead>
+<tr>
+<th class="status-col">Status</th>
+<th class="timestamp-col">Timestamp</th>
+<th>TestName</th>
+</tr>
+</thead>
+<tbody>
+<tr class="tag-test-status" status="fail">
+<td><span class="badge log fail-bg">Fail</span></td>
+<td>11:16:56 AM</td>
+<td>
+<a href="#" class="linked" test-id='3' id='3'>verifyingDiscountFilterFunctionality_Mobile_11-16-37</a>
+</td>
+</tr>
+<tr class="tag-test-status" status="fail">
+<td><span class="badge log fail-bg">Fail</span></td>
+<td>11:16:54 AM</td>
+<td>
+<a href="#" class="linked" test-id='1' id='1'>verifyingProcessorSpeedFilterFunctionality_Mobile_11-16-37</a>
+</td>
+</tr>
+<tr class="tag-test-status" status="fail">
+<td><span class="badge log fail-bg">Fail</span></td>
+<td>11:16:56 AM</td>
+<td>
+<a href="#" class="linked" test-id='2' id='2'>verifyingBatteryCapacityFilterFunctionality_Mobile_11-16-37</a>
+</td>
+</tr>
+<tr class="tag-test-status" status="fail">
+<td><span class="badge log fail-bg">Fail</span></td>
+<td>11:19:09 AM</td>
+<td>
+<a href="#" class="linked" test-id='4' id='4'>verifyingDiscountFilterFunctionality_Laptop_11-19-07</a>
+</td>
+</tr>
+<tr class="tag-test-status" status="fail">
+<td><span class="badge log fail-bg">Fail</span></td>
+<td>11:19:28 AM</td>
+<td>
+<a href="#" class="linked" test-id='5' id='5'>verifyingProcessorSpeedFilterFunctionality_Laptop_11-19-26</a>
+</td>
+</tr>
+<tr class="tag-test-status" status="fail">
+<td><span class="badge log fail-bg">Fail</span></td>
+<td>11:19:49 AM</td>
+<td>
+<a href="#" class="linked" test-id='6' id='6'>verifyingStorageCapacityFilterFunctionality_Mobile_11-19-47</a>
+</td>
+</tr>
+<tr class="tag-test-status" status="fail">
+<td><span class="badge log fail-bg">Fail</span></td>
+<td>11:21:22 AM</td>
+<td>
+<a href="#" class="linked" test-id='7' id='7'>verifyingDiscountFilterFunctionality_Tablet_11-21-21</a>
+</td>
+</tr>
+<tr class="tag-test-status" status="fail">
+<td><span class="badge log fail-bg">Fail</span></td>
+<td>11:22:02 AM</td>
+<td>
+<a href="#" class="linked" test-id='8' id='8'>verifyingStorageCapacityFilterFunctionality_Tablet_11-22-00</a>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="test-content scrollable">
+<div class="test-content-detail">
+<div class="detail-body"></div>
+</div>
+</div>
+</div><div class="container-fluid p-4 view dashboard-view">
+<div class="row">
+<div class="col-md-3">
+<div class="card"><div class="card-body">
+<p class="m-b-0">Started</p>
+<h3>Oct 24, 2026 11:16:37 AM</h3>
+</div></div>
+</div>
+<div class="col-md-3">
+<div class="card"><div class="card-body">
+<p class="m-b-0">Ended</p>
+<h3>Oct 24, 2026 11:23:39 AM</h3>
+</div></div>
+</div>
+<div class="col-md-3">
+<div class="card"><div class="card-body">
+<p class="m-b-0 text-pass">Tests Passed</p>
+<h3>0</h3>
+</div></div>
+</div>
+<div class="col-md-3">
+<div class="card"><div class="card-body">
+<p class="m-b-0 text-fail">Tests Failed</p>
+<h3>8</h3>
+</div></div>
+</div>
+</div>
+<div class="row">
+<div class="col-md-6">
+<div class="card">
+<div class="card-header">
+<h6 class="card-title">Tests</h6>
+</div>
+<div class="card-body">
+<div class="">
+<canvas id='parent-analysis' width='115' height='90'></canvas>
+</div>
+</div>
+<div class="card-footer">
+<div><small data-tooltip='0%'>
+<b>0</b> tests passed
+</small>
+</div>
+<div>
+<small data-tooltip='100%'><b>8</b> tests failed,
+<b>0</b> skipped, <b data-tooltip='0%'>0</b> others
+</small>
+</div>
+</div>
+</div>
+</div>
+<div class="col-md-6">
+<div class="card">
+<div class="card-header">
+<h6 class="card-title">Log events</h6>
+</div>
+<div class="card-body">
+<div class="">
+<canvas id='events-analysis' width='115' height='90'></canvas>
+</div>
+</div>
+<div class="card-footer">
+<div><small data-tooltip='0%'><b>0</b> events passed</small></div>
+<div>
+<small data-tooltip='12%'><b>8</b> events failed,
+<b data-tooltip='%'>56</b> others
+</small>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="row"><div class="col-md-12">
+<div class="card"><div class="card-header"><p>Timeline</p></div>
+<div class="card-body pt-0"><div>
+<canvas id="timeline" height="120"></canvas>
+</div></div>
+</div>
+</div></div>
+<script>
+var timeline = {
+"verifyingProcessorSpeedFilterFunctionality_Mobile_11-16-37":151.129,"verifyingBatteryCapacityFilterFunctionality_Mobile_11-16-37":170.82,"verifyingDiscountFilterFunctionality_Mobile_11-16-37":129.819,"verifyingDiscountFilterFunctionality_Laptop_11-19-07":130.464,"verifyingProcessorSpeedFilterFunctionality_Laptop_11-19-26":129.605,"verifyingStorageCapacityFilterFunctionality_Mobile_11-19-47":129.715,"verifyingDiscountFilterFunctionality_Tablet_11-21-21":113.777,"verifyingStorageCapacityFilterFunctionality_Tablet_11-22-00":96.363
+};
+</script>
+<div class="row">
+</div>
+</div>
+<script>
+var statusGroup = {
+parentCount: 5,
+passParent: 0,
+failParent: 8,
+warningParent: 0,
+skipParent: 0,
+childCount: 5,
+passChild: 0,
+failChild: 0,
+warningChild: 0,
+skipChild: 0,
+infoChild: 0,
+grandChildCount: 5,
+passGrandChild: 0,
+failGrandChild: 0,
+warningGrandChild: 0,
+skipGrandChild: 0,
+infoGrandChild: 0,
+eventsCount: 5,
+passEvents: 0,
+failEvents: 8,
+warningEvents: 0,
+skipEvents: 0,
+infoEvents: 56
+};
+</script>        </div>
+      </div>
+    </div>
+  </div>
+<script src="https://cdn.jsdelivr.net/gh/extent-framework/extent-github-cdn@c05cd28cde1617b9d0c05a831daff6cb97fd9fd5/spark/js/spark-script.js"></script>
+<script type="text/javascript"></script></body>
+</html>
