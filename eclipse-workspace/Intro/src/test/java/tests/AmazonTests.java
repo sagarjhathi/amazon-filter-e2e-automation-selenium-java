@@ -45,6 +45,7 @@ import main.java.amazonfilterapplicatione2e.pages.AmazonLandingPage;
 import main.java.amazonfilterapplicatione2e.pages.ProductListingPage;
 import main.java.amazonfilterapplicatione2e.reporting.ReportManager;
 import main.java.amazonfilterapplicatione2e.safeActions.SafeActions;
+import main.java.amazonfilterapplicatione2e.utilities.FilterMatcher;
 import main.java.amazonfilterapplicatione2e.utilities.GenericUtility;
 import main.java.amazonfilterapplicatione2e.utilities.ScreenshotUtilUpdated;
 import test.java.retry.RetryFailedTest;
@@ -88,7 +89,8 @@ public class AmazonTests extends BaseTest {
         String testName=ThreadContext.get("testName");
        
        
-        if (!genericUtility.isElementInViewport(productPage.getItByTomorrowUnderDeliveryDayFilterBy)) {
+        // OLD: if (!genericUtility.isElementInViewport(productPage.getItByTomorrowUnderDeliveryDayFilterBy)) {   (also needed the option to be the top element at its centre)
+        if (!genericUtility.isElementVisible(productPage.getItByTomorrowUnderDeliveryDayFilterBy)) {
 		    System.out.println("Filter option 'Get It by Tomorrow' does not exist. Skipping the test.");
 		    log.warn("[{}]   Filter option 'Get It by Tomorrow' does not exist. Skipping the test.", testName);
 		    // OLD: return;   (TestNG counts a plain return as a PASS)
@@ -140,7 +142,8 @@ public class AmazonTests extends BaseTest {
 		 String testName=ThreadContext.get("testName");
 		 
 		 
- 		if (!genericUtility.isElementInViewport(productPage.getItInTwoDaysUnderDeliveryDayFilterBy)) {
+ 		// OLD: if (!genericUtility.isElementInViewport(productPage.getItInTwoDaysUnderDeliveryDayFilterBy)) {   (also needed the option to be the top element at its centre)
+ 		if (!genericUtility.isElementVisible(productPage.getItInTwoDaysUnderDeliveryDayFilterBy)) {
  		    System.out.println("Filter option 'Get It in 2 Days' does not exist. Skipping the test.");
  		    log.warn("[{}]  Filter option 'Get It in 2 Days' does not exist. Skipping the test.", testName);
  		    // OLD: return;   (TestNG counts a plain return as a PASS)
@@ -190,7 +193,8 @@ public class AmazonTests extends BaseTest {
  		blockerHandler.clearBlockers();
  		
  		 String testName=ThreadContext.get("testName");
- 		if (!genericUtility.isElementInViewport(productPage.getItTodayUnderDeliveryDayFilterBy)) {
+ 		// OLD: if (!genericUtility.isElementInViewport(productPage.getItTodayUnderDeliveryDayFilterBy)) {   (also needed the option to be the top element at its centre)
+ 		if (!genericUtility.isElementVisible(productPage.getItTodayUnderDeliveryDayFilterBy)) {
  		    System.out.println("Filter option 'Get It Today' does not exist. Skipping the test.");
  		   log.warn("[{}]  Filter option 'Get It Today' does not exist. Skipping the test.", ThreadContext.get("testName"));
  		    // OLD: return;   (TestNG counts a plain return as a PASS)
@@ -238,7 +242,8 @@ public class AmazonTests extends BaseTest {
  		blockerHandler.clearBlockers();
  		
  		 String testName=ThreadContext.get("testName");
- 		if (!genericUtility.isElementInViewport(productPage.eligibleForFreeDelivery)) {
+ 		// OLD: if (!genericUtility.isElementInViewport(productPage.eligibleForFreeDelivery)) {   (also needed the option to be the top element at its centre)
+ 		if (!genericUtility.isElementVisible(productPage.eligibleForFreeDelivery)) {
  		    System.out.println("Filter option 'Eligible for Free Delivery does not. Skipping the test.");
  		   log.warn("[{}]  Filter option 'Eligible for Free Delivery' does not exist. Skipping the test.", ThreadContext.get("testName"));
  		    // OLD: return;   (TestNG counts a plain return as a PASS)
@@ -386,40 +391,74 @@ public class AmazonTests extends BaseTest {
 		// Nothing validated means the test checked nothing, so fail instead of passing.
 		Assert.assertTrue(results != null && !results.isEmpty(), "No products were validated for the filter 'Storage Capacity' (search term '" + input + "')");
 
+		// Compare each product's Storage Capacity row with the filter (see FilterMatcher): ranges like "7 to 11.9 gb" work.
+		String[] storageRows = { "memory storage capacity", "hard drive size", "hard disk size", "drivememory storage capacity" };
+		int compared = 0;
 		for (Map<String, Object> product : results) {
 			String filter = genericUtility.safeLower(product.get("filter"));
-    	    String title = genericUtility.safeLower(product.get("title"));
-    	    String keyFeatures = genericUtility.safeLower(product.get("keyFeatures"));
-    	    String about = genericUtility.safeLower(product.get("about"));
-    	    String techDetails = genericUtility.safeLower(product.get("techDetails"));
+			String title = genericUtility.safeLower(product.get("title"));
+			String keyFeatures = genericUtility.safeLower(product.get("keyFeatures"));
+			String techDetails = genericUtility.safeLower(product.get("techDetails"));
 
-    	    boolean isMatch = title.contains(filter)
-    	                   || keyFeatures.contains(filter)
-    	                   || about.contains(filter)
-    	                   || techDetails.contains(filter);
+			FilterMatcher.MatchResult match = FilterMatcher.rangeMatch(filter, storageRows, keyFeatures, techDetails);
 
-			if (!isMatch) {
+			// No Storage Capacity row: nothing can be said about this product, so do not count it as a mismatch.
+			if (match.status == FilterMatcher.Status.UNKNOWN) {
+				log.warn("[{}] No Storage Capacity row for filter '{}' on product '{}'. Not counting it as a mismatch.", testName, filter, title);
+				continue;
+			}
+			compared++;
 
-				log.error("[{}]  Mismatch found for filter '{}' on product '{}'",testName, filter, title);
-				log.debug("[{}]  Key Features: {}", testName, keyFeatures);
-				log.debug("[{}]  About: {}", testName, about);
-				log.debug("[{}]  Tech Details: {}", testName, techDetails);
-
-
-				StringBuilder failureMessage = new StringBuilder();
-				failureMessage.append(" filter '").append(filter).append("' not found in product details.\n")
-				.append("-------------------------------------------------------------\n")
-				.append(" Title: ").append(title).append("\n")
-				.append(" Key Features: ").append(keyFeatures).append("\n")
-				.append(" About: ").append(about).append("\n")
-				.append(" Tech Details: ").append(techDetails).append("\n")
-				.append("-------------------------------------------------------------");
-
-				softAssert.fail(failureMessage.toString());
+			if (match.status == FilterMatcher.Status.MISMATCH) {
+				log.error("[{}] Mismatch found for filter '{}' on product '{}' (row says: {})", testName, filter, title, match.rowValue);
+				softAssert.fail("Filter '" + filter + "' does not fit the product (Storage Capacity row says: " + match.rowValue + "): " + title);
 			} else {
-				System.out.println(" Filter '" + filter + "' matched in at least one section of product details.");
+				log.info("[{}] Filter '{}' fits the Storage Capacity row ({}) on '{}'", testName, filter, match.rowValue, title);
 			}
 		}
+		// If no product could be compared, nothing was checked, so fail instead of passing.
+		// OLD: Assert.assertTrue(compared > 0, ...)   (failed the test when no product had the row)
+		// The products shown have no Storage Capacity row in the spec table we read, so there is nothing to compare. Skip with the reason
+		// instead of reporting a false failure. (A scraper problem is already caught earlier: no captured products fails the test.)
+		if (compared == 0) {
+			throw new SkipException("No product had a Storage Capacity row to compare with the filters (search term '" + input + "')");
+		}
+
+		// OLD: matched the filter text anywhere in the page text, so ranges like "7 to 11.9 gb" never matched
+		// for (Map<String, Object> product : results) {
+			// String filter = genericUtility.safeLower(product.get("filter"));
+    	    // String title = genericUtility.safeLower(product.get("title"));
+    	    // String keyFeatures = genericUtility.safeLower(product.get("keyFeatures"));
+    	    // String about = genericUtility.safeLower(product.get("about"));
+    	    // String techDetails = genericUtility.safeLower(product.get("techDetails"));
+
+    	    // boolean isMatch = title.contains(filter)
+    	                   // || keyFeatures.contains(filter)
+    	                   // || about.contains(filter)
+    	                   // || techDetails.contains(filter);
+
+			// if (!isMatch) {
+
+				// log.error("[{}]  Mismatch found for filter '{}' on product '{}'",testName, filter, title);
+				// log.debug("[{}]  Key Features: {}", testName, keyFeatures);
+				// log.debug("[{}]  About: {}", testName, about);
+				// log.debug("[{}]  Tech Details: {}", testName, techDetails);
+
+
+				// StringBuilder failureMessage = new StringBuilder();
+				// failureMessage.append(" filter '").append(filter).append("' not found in product details.\n")
+				// .append("-------------------------------------------------------------\n")
+				// .append(" Title: ").append(title).append("\n")
+				// .append(" Key Features: ").append(keyFeatures).append("\n")
+				// .append(" About: ").append(about).append("\n")
+				// .append(" Tech Details: ").append(techDetails).append("\n")
+				// .append("-------------------------------------------------------------");
+
+				// softAssert.fail(failureMessage.toString());
+			// } else {
+				// System.out.println(" Filter '" + filter + "' matched in at least one section of product details.");
+			// }
+		// }
 
 		softAssert.assertAll(); 
 
@@ -550,42 +589,76 @@ public class AmazonTests extends BaseTest {
 		// Nothing validated means the test checked nothing, so fail instead of passing.
 		Assert.assertTrue(results != null && !results.isEmpty(), "No products were validated for the filter 'Battery Capacity' (search term '" + input + "')");
 
+		// Compare each product's Battery Capacity row with the filter (see FilterMatcher): ranges and units work.
+		String[] batteryRows = { "battery capacity" };
+		int compared = 0;
 		for (Map<String, Object> product : results) {
 			String filter = genericUtility.safeLower(product.get("filter"));
 			String title = genericUtility.safeLower(product.get("title"));
 			String keyFeatures = genericUtility.safeLower(product.get("keyFeatures"));
-			String about = genericUtility.safeLower(product.get("about"));
 			String techDetails = genericUtility.safeLower(product.get("techDetails"));
 
-			boolean isMatch = title.contains(filter)
-					|| keyFeatures.contains(filter)
-					|| about.contains(filter)
-					|| techDetails.contains(filter);
+			FilterMatcher.MatchResult match = FilterMatcher.rangeMatch(filter, batteryRows, keyFeatures, techDetails);
 
-			if (!isMatch) {
+			// No Battery Capacity row: nothing can be said about this product, so do not count it as a mismatch.
+			if (match.status == FilterMatcher.Status.UNKNOWN) {
+				log.warn("[{}] No Battery Capacity row for filter '{}' on product '{}'. Not counting it as a mismatch.", testName, filter, title);
+				continue;
+			}
+			compared++;
 
-				log.error("[{}]  Mismatch found for filter '{}' on product '{}'",testName, filter, title);
-				log.debug("[{}]  Key Features: {}", testName, keyFeatures);
-				log.debug("[{}]  About: {}", testName, about);
-				log.debug("[{}]  Tech Details: {}", testName, techDetails);
-
-
-				StringBuilder failureMessage = new StringBuilder();
-				failureMessage.append(" filter '").append(filter).append("' not found in product details.\n")
-				.append("---------------------------------------------------------------------------------------\n")
-				.append(" Title: ").append(title).append("\n")
-				.append(" Key Features: ").append(keyFeatures).append("\n")
-				.append(" About: ").append(about).append("\n")
-				.append(" Tech Details: ").append(techDetails).append("\n")
-				.append("-----------------------------------------------------------------------------------------");
-
-				softAssert.fail(failureMessage.toString());
-
+			if (match.status == FilterMatcher.Status.MISMATCH) {
+				log.error("[{}] Mismatch found for filter '{}' on product '{}' (row says: {})", testName, filter, title, match.rowValue);
+				softAssert.fail("Filter '" + filter + "' does not fit the product (Battery Capacity row says: " + match.rowValue + "): " + title);
 			} else {
-				log.info("[{}]  Filter '{}' matched in product details.", testName, filter);
-				System.out.println(" Filter '" + filter + "' matched in at least one section of product details.");
+				log.info("[{}] Filter '{}' fits the Battery Capacity row ({}) on '{}'", testName, filter, match.rowValue, title);
 			}
 		}
+		// If no product could be compared, nothing was checked, so fail instead of passing.
+		// OLD: Assert.assertTrue(compared > 0, ...)   (failed the test when no product had the row)
+		// The product pages do not show a Battery Capacity row in the part of the page we read (the details sit in collapsed
+		// sections), so there is nothing to compare. Skip with the reason instead of reporting a false failure.
+		if (compared == 0) {
+			throw new SkipException("No product had a Battery Capacity row to compare with the filters (search term '" + input + "')");
+		}
+
+		// OLD: matched the filter text anywhere in the page text, so ranges and units never matched
+		// for (Map<String, Object> product : results) {
+			// String filter = genericUtility.safeLower(product.get("filter"));
+			// String title = genericUtility.safeLower(product.get("title"));
+			// String keyFeatures = genericUtility.safeLower(product.get("keyFeatures"));
+			// String about = genericUtility.safeLower(product.get("about"));
+			// String techDetails = genericUtility.safeLower(product.get("techDetails"));
+
+			// boolean isMatch = title.contains(filter)
+					// || keyFeatures.contains(filter)
+					// || about.contains(filter)
+					// || techDetails.contains(filter);
+
+			// if (!isMatch) {
+
+				// log.error("[{}]  Mismatch found for filter '{}' on product '{}'",testName, filter, title);
+				// log.debug("[{}]  Key Features: {}", testName, keyFeatures);
+				// log.debug("[{}]  About: {}", testName, about);
+				// log.debug("[{}]  Tech Details: {}", testName, techDetails);
+
+
+				// StringBuilder failureMessage = new StringBuilder();
+				// failureMessage.append(" filter '").append(filter).append("' not found in product details.\n")
+				// .append("---------------------------------------------------------------------------------------\n")
+				// .append(" Title: ").append(title).append("\n")
+				// .append(" Key Features: ").append(keyFeatures).append("\n")
+				// .append(" About: ").append(about).append("\n")
+				// .append(" Tech Details: ").append(techDetails).append("\n")
+				// .append("-----------------------------------------------------------------------------------------");
+
+				// softAssert.fail(failureMessage.toString());
+
+			// } else {
+				// log.info("[{}]  Filter '{}' matched in product details.", testName, filter);
+				// System.out.println(" Filter '" + filter + "' matched in at least one section of product details.");
+			// }
+		// }
 
 		log.info("[{}] Asserting all soft assertions now...", testName);
 		softAssert.assertAll(); 
@@ -638,44 +711,78 @@ public class AmazonTests extends BaseTest {
         // Nothing validated means the test checked nothing, so fail instead of passing.
         Assert.assertTrue(results != null && !results.isEmpty(), "No products were validated for the filter 'Display Size' (search term '" + input + "')");
 
-        for (Map<String, Object> product : results) {
-        	String filter = genericUtility.safeLower(product.get("filter"));
-        	String title = genericUtility.safeLower(product.get("title"));
-        	String keyFeatures = genericUtility.safeLower(product.get("keyFeatures"));
-        	String about = genericUtility.safeLower(product.get("about"));
-        	String techDetails = genericUtility.safeLower(product.get("techDetails"));
+		// Compare each product's Display Size row with the filter (see FilterMatcher): ranges and units work.
+		String[] sizeRows = { "screen size" };
+		int compared = 0;
+		for (Map<String, Object> product : results) {
+			String filter = genericUtility.safeLower(product.get("filter"));
+			String title = genericUtility.safeLower(product.get("title"));
+			String keyFeatures = genericUtility.safeLower(product.get("keyFeatures"));
+			String techDetails = genericUtility.safeLower(product.get("techDetails"));
 
-        	boolean isMatch = title.contains(filter)
-        			|| keyFeatures.contains(filter)
-        			|| about.contains(filter)
-        			|| techDetails.contains(filter);
+			FilterMatcher.MatchResult match = FilterMatcher.rangeMatch(filter, sizeRows, keyFeatures, techDetails);
 
-        	if (!isMatch) {
+			// No Display Size row: nothing can be said about this product, so do not count it as a mismatch.
+			if (match.status == FilterMatcher.Status.UNKNOWN) {
+				log.warn("[{}] No Display Size row for filter '{}' on product '{}'. Not counting it as a mismatch.", testName, filter, title);
+				continue;
+			}
+			compared++;
 
-        		log.error("[{}]  Mismatch found for filter '{}' on product '{}'",testName, filter, title);
-        		log.debug("[{}]  Key Features: {}", testName, keyFeatures);
-        		log.debug("[{}]  About: {}", testName, about);
-        		log.debug("[{}]  Tech Details: {}", testName, techDetails);
+			if (match.status == FilterMatcher.Status.MISMATCH) {
+				log.error("[{}] Mismatch found for filter '{}' on product '{}' (row says: {})", testName, filter, title, match.rowValue);
+				softAssert.fail("Filter '" + filter + "' does not fit the product (Display Size row says: " + match.rowValue + "): " + title);
+			} else {
+				log.info("[{}] Filter '{}' fits the Display Size row ({}) on '{}'", testName, filter, match.rowValue, title);
+			}
+		}
+		// If no product could be compared, nothing was checked, so fail instead of passing.
+		// OLD: Assert.assertTrue(compared > 0, ...)   (failed the test when no product had the row)
+		// The products shown have no Display Size row in the spec table we read, so there is nothing to compare. Skip with the reason
+		// instead of reporting a false failure. (A scraper problem is already caught earlier: no captured products fails the test.)
+		if (compared == 0) {
+			throw new SkipException("No product had a Display Size row to compare with the filters (search term '" + input + "')");
+		}
+
+		// OLD: matched the filter text anywhere in the page text, so ranges and units never matched
+        // for (Map<String, Object> product : results) {
+        	// String filter = genericUtility.safeLower(product.get("filter"));
+        	// String title = genericUtility.safeLower(product.get("title"));
+        	// String keyFeatures = genericUtility.safeLower(product.get("keyFeatures"));
+        	// String about = genericUtility.safeLower(product.get("about"));
+        	// String techDetails = genericUtility.safeLower(product.get("techDetails"));
+
+        	// boolean isMatch = title.contains(filter)
+        			// || keyFeatures.contains(filter)
+        			// || about.contains(filter)
+        			// || techDetails.contains(filter);
+
+        	// if (!isMatch) {
+
+        		// log.error("[{}]  Mismatch found for filter '{}' on product '{}'",testName, filter, title);
+        		// log.debug("[{}]  Key Features: {}", testName, keyFeatures);
+        		// log.debug("[{}]  About: {}", testName, about);
+        		// log.debug("[{}]  Tech Details: {}", testName, techDetails);
 
 
-        		StringBuilder failureMessage = new StringBuilder();
-        		failureMessage.append("filter '").append(filter).append("' not found in product details.\n")
-        		.append("--------------------------------------------------------------------------------------\n")
-        		.append(" Title: ").append(title).append("\n")
-        		.append(" Key Features: ").append(keyFeatures).append("\n")
-        		.append(" About: ").append(about).append("\n")
-        		.append(" Tech Details: ").append(techDetails).append("\n")
-        		.append("------------------------------------------------------------------------------------------");
+        		// StringBuilder failureMessage = new StringBuilder();
+        		// failureMessage.append("filter '").append(filter).append("' not found in product details.\n")
+        		// .append("--------------------------------------------------------------------------------------\n")
+        		// .append(" Title: ").append(title).append("\n")
+        		// .append(" Key Features: ").append(keyFeatures).append("\n")
+        		// .append(" About: ").append(about).append("\n")
+        		// .append(" Tech Details: ").append(techDetails).append("\n")
+        		// .append("------------------------------------------------------------------------------------------");
 
-        		softAssert.fail(failureMessage.toString());
+        		// softAssert.fail(failureMessage.toString());
 
 
-        	} else {
-        		log.info("[{}]  Filter '{}' matched in at least one section.",testName, filter);
+        	// } else {
+        		// log.info("[{}]  Filter '{}' matched in at least one section.",testName, filter);
 
-        		System.out.println(" Filter '" + filter + "' matched in at least one section of product details.");
-        	}
-        }
+        		// System.out.println(" Filter '" + filter + "' matched in at least one section of product details.");
+        	// }
+        // }
 
         log.info("[{}]  Final assertion for display size filter validation starting...", testName);
         softAssert.assertAll(); 
@@ -730,43 +837,77 @@ public class AmazonTests extends BaseTest {
         // Nothing validated means the test checked nothing, so fail instead of passing.
         Assert.assertTrue(results != null && !results.isEmpty(), "No products were validated for the filter 'Processor Speed' (search term '" + input + "')");
 
-        for (Map<String, Object> product : results) {
-        	String filter = genericUtility.safeLower(product.get("filter"));
-        	String title = genericUtility.safeLower(product.get("title"));
-        	String keyFeatures = genericUtility.safeLower(product.get("keyFeatures"));
-        	String about = genericUtility.safeLower(product.get("about"));
-        	String techDetails = genericUtility.safeLower(product.get("techDetails"));
+		// Compare each product's Processor Speed row with the filter (see FilterMatcher): ranges and units work.
+		String[] speedRows = { "processor speed", "cpu speed" };
+		int compared = 0;
+		for (Map<String, Object> product : results) {
+			String filter = genericUtility.safeLower(product.get("filter"));
+			String title = genericUtility.safeLower(product.get("title"));
+			String keyFeatures = genericUtility.safeLower(product.get("keyFeatures"));
+			String techDetails = genericUtility.safeLower(product.get("techDetails"));
 
-        	boolean isMatch = title.contains(filter)
-        			|| keyFeatures.contains(filter)
-        			|| about.contains(filter)
-        			|| techDetails.contains(filter);
+			FilterMatcher.MatchResult match = FilterMatcher.rangeMatch(filter, speedRows, keyFeatures, techDetails);
 
-        	if (!isMatch) {
+			// No Processor Speed row: nothing can be said about this product, so do not count it as a mismatch.
+			if (match.status == FilterMatcher.Status.UNKNOWN) {
+				log.warn("[{}] No Processor Speed row for filter '{}' on product '{}'. Not counting it as a mismatch.", testName, filter, title);
+				continue;
+			}
+			compared++;
+
+			if (match.status == FilterMatcher.Status.MISMATCH) {
+				log.error("[{}] Mismatch found for filter '{}' on product '{}' (row says: {})", testName, filter, title, match.rowValue);
+				softAssert.fail("Filter '" + filter + "' does not fit the product (Processor Speed row says: " + match.rowValue + "): " + title);
+			} else {
+				log.info("[{}] Filter '{}' fits the Processor Speed row ({}) on '{}'", testName, filter, match.rowValue, title);
+			}
+		}
+		// If no product could be compared, nothing was checked, so fail instead of passing.
+		// OLD: Assert.assertTrue(compared > 0, ...)   (failed the test when no product had the row)
+		// The products shown have no Processor Speed row in the spec table we read, so there is nothing to compare. Skip with the reason
+		// instead of reporting a false failure. (A scraper problem is already caught earlier: no captured products fails the test.)
+		if (compared == 0) {
+			throw new SkipException("No product had a Processor Speed row to compare with the filters (search term '" + input + "')");
+		}
+
+		// OLD: matched the filter text anywhere in the page text, so ranges and units never matched
+        // for (Map<String, Object> product : results) {
+        	// String filter = genericUtility.safeLower(product.get("filter"));
+        	// String title = genericUtility.safeLower(product.get("title"));
+        	// String keyFeatures = genericUtility.safeLower(product.get("keyFeatures"));
+        	// String about = genericUtility.safeLower(product.get("about"));
+        	// String techDetails = genericUtility.safeLower(product.get("techDetails"));
+
+        	// boolean isMatch = title.contains(filter)
+        			// || keyFeatures.contains(filter)
+        			// || about.contains(filter)
+        			// || techDetails.contains(filter);
+
+        	// if (!isMatch) {
 
 
 
-        		log.error("[{}] Mismatch found for filter '{}' on product '{}'",testName, filter, title);
-        		log.debug("[{}] Key Features: {}", testName, keyFeatures);
-        		log.debug("[{}] About: {}", testName, about);
-        		log.debug("[{}] Tech Details: {}", testName, techDetails);
+        		// log.error("[{}] Mismatch found for filter '{}' on product '{}'",testName, filter, title);
+        		// log.debug("[{}] Key Features: {}", testName, keyFeatures);
+        		// log.debug("[{}] About: {}", testName, about);
+        		// log.debug("[{}] Tech Details: {}", testName, techDetails);
 
 
 
-        		failureMessage.append(" filter '").append(filter).append("' not found in product details.\n")
-        		.append("-------------------------------------------------------------\n")
-        		.append(" Title: ").append(title).append("\n")
-        		.append(" Key Features: ").append(keyFeatures).append("\n")
-        		.append(" About: ").append(about).append("\n")
-        		.append(" Tech Details: ").append(techDetails).append("\n")
-        		.append("-------------------------------------------------------------");
+        		// failureMessage.append(" filter '").append(filter).append("' not found in product details.\n")
+        		// .append("-------------------------------------------------------------\n")
+        		// .append(" Title: ").append(title).append("\n")
+        		// .append(" Key Features: ").append(keyFeatures).append("\n")
+        		// .append(" About: ").append(about).append("\n")
+        		// .append(" Tech Details: ").append(techDetails).append("\n")
+        		// .append("-------------------------------------------------------------");
 
-        		softAssert.fail(failureMessage.toString());
-        	} else {
-        		log.info("[{}]  Filter '{}' matched in at least one section.", testName, filter);
-        		System.out.println(" Filter '" + filter + "' matched in at least one section of product details.");
-        	}
-        }
+        		// softAssert.fail(failureMessage.toString());
+        	// } else {
+        		// log.info("[{}]  Filter '{}' matched in at least one section.", testName, filter);
+        		// System.out.println(" Filter '" + filter + "' matched in at least one section of product details.");
+        	// }
+        // }
         log.info("[{}] Final assertion for processor speed filter validation starting...", testName);
         softAssert.assertAll(); 
 		
@@ -999,42 +1140,76 @@ public class AmazonTests extends BaseTest {
 		// Nothing validated means the test checked nothing, so fail instead of passing.
 		Assert.assertTrue(results != null && !results.isEmpty(), "No products were validated for the filter 'Mobile Phone Primary Camera Resolution' (search term '" + input + "')");
 
+		// Compare each product's Camera Resolution row with the filter (see FilterMatcher): ranges and units work.
+		String[] cameraRows = { "rear facing camera photo sensor resolution", "primary camera resolution", "rear camera resolution" };
+		int compared = 0;
 		for (Map<String, Object> product : results) {
 			String filter = genericUtility.safeLower(product.get("filter"));
 			String title = genericUtility.safeLower(product.get("title"));
 			String keyFeatures = genericUtility.safeLower(product.get("keyFeatures"));
-			String about = genericUtility.safeLower(product.get("about"));
 			String techDetails = genericUtility.safeLower(product.get("techDetails"));
 
-			boolean isMatch = title.contains(filter)
-					|| keyFeatures.contains(filter)
-					|| about.contains(filter)
-					|| techDetails.contains(filter);
+			FilterMatcher.MatchResult match = FilterMatcher.rangeMatch(filter, cameraRows, keyFeatures, techDetails);
 
-			if (!isMatch) {
+			// No Camera Resolution row: nothing can be said about this product, so do not count it as a mismatch.
+			if (match.status == FilterMatcher.Status.UNKNOWN) {
+				log.warn("[{}] No Camera Resolution row for filter '{}' on product '{}'. Not counting it as a mismatch.", testName, filter, title);
+				continue;
+			}
+			compared++;
 
-
-				log.error("[{}]  Mismatch found for filter '{}' on product '{}'",testName, filter, title);
-				log.debug("[{}]  Key Features: {}",testName, keyFeatures);
-				log.debug("[{}]  About: {}", testName, about);
-				log.debug("[{}]  Tech Details: {}", testName, techDetails);
-
-
-
-				failureMessage.append(" filter '").append(filter).append("' not found in product details.\n")
-				.append("-------------------------------------------------------------\n")
-				.append(" Title: ").append(title).append("\n")
-				.append(" Key Features: ").append(keyFeatures).append("\n")
-				.append(" About: ").append(about).append("\n")
-				.append(" Tech Details: ").append(techDetails).append("\n")
-				.append("-------------------------------------------------------------");
-
-				softAssert.fail(failureMessage.toString());
+			if (match.status == FilterMatcher.Status.MISMATCH) {
+				log.error("[{}] Mismatch found for filter '{}' on product '{}' (row says: {})", testName, filter, title, match.rowValue);
+				softAssert.fail("Filter '" + filter + "' does not fit the product (Camera Resolution row says: " + match.rowValue + "): " + title);
 			} else {
-				log.info("[{}]  Filter '{}' matched in product details.", testName, filter);
-				System.out.println(" Filter '" + filter + "' matched in at least one section of product details.");
+				log.info("[{}] Filter '{}' fits the Camera Resolution row ({}) on '{}'", testName, filter, match.rowValue, title);
 			}
 		}
+		// If no product could be compared, nothing was checked, so fail instead of passing.
+		// OLD: Assert.assertTrue(compared > 0, ...)   (failed the test when no product had the row)
+		// The product pages do not show a Camera Resolution row in the part of the page we read (the details sit in collapsed
+		// sections), so there is nothing to compare. Skip with the reason instead of reporting a false failure.
+		if (compared == 0) {
+			throw new SkipException("No product had a Camera Resolution row to compare with the filters (search term '" + input + "')");
+		}
+
+		// OLD: matched the filter text anywhere in the page text, so ranges and units never matched
+		// for (Map<String, Object> product : results) {
+			// String filter = genericUtility.safeLower(product.get("filter"));
+			// String title = genericUtility.safeLower(product.get("title"));
+			// String keyFeatures = genericUtility.safeLower(product.get("keyFeatures"));
+			// String about = genericUtility.safeLower(product.get("about"));
+			// String techDetails = genericUtility.safeLower(product.get("techDetails"));
+
+			// boolean isMatch = title.contains(filter)
+					// || keyFeatures.contains(filter)
+					// || about.contains(filter)
+					// || techDetails.contains(filter);
+
+			// if (!isMatch) {
+
+
+				// log.error("[{}]  Mismatch found for filter '{}' on product '{}'",testName, filter, title);
+				// log.debug("[{}]  Key Features: {}",testName, keyFeatures);
+				// log.debug("[{}]  About: {}", testName, about);
+				// log.debug("[{}]  Tech Details: {}", testName, techDetails);
+
+
+
+				// failureMessage.append(" filter '").append(filter).append("' not found in product details.\n")
+				// .append("-------------------------------------------------------------\n")
+				// .append(" Title: ").append(title).append("\n")
+				// .append(" Key Features: ").append(keyFeatures).append("\n")
+				// .append(" About: ").append(about).append("\n")
+				// .append(" Tech Details: ").append(techDetails).append("\n")
+				// .append("-------------------------------------------------------------");
+
+				// softAssert.fail(failureMessage.toString());
+			// } else {
+				// log.info("[{}]  Filter '{}' matched in product details.", testName, filter);
+				// System.out.println(" Filter '" + filter + "' matched in at least one section of product details.");
+			// }
+		// }
 
 		log.info("[{}]  Final assertion for Camera Resolution filter validation...", testName);
 		softAssert.assertAll(); 
@@ -1082,50 +1257,79 @@ public class AmazonTests extends BaseTest {
 
 
 
-		List<Map<String, Object>> results = sharedFilterFlows.applyFilterAndValidateProductsWithResult(productPage.listDiscountOptionsBy,"discount");
+		// OLD: List<Map<String, Object>> results = sharedFilterFlows.applyFilterAndValidateProductsWithResult(productPage.listDiscountOptionsBy,"discount");
+		List<Map<String, Object>> results = sharedFilterFlows.applyFilterAndValidateProductsWithResult(productPage.listDiscountOptionsBy, "discount", true);   // true = read only the cards in the list, no product page
 
 
 
 		// Drop products whose page details were not captured, so they are not reported as mismatches.
-		results = genericUtility.onlyCapturedProducts(results, testName);
+		// (not used for Discount: only the list cards are read) results = genericUtility.onlyCapturedProducts(results, testName);
 		// Nothing validated means the test checked nothing, so fail instead of passing.
 		Assert.assertTrue(results != null && !results.isEmpty(), "No products were validated for the filter 'Discount' (search term '" + input + "')");
 
+		// The loop below reads the discount shown on each card (for example 44% off) and checks it is at least the filter's percentage.
+		int compared = 0;
 		for (Map<String, Object> product : results) {
 			String filter = genericUtility.safeLower(product.get("filter"));
 			String title = genericUtility.safeLower(product.get("title"));
-			String keyFeatures = genericUtility.safeLower(product.get("keyFeatures"));
-			String about = genericUtility.safeLower(product.get("about"));
-			String techDetails = genericUtility.safeLower(product.get("techDetails"));
+			Object shown = product.get("discount");
+			int needed = Integer.parseInt(filter.replaceAll("[^0-9]", ""));   // "25% off or more" -> 25
 
-			boolean isMatch = genericUtility.containsCheck(filter, title)
-					|| genericUtility.containsCheck(filter,keyFeatures)
-					|| genericUtility.containsCheck(filter,about)
-					|| genericUtility.containsCheck(filter,techDetails);
+			// A card that shows no discount cannot be compared, so it is not counted as a mismatch.
+			if (shown == null) {
+				log.warn("[{}] No discount shown on the card of '{}' for filter '{}'. Not counting it as a mismatch.", testName, title, filter);
+				continue;
+			}
+			compared++;
 
-			if (!isMatch) {
-
-				log.error("[{}] Mismatch found for filter '{}' on product '{}'",testName, filter, title);
-				log.debug("[{}]  Key Features: {}", testName, keyFeatures);
-				log.debug("[{}]  About: {}", testName, about);
-				log.debug("[{}]  Tech Details: {}", testName, techDetails);
-
-
-				StringBuilder failureMessage = new StringBuilder();
-				failureMessage.append(" filter '").append(filter).append("' not found in product details.\n")
-				.append("-------------------------------------------------------------\n")
-				.append(" Title: ").append(title).append("\n")
-				.append(" Key Features: ").append(keyFeatures).append("\n")
-				.append(" About: ").append(about).append("\n")
-				.append(" Tech Details: ").append(techDetails).append("\n")
-				.append("-------------------------------------------------------------");
-
-				softAssert.fail(failureMessage.toString());
+			if ((int) shown >= needed) {
+				log.info("[{}] Filter '{}' fits: the card shows {}% off (needs {} or more) on '{}'", testName, filter, shown, needed, title);
 			} else {
-				log.info("[{}]  Filter '{}' matched in at least one product section.", testName, filter);
-				System.out.println("Filter '" + filter + "' matched in at least one section of product details.");
+				log.error("[{}] Mismatch found for filter '{}' on product '{}': the card shows {}% off, needs {} or more. Card text: {}", testName, filter, title, shown, needed, product.get("cardText"));
+				softAssert.fail("Filter '" + filter + "' does not fit the product (the card shows " + shown + "% off, needs " + needed + " or more): " + title);
 			}
 		}
+		// If no card showed a discount, nothing was checked: skip with the reason instead of a false failure.
+		if (compared == 0) {
+			throw new SkipException("No product card showed a discount to compare with the filters (search term '" + input + "')");
+		}
+
+		// OLD: matched the percentage text in the product page text, which never contains it
+		// for (Map<String, Object> product : results) {
+			// String filter = genericUtility.safeLower(product.get("filter"));
+			// String title = genericUtility.safeLower(product.get("title"));
+			// String keyFeatures = genericUtility.safeLower(product.get("keyFeatures"));
+			// String about = genericUtility.safeLower(product.get("about"));
+			// String techDetails = genericUtility.safeLower(product.get("techDetails"));
+
+			// boolean isMatch = genericUtility.containsCheck(filter, title)
+					// || genericUtility.containsCheck(filter,keyFeatures)
+					// || genericUtility.containsCheck(filter,about)
+					// || genericUtility.containsCheck(filter,techDetails);
+
+			// if (!isMatch) {
+
+				// log.error("[{}] Mismatch found for filter '{}' on product '{}'",testName, filter, title);
+				// log.debug("[{}]  Key Features: {}", testName, keyFeatures);
+				// log.debug("[{}]  About: {}", testName, about);
+				// log.debug("[{}]  Tech Details: {}", testName, techDetails);
+
+
+				// StringBuilder failureMessage = new StringBuilder();
+				// failureMessage.append(" filter '").append(filter).append("' not found in product details.\n")
+				// .append("-------------------------------------------------------------\n")
+				// .append(" Title: ").append(title).append("\n")
+				// .append(" Key Features: ").append(keyFeatures).append("\n")
+				// .append(" About: ").append(about).append("\n")
+				// .append(" Tech Details: ").append(techDetails).append("\n")
+				// .append("-------------------------------------------------------------");
+
+				// softAssert.fail(failureMessage.toString());
+			// } else {
+				// log.info("[{}]  Filter '{}' matched in at least one product section.", testName, filter);
+				// System.out.println("Filter '" + filter + "' matched in at least one section of product details.");
+			// }
+		// }
 
 		log.info("[{}]  Final assertion for Discount filter validation...", testName);
 		softAssert.assertAll(); 

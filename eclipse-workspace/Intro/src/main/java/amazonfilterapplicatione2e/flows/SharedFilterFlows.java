@@ -40,7 +40,14 @@ public class SharedFilterFlows extends BasePage {
 	}
 	
 	
+	// The usual call: opens every product page and reads its details.
 	public List<Map<String, Object>> applyFilterAndValidateProductsWithResult(By filterOptionsBy, String filterName) throws InterruptedException, TimeoutException {
+		return applyFilterAndValidateProductsWithResult(filterOptionsBy, filterName, false);
+	}
+
+	// readListingOnly = true reads only the card in the results list (used by the Discount test) and opens no product page.
+	// OLD signature: applyFilterAndValidateProductsWithResult(By filterOptionsBy, String filterName)
+	public List<Map<String, Object>> applyFilterAndValidateProductsWithResult(By filterOptionsBy, String filterName, boolean readListingOnly) throws InterruptedException, TimeoutException {
 
 		log.info("[{}] Within applyFilterAndValidateProductsWithResult method", ThreadContext.get("testName"));
 
@@ -165,7 +172,10 @@ public class SharedFilterFlows extends BasePage {
 				log.info("[{}] Within productNameListingPage loop in applyFilterAndValidateProductsWithResult", ThreadContext.get("testName"));
 				System.out.println("inside the loop and product name is " + productNameListingPage.get(productIndex).getText());
 
-				Map<String, Object> productResult = applyFilterOptionsAndFetchProductDetailsGlobal(productIndex, filterValue, currentWindow, safeAct);
+				// OLD: Map<String, Object> productResult = applyFilterOptionsAndFetchProductDetailsGlobal(productIndex, filterValue, currentWindow, safeAct);
+				Map<String, Object> productResult = readListingOnly
+						? readListingDiscount(productIndex, filterValue)
+						: applyFilterOptionsAndFetchProductDetailsGlobal(productIndex, filterValue, currentWindow, safeAct);
 				log.info("[{}]  Added 'filter','title','keyFeatures', 'about', 'techDetails' into the Map -> productResult", ThreadContext.get("testName"));
 
 				results.add(productResult);
@@ -188,6 +198,32 @@ public class SharedFilterFlows extends BasePage {
 	
 	
 	
+	// Reads the discount shown on a product's card in the results list, for example "(44% off)" -> 44.
+	// "discount" stays null when the card shows none. The product page is not opened.
+	public Map<String, Object> readListingDiscount(int productIndex, String filterValue) {
+		Map<String, Object> productResult = new HashMap<>();
+		productResult.put("filter", filterValue);
+		productResult.put("title", "");
+		productResult.put("discount", null);
+
+		try {
+			WebElement title = driver.findElement(productPage.getProductByIndex(productIndex));
+			WebElement card = title.findElement(By.xpath("./ancestor::div[@data-component-type='s-search-result']"));
+			String cardText = card.getText().replaceAll("\\s+", " ");
+
+			java.util.regex.Matcher percent = java.util.regex.Pattern.compile("(\\d+)% off").matcher(cardText);
+			productResult.put("title", title.getText().trim());
+			productResult.put("cardText", cardText);   // kept so a surprising number can be traced to the card text
+			if (percent.find()) {
+				productResult.put("discount", Integer.parseInt(percent.group(1)));
+			}
+		} catch (Exception e) {
+			log.warn("[{}] Could not read the card of product {} for filter '{}': {}", ThreadContext.get("testName"), productIndex, filterValue, e.getMessage());
+		}
+		return productResult;
+	}
+
+
 	public Map<String, Object>applyFilterOptionsAndFetchProductDetailsGlobal(
 			 
 		    int productIndex,
