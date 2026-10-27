@@ -35,6 +35,7 @@ import org.testng.asserts.SoftAssert;
 import main.java.amazonfilterapplicatione2e.base.BaseTest;
 import main.java.amazonfilterapplicatione2e.captcha.CaptchaHandler;
 import main.java.amazonfilterapplicatione2e.captcha.BlockerHandler;
+import main.java.amazonfilterapplicatione2e.fileReader.TestInputs;
 import main.java.amazonfilterapplicatione2e.flows.BrandFilterFlows;
 import main.java.amazonfilterapplicatione2e.flows.DeliveryFilterFlows;
 import main.java.amazonfilterapplicatione2e.flows.OperatingSystemFilterFlows;
@@ -94,7 +95,8 @@ public class AmazonTests extends BaseTest {
 		    System.out.println("Filter option 'Get It by Tomorrow' does not exist. Skipping the test.");
 		    log.warn("[{}]   Filter option 'Get It by Tomorrow' does not exist. Skipping the test.", testName);
 		    // OLD: return;   (TestNG counts a plain return as a PASS)
-		    throw new SkipException("Filter 'Get It by Tomorrow' is not available for the search term '" + input + "'");
+		    // OLD: throw new SkipException("Filter 'Get It by Tomorrow' is not available for the search term '" + input + "'");
+		    throw new SkipException(genericUtility.filterMissingReason("Get It by Tomorrow", input));
 		}
         
 	
@@ -147,7 +149,8 @@ public class AmazonTests extends BaseTest {
  		    System.out.println("Filter option 'Get It in 2 Days' does not exist. Skipping the test.");
  		    log.warn("[{}]  Filter option 'Get It in 2 Days' does not exist. Skipping the test.", testName);
  		    // OLD: return;   (TestNG counts a plain return as a PASS)
- 		    throw new SkipException("Filter 'Get It in 2 Days' is not available for the search term '" + input + "'");
+ 		    // OLD: throw new SkipException("Filter 'Get It in 2 Days' is not available for the search term '" + input + "'");
+ 		    throw new SkipException(genericUtility.filterMissingReason("Get It in 2 Days", input));
  		}                 
 		            	
 		List<Object> result = deliveryFilterFlows.validateDeliveryFilterOptionsWithResult(productPage.getItInTwoDaysUnderDeliveryDayFilterBy);
@@ -198,7 +201,8 @@ public class AmazonTests extends BaseTest {
  		    System.out.println("Filter option 'Get It Today' does not exist. Skipping the test.");
  		   log.warn("[{}]  Filter option 'Get It Today' does not exist. Skipping the test.", ThreadContext.get("testName"));
  		    // OLD: return;   (TestNG counts a plain return as a PASS)
- 		    throw new SkipException("Filter 'Get It Today' is not available for the search term '" + input + "'");
+ 		    // OLD: throw new SkipException("Filter 'Get It Today' is not available for the search term '" + input + "'");
+ 		    throw new SkipException(genericUtility.filterMissingReason("Get It Today", input));
  		}                   
 		            		
 		            		
@@ -247,7 +251,8 @@ public class AmazonTests extends BaseTest {
  		    System.out.println("Filter option 'Eligible for Free Delivery does not. Skipping the test.");
  		   log.warn("[{}]  Filter option 'Eligible for Free Delivery' does not exist. Skipping the test.", ThreadContext.get("testName"));
  		    // OLD: return;   (TestNG counts a plain return as a PASS)
- 		    throw new SkipException("Filter 'Eligible for Free Delivery' is not available for the search term '" + input + "'");
+ 		    // OLD: throw new SkipException("Filter 'Eligible for Free Delivery' is not available for the search term '" + input + "'");
+ 		    throw new SkipException(genericUtility.filterMissingReason("Eligible for Free Delivery", input));
  		}                   
 		            		
 		            		
@@ -298,10 +303,12 @@ public class AmazonTests extends BaseTest {
 			System.out.println("Filter option 'brands' does not exist in the list. Skipping the test.");
 			log.warn("[{}] Filter option 'brands' does not exist in the list. Skipping the test.", testName);
 			// OLD: return;   (TestNG counts a plain return as a PASS)
-			throw new SkipException("Filter 'brands' is not available for the search term '" + input + "'");
+			// OLD: throw new SkipException("Filter 'brands' is not available for the search term '" + input + "'");
+			throw new SkipException(genericUtility.filterMissingReason("brands", input));
 		}
 
 
+		genericUtility.waitForCompleteList(productPage.listBrandsOptionsByNew);   // choose the brand layout (new or old) only once the brand list is complete
 		List<WebElement> filterOptions = safeAct.safeFindElements(productPage.listBrandsOptionsByNew);
 		List<Map<Object, Object>> allResults=null;
 
@@ -314,7 +321,10 @@ public class AmazonTests extends BaseTest {
 
 
 		// Nothing validated means the test checked nothing, so fail instead of passing.
-		Assert.assertTrue(allResults != null && !allResults.isEmpty(), "No products were validated for the filter 'brands' (search term '" + input + "')");
+		// OLD: Assert.assertTrue(allResults != null && !allResults.isEmpty(), ...)   (an assertion failure is never retried)
+		// Every brand should show as applied (soft: the other checks still run).
+		softAssert.assertTrue(brandFilterFlows.notAppliedOptions.isEmpty(), "Filter not applied for: " + String.join(", ", brandFilterFlows.notAppliedOptions));
+		genericUtility.requireSome(allResults == null ? 0 : allResults.size(), "No products were validated for the filter 'brands' (search term '" + input + "')");
 
 		for (Map<Object, Object> result : allResults) {
 
@@ -374,26 +384,35 @@ public class AmazonTests extends BaseTest {
 		String testName=ThreadContext.get("testName");
 		
 		
-		if (!genericUtility.filterCheckUnderList("Storage Capacity")) {
+		// The heading can differ per search term (for example "HDD Size" for laptops): see data/filterHeadings.json.
+		String heading = TestInputs.headingFor("Storage Capacity", input);
+		// OLD: if (!genericUtility.filterCheckUnderList("Storage Capacity")) {
+		if (!genericUtility.filterCheckUnderList(heading)) {
 			System.out.println("Filter option 'Storage Capacity' does not exist in the list. Skipping the test.");
 			log.warn("[{}]  Filter option 'Storage Capacity' does not exist in the list. Skipping the test.", ThreadContext.get("testName"));
 			// OLD: return;   (TestNG counts a plain return as a PASS)
-			throw new SkipException("Filter 'Storage Capacity' is not available for the search term '" + input + "'");
+			// OLD: throw new SkipException("Filter 'Storage Capacity' is not available for the search term '" + input + "'");
+			throw new SkipException(genericUtility.filterMissingReason(heading, input));
 		}
 
 
-		List<Map<String, Object>> results = sharedFilterFlows.applyFilterAndValidateProductsWithResult(productPage.listStorageCapacityOptionsBy,"storagecapacity");
+		// OLD: List<Map<String, Object>> results = sharedFilterFlows.applyFilterAndValidateProductsWithResult(productPage.listStorageCapacityOptionsBy,"storagecapacity");
+		List<Map<String, Object>> results = sharedFilterFlows.applyFilterAndValidateProductsWithResult(productPage.optionsUnderHeading(heading), heading);
+		// Every filter option should show as applied (soft: the other checks still run).
+		softAssert.assertTrue(sharedFilterFlows.notAppliedOptions.isEmpty(), "Filter not applied for: " + String.join(", ", sharedFilterFlows.notAppliedOptions));
 		log.info("[{}] Retrieved {} results from applyFilterAndValidateProductsWithResult.",testName,"And result size->" +results.size());
 		
 
 		// Drop products whose page details were not captured, so they are not reported as mismatches.
 		results = genericUtility.onlyCapturedProducts(results, testName);
 		// Nothing validated means the test checked nothing, so fail instead of passing.
-		Assert.assertTrue(results != null && !results.isEmpty(), "No products were validated for the filter 'Storage Capacity' (search term '" + input + "')");
+		// OLD: Assert.assertTrue(results != null && !results.isEmpty(), ...)   (an assertion failure is never retried)
+		genericUtility.requireSome(results == null ? 0 : results.size(), "No products were validated for the filter 'Storage Capacity' (search term '" + input + "')");
 
 		// Compare each product's Storage Capacity row with the filter (see FilterMatcher): ranges like "7 to 11.9 gb" work.
 		String[] storageRows = { "memory storage capacity", "hard drive size", "hard disk size", "drivememory storage capacity" };
 		int compared = 0;
+		int skipped = 0;
 		for (Map<String, Object> product : results) {
 			String filter = genericUtility.safeLower(product.get("filter"));
 			String title = genericUtility.safeLower(product.get("title"));
@@ -405,6 +424,7 @@ public class AmazonTests extends BaseTest {
 			// No Storage Capacity row: nothing can be said about this product, so do not count it as a mismatch.
 			if (match.status == FilterMatcher.Status.UNKNOWN) {
 				log.warn("[{}] No Storage Capacity row for filter '{}' on product '{}'. Not counting it as a mismatch.", testName, filter, title);
+				skipped++;
 				continue;
 			}
 			compared++;
@@ -416,6 +436,7 @@ public class AmazonTests extends BaseTest {
 				log.info("[{}] Filter '{}' fits the Storage Capacity row ({}) on '{}'", testName, filter, match.rowValue, title);
 			}
 		}
+		log.info("[{}] Summary: {} products read, {} compared, {} skipped (nothing to compare).", testName, results.size(), compared, skipped);
 		// If no product could be compared, nothing was checked, so fail instead of passing.
 		// OLD: Assert.assertTrue(compared > 0, ...)   (failed the test when no product had the row)
 		// The products shown have no Storage Capacity row in the spec table we read, so there is nothing to compare. Skip with the reason
@@ -499,7 +520,8 @@ public class AmazonTests extends BaseTest {
 			System.out.println("Filter option 'Price' does not exist in the list. Skipping the test.");
 			log.warn("[{}]   Filter option 'Price' does not exist in the list. Skipping the test.", testName);
 			// OLD: return;   (TestNG counts a plain return as a PASS)
-			throw new SkipException("Filter 'Price' is not available for the search term '" + str + "'");
+			// OLD: throw new SkipException("Filter 'Price' is not available for the search term '" + str + "'");
+			throw new SkipException(genericUtility.filterMissingReason("Price", str));
 		}
 
 		List<Integer> minValues = Arrays.asList(61, 91, 131);
@@ -510,7 +532,8 @@ public class AmazonTests extends BaseTest {
 
 
 		// Nothing validated means the test checked nothing, so fail instead of passing.
-		Assert.assertTrue(results != null && !results.isEmpty(), "No products were validated for the filter 'Price' (search term '" + str + "')");
+		// OLD: Assert.assertTrue(results != null && !results.isEmpty(), ...)   (an assertion failure is never retried)
+		genericUtility.requireSome(results == null ? 0 : results.size(), "No products were validated for the filter 'Price' (search term '" + str + "')");
 
 		for (Map<String, Object> result : results) {
 			boolean isValid = (boolean) result.get("isValid");
@@ -572,11 +595,14 @@ public class AmazonTests extends BaseTest {
 			log.warn("[{}]  Filter option 'Battery Capacity' does not exist in the list. Skipping the test.", testName);
 			System.out.println("Filter option 'Battery Capacity' does not exist in the list. Skipping the test.");
 			// OLD: return;   (TestNG counts a plain return as a PASS)
-			throw new SkipException("Filter 'Battery Capacity' is not available for the search term '" + input + "'");
+			// OLD: throw new SkipException("Filter 'Battery Capacity' is not available for the search term '" + input + "'");
+			throw new SkipException(genericUtility.filterMissingReason("Battery Capacity", input));
 		}
 
 
 		List<Map<String, Object>> results = sharedFilterFlows.applyFilterAndValidateProductsWithResult(productPage.listBatteryCapacityOptionsBy,"batterycapacity");
+		// Every filter option should show as applied (soft: the other checks still run).
+		softAssert.assertTrue(sharedFilterFlows.notAppliedOptions.isEmpty(), "Filter not applied for: " + String.join(", ", sharedFilterFlows.notAppliedOptions));
 
 
 
@@ -587,11 +613,13 @@ public class AmazonTests extends BaseTest {
 		// Drop products whose page details were not captured, so they are not reported as mismatches.
 		results = genericUtility.onlyCapturedProducts(results, testName);
 		// Nothing validated means the test checked nothing, so fail instead of passing.
-		Assert.assertTrue(results != null && !results.isEmpty(), "No products were validated for the filter 'Battery Capacity' (search term '" + input + "')");
+		// OLD: Assert.assertTrue(results != null && !results.isEmpty(), ...)   (an assertion failure is never retried)
+		genericUtility.requireSome(results == null ? 0 : results.size(), "No products were validated for the filter 'Battery Capacity' (search term '" + input + "')");
 
 		// Compare each product's Battery Capacity row with the filter (see FilterMatcher): ranges and units work.
 		String[] batteryRows = { "battery capacity" };
 		int compared = 0;
+		int skipped = 0;
 		for (Map<String, Object> product : results) {
 			String filter = genericUtility.safeLower(product.get("filter"));
 			String title = genericUtility.safeLower(product.get("title"));
@@ -603,6 +631,7 @@ public class AmazonTests extends BaseTest {
 			// No Battery Capacity row: nothing can be said about this product, so do not count it as a mismatch.
 			if (match.status == FilterMatcher.Status.UNKNOWN) {
 				log.warn("[{}] No Battery Capacity row for filter '{}' on product '{}'. Not counting it as a mismatch.", testName, filter, title);
+				skipped++;
 				continue;
 			}
 			compared++;
@@ -614,6 +643,7 @@ public class AmazonTests extends BaseTest {
 				log.info("[{}] Filter '{}' fits the Battery Capacity row ({}) on '{}'", testName, filter, match.rowValue, title);
 			}
 		}
+		log.info("[{}] Summary: {} products read, {} compared, {} skipped (nothing to compare).", testName, results.size(), compared, skipped);
 		// If no product could be compared, nothing was checked, so fail instead of passing.
 		// OLD: Assert.assertTrue(compared > 0, ...)   (failed the test when no product had the row)
 		// The product pages do not show a Battery Capacity row in the part of the page we read (the details sit in collapsed
@@ -693,27 +723,36 @@ public class AmazonTests extends BaseTest {
         blockerHandler.clearBlockers();
         String testName=ThreadContext.get("testName");
 
-        if (!genericUtility.filterCheckUnderList("Screen Size")) {
+        // The heading can differ per search term (for example "HDD Size" for laptops): see data/filterHeadings.json.
+        String heading = TestInputs.headingFor("Screen Size", input);
+        // OLD: if (!genericUtility.filterCheckUnderList("Screen Size")) {
+        if (!genericUtility.filterCheckUnderList(heading)) {
         	log.warn("[{}]  Filter option 'Display Size' does not exist in the list. Skipping the test.", testName);
         	System.out.println("Filter option 'Display Size' does not exist in the list. Skipping the test.");
         	// OLD: return;   (TestNG counts a plain return as a PASS)
-        	throw new SkipException("Filter 'Display Size' is not available for the search term '" + input + "'");
+        	// OLD: throw new SkipException("Filter 'Display Size' is not available for the search term '" + input + "'");
+        	throw new SkipException(genericUtility.filterMissingReason(heading, input));
         }
 
 
 
-        List<Map<String, Object>> results = sharedFilterFlows.applyFilterAndValidateProductsWithResult(productPage.listDisplaySizeOptionsBy,"screensize");
+        // OLD: List<Map<String, Object>> results = sharedFilterFlows.applyFilterAndValidateProductsWithResult(productPage.listDisplaySizeOptionsBy,"screensize");
+        List<Map<String, Object>> results = sharedFilterFlows.applyFilterAndValidateProductsWithResult(productPage.optionsUnderHeading(heading), heading);
+        // Every filter option should show as applied (soft: the other checks still run).
+        softAssert.assertTrue(sharedFilterFlows.notAppliedOptions.isEmpty(), "Filter not applied for: " + String.join(", ", sharedFilterFlows.notAppliedOptions));
 
 
 
         // Drop products whose page details were not captured, so they are not reported as mismatches.
         results = genericUtility.onlyCapturedProducts(results, testName);
         // Nothing validated means the test checked nothing, so fail instead of passing.
-        Assert.assertTrue(results != null && !results.isEmpty(), "No products were validated for the filter 'Display Size' (search term '" + input + "')");
+        // OLD: Assert.assertTrue(results != null && !results.isEmpty(), ...)   (an assertion failure is never retried)
+        genericUtility.requireSome(results == null ? 0 : results.size(), "No products were validated for the filter 'Display Size' (search term '" + input + "')");
 
 		// Compare each product's Display Size row with the filter (see FilterMatcher): ranges and units work.
 		String[] sizeRows = { "screen size" };
 		int compared = 0;
+		int skipped = 0;
 		for (Map<String, Object> product : results) {
 			String filter = genericUtility.safeLower(product.get("filter"));
 			String title = genericUtility.safeLower(product.get("title"));
@@ -725,6 +764,7 @@ public class AmazonTests extends BaseTest {
 			// No Display Size row: nothing can be said about this product, so do not count it as a mismatch.
 			if (match.status == FilterMatcher.Status.UNKNOWN) {
 				log.warn("[{}] No Display Size row for filter '{}' on product '{}'. Not counting it as a mismatch.", testName, filter, title);
+				skipped++;
 				continue;
 			}
 			compared++;
@@ -736,6 +776,7 @@ public class AmazonTests extends BaseTest {
 				log.info("[{}] Filter '{}' fits the Display Size row ({}) on '{}'", testName, filter, match.rowValue, title);
 			}
 		}
+		log.info("[{}] Summary: {} products read, {} compared, {} skipped (nothing to compare).", testName, results.size(), compared, skipped);
 		// If no product could be compared, nothing was checked, so fail instead of passing.
 		// OLD: Assert.assertTrue(compared > 0, ...)   (failed the test when no product had the row)
 		// The products shown have no Display Size row in the spec table we read, so there is nothing to compare. Skip with the reason
@@ -820,26 +861,35 @@ public class AmazonTests extends BaseTest {
         String testName=ThreadContext.get("testName");
 
 
-        if (!genericUtility.filterCheckUnderList("Processor Speed")) {
+        // The heading can differ per search term (for example "HDD Size" for laptops): see data/filterHeadings.json.
+        String heading = TestInputs.headingFor("Processor Speed", input);
+        // OLD: if (!genericUtility.filterCheckUnderList("Processor Speed")) {
+        if (!genericUtility.filterCheckUnderList(heading)) {
         	log.warn("[{}]  Filter option 'Processor Speed' not available. Skipping test.", testName);
         	// OLD: return;   (TestNG counts a plain return as a PASS)
-        	throw new SkipException("Filter 'Processor Speed' is not available for the search term '" + input + "'");
+        	// OLD: throw new SkipException("Filter 'Processor Speed' is not available for the search term '" + input + "'");
+        	throw new SkipException(genericUtility.filterMissingReason(heading, input));
         }
 
 
 
-        List<Map<String, Object>> results = sharedFilterFlows.applyFilterAndValidateProductsWithResult(productPage.listProcessorSpeedOptionsBy,"processorspeed");
+        // OLD: List<Map<String, Object>> results = sharedFilterFlows.applyFilterAndValidateProductsWithResult(productPage.listProcessorSpeedOptionsBy,"processorspeed");
+        List<Map<String, Object>> results = sharedFilterFlows.applyFilterAndValidateProductsWithResult(productPage.optionsUnderHeading(heading), heading);
+        // Every filter option should show as applied (soft: the other checks still run).
+        softAssert.assertTrue(sharedFilterFlows.notAppliedOptions.isEmpty(), "Filter not applied for: " + String.join(", ", sharedFilterFlows.notAppliedOptions));
 
 
 
         // Drop products whose page details were not captured, so they are not reported as mismatches.
         results = genericUtility.onlyCapturedProducts(results, testName);
         // Nothing validated means the test checked nothing, so fail instead of passing.
-        Assert.assertTrue(results != null && !results.isEmpty(), "No products were validated for the filter 'Processor Speed' (search term '" + input + "')");
+        // OLD: Assert.assertTrue(results != null && !results.isEmpty(), ...)   (an assertion failure is never retried)
+        genericUtility.requireSome(results == null ? 0 : results.size(), "No products were validated for the filter 'Processor Speed' (search term '" + input + "')");
 
 		// Compare each product's Processor Speed row with the filter (see FilterMatcher): ranges and units work.
 		String[] speedRows = { "processor speed", "cpu speed" };
 		int compared = 0;
+		int skipped = 0;
 		for (Map<String, Object> product : results) {
 			String filter = genericUtility.safeLower(product.get("filter"));
 			String title = genericUtility.safeLower(product.get("title"));
@@ -851,6 +901,7 @@ public class AmazonTests extends BaseTest {
 			// No Processor Speed row: nothing can be said about this product, so do not count it as a mismatch.
 			if (match.status == FilterMatcher.Status.UNKNOWN) {
 				log.warn("[{}] No Processor Speed row for filter '{}' on product '{}'. Not counting it as a mismatch.", testName, filter, title);
+				skipped++;
 				continue;
 			}
 			compared++;
@@ -862,6 +913,7 @@ public class AmazonTests extends BaseTest {
 				log.info("[{}] Filter '{}' fits the Processor Speed row ({}) on '{}'", testName, filter, match.rowValue, title);
 			}
 		}
+		log.info("[{}] Summary: {} products read, {} compared, {} skipped (nothing to compare).", testName, results.size(), compared, skipped);
 		// If no product could be compared, nothing was checked, so fail instead of passing.
 		// OLD: Assert.assertTrue(compared > 0, ...)   (failed the test when no product had the row)
 		// The products shown have no Processor Speed row in the spec table we read, so there is nothing to compare. Skip with the reason
@@ -947,19 +999,26 @@ public class AmazonTests extends BaseTest {
 			System.out.println("Filter option 'Display Type' does not exist. Skipping the test.");
 			log.warn("[{}]  Filter option 'Display Type' does not exist. Skipping the test.", testName);
 			// OLD: return;   (TestNG counts a plain return as a PASS)
-			throw new SkipException("Filter 'Display Type' is not available for the search term '" + input + "'");
+			// OLD: throw new SkipException("Filter 'Display Type' is not available for the search term '" + input + "'");
+			throw new SkipException(genericUtility.filterMissingReason("Display Type", input));
 		}
 
 
 		List<Map<String, Object>> results = sharedFilterFlows.applyFilterAndValidateProductsWithResult(productPage.listDisplayTypeOptionsBy ,"displaytype");
+		// Every filter option should show as applied (soft: the other checks still run).
+		softAssert.assertTrue(sharedFilterFlows.notAppliedOptions.isEmpty(), "Filter not applied for: " + String.join(", ", sharedFilterFlows.notAppliedOptions));
 
 
 
 		// Drop products whose page details were not captured, so they are not reported as mismatches.
 		results = genericUtility.onlyCapturedProducts(results, testName);
 		// Nothing validated means the test checked nothing, so fail instead of passing.
-		Assert.assertTrue(results != null && !results.isEmpty(), "No products were validated for the filter 'Display Type' (search term '" + input + "')");
+		// OLD: Assert.assertTrue(results != null && !results.isEmpty(), ...)   (an assertion failure is never retried)
+		genericUtility.requireSome(results == null ? 0 : results.size(), "No products were validated for the filter 'Display Type' (search term '" + input + "')");
 
+		// Compare each product's Display Type row with the filter (see FilterMatcher): whole words only, so "led" is not found in "controlled".
+		int compared = 0;
+		int skipped = 0;
 		for (Map<String, Object> product : results) {
 			String filter = genericUtility.safeLower(product.get("filter"));
 			String title = genericUtility.safeLower(product.get("title"));
@@ -967,34 +1026,65 @@ public class AmazonTests extends BaseTest {
 			String about = genericUtility.safeLower(product.get("about"));
 			String techDetails = genericUtility.safeLower(product.get("techDetails"));
 
-			boolean isMatch = title.contains(filter)
-					|| keyFeatures.contains(filter)
-					|| about.contains(filter)
-					|| techDetails.contains(filter);
+			FilterMatcher.MatchResult match = FilterMatcher.displayTypeMatch(filter, title, keyFeatures, about, techDetails);
 
-			if (!isMatch) {
+			// No Display Type row and the word is nowhere in the text: nothing can be said, so do not count it as a mismatch.
+			if (match.status == FilterMatcher.Status.UNKNOWN) {
+				log.warn("[{}] No Display Type found for filter '{}' on product '{}'. Not counting it as a mismatch.", testName, filter, title);
+				skipped++;
+				continue;
+			}
+			compared++;
 
-				log.error("[{}] Mismatch found for filter '{}' on product '{}'",testName, filter, title);
-				log.debug("[{}] Key Features: {}", testName, keyFeatures);
-				log.debug("[{}] About: {}", testName, about);
-				log.debug("[{}] Tech Details: {}", testName, techDetails);
-
-
-				StringBuilder failureMessage = new StringBuilder();
-				failureMessage.append(" filter '").append(filter).append("' not found in product details.\n")
-				.append("-------------------------------------------------------------\n")
-				.append(" Title: ").append(title).append("\n")
-				.append(" Key Features: ").append(keyFeatures).append("\n")
-				.append(" About: ").append(about).append("\n")
-				.append(" Tech Details: ").append(techDetails).append("\n")
-				.append("-------------------------------------------------------------");
-
-				softAssert.fail(failureMessage.toString());
+			if (match.status == FilterMatcher.Status.MISMATCH) {
+				log.error("[{}] Mismatch found for filter '{}' on product '{}' (row says: {})", testName, filter, title, match.rowValue);
+				softAssert.fail("Filter '" + filter + "' does not fit the product (Display Type row says: " + match.rowValue + "): " + title);
 			} else {
-				log.info("[{}]  Filter '{}' matched in at least one section.", testName, filter);
-				System.out.println(" Filter '" + filter + "' matched in at least one section of product details.");
+				log.info("[{}] Filter '{}' fits the Display Type on '{}'", testName, filter, title);
 			}
 		}
+		log.info("[{}] Summary: {} products read, {} compared, {} skipped (nothing to compare).", testName, results.size(), compared, skipped);
+		// If no product could be compared, nothing was checked: skip with the reason instead of a false failure.
+		if (compared == 0) {
+			throw new SkipException("No product had Display Type to compare with the filters (search term '" + input + "')");
+		}
+
+		// OLD: matched the filter text anywhere in the page text ("led" was found in "controlled")
+		// for (Map<String, Object> product : results) {
+			// String filter = genericUtility.safeLower(product.get("filter"));
+			// String title = genericUtility.safeLower(product.get("title"));
+			// String keyFeatures = genericUtility.safeLower(product.get("keyFeatures"));
+			// String about = genericUtility.safeLower(product.get("about"));
+			// String techDetails = genericUtility.safeLower(product.get("techDetails"));
+
+			// boolean isMatch = title.contains(filter)
+					// || keyFeatures.contains(filter)
+					// || about.contains(filter)
+					// || techDetails.contains(filter);
+
+			// if (!isMatch) {
+
+				// log.error("[{}] Mismatch found for filter '{}' on product '{}'",testName, filter, title);
+				// log.debug("[{}] Key Features: {}", testName, keyFeatures);
+				// log.debug("[{}] About: {}", testName, about);
+				// log.debug("[{}] Tech Details: {}", testName, techDetails);
+
+
+				// StringBuilder failureMessage = new StringBuilder();
+				// failureMessage.append(" filter '").append(filter).append("' not found in product details.\n")
+				// .append("-------------------------------------------------------------\n")
+				// .append(" Title: ").append(title).append("\n")
+				// .append(" Key Features: ").append(keyFeatures).append("\n")
+				// .append(" About: ").append(about).append("\n")
+				// .append(" Tech Details: ").append(techDetails).append("\n")
+				// .append("-------------------------------------------------------------");
+
+				// softAssert.fail(failureMessage.toString());
+			// } else {
+				// log.info("[{}]  Filter '{}' matched in at least one section.", testName, filter);
+				// System.out.println(" Filter '" + filter + "' matched in at least one section of product details.");
+			// }
+		// }
 
 		log.info("[{}]  Final assertion for display type filter validation...", testName);
 		softAssert.assertAll(); 
@@ -1035,7 +1125,8 @@ public class AmazonTests extends BaseTest {
 			  System.out.println("Filter option 'Operating System' or 'Operating System Version' does not exist in the list. Skipping the test.");
 			  log.warn("[{}]  Filter option 'Operating System' or 'Operating System Version' not found. Skipping test.", ThreadContext.get("testName"));
 			  // OLD: return;   (TestNG counts a plain return as a PASS)
-			  throw new SkipException("Filter 'Operating System' is not available for the search term '" + input + "'");
+			  // OLD: throw new SkipException("Filter 'Operating System' is not available for the search term '" + input + "'");
+			  throw new SkipException(genericUtility.filterMissingReason("Operating System", input));
 		  }
 
 
@@ -1047,7 +1138,10 @@ public class AmazonTests extends BaseTest {
 		  // Drop products whose page details were not captured, so they are not reported as mismatches.
 		  results = genericUtility.onlyCapturedProducts(results, testName);
 		  // Nothing validated means the test checked nothing, so fail instead of passing.
-		  Assert.assertTrue(results != null && !results.isEmpty(), "No products were validated for the filter 'Operating System' (search term '" + input + "')");
+		  // OLD: Assert.assertTrue(results != null && !results.isEmpty(), ...)   (an assertion failure is never retried)
+		  // Every option should show as applied (soft: the other checks still run).
+		  softAssert.assertTrue(operatingSystemFilterFlows.notAppliedOptions.isEmpty(), "Filter not applied for: " + String.join(", ", operatingSystemFilterFlows.notAppliedOptions));
+		  genericUtility.requireSome(results == null ? 0 : results.size(), "No products were validated for the filter 'Operating System' (search term '" + input + "')");
 
 		  for (Map<String, Object> product : results) {
 			  String filter = genericUtility.safeLower(product.get("filter"));
@@ -1126,23 +1220,28 @@ public class AmazonTests extends BaseTest {
 			log.warn("[{}]   Filter 'Mobile Phone Primary Camera Resolution' not found. Skipping test.",
 					ThreadContext.get("testName"));
 			// OLD: return;   (TestNG counts a plain return as a PASS)
-			throw new SkipException("Filter 'Mobile Phone Primary Camera Resolution' is not available for the search term '" + input + "'");
+			// OLD: throw new SkipException("Filter 'Mobile Phone Primary Camera Resolution' is not available for the search term '" + input + "'");
+			throw new SkipException(genericUtility.filterMissingReason("Mobile Phone Primary Camera Resolution", input));
 		}
 
 
 
 		List<Map<String, Object>> results = sharedFilterFlows.applyFilterAndValidateProductsWithResult(productPage.listMobilePhonePrimaryCameraResolutionOptionsBy, "mobilephoneprimarycameraresolution");
+		// Every filter option should show as applied (soft: the other checks still run).
+		softAssert.assertTrue(sharedFilterFlows.notAppliedOptions.isEmpty(), "Filter not applied for: " + String.join(", ", sharedFilterFlows.notAppliedOptions));
 
 
 
 		// Drop products whose page details were not captured, so they are not reported as mismatches.
 		results = genericUtility.onlyCapturedProducts(results, testName);
 		// Nothing validated means the test checked nothing, so fail instead of passing.
-		Assert.assertTrue(results != null && !results.isEmpty(), "No products were validated for the filter 'Mobile Phone Primary Camera Resolution' (search term '" + input + "')");
+		// OLD: Assert.assertTrue(results != null && !results.isEmpty(), ...)   (an assertion failure is never retried)
+		genericUtility.requireSome(results == null ? 0 : results.size(), "No products were validated for the filter 'Mobile Phone Primary Camera Resolution' (search term '" + input + "')");
 
 		// Compare each product's Camera Resolution row with the filter (see FilterMatcher): ranges and units work.
 		String[] cameraRows = { "rear facing camera photo sensor resolution", "primary camera resolution", "rear camera resolution" };
 		int compared = 0;
+		int skipped = 0;
 		for (Map<String, Object> product : results) {
 			String filter = genericUtility.safeLower(product.get("filter"));
 			String title = genericUtility.safeLower(product.get("title"));
@@ -1154,6 +1253,7 @@ public class AmazonTests extends BaseTest {
 			// No Camera Resolution row: nothing can be said about this product, so do not count it as a mismatch.
 			if (match.status == FilterMatcher.Status.UNKNOWN) {
 				log.warn("[{}] No Camera Resolution row for filter '{}' on product '{}'. Not counting it as a mismatch.", testName, filter, title);
+				skipped++;
 				continue;
 			}
 			compared++;
@@ -1165,6 +1265,7 @@ public class AmazonTests extends BaseTest {
 				log.info("[{}] Filter '{}' fits the Camera Resolution row ({}) on '{}'", testName, filter, match.rowValue, title);
 			}
 		}
+		log.info("[{}] Summary: {} products read, {} compared, {} skipped (nothing to compare).", testName, results.size(), compared, skipped);
 		// If no product could be compared, nothing was checked, so fail instead of passing.
 		// OLD: Assert.assertTrue(compared > 0, ...)   (failed the test when no product had the row)
 		// The product pages do not show a Camera Resolution row in the part of the page we read (the details sit in collapsed
@@ -1251,7 +1352,8 @@ public class AmazonTests extends BaseTest {
 			log.warn("[{}]   Filter 'Discount' not available. Skipping test.", ThreadContext.get("testName"));
 			System.out.println("Filter option 'Discount' does not exist in the list. Skipping the test.");
 			// OLD: return;   (TestNG counts a plain return as a PASS)
-			throw new SkipException("Filter 'Discount' is not available for the search term '" + input + "'");
+			// OLD: throw new SkipException("Filter 'Discount' is not available for the search term '" + input + "'");
+			throw new SkipException(genericUtility.filterMissingReason("Discount", input));
 		}
 
 
@@ -1259,16 +1361,20 @@ public class AmazonTests extends BaseTest {
 
 		// OLD: List<Map<String, Object>> results = sharedFilterFlows.applyFilterAndValidateProductsWithResult(productPage.listDiscountOptionsBy,"discount");
 		List<Map<String, Object>> results = sharedFilterFlows.applyFilterAndValidateProductsWithResult(productPage.listDiscountOptionsBy, "discount", true);   // true = read only the cards in the list, no product page
+		// Every filter option should show as applied (soft: the other checks still run).
+		softAssert.assertTrue(sharedFilterFlows.notAppliedOptions.isEmpty(), "Filter not applied for: " + String.join(", ", sharedFilterFlows.notAppliedOptions));
 
 
 
 		// Drop products whose page details were not captured, so they are not reported as mismatches.
 		// (not used for Discount: only the list cards are read) results = genericUtility.onlyCapturedProducts(results, testName);
 		// Nothing validated means the test checked nothing, so fail instead of passing.
-		Assert.assertTrue(results != null && !results.isEmpty(), "No products were validated for the filter 'Discount' (search term '" + input + "')");
+		// OLD: Assert.assertTrue(results != null && !results.isEmpty(), ...)   (an assertion failure is never retried)
+		genericUtility.requireSome(results == null ? 0 : results.size(), "No products were validated for the filter 'Discount' (search term '" + input + "')");
 
 		// The loop below reads the discount shown on each card (for example 44% off) and checks it is at least the filter's percentage.
 		int compared = 0;
+		int skipped = 0;
 		for (Map<String, Object> product : results) {
 			String filter = genericUtility.safeLower(product.get("filter"));
 			String title = genericUtility.safeLower(product.get("title"));
@@ -1278,6 +1384,7 @@ public class AmazonTests extends BaseTest {
 			// A card that shows no discount cannot be compared, so it is not counted as a mismatch.
 			if (shown == null) {
 				log.warn("[{}] No discount shown on the card of '{}' for filter '{}'. Not counting it as a mismatch.", testName, title, filter);
+				skipped++;
 				continue;
 			}
 			compared++;
@@ -1289,6 +1396,7 @@ public class AmazonTests extends BaseTest {
 				softAssert.fail("Filter '" + filter + "' does not fit the product (the card shows " + shown + "% off, needs " + needed + " or more): " + title);
 			}
 		}
+		log.info("[{}] Summary: {} products read, {} compared, {} skipped (nothing to compare).", testName, results.size(), compared, skipped);
 		// If no card showed a discount, nothing was checked: skip with the reason instead of a false failure.
 		if (compared == 0) {
 			throw new SkipException("No product card showed a discount to compare with the filters (search term '" + input + "')");

@@ -147,6 +147,12 @@ public class ProductListingPage extends  BasePage{
 	public By aboutThisItemBulletPoint=By.xpath("//div[@id='feature-bullets']");
 	
 	public By technicalDetailsBlockIndividualPage =By.xpath("//div[@id='prodDetails']");
+
+	// The rows of the technical details table. The section counts as present once it has at least one row.
+	public By technicalDetailsRowsBy=By.xpath("//div[@id='prodDetails']//tr");
+
+	// The headings of the left navigation (Brands, Storage Capacity, ...).
+	public By leftNavHeadingsBy=By.xpath("//div[@id='s-refinements']//span[@class='a-size-base a-color-base puis-bold-weight-text']");
 	
 	public 	By seeMoreProductDetailsButtonIndividualPageBy=By.xpath("//a[@id='seeMoreDetailsLink']");
 	
@@ -191,7 +197,9 @@ public class ProductListingPage extends  BasePage{
 		case "screensize" :
 			return By.xpath("//span[@class='a-size-base a-color-base puis-bold-weight-text' and text()='Screen Size']/parent::div/following-sibling::ul//span[@class='a-size-base a-color-base' and text()='"+ filterOption + "']");
 		default:
-			throw new IllegalArgumentException("Unknown filter type: " + filterName);
+			// OLD: throw new IllegalArgumentException("Unknown filter type: " + filterName);
+			// Any other name is used as the heading itself (for example "HDD Size"), so a new filter needs no new case.
+			return optionUnderHeading(filterName, filterOption);
 			
 		}
 	}
@@ -224,11 +232,14 @@ public class ProductListingPage extends  BasePage{
 		case "Operating System Version":
 			return By.xpath("//span[@class='a-size-base a-color-base puis-bold-weight-text' and text()='Operating System Version']/parent::div/following-sibling::ul//span[@class='a-size-base a-color-base a-text-bold' and text()='"+ filterOption + "']");
 		case "brandsold":
-			return By.xpath("//ul[@id='filter-p_123']//span[@class='a-size-base a-color-base' and text()='"+ filterOption + "']");
+			// OLD: return By.xpath("//ul[@id='filter-p_123']//span[@class='a-size-base a-color-base' and text()='"+ filterOption + "']");   (a copy of the click locator: a selected brand has the extra class a-text-bold, so it was never found)
+			return By.xpath("//ul[@id='filter-p_123']//span[@class='a-size-base a-color-base a-text-bold' and text()='"+ filterOption + "']");
 		case "screensize" :
 			return By.xpath("//span[@class='a-size-base a-color-base puis-bold-weight-text' and text()='Screen Size']/parent::div/following-sibling::ul//span[@class='a-size-base a-color-base a-text-bold' and text()='"+ filterOption + "']");
 		default:
-			throw new IllegalArgumentException("Unknown filter type: " + filterName);
+			// OLD: throw new IllegalArgumentException("Unknown filter type: " + filterName);
+			// Any other name is used as the heading itself (for example "HDD Size"), so a new filter needs no new case.
+			return selectedOptionUnderHeading(filterName, filterOption);
 			
 		}
 	}
@@ -250,6 +261,31 @@ public class ProductListingPage extends  BasePage{
 		default:
 			throw new IllegalArgumentException("Unknown filter type: " + filterName);
 		}
+	}
+
+	// FILTERS BY ANY HEADING. Amazon uses different headings for the same filter on different products
+	// ("Storage Capacity" on phones, "HDD Size" on laptops), so the locators below take the heading as a parameter.
+	private static final String HEADING_START = "//span[@class='a-size-base a-color-base puis-bold-weight-text' and text()='";
+	private static final String OPTIONS_AFTER_HEADING = "']/parent::div/following-sibling::ul//span[@class='a-size-base a-color-base";
+
+	// The heading itself, e.g. the "HDD Size" title in the left navigation.
+	public By headingBy(String heading) {
+		return By.xpath(HEADING_START + heading + "']");
+	}
+
+	// All the options listed under a heading.
+	public By optionsUnderHeading(String heading) {
+		return By.xpath(HEADING_START + heading + OPTIONS_AFTER_HEADING + "']");
+	}
+
+	// One option under a heading, to click it.
+	public By optionUnderHeading(String heading, String option) {
+		return By.xpath(HEADING_START + heading + OPTIONS_AFTER_HEADING + "' and text()='" + option + "']");
+	}
+
+	// The same option once it is selected (Amazon makes a selected option bold: a-text-bold).
+	public By selectedOptionUnderHeading(String heading, String option) {
+		return By.xpath(HEADING_START + heading + OPTIONS_AFTER_HEADING + " a-text-bold' and text()='" + option + "']");
 	}
 
 	// The same delivery option once it is selected (Amazon makes a selected option bold: a-text-bold).
@@ -324,7 +360,9 @@ public class ProductListingPage extends  BasePage{
 			return By.xpath("//span[@class='a-size-base a-color-base puis-bold-weight-text' and text()='Screen Size']");
 		
 		default:
-			throw new IllegalArgumentException("Unknown filter type: " + filterName);
+			// OLD: throw new IllegalArgumentException("Unknown filter type: " + filterName);
+			// Any other name is used as the heading itself (for example "HDD Size"), so a new filter needs no new case.
+			return headingBy(filterName);
 		}
 		
 

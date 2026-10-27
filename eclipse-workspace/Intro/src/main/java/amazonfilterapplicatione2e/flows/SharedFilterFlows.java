@@ -30,6 +30,9 @@ public class SharedFilterFlows extends BasePage {
 	GenericUtility genericUtility;
 	BlockerHandler blockerHandler;
 	ProductListingPage productPage;
+
+	// Filter options that did not show as applied after the click. The tests report them (a soft assertion).
+	public List<String> notAppliedOptions = new ArrayList<>();
 	
 	public SharedFilterFlows() {
 		
@@ -51,8 +54,11 @@ public class SharedFilterFlows extends BasePage {
 
 		log.info("[{}] Within applyFilterAndValidateProductsWithResult method", ThreadContext.get("testName"));
 
+		notAppliedOptions = new ArrayList<>();
 
 
+
+		genericUtility.waitForCompleteList(filterOptionsBy);   // count the options only once the list is complete
 		List<WebElement> filterOptions = safeAct.safeFindElements(filterOptionsBy);
 		List<Map<String, Object>> results = new ArrayList<>();
 
@@ -70,38 +76,51 @@ public class SharedFilterFlows extends BasePage {
 		
 		int filterOptionSize=filterOptions.size();
 		
-		if(isCron) {
+		// if(isCron) {
 
-			log.info("[{}] Execution is scheduled type /CRON Job on CI Hence refering to CI keys from UtilData", ThreadContext.get("testName"));
+			// log.info("[{}] Execution is scheduled type /CRON Job on CI Hence refering to CI keys from UtilData", ThreadContext.get("testName"));
 
-			System.out.println("Execution is scheduled type /CRON Job on CI Hence refering to CI keys from UtilData");
+			// System.out.println("Execution is scheduled type /CRON Job on CI Hence refering to CI keys from UtilData");
 
-			boolean runAll= ConfigManager.getBoolean("runForAllFilterOptionsCI", false);
-			System.out.println("runAll is"+runAll);
-			if(runAll==false) {
-				int overideFilteOptionsCountDefault=ConfigManager.getInt("overideFilteOptionsCountDefault");
-				filterOptionSize=ConfigManager.getInt("overideFilteOptionsCount", overideFilteOptionsCountDefault);
-				System.out.println(filterOptionSize +" is the  filterOptionSize");
-			}
+			// boolean runAll= ConfigManager.getBoolean("runForAllFilterOptionsCI", false);
+			// System.out.println("runAll is"+runAll);
+			// if(runAll==false) {
+				// int overideFilteOptionsCountDefault=ConfigManager.getInt("overideFilteOptionsCountDefault");
+				// filterOptionSize=ConfigManager.getInt("overideFilteOptionsCount", overideFilteOptionsCountDefault);
+				// System.out.println(filterOptionSize +" is the  filterOptionSize");
+			// }
 
 
-		}else {
+		// }else {
 		
-			log.info("[{}] Execution is Not CRON Job Hence refering to normal keys from UtilData", ThreadContext.get("testName"));
+			// log.info("[{}] Execution is Not CRON Job Hence refering to normal keys from UtilData", ThreadContext.get("testName"));
 
-	    	System.out.println("Execution is Not CRON Job Hence refering to normal keys from UtilData");
+	    	// System.out.println("Execution is Not CRON Job Hence refering to normal keys from UtilData");
 			
-		    boolean runAll= ConfigManager.getBoolean("runForAllFilterOptions", false);
-	     	if(runAll==false) {
-	     	int overideFilteOptionsCountDefault=ConfigManager.getInt("overideFilteOptionsCountDefault");
-			filterOptionSize=ConfigManager.getInt("overideFilteOptionsCount", overideFilteOptionsCountDefault);
-			System.out.println(filterOptionSize +" is the  filterOptionSize");
-		   }
+		    // boolean runAll= ConfigManager.getBoolean("runForAllFilterOptions", false);
+	     	// if(runAll==false) {
+	     	// int overideFilteOptionsCountDefault=ConfigManager.getInt("overideFilteOptionsCountDefault");
+			// filterOptionSize=ConfigManager.getInt("overideFilteOptionsCount", overideFilteOptionsCountDefault);
+			// System.out.println(filterOptionSize +" is the  filterOptionSize");
+		   // }
 		
 		
+		// }
+		// OLD: the commented if/else above read the *CI or normal keys and did not know "all" or the page size.
+		// How many filter options to run: a number or "all", never more than the page shows (see ConfigManager.getLimit).
+		// Discount (readListingOnly) has its own keys.
+		if (readListingOnly) {
+			filterOptionSize = ConfigManager.getLimit("discountFilterOptions", filterOptions.size());
+		} else if (isCron) {
+			filterOptionSize = ConfigManager.getLimit("runForAllFilterOptionsCI", "overideFilteOptionsCount", filterOptions.size());
+		} else {
+			filterOptionSize = ConfigManager.getLimit("runForAllFilterOptions", "overideFilteOptionsCount", filterOptions.size());
 		}
 
 
+
+		// The address of the results page before any option is applied. clearOption goes back to it if Clear fails.
+		String listingUrl = driver.getCurrentUrl();
 
 		for (int filterOption = 0; filterOption <filterOptionSize; filterOption++) {
 
@@ -116,44 +135,72 @@ public class SharedFilterFlows extends BasePage {
 
 			String filterValue = safeAct.safeGetFilterOptionText(filterOptionsBy, filterOption);
 
-			if (!safeAct.safeClickBooleanWithScreenShot(productPage.getfilterByTypeAndName(filterName, filterValue),filterName,filterValue)) {
-				System.out.println("Filter click failed for: " + filterValue + ". Skipping this filter option.");
+			// if (!safeAct.safeClickBooleanWithScreenShot(productPage.getfilterByTypeAndName(filterName, filterValue),filterName,filterValue)) {
+				// System.out.println("Filter click failed for: " + filterValue + ". Skipping this filter option.");
+				// continue;
+			// }
+
+			// blockerHandler.clearBlockers();
+
+			// // The option must show as selected (bold). If it does not, the products below are not filtered,
+			// // so checking them proves nothing: record it, skip this option, and carry on with the next one.
+			// if (!genericUtility.isElementVisible(productPage.getAppliedfilterByTypeAndName(filterName, filterValue))) {
+				// log.error("[{}] Filter '{}' = '{}' does not show as applied after the click", ThreadContext.get("testName"), filterName, filterValue);
+				// notAppliedOptions.add(filterValue);
+				// continue;
+			// }
+			// OLD: the commented lines above clicked once and gave up on the option when it did not show as selected.
+			// Click, check it shows as selected (reload once and click again if it does not): see GenericUtility.applyOption.
+			// If it still does not, the products below are not filtered, so record the reason, skip this option, and go on.
+			String notApplied = genericUtility.applyOption(safeAct, filterName, filterValue, listingUrl);
+			blockerHandler.clearBlockers();
+			if (notApplied != null) {
+				log.error("[{}] Filter '{}': {}", ThreadContext.get("testName"), filterName, notApplied);
+				notAppliedOptions.add(notApplied);
 				continue;
 			}
-
-			blockerHandler.clearBlockers();
 
 			
 		
 			String currentWindow = driver.getWindowHandle();
 
+			genericUtility.waitForCompleteList(productPage.productNameListingPageBy);   // count the products only once the list is complete
 			List<WebElement> productNameListingPage = safeAct.safeFindElements(productPage.productNameListingPageBy);
 			int productNameListingPageSize=productNameListingPage.size();
 			
 			
-			if(isCron) {
-				log.info("[{}] Execution is scheduled type /CRON Job on CI Hence refering to CI keys from UtilData", ThreadContext.get("testName"));
+			// if(isCron) {
+				// log.info("[{}] Execution is scheduled type /CRON Job on CI Hence refering to CI keys from UtilData", ThreadContext.get("testName"));
 
-				boolean runAllProducts= ConfigManager.getBoolean("runForAllProductsUnderListingCI", false);
-				if(runAllProducts==false) {
-					int overideProductsListingCountDefault=ConfigManager.getInt("overideProductsListingCountDefault");
-					productNameListingPageSize=ConfigManager.getInt("overideProductsListingCount", overideProductsListingCountDefault);
-					System.out.println(productNameListingPageSize +" is the  overideProductsListingCount");
-					log.info("[{}] Limiting traversal to in-loop size to prevent IndexOutOfBoundsException in applyFilterAndValidateProductsWithResult", ThreadContext.get("testName"));
+				// boolean runAllProducts= ConfigManager.getBoolean("runForAllProductsUnderListingCI", false);
+				// if(runAllProducts==false) {
+					// int overideProductsListingCountDefault=ConfigManager.getInt("overideProductsListingCountDefault");
+					// productNameListingPageSize=ConfigManager.getInt("overideProductsListingCount", overideProductsListingCountDefault);
+					// System.out.println(productNameListingPageSize +" is the  overideProductsListingCount");
+					// log.info("[{}] Limiting traversal to in-loop size to prevent IndexOutOfBoundsException in applyFilterAndValidateProductsWithResult", ThreadContext.get("testName"));
 
-				}
-			}else {
+				// }
+			// }else {
 				
-				log.info("[{}] Execution is Not CRON Job Hence refering to normal keys from UtilData", ThreadContext.get("testName"));
+				// log.info("[{}] Execution is Not CRON Job Hence refering to normal keys from UtilData", ThreadContext.get("testName"));
 
-				boolean runAllProducts= ConfigManager.getBoolean("runForAllProductsUnderListing", false);
-				if(runAllProducts==false) {
+				// boolean runAllProducts= ConfigManager.getBoolean("runForAllProductsUnderListing", false);
+				// if(runAllProducts==false) {
 					
-					int overideProductsListingCountDefault=ConfigManager.getInt("overideProductsListingCountDefault");
+					// int overideProductsListingCountDefault=ConfigManager.getInt("overideProductsListingCountDefault");
 
-					productNameListingPageSize=ConfigManager.getInt("overideProductsListingCount", overideProductsListingCountDefault);
-					System.out.println(productNameListingPageSize +" is the  overideProductsListingCount");
-				}
+					// productNameListingPageSize=ConfigManager.getInt("overideProductsListingCount", overideProductsListingCountDefault);
+					// System.out.println(productNameListingPageSize +" is the  overideProductsListingCount");
+				// }
+			// }
+			// OLD: the commented if/else above did not know "all" or the page size.
+			// How many products (Discount: cards) to read per option. Discount has its own key.
+			if (readListingOnly) {
+				productNameListingPageSize = ConfigManager.getLimit("discountCardsPerOption", productNameListingPageSize);
+			} else if (isCron) {
+				productNameListingPageSize = ConfigManager.getLimit("runForAllProductsUnderListingCI", "overideProductsListingCount", productNameListingPageSize);
+			} else {
+				productNameListingPageSize = ConfigManager.getLimit("runForAllProductsUnderListing", "overideProductsListingCount", productNameListingPageSize);
 			}
 			
 			
@@ -184,7 +231,8 @@ public class SharedFilterFlows extends BasePage {
 
 			}
 
-			safeAct.safeClick(productPage.clearButtonBy);
+			// OLD: safeAct.safeClick(productPage.clearButtonBy);
+			genericUtility.clearOption(safeAct, productPage.getAppliedfilterByTypeAndName(filterName, filterValue), listingUrl);
 			log.info("[{}] Clearing the filter value ->"+filterValue+"within productNameListingPage loop", ThreadContext.get("testName"));
 
 			log.info("[{}]==========================================================================================================", ThreadContext.get("testName"));
@@ -283,13 +331,19 @@ if (!productPageLoaded) {
 	log.warn("[{}] Product detail page did not load for index {} filter '{}'; skipping detail scrape to avoid redundant retries/timeouts", testName, productIndex, filterValue);
 }
 
+// Wait for the parts of the product page, then read only the parts that exist (a missing part used to cost a long wait
+// and a page refresh inside fetchTextWithRetries).
+boolean[] sectionPresent = productPageLoaded ? genericUtility.waitForProductSections() : new boolean[4];
 String name="";
 try {
 if (productPageLoaded) {
 name = genericUtility.fetchTextWithRetries(productPage.productNameIndividualPage, safeAct);
-String keyFeatures = genericUtility.fetchTextWithRetries(productPage.productKeyFeatureBlock, safeAct);
-String about = genericUtility.fetchTextWithRetries(productPage.aboutThisItemBulletPoint, safeAct);
-String techDetails = genericUtility.fetchTextWithRetries(productPage.technicalDetailsBlockIndividualPage, safeAct);
+// OLD: String keyFeatures = genericUtility.fetchTextWithRetries(productPage.productKeyFeatureBlock, safeAct);
+String keyFeatures = sectionPresent[1] ? genericUtility.fetchTextWithRetries(productPage.productKeyFeatureBlock, safeAct) : "";
+// OLD: String about = genericUtility.fetchTextWithRetries(productPage.aboutThisItemBulletPoint, safeAct);
+String about = sectionPresent[2] ? genericUtility.fetchTextWithRetries(productPage.aboutThisItemBulletPoint, safeAct) : "";
+// OLD: String techDetails = genericUtility.fetchTextWithRetries(productPage.technicalDetailsBlockIndividualPage, safeAct);
+String techDetails = sectionPresent[3] ? genericUtility.fetchTextWithRetries(productPage.technicalDetailsBlockIndividualPage, safeAct) : "";
 
 genericUtility.addFieldIfPresent("title",name ,filterValue,productIndex,productResult);
 genericUtility.addFieldIfPresent("keyFeatures",keyFeatures ,filterValue,productIndex,productResult);

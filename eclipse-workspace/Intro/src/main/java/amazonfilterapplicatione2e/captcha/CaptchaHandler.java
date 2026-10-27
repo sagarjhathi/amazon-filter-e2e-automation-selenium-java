@@ -98,7 +98,8 @@ public class CaptchaHandler extends BasePage{
 
 	    // SkipException (not a failure) - a persistent bot-check is an environment/rate-limit
 	    // issue, not a real product/filter bug, so the test is marked skipped rather than failed.
-	    throw new SkipException("Captcha persisted after retries.");
+	    // OLD: throw new SkipException("Captcha persisted after retries.");
+	    throw new SkipException("Blocked by Amazon: the captcha / continue-shopping page persisted after " + retries + " attempts. URL: " + driver.getCurrentUrl());
 	}
 	
 	private void waitForPageLoad() {

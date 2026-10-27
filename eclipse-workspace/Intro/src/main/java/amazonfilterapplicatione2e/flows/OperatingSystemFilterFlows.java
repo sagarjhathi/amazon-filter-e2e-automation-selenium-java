@@ -33,6 +33,9 @@ public class OperatingSystemFilterFlows extends BasePage{
     private ProductListingPage productPage;
     private GenericUtility genericUtility;
 
+    // Options that did not show as applied after the click. The test reports them (a soft assertion).
+    public List<String> notAppliedOptions = new ArrayList<>();
+
 public OperatingSystemFilterFlows() {
     this.productPage = new ProductListingPage();
     this.genericUtility = new GenericUtility();
@@ -46,6 +49,7 @@ public OperatingSystemFilterFlows() {
 	// result Map per product (filter/title/keyFeatures/about/techDetails keys) so the
 	// actual test in AmazonTests decides what to assert.
 	public List<Map<String, Object>> applyOperatingSystemFilterAndValidateProductsWithResults(By filterOptionsBy, String filterName) throws InterruptedException, TimeoutException {
+		notAppliedOptions = new ArrayList<>();
 		log.info("[{}] Within applyOperatingSystemFilterAndValidateProductsWithResults method", ThreadContext.get("testName"));
 
 
@@ -53,6 +57,7 @@ public OperatingSystemFilterFlows() {
 		ProductListingPage productPage = new ProductListingPage();
 		GenericUtility genericUtility = new GenericUtility();
 
+		genericUtility.waitForCompleteList(filterOptionsBy);   // count the options only once the list is complete
 		List<WebElement> filterOptions = safeAct.safeFindElements(filterOptionsBy);
 
 
@@ -73,20 +78,29 @@ public OperatingSystemFilterFlows() {
 		boolean isCron = Boolean.parseBoolean(System.getenv("IS_CRON"));
 
 		int filterOptionSize=filterOptions.size();
-		if(isCron) {
-			boolean runAll= ConfigManager.getBoolean("runForAllFilterOptionsCI", false);
-			if(runAll==false) {
-				int overideFilteOptionsCountDefault=ConfigManager.getInt("overideFilteOptionsCountDefault");
-				filterOptionSize=ConfigManager.getInt("overideFilteOptionsCount", overideFilteOptionsCountDefault);
-			}
+		// if(isCron) {
+			// boolean runAll= ConfigManager.getBoolean("runForAllFilterOptionsCI", false);
+			// if(runAll==false) {
+				// int overideFilteOptionsCountDefault=ConfigManager.getInt("overideFilteOptionsCountDefault");
+				// filterOptionSize=ConfigManager.getInt("overideFilteOptionsCount", overideFilteOptionsCountDefault);
+			// }
+		// } else {
+			// boolean runAll= ConfigManager.getBoolean("runForAllFilterOptions", false);
+			// if(runAll==false) {
+				// int overideFilteOptionsCountDefault=ConfigManager.getInt("overideFilteOptionsCountDefault");
+				// filterOptionSize=ConfigManager.getInt("overideFilteOptionsCount", overideFilteOptionsCountDefault);
+			// }
+		// }
+		// OLD: the commented if/else above did not know "all" or the page size (see ConfigManager.getLimit).
+		if (isCron) {
+			filterOptionSize = ConfigManager.getLimit("runForAllFilterOptionsCI", "overideFilteOptionsCount", filterOptions.size());
 		} else {
-			boolean runAll= ConfigManager.getBoolean("runForAllFilterOptions", false);
-			if(runAll==false) {
-				int overideFilteOptionsCountDefault=ConfigManager.getInt("overideFilteOptionsCountDefault");
-				filterOptionSize=ConfigManager.getInt("overideFilteOptionsCount", overideFilteOptionsCountDefault);
-			}
+			filterOptionSize = ConfigManager.getLimit("runForAllFilterOptions", "overideFilteOptionsCount", filterOptions.size());
 		}
 
+
+		// The address of the results page before any option is applied. clearOption goes back to it if Clear fails.
+		String listingUrl = driver.getCurrentUrl();
 
 		for (int i = 0; i <filterOptionSize; i++) {
 			log.info("[{}] Within the FilterOptions loop", ThreadContext.get("testName"));
@@ -109,9 +123,17 @@ public OperatingSystemFilterFlows() {
 
 			// safeClickBooleanWithScreenShot also clicks Amazon's "See more" toggle for this
 			// filter (before and after clicking the option) — expansion isn't done explicitly
-			if (!safeAct.safeClickBooleanWithScreenShot(productPage.getfilterByTypeAndName(filterName, str),filterName,str)) {
-				System.out.println("Filter click failed for: " + str);
-				log.info("[{}] Checking if The Filter is being applied else continuing to next filter , filter option ->"+str+"  ", ThreadContext.get("testName"));
+			// if (!safeAct.safeClickBooleanWithScreenShot(productPage.getfilterByTypeAndName(filterName, str),filterName,str)) {
+				// System.out.println("Filter click failed for: " + str);
+				// log.info("[{}] Checking if The Filter is being applied else continuing to next filter , filter option ->"+str+"  ", ThreadContext.get("testName"));
+				// continue;
+			// }
+			// OLD: the commented lines above clicked once and did not check that the option was selected.
+			// Click, check it shows as selected (reload once and click again if it does not): see GenericUtility.applyOption.
+			String notApplied = genericUtility.applyOption(safeAct, filterName, str, listingUrl);
+			if (notApplied != null) {
+				log.error("[{}] Filter '{}': {}", ThreadContext.get("testName"), filterName, notApplied);
+				notAppliedOptions.add(notApplied);
 				continue;
 			}
 
@@ -122,20 +144,26 @@ public OperatingSystemFilterFlows() {
 
 			// Default to the real fetched list size 
 			int productNameListingPageSize=productNameListingPage.size();
-			if(isCron) {
-				boolean runAllProducts= ConfigManager.getBoolean("runForAllProductsUnderListingCI", false);
-				if(runAllProducts==false) {
-					int overideProductsListingCountDefault=ConfigManager.getInt("overideProductsListingCountDefault");
-					productNameListingPageSize=ConfigManager.getInt("overideProductsListingCount", overideProductsListingCountDefault);
-					System.out.println(productNameListingPageSize +" is the  overideProductsListingCount");
-				}
+			// if(isCron) {
+				// boolean runAllProducts= ConfigManager.getBoolean("runForAllProductsUnderListingCI", false);
+				// if(runAllProducts==false) {
+					// int overideProductsListingCountDefault=ConfigManager.getInt("overideProductsListingCountDefault");
+					// productNameListingPageSize=ConfigManager.getInt("overideProductsListingCount", overideProductsListingCountDefault);
+					// System.out.println(productNameListingPageSize +" is the  overideProductsListingCount");
+				// }
+			// } else {
+				// boolean runAllProducts= ConfigManager.getBoolean("runForAllProductsUnderListing", false);
+				// if(runAllProducts==false) {
+					// int overideProductsListingCountDefault=ConfigManager.getInt("overideProductsListingCountDefault");
+					// productNameListingPageSize=ConfigManager.getInt("overideProductsListingCount", overideProductsListingCountDefault);
+					// System.out.println(productNameListingPageSize +" is the  overideProductsListingCount");
+				// }
+			// }
+			// OLD: the commented if/else above did not know "all" or the page size (see ConfigManager.getLimit).
+			if (isCron) {
+				productNameListingPageSize = ConfigManager.getLimit("runForAllProductsUnderListingCI", "overideProductsListingCount", productNameListingPageSize);
 			} else {
-				boolean runAllProducts= ConfigManager.getBoolean("runForAllProductsUnderListing", false);
-				if(runAllProducts==false) {
-					int overideProductsListingCountDefault=ConfigManager.getInt("overideProductsListingCountDefault");
-					productNameListingPageSize=ConfigManager.getInt("overideProductsListingCount", overideProductsListingCountDefault);
-					System.out.println(productNameListingPageSize +" is the  overideProductsListingCount");
-				}
+				productNameListingPageSize = ConfigManager.getLimit("runForAllProductsUnderListing", "overideProductsListingCount", productNameListingPageSize);
 			}
 
 			// One result per product, added inside the loop. A product that fails to open/scrape
@@ -147,7 +175,8 @@ public OperatingSystemFilterFlows() {
 				allResults.add(result);
 			}
 
-			safeAct.safeClick(productPage.clearButtonBy);
+			// OLD: safeAct.safeClick(productPage.clearButtonBy);
+			genericUtility.clearOption(safeAct, productPage.getAppliedfilterByTypeAndName(filterName, str), listingUrl);
 			if (i % 10 == 0 && i != 0) {
 				driver.navigate().refresh();
 				log.info("[{}] Refreshing the page to avoid storage issue ->"+str, ThreadContext.get("testName"));

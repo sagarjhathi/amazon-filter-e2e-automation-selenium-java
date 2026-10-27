@@ -130,6 +130,28 @@ public class FilterMatcher {
 	}
 
 
+	// ---------------------------------------------------------------------------------------------
+	// DISPLAY TYPE. The filter is a plain word such as "lcd" or "oled", not a range.
+	// ---------------------------------------------------------------------------------------------
+	public static MatchResult displayTypeMatch(String filter, String title, String keyFeatures, String about, String techDetails) {
+		// Step 1: the "Display Type" row decides if the product has it. The filter must be a whole word in it:
+		// "led" is not found in "controlled", and "oled" is not found in "amoled".
+		String rowValue = findRowValue(keyFeatures, techDetails, new String[] { "display type" });
+		if (!rowValue.isEmpty()) {
+			return new MatchResult(hasWord(rowValue, filter) ? Status.MATCH : Status.MISMATCH, rowValue);
+		}
+
+		// Step 2: no such row. Look for the word anywhere in the product text. This is weaker (a title can mention
+		// a word for another reason), so it can only PASS a product, never fail it.
+		if (hasWord(title + " " + keyFeatures + " " + about + " " + techDetails, filter)) {
+			return new MatchResult(Status.MATCH, "");
+		}
+
+		// Step 3: nothing to go on.
+		return new MatchResult(Status.UNKNOWN, "");
+	}
+
+
 	// Finds the spec row for a label and returns its value.
 	//   label "processor speed" and the line "processor speed 2.2 ghz"  ->  "2.2 ghz"
 	private static String findRowValue(String keyFeatures, String techDetails, String[] labels) {
@@ -157,7 +179,7 @@ public class FilterMatcher {
 	}
 
 	// Is the filter a whole word (or words) inside the text?  "4 gb" in "4 gb" yes, "4 gb" in "64 gb" no.
-	private static boolean hasWord(String text, String filter) {
+	public static boolean hasWord(String text, String filter) {
 		return toWords(text).contains(toWords(filter));
 	}
 
@@ -209,6 +231,22 @@ public class FilterMatcher {
 	// A number with a known unit is converted. A number with no unit at all is only used when no number
 	// in the row has a unit, otherwise "2.0" in "2.0 50.0 mp" could pass a wrong product.
 	private static double[] numbersInRow(String row, Range range) {
+		// Camera rows list one value per camera and put the unit only at the end ("12, 5, 50 mp").
+		// So for megapixels every number in the row counts, and the product passes if ANY one is in the range.
+		// Known accepted risk: "2.0 50.0 mp" also counts the 2.0 (an aperture).
+		if (range.measures.equals("mp")) {
+			List<Double> all = new ArrayList<>();
+			Matcher numbers = NUMBER.matcher(removeThousandsCommas(row));
+			while (numbers.find()) {
+				all.add(Double.parseDouble(numbers.group()));
+			}
+			double[] values = new double[all.size()];
+			for (int i = 0; i < values.length; i++) {
+				values[i] = all.get(i);
+			}
+			return values;
+		}
+
 		List<Double> withUnit = new ArrayList<>();
 		List<Double> bare = new ArrayList<>();
 

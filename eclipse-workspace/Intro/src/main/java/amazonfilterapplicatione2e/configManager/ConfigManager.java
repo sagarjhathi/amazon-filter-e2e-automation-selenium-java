@@ -97,6 +97,36 @@ public final class ConfigManager {
 	        }
 	    }
 
+	    // How many filter options / products a test uses: a number or the word "all", never more than the page shows.
+	    // Two keys: a true/false key that means "all" (the older style), and a key holding a number or "all".
+	    //   getLimit("runForAllFilterOptions", "overideFilteOptionsCount", 12)
+	    public static int getLimit(String runAllKey, String countKey, int pageCount) {
+	        if (getBoolean(runAllKey, false)) {
+	            return pageCount;
+	        }
+	        return limitFromValue(get(countKey, "3"), 3, pageCount);
+	    }
+
+	    // One key holding a number or "all" (used for Brands and Discount). A missing key means "all".
+	    //   getLimit("discountCardsPerOption", 40)
+	    public static int getLimit(String countKey, int pageCount) {
+	        return limitFromValue(get(countKey, "all"), pageCount, pageCount);
+	    }
+
+	    // "all" -> pageCount. A number -> that number, but never more than pageCount.
+	    // Anything else (a typo in the file) -> fallback, because a bad value should not crash the run.
+	    private static int limitFromValue(String value, int fallback, int pageCount) {
+	        String text = value.trim();
+	        if (text.equalsIgnoreCase("all")) {
+	            return pageCount;
+	        }
+	        try {
+	            return Math.min(Integer.parseInt(text), pageCount);
+	        } catch (NumberFormatException e) {
+	            return Math.min(fallback, pageCount);
+	        }
+	    }
+
 	    public static int getInt(String key) {
 	        return getInt(key, 0);
 	    }

@@ -21,7 +21,8 @@ public class BlockerHandler extends BasePage {
 	private static final int BIG_PAGE_ELEMENTS = 1500;
 
 	// The 503 page says "Please try again in a short while", so we reload it a few times, waiting a little between tries.
-	private static final int UNAVAILABLE_RETRIES = 3;
+	// Reloaded ONCE: reloading again and again makes Amazon throttle us harder. (Was 3 reloads.)
+	private static final int UNAVAILABLE_RETRIES = 1;
 	private static final int UNAVAILABLE_WAIT_MS = 3000;
 
 	private static final String CONTINUE_SHOPPING_XPATH =
@@ -79,7 +80,7 @@ public class BlockerHandler extends BasePage {
 		}
 	}
 
-	// Reloads the 503 page up to UNAVAILABLE_RETRIES times. The "Go to the home page" link on that page is NOT used,
+	// Reloads the 503 page UNAVAILABLE_RETRIES time (once). The "Go to the home page" link on that page is NOT used,
 	// because it would leave the search results and lose the filters we are working on.
 	// If the page is still unavailable after the last try, the test is skipped (an Amazon-side problem, not a product bug).
 	private void reloadUntilAvailable() {
@@ -92,7 +93,8 @@ public class BlockerHandler extends BasePage {
 				return; // the page is back
 			}
 		}
-		throw new SkipException("Service unavailable (503) page persisted after " + UNAVAILABLE_RETRIES + " reloads. URL: " + driver.getCurrentUrl());
+		// OLD: throw new SkipException("Service unavailable (503) page persisted after " + UNAVAILABLE_RETRIES + " reloads. URL: " + driver.getCurrentUrl());
+		throw new SkipException("Blocked by Amazon: the service unavailable (503) page persisted after " + UNAVAILABLE_RETRIES + " reload. URL: " + driver.getCurrentUrl());
 	}
 
 	// A short wait that is not tied to any page element (we are waiting for Amazon, not for the page), so Thread.sleep is used.

@@ -17,6 +17,7 @@ import main.java.amazonfilterapplicatione2e.logger.LoggerUtility;
 import main.java.amazonfilterapplicatione2e.pages.AmazonLandingPage;
 import main.java.amazonfilterapplicatione2e.pages.ProductListingPage;
 import main.java.amazonfilterapplicatione2e.safeActions.SafeActions;
+import main.java.amazonfilterapplicatione2e.utilities.BrandMatcher;
 import main.java.amazonfilterapplicatione2e.utilities.GenericUtility;
 
 
@@ -29,6 +30,9 @@ public class BrandFilterFlows extends BasePage{
 	    private ProductListingPage productPage;
 	    private SafeActions safeAct;
 	    private GenericUtility genericUtility;
+
+	    // Brands that did not show as applied after the click. The test reports them (a soft assertion).
+	    public List<String> notAppliedOptions = new ArrayList<>();
 	
 	public BrandFilterFlows() {
         this.productPage = new ProductListingPage();
@@ -44,6 +48,7 @@ public class BrandFilterFlows extends BasePage{
 	// No Assert here on purpose — this is a flow method, not a test. It returns per-brand
 	// results (brand, isValid, mismatches) so the actual test in AmazonTests decides what to assert.
 	public List<Map<Object, Object>> applyFilterAndValidateBrandsFilterWithResult(By filterOptionsBy, String filterName) throws InterruptedException, TimeoutException {
+		notAppliedOptions = new ArrayList<>();
 		log.info("[{}] Within applyFilterAndValidateBrandsFilterWithResult method", ThreadContext.get("testName"));
 
 
@@ -55,6 +60,7 @@ public class BrandFilterFlows extends BasePage{
 		log.info("[{}] Clicked the 'More' Button under brands filter section", ThreadContext.get("testName"));
 
 
+	genericUtility.waitForCompleteList(filterOptionsBy);   // count the brands only once the list is complete
 	List<WebElement> filterOptions = safeAct.safeFindElements(filterOptionsBy);
 
 		// safeFindElements returns null (not an empty list) once it exhausts its own retries.
@@ -67,15 +73,21 @@ public class BrandFilterFlows extends BasePage{
 
 		// Quick-run vs full-regression toggle: nightly/full runs test every brand, push/dev
 		// runs cap it to a small count so feedback stays fast.
-		boolean runAll= ConfigManager.getBoolean("runForAllFilterOptions", false);
-		if(runAll==false) {
-			filterOptionSize=ConfigManager.getInt("overideFilteOptionsCount", 3);
-		}
+		// boolean runAll= ConfigManager.getBoolean("runForAllFilterOptions", false);
+		// if(runAll==false) {
+			// filterOptionSize=ConfigManager.getInt("overideFilteOptionsCount", 3);
+		// }
+		// OLD: the commented lines above used the shared option limit (3 brands on a push run).
+		// Brands: every brand the page shows by default (key brandsFilterOptions: a number or "all"). Every product under a brand is already checked.
+		filterOptionSize = ConfigManager.getLimit("brandsFilterOptions", filterOptions.size());
 
 		// One Map per brand tested — keys "brand" (String), "isValid" (boolean), "mismatches"
 		// (List<String>). AmazonTests reads these three keys to softAssert.fail() on every
 		// mismatch detail for a brand instead of just the first, then calls assertAll() once.
 		List<Map<Object, Object>> allResults = new ArrayList<>();
+
+		// The address of the results page before any brand is applied. clearOption goes back to it if Clear fails.
+		String listingUrl = driver.getCurrentUrl();
 
 		for (int i = 0; i <=filterOptionSize-1; i++) {
 			log.info("[{}] Within the filterOptions loop — iteration {} of {}", ThreadContext.get("testName"), i, filterOptionSize);
@@ -112,9 +124,17 @@ public class BrandFilterFlows extends BasePage{
 
 			String str = inloopParent.get(i).getText().trim();
 			// Soft-skip on click failure — one flaky/stale brand checkbox shouldn't fail the whole loop.
-			if (!safeAct.safeClickBooleanWithScreenShot(productPage.getfilterByTypeAndName(filterName, str),filterName,str)) {
-				System.out.println("Filter click failed for: " + str);
-				log.info("[{}] Checking if The Filter is being applied else continuing to next filter , filter option ->"+str+"  ", ThreadContext.get("testName"));
+			// if (!safeAct.safeClickBooleanWithScreenShot(productPage.getfilterByTypeAndName(filterName, str),filterName,str)) {
+				// System.out.println("Filter click failed for: " + str);
+				// log.info("[{}] Checking if The Filter is being applied else continuing to next filter , filter option ->"+str+"  ", ThreadContext.get("testName"));
+				// continue;
+			// }
+			// OLD: the commented lines above clicked once and did not check that the brand was selected.
+			// Click, check it shows as selected (reload once and click again if it does not): see GenericUtility.applyOption.
+			String notApplied = genericUtility.applyOption(safeAct, filterName, str, listingUrl);
+			if (notApplied != null) {
+				log.error("[{}] Brand filter '{}': {}", ThreadContext.get("testName"), filterName, notApplied);
+				notAppliedOptions.add(notApplied);
 				continue;
 			}
 
@@ -144,7 +164,9 @@ public class BrandFilterFlows extends BasePage{
 
 					String title = productNameListingPage.get(k).getText();
 
-					boolean titleMatches = title.toLowerCase().contains(str.toLowerCase());
+					// OLD: boolean titleMatches = title.toLowerCase().contains(str.toLowerCase());   (substring match, no aliases)
+					// The brand must be a whole word in the title, or one of the brand's own aliases (see BrandMatcher).
+					boolean titleMatches = BrandMatcher.titleHasBrand(str, title);
 					log.info("[{}] Product index {} for brand '{}' — title: '{}', matches: {}",
 							ThreadContext.get("testName"), k, str, title, titleMatches);
 
@@ -169,17 +191,20 @@ public class BrandFilterFlows extends BasePage{
 
 			// Two ways to reset state for the next brand: prefer clicking "clear", but if
 			// that button isn't there (layout changed), fall back to navigating back instead.
-			try {
-				if (genericUtility.isElementInViewport(productPage.clearButtonBy)) {
-					safeAct.safeClick(productPage.clearButtonBy);
-					log.info("[" + ThreadContext.get("testName") + "] Clicked clear button for the filter ->"+str);
+			// try {
+				// if (genericUtility.isElementInViewport(productPage.clearButtonBy)) {
+					// safeAct.safeClick(productPage.clearButtonBy);
+					// log.info("[" + ThreadContext.get("testName") + "] Clicked clear button for the filter ->"+str);
 
-				}
-			} catch (Exception e) {
-				driver.navigate().back();
-				log.info("[" + ThreadContext.get("testName") + "] Cannot click clear button hence navigating back to fresh page for filter->"+str);
+				// }
+			// } catch (Exception e) {
+				// driver.navigate().back();
+				// log.info("[" + ThreadContext.get("testName") + "] Cannot click clear button hence navigating back to fresh page for filter->"+str);
 
-			}
+			// }
+			// OLD: the commented block above clicked Clear, or went back one page when that failed.
+			// Now: clear, confirm the brand is gone, and fall back to the stored results page address.
+			genericUtility.clearOption(safeAct, productPage.getAppliedfilterByTypeAndName(filterName, str), listingUrl);
 
 			// Periodic refresh to mitigate browser memory/storage buildup over a long brand loop.
 			if (i % 10 == 0 && i != 0) {
