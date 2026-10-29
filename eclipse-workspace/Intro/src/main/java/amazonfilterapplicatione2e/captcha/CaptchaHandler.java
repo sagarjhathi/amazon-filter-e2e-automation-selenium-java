@@ -2,15 +2,20 @@ package main.java.amazonfilterapplicatione2e.captcha;
 import java.time.Duration;   
 import java.util.List;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.apache.logging.log4j.Logger;
+import org.apache.logging.log4j.ThreadContext;
 import org.testng.SkipException;
 import main.java.amazonfilterapplicatione2e.base.BasePage;
 import main.java.amazonfilterapplicatione2e.configManager.*;
+import main.java.amazonfilterapplicatione2e.logger.LoggerUtility;
 
 public class CaptchaHandler extends BasePage{
+
+	private final Logger log = LoggerUtility.getLogger(CaptchaHandler.class);
 	
 	
 	// Amazon's bot-check here is a "Continue shopping" interstitial, not an image/audio captcha,
@@ -30,7 +35,7 @@ public class CaptchaHandler extends BasePage{
 	            "//*[translate(normalize-space(.),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz')='continue shopping']"
 	        )).isEmpty();
 
-	    } catch (Exception e) {
+	    } catch (WebDriverException e) {  // [3.2] was: catch (Exception e)
 	        return false;
 	    }
 	}
@@ -47,7 +52,8 @@ public class CaptchaHandler extends BasePage{
 	        // since this runs right after the prior click + page-load wait + backoff sleep.
 	        if (!isCaptchaPage()) return;
 
-	        System.out.println("Captcha detected. Attempt " + i);
+	        // [3.1] System.out.println("Captcha detected. Attempt " + i);
+	        log.warn("[{}] Captcha detected. Attempt {}", ThreadContext.get("testName"), i);
 
 	        try {
 	            List<WebElement> buttons = driver.findElements(By.xpath(
@@ -80,7 +86,8 @@ public class CaptchaHandler extends BasePage{
 	            backoff = Math.min(backoff * 2, 5000);
 
 	        } catch (Exception e) {
-	            System.out.println("Captcha handling attempt failed: " + e.getMessage());
+	            // [3.1] System.out.println("Captcha handling attempt failed: " + e.getMessage());
+	            log.warn("[{}] Captcha handling attempt failed: {}", ThreadContext.get("testName"), e.getMessage());
 	        }
 	    }
 
@@ -91,7 +98,8 @@ public class CaptchaHandler extends BasePage{
 
 	    // SkipException (not a failure) - a persistent bot-check is an environment/rate-limit
 	    // issue, not a real product/filter bug, so the test is marked skipped rather than failed.
-	    throw new SkipException("Captcha persisted after retries.");
+	    // OLD: throw new SkipException("Captcha persisted after retries.");
+	    throw new SkipException("Blocked by Amazon: the captcha / continue-shopping page persisted after " + retries + " attempts. URL: " + driver.getCurrentUrl());
 	}
 	
 	private void waitForPageLoad() {

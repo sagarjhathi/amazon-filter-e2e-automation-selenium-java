@@ -34,6 +34,9 @@ public class GenericUtility extends ProductListingPage{
 		
 	    String target = filterName.trim().toLowerCase();
 
+	    // The left navigation fills in gradually, so wait until it is complete before looking for the filter.
+	    waitForCompleteList(leftNavHeadingsBy);
+
 	    for (WebElement el : listOfFilterNameInLeftNav) {
 	    
 	        if (el.getText().trim().toLowerCase().equals(target)) {
@@ -53,6 +56,159 @@ public class GenericUtility extends ProductListingPage{
 
 	
 	
+	// APPLY ONE FILTER OPTION SAFELY. Returns null when the option shows as selected, otherwise the reason it did not.
+	//   1. click, then wait up to 10 s for the option to show as selected
+	//   2. reload once (the click may have worked while the page did not update) and look again
+	//   3. clear, then click a second time
+	//   4. give up: clean up, so the next option is not applied on top of this one, and say why
+	// listingUrl is the address of the results page before any option was applied (used by clearOption).
+	public String applyOption(SafeActions safeAct, String filterName, String filterValue, String listingUrl) throws InterruptedException, TimeoutException {
+		By clickBy = getfilterByTypeAndName(filterName, filterValue);
+		By selectedBy = getAppliedfilterByTypeAndName(filterName, filterValue);
+
+		if (safeAct.safeClickBooleanWithScreenShot(clickBy, filterName, filterValue) && isElementVisible(selectedBy)) {
+			return null;
+		}
+
+		log.warn("[{}] '{}' does not show as selected. Reloading once.", ThreadContext.get("testName"), filterValue);
+		driver.navigate().refresh();
+		if (isElementVisible(selectedBy)) {
+			return null;
+		}
+
+		log.warn("[{}] '{}' still does not show as selected. Clearing and clicking again.", ThreadContext.get("testName"), filterValue);
+		clearOption(safeAct, selectedBy, listingUrl);
+		if (safeAct.safeClickBooleanWithScreenShot(clickBy, filterName, filterValue) && isElementVisible(selectedBy)) {
+			return null;
+		}
+
+		clearOption(safeAct, selectedBy, listingUrl);
+		return "'" + filterValue + "' did not show as selected after the click, a reload and a second click";
+	}
+
+	// Clears the applied filter and confirms it is gone. If the Clear button does not do it (or throws), go back to the
+	// stored address of the results page, so the next option starts from a clean page.
+	public void clearOption(SafeActions safeAct, By selectedBy, String listingUrl) {
+		try {
+			if (!driver.findElements(clearButtonBy).isEmpty()) {
+				safeAct.safeClick(clearButtonBy);
+			}
+			new WebDriverWait(driver, Duration.ofSeconds(5)).until(ExpectedConditions.invisibilityOfElementLocated(selectedBy));
+		} catch (Exception e) {
+			log.warn("[{}] Clear did not remove the option. Going back to the results page address.", ThreadContext.get("testName"));
+			driver.get(listingUrl);
+		}
+	}
+
+	// Waits until a list on the page is complete before we count it: the first item is visible, then the number of
+	// items is the same twice in a row, 0.5 s apart. Gives up after 10 s and uses what is there.
+	// Without it a list that is still filling in is counted too early (a filter looks missing, an option is skipped).
+	public void waitForCompleteList(By locator) {
+		try {
+			new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.visibilityOfElementLocated(locator));
+		} catch (Exception e) {
+			return; // nothing appeared, so there is nothing to wait for: the caller handles an empty list
+		}
+
+		int previous = -1;
+		long deadline = System.currentTimeMillis() + 10_000;
+		while (System.currentTimeMillis() < deadline) {
+			int now = driver.findElements(locator).size();
+			if (now == previous) {
+				return; // same count twice in a row: the list is complete
+			}
+			previous = now;
+			pauseHalfSecond();
+		}
+	}
+
+	// Waits for the parts of a product page (they load in pieces, and not every product has every part).
+	// Returns which parts are there: [0] title, [1] key features, [2] about, [3] technical details (needs at least one row).
+	// Once a second, up to 10 s, it checks the parts and scrolls one screen (some parts load only when scrolled to).
+	// It stops early when all four are there, or when no new part has appeared for 5 s, so a page that simply has no
+	// technical details table does not wait the full 10 s.
+	public boolean[] waitForProductSections() {
+		By[] sections = { productNameIndividualPage, productKeyFeatureBlock, aboutThisItemBulletPoint, technicalDetailsRowsBy };
+		boolean[] present = new boolean[sections.length];
+		int mostFound = 0;
+		int lastNewPartSecond = 0;
+
+		for (int second = 0; second <= 10; second++) {
+			int found = 0;
+			for (int i = 0; i < sections.length; i++) {
+				present[i] = !driver.findElements(sections[i]).isEmpty();
+				if (present[i]) {
+					found++;
+				}
+			}
+
+			if (found == sections.length) {
+				break; // everything is there
+			}
+			if (found > mostFound) {
+				mostFound = found;
+				lastNewPartSecond = second;
+			} else if (second - lastNewPartSecond >= 5) {
+				break; // nothing new for 5 s: read what exists
+			}
+
+			((JavascriptExecutor) driver).executeScript("window.scrollBy(0, window.innerHeight);");
+			pauseHalfSecond();
+			pauseHalfSecond();
+		}
+		log.info("[{}] Product page parts present: title={}, keyFeatures={}, about={}, techDetails={}", ThreadContext.get("testName"),
+				present[0], present[1], present[2], present[3]);
+		return present;
+	}
+
+	private void pauseHalfSecond() {
+		try {
+			Thread.sleep(500);
+		} catch (InterruptedException e) {
+			Thread.currentThread().interrupt();
+		}
+	}
+
+	// The text for a test that is skipped because its filter is not in the left navigation. It says what the page
+	// showed (headings, URL, title), so the report explains the skip. When the left navigation is empty or the page
+	// is a 503 / captcha page, the real cause is Amazon blocking us, so the reason says that instead.
+	public String filterMissingReason(String filterName, String searchTerm) {
+		List<String> headings = new ArrayList<>();
+		try {
+			for (WebElement el : listOfFilterNameInLeftNav) {
+				headings.add(el.getText().trim());
+			}
+		} catch (Exception e) {
+			log.warn("[{}] Could not read the left navigation headings: {}", ThreadContext.get("testName"), e.getMessage());
+		}
+
+		String url = driver.getCurrentUrl();
+		String title = driver.getTitle();
+		String lowerTitle = title.toLowerCase();
+		boolean blocked = lowerTitle.contains("service unavailable") || lowerTitle.contains("oops") || url.contains("validatecaptcha");
+
+		if (blocked) {
+			return "Blocked by Amazon: the page did not load properly, so filter '" + filterName + "' could not be checked (search term '"
+					+ searchTerm + "'). URL: " + url + ". Title: '" + title + "'.";
+		}
+		// A normal results page with an empty left navigation: the filters had not loaded when we looked (or Amazon hid them).
+		if (headings.isEmpty()) {
+			return "The left navigation was empty, so filter '" + filterName + "' could not be checked (search term '" + searchTerm
+					+ "'). The filters had not loaded, or Amazon did not show them. URL: " + url + ". Title: '" + title + "'.";
+		}
+		return "Filter '" + filterName + "' is not in the left navigation for '" + searchTerm + "' in this session. The page showed: "
+				+ String.join(", ", headings) + ". URL: " + url + ". Title: '" + title + "'.";
+	}
+
+	// For "there was nothing to check" (no product was read, no product could be compared).
+	// It throws a normal exception, not an assertion, on purpose: a blocked page also returns nothing, and the retry
+	// rule retries normal exceptions but not assertion failures (see RetryFailedTest).
+	public void requireSome(int count, String message) {
+		if (count == 0) {
+			throw new IllegalStateException(message);
+		}
+	}
+
 	public boolean isElementInViewport(By locator) throws TimeoutException {
 	    log.info("[{}] Waiting until element is visible in viewport", ThreadContext.get("testName"));
 

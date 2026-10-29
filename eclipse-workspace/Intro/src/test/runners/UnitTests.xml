@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<!-- Unit tests: no browser, no Amazon. Run with:  mvn test -Dsurefire.suiteXmlFiles=src/test/runners/UnitTests.xml -->
+<suite name="UnitTests">
+  <test name="FilterMatcher and BrandMatcher">
+    <classes>
+      <class name="test.java.unit.FilterMatcherTest"/>
+      <class name="test.java.unit.CoverageConsistencyTest"/>
+    </classes>
+  </test>
+</suite>

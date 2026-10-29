@@ -1,0 +1,17 @@
+{
+  "brands":                                ["Mobile", "Laptop", "Headphones", "Tablet", "Speaker"],
+  "Battery":                               ["Mobile", "Laptop", "Headphones", "Tablet", "Speaker"],
+  "Discount":                              ["Mobile", "Laptop", "Headphones", "Tablet", "Speaker"],
+  "Screen Size":                           ["Mobile", "Laptop", "Tablet"],
+  "Storage Capacity":                      ["Mobile", "Laptop", "Tablet"],
+  "Display Type":                          ["Mobile", "Laptop", "Tablet"],
+  "Processor Speed":                       ["Mobile", "Laptop", "Tablet"],
+  "Mobile Phone Primary Camera Resolution": ["Mobile", "Tablet"],
+
+  "Operating System Version":              ["Mobile", "Laptop", "Tablet"],
+  "Price":                                 ["Mobile", "Laptop", "Tablet"],
+  "Get It Today":                          ["Mobile", "Laptop", "Tablet"],
+  "Get It by Tomorrow":                    ["Mobile", "Laptop", "Tablet"],
+  "Get It in 2 Days":                      ["Mobile", "Laptop", "Tablet"],
+  "Free Delivery":                         ["Mobile", "Laptop", "Tablet"]
+}
