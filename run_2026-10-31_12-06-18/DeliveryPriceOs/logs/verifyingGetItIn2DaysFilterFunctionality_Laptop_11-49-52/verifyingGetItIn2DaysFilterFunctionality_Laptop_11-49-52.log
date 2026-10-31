@@ -1,0 +1,244 @@
+11:49:52 [TestNG-test-Test-1] INFO  verifyingGetItIn2DaysFilterFunctionality_Laptop_11-49-52 - No existing WebDriver found for current thread. Initializing a new ChromeDriver...
+11:49:52 [TestNG-test-Test-1] INFO  verifyingGetItIn2DaysFilterFunctionality_Laptop_11-49-52 - WebDriverManager: chromedriver setup OK
+11:49:53 [TestNG-test-Test-1] INFO  verifyingGetItIn2DaysFilterFunctionality_Laptop_11-49-52 - ChromeDriver initialized successfully for thread: 34
+11:49:55 [TestNG-test-Test-1] INFO  verifyingGetItIn2DaysFilterFunctionality_Laptop_11-49-52 - [verifyingGetItIn2DaysFilterFunctionality_Laptop_11-49-52] Opening amazon Landing page
+11:49:55 [TestNG-test-Test-1] INFO  verifyingGetItIn2DaysFilterFunctionality_Laptop_11-49-52 - [verifyingGetItIn2DaysFilterFunctionality_Laptop_11-49-52] Within safeFindElement method
+11:49:55 [TestNG-test-Test-1] INFO  verifyingGetItIn2DaysFilterFunctionality_Laptop_11-49-52 - [verifyingGetItIn2DaysFilterFunctionality_Laptop_11-49-52]Found the element returning it ,element ->[[ChromeDriver: chrome on windows (c559550b9e417be16a9ce7262a872d68)] -> xpath: //a[@id='nav-logo-sprites']]
+11:49:55 [TestNG-test-Test-1] INFO  verifyingGetItIn2DaysFilterFunctionality_Laptop_11-49-52 - [verifyingGetItIn2DaysFilterFunctionality_Laptop_11-49-52] clearBlockers took 295 ms
+11:49:56 [TestNG-test-Test-1] INFO  verifyingGetItIn2DaysFilterFunctionality_Laptop_11-49-52 - [verifyingGetItIn2DaysFilterFunctionality_Laptop_11-49-52] Giving input within the search bar
+11:49:56 [TestNG-test-Test-1] INFO  verifyingGetItIn2DaysFilterFunctionality_Laptop_11-49-52 - [verifyingGetItIn2DaysFilterFunctionality_Laptop_11-49-52] Within safeClick method
+11:49:58 [TestNG-test-Test-1] INFO  verifyingGetItIn2DaysFilterFunctionality_Laptop_11-49-52 - [verifyingGetItIn2DaysFilterFunctionality_Laptop_11-49-52] Clicked the  [[ChromeDriver: chrome on windows (c559550b9e417be16a9ce7262a872d68)] -> xpath: //input[@id='nav-search-submit-button']]   using safeClick
+11:49:58 [TestNG-test-Test-1] INFO  verifyingGetItIn2DaysFilterFunctionality_Laptop_11-49-52 - [verifyingGetItIn2DaysFilterFunctionality_Laptop_11-49-52] Clicking on the submit in the search bar
+11:49:58 [TestNG-test-Test-1] INFO  verifyingGetItIn2DaysFilterFunctionality_Laptop_11-49-52 - [verifyingGetItIn2DaysFilterFunctionality_Laptop_11-49-52] clearBlockers took 80 ms
+11:49:58 [TestNG-test-Test-1] INFO  verifyingGetItIn2DaysFilterFunctionality_Laptop_11-49-52 - [verifyingGetItIn2DaysFilterFunctionality_Laptop_11-49-52] Within validateDeliveryFilterOptionsWithResult method
+11:49:58 [TestNG-test-Test-1] INFO  verifyingGetItIn2DaysFilterFunctionality_Laptop_11-49-52 - [verifyingGetItIn2DaysFilterFunctionality_Laptop_11-49-52] Within safeClick method
+11:49:58 [TestNG-test-Test-1] INFO  verifyingGetItIn2DaysFilterFunctionality_Laptop_11-49-52 - [verifyingGetItIn2DaysFilterFunctionality_Laptop_11-49-52] Clicked the  [[ChromeDriver: chrome on windows (c559550b9e417be16a9ce7262a872d68)] -> xpath: //span[@class='a-size-base a-color-base puis-bold-weight-text' and text()='Delivery Day']/parent::div/following-sibling::ul//span[@class='a-size-base a-color-base' and text()='Get It in 2 Days']]   using safeClick
+11:49:58 [TestNG-test-Test-1] INFO  verifyingGetItIn2DaysFilterFunctionality_Laptop_11-49-52 - [verifyingGetItIn2DaysFilterFunctionality_Laptop_11-49-52] Within getMoreButtonByFilterTypeAndName method
+11:49:59 [TestNG-test-Test-1] INFO  verifyingGetItIn2DaysFilterFunctionality_Laptop_11-49-52 - [verifyingGetItIn2DaysFilterFunctionality_Laptop_11-49-52] Clicked on By.xpath: //span[@class='a-size-base a-color-base puis-bold-weight-text' and text()='Delivery Day']/parent::div/following-sibling::ul//span[@class='a-size-base a-color-base' and text()='Get It in 2 Days']
+11:49:59 [TestNG-test-Test-1] INFO  verifyingGetItIn2DaysFilterFunctionality_Laptop_11-49-52 - [verifyingGetItIn2DaysFilterFunctionality_Laptop_11-49-52] Within safeFindElements 
+11:49:59 [TestNG-test-Test-1] INFO  verifyingGetItIn2DaysFilterFunctionality_Laptop_11-49-52 - [verifyingGetItIn2DaysFilterFunctionality_Laptop_11-49-52] Returning the  [[[ChromeDriver: chrome on windows (c559550b9e417be16a9ce7262a872d68)] -> xpath: //div[@class='a-section a-spacing-small a-spacing-top-small']], [[ChromeDriver: chrome on windows (c559550b9e417be16a9ce7262a872d68)] -> xpath: //div[@class='a-section a-spacing-small a-spacing-top-small']], [[ChromeDriver: chrome on windows (c559550b9e417be16a9ce7262a872d68)] -> xpath: //div[@class='a-section a-spacing-small a-spacing-top-small']], [[ChromeDriver: chrome on windows (c559550b9e417be16a9ce7262a872d68)] -> xpath: //div[@class='a-section a-spacing-small a-spacing-top-small']], [[ChromeDriver: chrome on windows (c559550b9e417be16a9ce7262a872d68)] -> xpath: //div[@class='a-section a-spacing-small a-spacing-top-small']], [[ChromeDriver: chrome on windows (c559550b9e417be16a9ce7262a872d68)] -> xpath: //div[@class='a-section a-spacing-small a-spacing-top-small']], [[ChromeDriver: chrome on windows (c559550b9e417be16a9ce7262a872d68)] -> xpath: //div[@class='a-section a-spacing-small a-spacing-top-small']], [[ChromeDriver: chrome on windows (c559550b9e417be16a9ce7262a872d68)] -> xpath: //div[@class='a-section a-spacing-small a-spacing-top-small']], [[ChromeDriver: chrome on windows (c559550b9e417be16a9ce7262a872d68)] -> xpath: //div[@class='a-section a-spacing-small a-spacing-top-small']], [[ChromeDriver: chrome on windows (c559550b9e417be16a9ce7262a872d68)] -> xpath: //div[@class='a-section a-spacing-small a-spacing-top-small']], [[ChromeDriver: chrome on windows (c559550b9e417be16a9ce7262a872d68)] -> xpath: //div[@class='a-section a-spacing-small a-spacing-top-small']], [[ChromeDriver: chrome on windows (c559550b9e417be16a9ce7262a872d68)] -> xpath: //div[@class='a-section a-spacing-small a-spacing-top-small']], [[ChromeDriver: chrome on windows (c559550b9e417be16a9ce7262a872d68)] -> xpath: //div[@class='a-section a-spacing-small a-spacing-top-small']], [[ChromeDriver: chrome on windows (c559550b9e417be16a9ce7262a872d68)] -> xpath: //div[@class='a-section a-spacing-small a-spacing-top-small']], [[ChromeDriver: chrome on windows (c559550b9e417be16a9ce7262a872d68)] -> xpath: //div[@class='a-section a-spacing-small a-spacing-top-small']], [[ChromeDriver: chrome on windows (c559550b9e417be16a9ce7262a872d68)] -> xpath: //div[@class='a-section a-spacing-small a-spacing-top-small']]] from the safeFindElements method
+11:49:59 [TestNG-test-Test-1] INFO  verifyingGetItIn2DaysFilterFunctionality_Laptop_11-49-52 - [verifyingGetItIn2DaysFilterFunctionality_Laptop_11-49-52] Created hashset with required data to assert with Within validateDeliveryFilterOptionsWithResult method
+11:49:59 [TestNG-test-Test-1] INFO  verifyingGetItIn2DaysFilterFunctionality_Laptop_11-49-52 - [verifyingGetItIn2DaysFilterFunctionality_Laptop_11-49-52] this is the set  [Today, 1 Nov, 31 Oct, 2 Nov, Tomorrow]
+11:49:59 [TestNG-test-Test-1] INFO  verifyingGetItIn2DaysFilterFunctionality_Laptop_11-49-52 - [verifyingGetItIn2DaysFilterFunctionality_Laptop_11-49-52] Within deliveryElements loop iterating over the products  Within validateDeliveryFilterOptionsWithResult method
+11:49:59 [TestNG-test-Test-1] INFO  verifyingGetItIn2DaysFilterFunctionality_Laptop_11-49-52 - [verifyingGetItIn2DaysFilterFunctionality_Laptop_11-49-52] Checking if the allowedDateParts have the assert text — index 0, text: ASUS Vivobook Go 14 (2026),AMD Ryzen 3 30 Processor,AMD Radeon iGPU,8GB RAM,512GB SSD,FHD,14" (35.5 cm),Windows 11,M365 Basic(1Y)* Office 2024,Mixed Black,1.38 Kg,E1404FA-EB1414WS,Thin & Light Laptop
+3.6
+(8)
+50+ bought in past month
+₹48,990
+M.R.P:
+₹72,990 (33% off)
+10% Off on select cards
+FREE delivery Mon, 2 Nov
+Or fastest delivery Tomorrow 8 am - 12 pm
+Arrives before Diwali
+Service: Device Setup
+Add to cart
+11:49:59 [TestNG-test-Test-1] INFO  verifyingGetItIn2DaysFilterFunctionality_Laptop_11-49-52 - [verifyingGetItIn2DaysFilterFunctionality_Laptop_11-49-52] Within deliveryElements loop iterating over the products  Within validateDeliveryFilterOptionsWithResult method
+11:49:59 [TestNG-test-Test-1] INFO  verifyingGetItIn2DaysFilterFunctionality_Laptop_11-49-52 - [verifyingGetItIn2DaysFilterFunctionality_Laptop_11-49-52] Checking if the allowedDateParts have the assert text — index 1, text: Dell 15 (Previously Inspiron) Laptop, 14th Gen Intel Core i3/Core 3 100U Processor, 16GB DDR4, 512 SSD, Intel UHD Graphics, 15.6" FHD 120Hz IPS AG 250 nit Display, Win 11 + Office 2024, Black, 1.63Kg
+4.0
+(1.1K)
+500+ bought in past month
+₹63,990
+M.R.P:
+₹72,781 (12% off)
+Flat INR 250 Off on HDFC Bank Cards
+FREE delivery Mon, 2 Nov
+Or fastest delivery Tomorrow 8 am - 12 pm
+Arrives before Diwali
+Service: Device Setup
+Add to cart
+11:49:59 [TestNG-test-Test-1] INFO  verifyingGetItIn2DaysFilterFunctionality_Laptop_11-49-52 - [verifyingGetItIn2DaysFilterFunctionality_Laptop_11-49-52] Within deliveryElements loop iterating over the products  Within validateDeliveryFilterOptionsWithResult method
+11:50:00 [TestNG-test-Test-1] INFO  verifyingGetItIn2DaysFilterFunctionality_Laptop_11-49-52 - [verifyingGetItIn2DaysFilterFunctionality_Laptop_11-49-52] Checking if the allowedDateParts have the assert text — index 2, text: Lenovo IdeaPad Slim 3 Smartchoice 13th Gen Intel Core i7-13620H 15.3 inch (38.8cm) WUXGA IPS Laptop (16GB RAM/512GB SSD/Windows 11/Office 24/Metal A Cover/Backlit Keyboard/Luna Grey/1.6Kg), 83K101JGIN
+3.3
+(45)
+3K+ bought in past month
+Great Indian Festival
+₹81,990
+M.R.P:
+₹1,85,790 (56% off)
+Save extra with No Cost EMI
+FREE delivery Mon, 2 Nov
+Or fastest delivery Tomorrow 8 am - 12 pm
+Arrives before Diwali
+Service: Device Setup
+Add to cart
+11:50:00 [TestNG-test-Test-1] INFO  verifyingGetItIn2DaysFilterFunctionality_Laptop_11-49-52 - [verifyingGetItIn2DaysFilterFunctionality_Laptop_11-49-52] Within deliveryElements loop iterating over the products  Within validateDeliveryFilterOptionsWithResult method
+11:50:00 [TestNG-test-Test-1] INFO  verifyingGetItIn2DaysFilterFunctionality_Laptop_11-49-52 - [verifyingGetItIn2DaysFilterFunctionality_Laptop_11-49-52] Checking if the allowedDateParts have the assert text — index 3, text: ASUS TUF A15 (2026),Smartchoice,AMD Ryzen 7 8845HS,RTX 3050,16GB RAM (Upgradeable Upto 64GB),512GB SSD,FHD,15.6"(39.6 cm),Win 11,M365 Basic(1Y),Office 24,Black,2.3 Kg,FA506NCG-HN192WS,Gaming Laptop
+4.9
+(19)
+1K+ bought in past month
+Ends in 02:35:00
+₹99,990
+M.R.P:
+₹1,55,990 (36% off)
+10% Off on select cards
+FREE delivery Mon, 2 Nov
+Or fastest delivery Tomorrow 8 am - 12 pm
+Arrives before Diwali
+Service: Device Setup
+Add to cart
+11:50:00 [TestNG-test-Test-1] INFO  verifyingGetItIn2DaysFilterFunctionality_Laptop_11-49-52 - [verifyingGetItIn2DaysFilterFunctionality_Laptop_11-49-52] Within deliveryElements loop iterating over the products  Within validateDeliveryFilterOptionsWithResult method
+11:50:00 [TestNG-test-Test-1] INFO  verifyingGetItIn2DaysFilterFunctionality_Laptop_11-49-52 - [verifyingGetItIn2DaysFilterFunctionality_Laptop_11-49-52] Checking if the allowedDateParts have the assert text — index 4, text: HP 14, AMD Ryzen 7 7730U (16GB DDR4, 512GB SSD) FHD, Anti-Glare, Micro-Edge, 14''/35.6cm, Win11, M365 Basic(1yr), Office Home24, Silver,1.4kg, EM0104AU, FHD Camera w/Privacy Shutter, Backlit Laptop
+4.3
+(18)
+50+ bought in past month
+₹93,490
+M.R.P:
+₹1,25,312.95 (25% off)
+Save extra with No Cost EMI
+FREE delivery Tue, 3 Nov
+Or fastest delivery Tomorrow 8 am - 12 pm
+Arrives before Diwali
+Service: Device Setup
+Add to cart
+11:50:00 [TestNG-test-Test-1] INFO  verifyingGetItIn2DaysFilterFunctionality_Laptop_11-49-52 - [verifyingGetItIn2DaysFilterFunctionality_Laptop_11-49-52] Within deliveryElements loop iterating over the products  Within validateDeliveryFilterOptionsWithResult method
+11:50:00 [TestNG-test-Test-1] INFO  verifyingGetItIn2DaysFilterFunctionality_Laptop_11-49-52 - [verifyingGetItIn2DaysFilterFunctionality_Laptop_11-49-52] Checking if the allowedDateParts have the assert text — index 5, text: ASUS ROG Strix G16 (2025), AMD Ryzen 9 8940HX, RTX 5050-8GB, 16GB RAM, 1TB SSD, FHD+, 16", 40 cm, Windows 11 Home, M365 Basic(1yr)* Office24, Eclipse Gray, 2.5 Kg, G614PH-RV073WS, Gaming Laptop
+3.8
+(14)
+₹2,19,990
+M.R.P:
+₹2,60,990 (16% off)
+10% Off on select cards
+FREE delivery Mon, 2 Nov
+Or fastest delivery Tomorrow 8 am - 12 pm
+Arrives before Diwali
+Service: Device Setup
+Add to cart
+11:50:00 [TestNG-test-Test-1] INFO  verifyingGetItIn2DaysFilterFunctionality_Laptop_11-49-52 - [verifyingGetItIn2DaysFilterFunctionality_Laptop_11-49-52] Within deliveryElements loop iterating over the products  Within validateDeliveryFilterOptionsWithResult method
+11:50:00 [TestNG-test-Test-1] INFO  verifyingGetItIn2DaysFilterFunctionality_Laptop_11-49-52 - [verifyingGetItIn2DaysFilterFunctionality_Laptop_11-49-52] Checking if the allowedDateParts have the assert text — index 6, text: Lenovo Yoga Tab Plus Smartchoice AI Tablet with Pen + Keyboard |12.7" Display, 3K Resolution, 144 Hz|16GB RAM, 512GB ROM|Snapdragon 8 Gen 3|10200 mAh|6 Speakers|USB 3.0 with DP-Out|1Year ADP Free|Teal
+4.3
+(254)
+300+ bought in past month
+Great Indian Festival
+₹65,999
+M.R.P:
+₹89,000 (26% off)
+Save extra with No Cost EMI
+FREE delivery Mon, 2 Nov
+Or fastest delivery Tomorrow 8 am - 12 pm
+Arrives before Diwali
+Add to cart
+11:50:00 [TestNG-test-Test-1] INFO  verifyingGetItIn2DaysFilterFunctionality_Laptop_11-49-52 - [verifyingGetItIn2DaysFilterFunctionality_Laptop_11-49-52] Within deliveryElements loop iterating over the products  Within validateDeliveryFilterOptionsWithResult method
+11:50:00 [TestNG-test-Test-1] INFO  verifyingGetItIn2DaysFilterFunctionality_Laptop_11-49-52 - [verifyingGetItIn2DaysFilterFunctionality_Laptop_11-49-52] Checking if the allowedDateParts have the assert text — index 7, text: Zebronics-NS1000 Laptop Stand Featuring Foldable Design, Anti-Slip Silicone Rubber Pads, Supports Maximum of 5kgs Weight, 6 Adjustable Levels.
+3.5
+(5.7K)
+5K+ bought in past month
+₹188
+M.R.P:
+₹1,399 (87% off)
+Up to 5% back with Amazon Pay ICI...
+FREE delivery Mon, 2 Nov on ₹499 of items fulfilled by Amazon
+Or fastest delivery Tomorrow 8 am - 12 pm
+Arrives before Diwali
+Add to cart
+11:50:00 [TestNG-test-Test-1] INFO  verifyingGetItIn2DaysFilterFunctionality_Laptop_11-49-52 - [verifyingGetItIn2DaysFilterFunctionality_Laptop_11-49-52] Within deliveryElements loop iterating over the products  Within validateDeliveryFilterOptionsWithResult method
+11:50:00 [TestNG-test-Test-1] INFO  verifyingGetItIn2DaysFilterFunctionality_Laptop_11-49-52 - [verifyingGetItIn2DaysFilterFunctionality_Laptop_11-49-52] Checking if the allowedDateParts have the assert text — index 8, text: EDNITA Mini Laptop Stand for Desk | Portable Metal PC Desk Stand, Aluminium Cooling Pad Mini Clip Compatible with MacBook Apple Laptop, Lenovo, Dell, Hp, Acer & Other Laptops Pack of-2 (Silver)
+4.2
+(2.2K)
+3K+ bought in past month
+Mega Festival Deal
+₹188
+M.R.P:
+₹999 (81% off)
+Up to 5% back with Amazon Pay ICI...
+FREE delivery Mon, 2 Nov on ₹499 of items fulfilled by Amazon
+Or fastest delivery Tomorrow 8 am - 12 pm
+Arrives before Diwali
+Add to cart
+11:50:00 [TestNG-test-Test-1] INFO  verifyingGetItIn2DaysFilterFunctionality_Laptop_11-49-52 - [verifyingGetItIn2DaysFilterFunctionality_Laptop_11-49-52] Within deliveryElements loop iterating over the products  Within validateDeliveryFilterOptionsWithResult method
+11:50:00 [TestNG-test-Test-1] INFO  verifyingGetItIn2DaysFilterFunctionality_Laptop_11-49-52 - [verifyingGetItIn2DaysFilterFunctionality_Laptop_11-49-52] Checking if the allowedDateParts have the assert text — index 9, text: LS LAPSTER Quality Assured Lapster Universal Silicone 15.6" Keyboard Protector Skin|| Keyboard Dust Cover|| Keyboard Skin for 15.6" Laptop 15.6" Keyguard 3.93 x 11.81 x 0.39 inches
+3.5
+(12.6K)
+2K+ bought in past month
+₹99
+M.R.P:
+₹999 (90% off)
+Up to 5% back with Amazon Pay ICI...
+FREE delivery Tue, 3 Nov on ₹499 of items fulfilled by Amazon
+Or fastest delivery Tomorrow 8 am - 12 pm
+Arrives before Diwali
+Add to cart
+11:50:00 [TestNG-test-Test-1] INFO  verifyingGetItIn2DaysFilterFunctionality_Laptop_11-49-52 - [verifyingGetItIn2DaysFilterFunctionality_Laptop_11-49-52] Within deliveryElements loop iterating over the products  Within validateDeliveryFilterOptionsWithResult method
+11:50:00 [TestNG-test-Test-1] INFO  verifyingGetItIn2DaysFilterFunctionality_Laptop_11-49-52 - [verifyingGetItIn2DaysFilterFunctionality_Laptop_11-49-52] Checking if the allowedDateParts have the assert text — index 10, text: Zebronics NS2000 Plus Laptop Stand, Supports Up to 17-Inch Laptops, 5kg Load Capacity, 7-Level Adjustable Height, Ergonomic Foldable Design, Anti-Slip Silicone Pads (Silver)
+4.2
+(5K)
+5K+ bought in past month
+₹299
+M.R.P:
+₹1,499 (80% off)
+Flat INR 25 Off on ALL BanksCards
+FREE delivery Mon, 2 Nov on ₹499 of items fulfilled by Amazon
+Or fastest delivery Tomorrow 8 am - 12 pm
+Arrives before Diwali
+Add to cart
+11:50:00 [TestNG-test-Test-1] INFO  verifyingGetItIn2DaysFilterFunctionality_Laptop_11-49-52 - [verifyingGetItIn2DaysFilterFunctionality_Laptop_11-49-52] Within deliveryElements loop iterating over the products  Within validateDeliveryFilterOptionsWithResult method
+11:50:00 [TestNG-test-Test-1] INFO  verifyingGetItIn2DaysFilterFunctionality_Laptop_11-49-52 - [verifyingGetItIn2DaysFilterFunctionality_Laptop_11-49-52] Checking if the allowedDateParts have the assert text — index 11, text: Tygot Aluminium Laptop Stand Adjustable 6 Angles, Foldable Ergonomic Laptop Riser for Desk, Portable Stand for MacBook, HP, Dell, Lenovo & Other Laptops (Grey)
+4.0
+(4.1K)
+1K+ bought in past month
+Great Indian Festival
+₹299
+M.R.P:
+₹1,999 (85% off)
+Flat INR 25 Off on ALL BanksCards
+FREE delivery Mon, 2 Nov on ₹499 of items fulfilled by Amazon
+Or fastest delivery Tomorrow 8 am - 12 pm
+Arrives before Diwali
+Add to cart
+11:50:00 [TestNG-test-Test-1] INFO  verifyingGetItIn2DaysFilterFunctionality_Laptop_11-49-52 - [verifyingGetItIn2DaysFilterFunctionality_Laptop_11-49-52] Within deliveryElements loop iterating over the products  Within validateDeliveryFilterOptionsWithResult method
+11:50:00 [TestNG-test-Test-1] INFO  verifyingGetItIn2DaysFilterFunctionality_Laptop_11-49-52 - [verifyingGetItIn2DaysFilterFunctionality_Laptop_11-49-52] Checking if the allowedDateParts have the assert text — index 12, text: Gizga Essentials Universal Silicone Keyboard Protector Skin for 15.6 Inch Laptop |Keyboard Dust Cover | 15.6" Keyguard (36.5 x 13.5 cm)
+3.5
+(20.5K)
+1K+ bought in past month
+₹95
+M.R.P:
+₹299 (68% off)
+Up to 5% back with Amazon Pay ICI...
+FREE delivery Mon, 2 Nov on ₹499 of items fulfilled by Amazon
+Or fastest delivery Tomorrow 8 am - 12 pm
+Arrives before Diwali
+Add to cart
+11:50:00 [TestNG-test-Test-1] INFO  verifyingGetItIn2DaysFilterFunctionality_Laptop_11-49-52 - [verifyingGetItIn2DaysFilterFunctionality_Laptop_11-49-52] Within deliveryElements loop iterating over the products  Within validateDeliveryFilterOptionsWithResult method
+11:50:00 [TestNG-test-Test-1] INFO  verifyingGetItIn2DaysFilterFunctionality_Laptop_11-49-52 - [verifyingGetItIn2DaysFilterFunctionality_Laptop_11-49-52] Checking if the allowedDateParts have the assert text — index 13, text: Dyazo 6 Angle Foldable & Portable Laptop Riser Stand Made with Aluminum Alloy |Compatible for Dell, Mac Book Air/Pro, Lenovo Acer Hp Asus & Other Laptop from 11.6 inch to 15.6 Inches- Black
+4.2
+(20.9K)
+3K+ bought in past month
+Great Indian Festival
+₹369
+M.R.P:
+₹1,999 (82% off)
+Flat INR 25 Off on ALL BanksCards
+FREE delivery Mon, 2 Nov on ₹499 of items fulfilled by Amazon
+Or fastest delivery Tomorrow 8 am - 12 pm
+Arrives before Diwali
+Add to cart
+11:50:00 [TestNG-test-Test-1] INFO  verifyingGetItIn2DaysFilterFunctionality_Laptop_11-49-52 - [verifyingGetItIn2DaysFilterFunctionality_Laptop_11-49-52] Within deliveryElements loop iterating over the products  Within validateDeliveryFilterOptionsWithResult method
+11:50:00 [TestNG-test-Test-1] INFO  verifyingGetItIn2DaysFilterFunctionality_Laptop_11-49-52 - [verifyingGetItIn2DaysFilterFunctionality_Laptop_11-49-52] Checking if the allowedDateParts have the assert text — index 14, text: Sounce Mouse Pad Speed Type Mouse Pad with Antifray Stitched Embroidery Edges, Non-Slip Rubber Base Mousepad for Laptop PC (260mm x 210mm x 2mm) (Black)
+4.3
+(4.3K)
+2K+ bought in past month
+Great Indian Festival
+₹79
+M.R.P:
+₹999 (92% off)
+Up to 5% back with Amazon Pay ICI...
+FREE delivery Mon, 2 Nov on ₹499 of items fulfilled by Amazon
+Or fastest delivery Tomorrow 8 am - 12 pm
+Arrives before Diwali
+Add to cart
+11:50:00 [TestNG-test-Test-1] INFO  verifyingGetItIn2DaysFilterFunctionality_Laptop_11-49-52 - [verifyingGetItIn2DaysFilterFunctionality_Laptop_11-49-52] Within deliveryElements loop iterating over the products  Within validateDeliveryFilterOptionsWithResult method
+11:50:00 [TestNG-test-Test-1] INFO  verifyingGetItIn2DaysFilterFunctionality_Laptop_11-49-52 - [verifyingGetItIn2DaysFilterFunctionality_Laptop_11-49-52] Checking if the allowedDateParts have the assert text — index 15, text: Ant Globe 18 Wired Optical Mouse, USB Type C Computer Mouse with Adjustable 1600 DPI Sensor, Ergonomic Lightweight Corded Office Mouse with 1.2m Cable for Laptop, PC, Desktop,Windows,Mac &Linux, Black
+3.9
+(182)
+4K+ bought in past month
+Great Indian Festival
+₹89
+M.R.P:
+₹699 (87% off)
+Up to 5% back with Amazon Pay ICI...
+FREE delivery Mon, 2 Nov on ₹499 of items fulfilled by Amazon
+Or fastest delivery Tomorrow 8 am - 12 pm
+Arrives before Diwali
+Add to cart
+11:50:00 [TestNG-test-Test-1] INFO  verifyingGetItIn2DaysFilterFunctionality_Laptop_11-49-52 - [verifyingGetItIn2DaysFilterFunctionality_Laptop_11-49-52] Returning the list with boolean values   Within validateDeliveryFilterOptionsWithResult method
+11:50:00 [TestNG-test-Test-1] INFO  verifyingGetItIn2DaysFilterFunctionality_Laptop_11-49-52 - [verifyingGetItIn2DaysFilterFunctionality_Laptop_11-49-52] Asserting delivery filter: isValid=true, index=-1, text=All the things are valid no errors

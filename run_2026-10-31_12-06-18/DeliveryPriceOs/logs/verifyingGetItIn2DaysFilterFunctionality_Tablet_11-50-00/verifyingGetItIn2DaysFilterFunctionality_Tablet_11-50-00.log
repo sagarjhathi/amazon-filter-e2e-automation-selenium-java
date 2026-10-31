@@ -1,0 +1,15 @@
+11:50:00 [TestNG-test-Test-1] INFO  verifyingGetItIn2DaysFilterFunctionality_Tablet_11-50-00 - No existing WebDriver found for current thread. Initializing a new ChromeDriver...
+11:50:01 [TestNG-test-Test-1] INFO  verifyingGetItIn2DaysFilterFunctionality_Tablet_11-50-00 - WebDriverManager: chromedriver setup OK
+11:50:02 [TestNG-test-Test-1] INFO  verifyingGetItIn2DaysFilterFunctionality_Tablet_11-50-00 - ChromeDriver initialized successfully for thread: 34
+11:50:03 [TestNG-test-Test-1] INFO  verifyingGetItIn2DaysFilterFunctionality_Tablet_11-50-00 - [verifyingGetItIn2DaysFilterFunctionality_Tablet_11-50-00] Opening amazon Landing page
+11:50:03 [TestNG-test-Test-1] INFO  verifyingGetItIn2DaysFilterFunctionality_Tablet_11-50-00 - [verifyingGetItIn2DaysFilterFunctionality_Tablet_11-50-00] Within safeFindElement method
+11:50:08 [TestNG-test-Test-1] INFO  verifyingGetItIn2DaysFilterFunctionality_Tablet_11-50-00 - [verifyingGetItIn2DaysFilterFunctionality_Tablet_11-50-00]Retrying findElement for: ->By.xpath: //a[@id='nav-logo-sprites']
+11:50:09 [TestNG-test-Test-1] INFO  verifyingGetItIn2DaysFilterFunctionality_Tablet_11-50-00 - [verifyingGetItIn2DaysFilterFunctionality_Tablet_11-50-00]Refrehsing the page , while trying to safely find : ->By.xpath: //a[@id='nav-logo-sprites']
+11:50:09 [TestNG-test-Test-1] INFO  verifyingGetItIn2DaysFilterFunctionality_Tablet_11-50-00 - [verifyingGetItIn2DaysFilterFunctionality_Tablet_11-50-00]Found the element returning it ,element ->[[ChromeDriver: chrome on windows (59854fc48d1d7449f8d22bb2a82a9ad9)] -> xpath: //a[@id='nav-logo-sprites']]
+11:50:10 [TestNG-test-Test-1] INFO  verifyingGetItIn2DaysFilterFunctionality_Tablet_11-50-00 - [verifyingGetItIn2DaysFilterFunctionality_Tablet_11-50-00] clearBlockers took 436 ms
+11:50:10 [TestNG-test-Test-1] INFO  verifyingGetItIn2DaysFilterFunctionality_Tablet_11-50-00 - [verifyingGetItIn2DaysFilterFunctionality_Tablet_11-50-00] Giving input within the search bar
+11:50:10 [TestNG-test-Test-1] INFO  verifyingGetItIn2DaysFilterFunctionality_Tablet_11-50-00 - [verifyingGetItIn2DaysFilterFunctionality_Tablet_11-50-00] Within safeClick method
+11:50:14 [TestNG-test-Test-1] INFO  verifyingGetItIn2DaysFilterFunctionality_Tablet_11-50-00 - [verifyingGetItIn2DaysFilterFunctionality_Tablet_11-50-00] Clicked the  [[ChromeDriver: chrome on windows (59854fc48d1d7449f8d22bb2a82a9ad9)] -> xpath: //input[@id='nav-search-submit-button']]   using safeClick
+11:50:14 [TestNG-test-Test-1] INFO  verifyingGetItIn2DaysFilterFunctionality_Tablet_11-50-00 - [verifyingGetItIn2DaysFilterFunctionality_Tablet_11-50-00] Clicking on the submit in the search bar
+11:50:14 [TestNG-test-Test-1] INFO  verifyingGetItIn2DaysFilterFunctionality_Tablet_11-50-00 - [verifyingGetItIn2DaysFilterFunctionality_Tablet_11-50-00] clearBlockers took 129 ms
+11:50:24 [TestNG-test-Test-1] WARN  verifyingGetItIn2DaysFilterFunctionality_Tablet_11-50-00 - [verifyingGetItIn2DaysFilterFunctionality_Tablet_11-50-00]  Filter option 'Get It in 2 Days' does not exist. Skipping the test.

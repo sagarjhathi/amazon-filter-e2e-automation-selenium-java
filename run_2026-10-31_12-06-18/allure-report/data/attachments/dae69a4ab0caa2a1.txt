@@ -1,0 +1,13 @@
+11:48:59 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Laptop_11-48-59 - No existing WebDriver found for current thread. Initializing a new ChromeDriver...
+11:48:59 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Laptop_11-48-59 - WebDriverManager: chromedriver setup OK
+11:49:01 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Laptop_11-48-59 - ChromeDriver initialized successfully for thread: 36
+11:49:04 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Laptop_11-48-59 - [verifyingGetItByTomorrowFilterFunctionality_Laptop_11-48-59] Opening amazon Landing page
+11:49:04 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Laptop_11-48-59 - [verifyingGetItByTomorrowFilterFunctionality_Laptop_11-48-59] Within safeFindElement method
+11:49:04 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Laptop_11-48-59 - [verifyingGetItByTomorrowFilterFunctionality_Laptop_11-48-59]Found the element returning it ,element ->[[ChromeDriver: chrome on windows (2fa5a841dbc2b1f4b36e4b41f88e49bf)] -> xpath: //a[@id='nav-logo-sprites']]
+11:49:04 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Laptop_11-48-59 - [verifyingGetItByTomorrowFilterFunctionality_Laptop_11-48-59] clearBlockers took 32 ms
+11:49:04 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Laptop_11-48-59 - [verifyingGetItByTomorrowFilterFunctionality_Laptop_11-48-59] Giving input within the search bar
+11:49:04 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Laptop_11-48-59 - [verifyingGetItByTomorrowFilterFunctionality_Laptop_11-48-59] Within safeClick method
+11:49:07 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Laptop_11-48-59 - [verifyingGetItByTomorrowFilterFunctionality_Laptop_11-48-59] Clicked the  [[ChromeDriver: chrome on windows (2fa5a841dbc2b1f4b36e4b41f88e49bf)] -> xpath: //input[@id='nav-search-submit-button']]   using safeClick
+11:49:07 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Laptop_11-48-59 - [verifyingGetItByTomorrowFilterFunctionality_Laptop_11-48-59] Clicking on the submit in the search bar
+11:49:08 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Laptop_11-48-59 - [verifyingGetItByTomorrowFilterFunctionality_Laptop_11-48-59] clearBlockers took 28 ms
+11:49:18 [TestNG-test-Test-3] WARN  verifyingGetItByTomorrowFilterFunctionality_Laptop_11-48-59 - [verifyingGetItByTomorrowFilterFunctionality_Laptop_11-48-59]   Filter option 'Get It by Tomorrow' does not exist. Skipping the test.
