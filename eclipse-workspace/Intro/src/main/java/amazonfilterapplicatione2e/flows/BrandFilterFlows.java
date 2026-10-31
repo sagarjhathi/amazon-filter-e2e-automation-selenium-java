@@ -123,6 +123,13 @@ public class BrandFilterFlows extends BasePage{
 			}
 
 			String str = inloopParent.get(i).getText().trim();
+
+			// A hidden option (for example one under "See more") reads as blank text. There is nothing to click or check,
+			// and trying it only costs a reload and a second click, so skip it.
+			if (str == null || str.trim().isEmpty()) {
+				log.info("[{}] Skipping an option with blank text (index {}): it is hidden, so it cannot be applied", ThreadContext.get("testName"), i);
+				continue;
+			}
 			// Soft-skip on click failure — one flaky/stale brand checkbox shouldn't fail the whole loop.
 			// if (!safeAct.safeClickBooleanWithScreenShot(productPage.getfilterByTypeAndName(filterName, str),filterName,str)) {
 				// System.out.println("Filter click failed for: " + str);

@@ -120,6 +120,13 @@ public OperatingSystemFilterFlows() {
 
 			String str = safeAct.safeGetFilterOptionText(filterOptionsBy, i);
 
+			// A hidden option (for example one under "See more") reads as blank text. There is nothing to click or check,
+			// and trying it only costs a reload and a second click, so skip it.
+			if (str == null || str.trim().isEmpty()) {
+				log.info("[{}] Skipping an option with blank text (index {}): it is hidden, so it cannot be applied", ThreadContext.get("testName"), i);
+				continue;
+			}
+
 
 			// safeClickBooleanWithScreenShot also clicks Amazon's "See more" toggle for this
 			// filter (before and after clicking the option) — expansion isn't done explicitly

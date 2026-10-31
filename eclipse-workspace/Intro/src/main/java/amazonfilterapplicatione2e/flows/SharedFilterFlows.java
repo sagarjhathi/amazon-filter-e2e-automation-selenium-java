@@ -135,6 +135,13 @@ public class SharedFilterFlows extends BasePage {
 
 			String filterValue = safeAct.safeGetFilterOptionText(filterOptionsBy, filterOption);
 
+			// A hidden option (for example one under "See more") reads as blank text. There is nothing to click or check,
+			// and trying it only costs a reload and a second click, so skip it.
+			if (filterValue == null || filterValue.trim().isEmpty()) {
+				log.info("[{}] Skipping an option with blank text (index {}): it is hidden, so it cannot be applied", ThreadContext.get("testName"), filterOption);
+				continue;
+			}
+
 			// if (!safeAct.safeClickBooleanWithScreenShot(productPage.getfilterByTypeAndName(filterName, filterValue),filterName,filterValue)) {
 				// System.out.println("Filter click failed for: " + filterValue + ". Skipping this filter option.");
 				// continue;
