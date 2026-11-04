@@ -384,7 +384,7 @@ footer{
   <p class="intro">
     The wiring above is static — it says who <i>can</i> call whom. This section is the
     runtime path, read straight out of <code>AmazonTests.java</code>, <code>BaseTest.java</code>,
-    and <code>.github/workflows/main.yml</code>: one TestNG lifecycle for a single filter test,
+    and <code>.github/workflows/main-suite.yml</code>: one TestNG lifecycle for a single filter test,
     and the full CI journey from a git push to a published report.
   </p>
 
@@ -573,7 +573,7 @@ footer{
       <text x="30" y="688" class="chip-text" style="fill:var(--ink-soft)">Extent reports stay whole per shard (relative ../logs links); Allure merges safely because attachments are keyed by UUID.</text>
     </svg>
     <figcaption>
-      Traced from <code>.github/workflows/main.yml</code>. The <b>test</b> job fans out into
+      Traced from <code>.github/workflows/main-suite.yml</code>. The <b>test</b> job fans out into
       one runner per TestNG group, so total time is roughly the slowest shard, not the sum.
       The <b>publish</b> job then does everything that must happen once: merge Allure,
       assemble the site, deploy with a single orphan commit, and notify. The nightly/push
@@ -588,6 +588,6 @@ footer{
     Edges sourced from <code>import</code> statements in
     <code>eclipse-workspace/Intro/src</code>, plus the live logic in
     <code>AmazonTests.java</code>, <code>BaseTest.java</code> and
-    <code>.github/workflows/main.yml</code> — not the README's narrative version.
+    <code>.github/workflows/main-suite.yml</code> — not the README's narrative version.
   </footer>
 </div>

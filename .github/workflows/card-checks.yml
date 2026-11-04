@@ -1,8 +1,8 @@
-name: Card Filter Checks
+name: Card checks
 
 # Runs only tests/CardFilterChecks (src/test/runners/CardFilterChecks.xml), in 4 shards: one TestNG group per job, named after what it tests.
 # Each test gets its search terms from data/filterCoverage.json; 2 terms run at a time inside a shard.
-# Starts by hand (Actions > Card Filter Checks > Run workflow) or on a push to the branch listed under "on:". The daily CI (main.yml) does not run these.
+# Starts by hand (Actions > Card checks > Run workflow) or on a push to the branch listed under "on:". The daily CI (main-suite.yml) does not run these.
 # Jobs: check (compile + unit tests) -> card-checks (one job per shard) -> report (merged Allure report + one site, published to gh-pages).
 on:
   push:
@@ -126,7 +126,7 @@ jobs:
           retention-days: 7
 
   # Collects the per-shard reports into one site and publishes it to the gh-pages branch. Runs even when some shards
-  # failed; skipped when the checks never ran. It replaces ONLY card-checks/ and index.html there; the CI Pipeline's allure/, extent/ and run-info.txt are left alone.
+  # failed; skipped when the checks never ran. It replaces ONLY card-checks/ and index.html there; the Main suite's allure/, extent/ and run-info.txt are left alone.
   report:
     needs: card-checks
     if: ${{ !cancelled() && needs.card-checks.result != 'skipped' }}
@@ -136,7 +136,7 @@ jobs:
     permissions:
       contents: write
       actions: write
-    # Only one publish at a time (the same group as main.yml), so two runs never push to gh-pages together.
+    # Only one publish at a time (the same group as main-suite.yml), so two runs never push to gh-pages together.
     concurrency:
       group: pages-publish
       cancel-in-progress: false
@@ -201,7 +201,7 @@ jobs:
       - name: Generate the merged Allure report
         run: |
           npm install -g allure-commandline
-          allure generate allure-results --clean --report-name "Amazon Filter E2E - Card Filter Checks" -o site/card-checks/allure
+          allure generate allure-results --clean --report-name "Amazon Filter E2E - Card checks" -o site/card-checks/allure
 
       # Also downloadable, so the reports are available when publishing is skipped.
       # Open site/index.html from the unzipped folder; the Allure report needs "npx allure open" (browsers block its data loading from a plain file).
@@ -218,7 +218,7 @@ jobs:
         if: ${{ github.event_name == 'push' || github.event_name == 'workflow_dispatch' }}
         run: |
           cd pages
-          # Only card-checks/ and index.html are replaced. Every other folder and file on the branch (the CI Pipeline's allure/, extent/, run-info.txt) is left as it is.
+          # Only card-checks/ and index.html are replaced. Every other folder and file on the branch (the Main suite's allure/, extent/, run-info.txt) is left as it is.
           rm -rf card-checks
           cp -r ../site/card-checks card-checks
           cp ../site/index.html index.html

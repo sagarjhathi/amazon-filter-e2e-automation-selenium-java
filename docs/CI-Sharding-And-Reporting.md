@@ -5,7 +5,7 @@ reports, merges them, and publishes the result to GitHub Pages. It covers *what*
 does and *why* it's built that way, since several of the design choices here exist specifically
 to work around real failures hit while building this.
 
-Source of truth: `.github/workflows/main.yml`, `pom.xml`, `src/test/java/tests/AmazonTests.java`.
+Source of truth: `.github/workflows/main-suite.yml`, `pom.xml`, `src/test/java/tests/AmazonTests.java`.
 
 ---
 

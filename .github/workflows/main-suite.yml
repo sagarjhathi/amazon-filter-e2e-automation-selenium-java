@@ -1,4 +1,4 @@
-name: CI Pipeline 
+name: Main suite
 
 on:
   push:
@@ -285,7 +285,7 @@ jobs:
           Copy-Item -Recurse "shards/DeliveryPriceOs" "gh-pages/extent/DeliveryPriceOs"
           Copy-Item -Recurse "allure-report" "gh-pages/allure"
 
-          # The landing page reads this line to show which run the CI Pipeline reports are from.
+          # The landing page reads this line to show which run the Main suite reports are from.
           $when = (Get-Date).ToUniversalTime().ToString('yyyy-MM-dd HH:mm')
           "Run #$env:GITHUB_RUN_NUMBER - commit $($env:GITHUB_SHA.Substring(0,7)) - $when UTC" | Set-Content -Path gh-pages/run-info.txt
 
@@ -343,4 +343,4 @@ jobs:
           timestamp=$(TZ='Asia/Kolkata' date +"%Y-%m-%d %I:%M %p IST")
           pagesUrl="https://sagarjhathi.github.io/amazon-filter-e2e-automation/"
 
-          curl -H "Content-Type: application/json" -X POST -d "{\"content\": \"$status_emoji **CI Pipeline** (${{ github.ref_name }}): tests $status\n Triggered by: ${{ github.actor }}\n Commit: \`$commit_short\`\n Completed at: $timestamp\n [View Full Run Details]($runUrl)\n [Open Latest Report on GitHub Pages]($pagesUrl)\"}" "$DISCORD_WEBHOOK"
+          curl -H "Content-Type: application/json" -X POST -d "{\"content\": \"$status_emoji **Main suite** (${{ github.ref_name }}): tests $status\n Triggered by: ${{ github.actor }}\n Commit: \`$commit_short\`\n Completed at: $timestamp\n [View Full Run Details]($runUrl)\n [Open Latest Report on GitHub Pages]($pagesUrl)\"}" "$DISCORD_WEBHOOK"
