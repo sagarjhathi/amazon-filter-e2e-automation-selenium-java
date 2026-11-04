@@ -18,6 +18,7 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.SkipException;
 
 import main.java.amazonfilterapplicatione2e.logger.LoggerUtility;
 import main.java.amazonfilterapplicatione2e.pages.ProductListingPage;
@@ -56,46 +57,85 @@ public class GenericUtility extends ProductListingPage{
 
 	
 	
-	// APPLY ONE FILTER OPTION SAFELY. Returns null when the option shows as selected, otherwise the reason it did not.
-	//   1. click, then wait up to 10 s for the option to show as selected
-	//   2. reload once (the click may have worked while the page did not update) and look again
-	//   3. clear, then click a second time
-	//   4. give up: clean up, so the next option is not applied on top of this one, and say why
-	// listingUrl is the address of the results page before any option was applied (used by clearOption).
+	// // APPLY ONE FILTER OPTION SAFELY. Returns null when the option shows as selected, otherwise the reason it did not.
+	// //   1. click, then wait up to 10 s for the option to show as selected
+	// //   2. reload once (the click may have worked while the page did not update) and look again
+	// //   3. clear, then click a second time
+	// //   4. give up: clean up, so the next option is not applied on top of this one, and say why
+	// // listingUrl is the address of the results page before any option was applied (used by clearOption).
+	// public String applyOption(SafeActions safeAct, String filterName, String filterValue, String listingUrl) throws InterruptedException, TimeoutException {
+		// By clickBy = getfilterByTypeAndName(filterName, filterValue);
+		// By selectedBy = getAppliedfilterByTypeAndName(filterName, filterValue);
+
+		// if (safeAct.safeClickBooleanWithScreenShot(clickBy, filterName, filterValue) && isElementVisible(selectedBy)) {
+			// return null;
+		// }
+
+		// log.warn("[{}] '{}' does not show as selected. Reloading once.", ThreadContext.get("testName"), filterValue);
+		// driver.navigate().refresh();
+		// if (isElementVisible(selectedBy)) {
+			// return null;
+		// }
+
+		// log.warn("[{}] '{}' still does not show as selected. Clearing and clicking again.", ThreadContext.get("testName"), filterValue);
+		// clearOption(safeAct, selectedBy, listingUrl);
+		// if (safeAct.safeClickBooleanWithScreenShot(clickBy, filterName, filterValue) && isElementVisible(selectedBy)) {
+			// return null;
+		// }
+
+		// clearOption(safeAct, selectedBy, listingUrl);
+		// return "'" + filterValue + "' did not show as selected after the click, a reload and a second click";
+	// }
+
+	// // Clears the applied filter and confirms it is gone. If the Clear button does not do it (or throws), go back to the
+	// // stored address of the results page, so the next option starts from a clean page.
+	// public void clearOption(SafeActions safeAct, By selectedBy, String listingUrl) {
+		// try {
+			// if (!driver.findElements(clearButtonBy).isEmpty()) {
+				// safeAct.safeClick(clearButtonBy);
+			// }
+			// new WebDriverWait(driver, Duration.ofSeconds(5)).until(ExpectedConditions.invisibilityOfElementLocated(selectedBy));
+		// } catch (Exception e) {
+			// log.warn("[{}] Clear did not remove the option. Going back to the results page address.", ThreadContext.get("testName"));
+			// driver.get(listingUrl);
+		// }
+	// }
+
+	// APPLY ONE FILTER OPTION. Returns null when the option is applied, otherwise the reason it is not.
+	// "Applied" means the filter group's own "Clear" link is visible: Amazon shows it inside the group once an option is
+	// applied (see ProductListingPage.clearLinkBy). If it does not show within 10 s the option counts as NOT applied: log it,
+	// take a screenshot, and reload the results page (listingUrl) so the next option starts clean.
+	// OLD (commented above): clicked, looked for bold text, reloaded once, cleared and clicked again, then gave up.
 	public String applyOption(SafeActions safeAct, String filterName, String filterValue, String listingUrl) throws InterruptedException, TimeoutException {
-		By clickBy = getfilterByTypeAndName(filterName, filterValue);
-		By selectedBy = getAppliedfilterByTypeAndName(filterName, filterValue);
+		By clearLinkBy = clearLinkBy(filterName);   // fails loudly when the page has no such group
 
-		if (safeAct.safeClickBooleanWithScreenShot(clickBy, filterName, filterValue) && isElementVisible(selectedBy)) {
+		// safeClickBooleanWithScreenShot also opens the group's "See more" list before the click, and takes the screenshot.
+		boolean clicked = safeAct.safeClickBooleanWithScreenShot(getfilterByTypeAndName(filterName, filterValue), filterName, filterValue);
+		if (clicked && isElementVisible(clearLinkBy)) {
+			log.info("[{}] Applied '{}' (the Clear link of the group is showing)", ThreadContext.get("testName"), filterValue);
 			return null;
 		}
 
-		log.warn("[{}] '{}' does not show as selected. Reloading once.", ThreadContext.get("testName"), filterValue);
-		driver.navigate().refresh();
-		if (isElementVisible(selectedBy)) {
-			return null;
-		}
-
-		log.warn("[{}] '{}' still does not show as selected. Clearing and clicking again.", ThreadContext.get("testName"), filterValue);
-		clearOption(safeAct, selectedBy, listingUrl);
-		if (safeAct.safeClickBooleanWithScreenShot(clickBy, filterName, filterValue) && isElementVisible(selectedBy)) {
-			return null;
-		}
-
-		clearOption(safeAct, selectedBy, listingUrl);
-		return "'" + filterValue + "' did not show as selected after the click, a reload and a second click";
+		String reason = "'" + filterValue + "' did not show as applied (the Clear link of the group did not appear within 10 s)";
+		log.error("[{}] {}", ThreadContext.get("testName"), reason);
+		ScreenshotUtilUpdated.capture(ThreadContext.get("logFileName"), filterValue, "not applied");
+		driver.get(listingUrl);
+		return reason;
 	}
 
-	// Clears the applied filter and confirms it is gone. If the Clear button does not do it (or throws), go back to the
-	// stored address of the results page, so the next option starts from a clean page.
-	public void clearOption(SafeActions safeAct, By selectedBy, String listingUrl) {
+	// CLEAR the option of a filter group and confirm it is gone: click the group's own "Clear" link if it is visible, then
+	// wait up to 10 s until the link disappears. If it does not go, reload the results page (listingUrl).
+	public void clearOption(SafeActions safeAct, String filterName, String listingUrl) {
+		By clearLinkBy = clearLinkBy(filterName);   // fails loudly when the page has no such group
 		try {
-			if (!driver.findElements(clearButtonBy).isEmpty()) {
-				safeAct.safeClick(clearButtonBy);
+			List<WebElement> link = driver.findElements(clearLinkBy);
+			if (!link.isEmpty() && link.get(0).isDisplayed()) {
+				safeAct.safeClick(clearLinkBy);
 			}
-			new WebDriverWait(driver, Duration.ofSeconds(5)).until(ExpectedConditions.invisibilityOfElementLocated(selectedBy));
+			new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.invisibilityOfElementLocated(clearLinkBy));
+			log.info("[{}] Cleared '{}' (the Clear link is gone)", ThreadContext.get("testName"), filterName);
 		} catch (Exception e) {
-			log.warn("[{}] Clear did not remove the option. Going back to the results page address.", ThreadContext.get("testName"));
+			log.warn("[{}] The Clear link of '{}' did not go. Reloading the results page.", ThreadContext.get("testName"), filterName);
 			driver.get(listingUrl);
 		}
 	}
@@ -198,6 +238,14 @@ public class GenericUtility extends ProductListingPage{
 		}
 		return "Filter '" + filterName + "' is not in the left navigation for '" + searchTerm + "' in this session. The page showed: "
 				+ String.join(", ", headings) + ". URL: " + url + ". Title: '" + title + "'.";
+	}
+
+	// Skips the test, with the reason (the headings the page showed, the URL, the title), when the filter is not in the
+	// left navigation. A missing filter is a skip, never a pass.
+	public void skipIfFilterMissing(String heading, String searchTerm) {
+		if (!filterCheckUnderList(heading)) {
+			throw new SkipException(filterMissingReason(heading, searchTerm));
+		}
 	}
 
 	// For "there was nothing to check" (no product was read, no product could be compared).

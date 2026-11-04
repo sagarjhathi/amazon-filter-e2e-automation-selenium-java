@@ -239,7 +239,8 @@ public class SharedFilterFlows extends BasePage {
 			}
 
 			// OLD: safeAct.safeClick(productPage.clearButtonBy);
-			genericUtility.clearOption(safeAct, productPage.getAppliedfilterByTypeAndName(filterName, filterValue), listingUrl);
+			// OLD: genericUtility.clearOption(safeAct, productPage.getAppliedfilterByTypeAndName(filterName, filterValue), listingUrl);
+			genericUtility.clearOption(safeAct, filterName, listingUrl);
 			log.info("[{}] Clearing the filter value ->"+filterValue+"within productNameListingPage loop", ThreadContext.get("testName"));
 
 			log.info("[{}]==========================================================================================================", ThreadContext.get("testName"));

@@ -156,7 +156,7 @@ public class ProductListingPage extends  BasePage{
 	
 	public 	By seeMoreProductDetailsButtonIndividualPageBy=By.xpath("//a[@id='seeMoreDetailsLink']");
 	
-	public By clearButtonBy=By.xpath("//span[@class='a-size-base a-color-base' and text()='Clear']");
+	// OLD (replaced by clearLinkBy, which is scoped to one filter group): public By clearButtonBy=By.xpath("//span[@class='a-size-base a-color-base' and text()='Clear']");
 
 	public By seeMoreButtonIndividualPage=By.xpath("//span[@class='a-expander-prompt' and text()='Show More']");
 	
@@ -287,6 +287,137 @@ public class ProductListingPage extends  BasePage{
 	public By selectedOptionUnderHeading(String heading, String option) {
 		return By.xpath(HEADING_START + heading + OPTIONS_AFTER_HEADING + " a-text-bold' and text()='" + option + "']");
 	}
+
+	// THE CLEAR LINK OF ONE FILTER. Amazon marks every filter in the left navigation as <div role="group"> and names it with
+	// a heading inside it: <div role="heading"><span>Brands</span></div>. Once an option is applied, a link named "Clear"
+	// appears INSIDE that group, and it is gone again when the option is cleared. So "applied" and "cleared" are decided by
+	// this link, looked for only inside the one group: another filter's Clear (or the Price section's) can never match.
+	// Eligible for Free Delivery has no group of its own: its options live in the delivery container (#deliveryRefinements).
+	// It fails loudly when the page has no such group, instead of matching something else.
+	public By clearLinkBy(String filterName) {
+		String group = groupXpath(filterName);
+
+		if (driver.findElements(By.xpath(group)).isEmpty()) {
+			throw new IllegalStateException("The page has no filter group for '" + filterName + "' (looked for: " + group + ")");
+		}
+		return By.xpath(group + "//a[normalize-space(.)='Clear']");
+	}
+
+	// The heading text of a filter's group. The project's filter keys map to the heading Amazon shows; any other name
+	// is used as the heading itself (for example "HDD Size").
+	private String groupHeading(String filterName) {
+		switch (filterName.trim().toLowerCase()) {
+		case "brands":
+		case "brandsold":
+			return "Brands";
+		case "storagecapacity":
+			return "Storage Capacity";
+		case "processorspeed":
+			return "Processor Speed";
+		case "batterycapacity":
+			return "Battery Capacity";
+		case "displaysize":
+			return "Display Size";
+		case "screensize":
+			return "Screen Size";
+		case "displaytype":
+			return "Display Type";
+		case "operatingsystem":
+			return "Operating System";
+		case "operating system version":
+			return "Operating System Version";
+		case "mobilephoneprimarycameraresolution":
+			return "Mobile Phone Primary Camera Resolution";
+		case "discount":
+			return "Discount";
+		default:
+			return filterName;
+		}
+	}
+
+	// The XPath of a filter's group in the left navigation (see clearLinkBy for how Amazon marks the groups up).
+	// Eligible for Free Delivery has no group of its own: its options live in the delivery container.
+	private String groupXpath(String filterName) {
+		String key = filterName.trim().toLowerCase();
+		if (key.equals("eligible for free delivery") || key.equals("free delivery") || key.equals("freedelivery")) {
+			return "//div[@id='deliveryRefinements']";
+		}
+		return "//div[@id='s-refinements']//div[@role='group'][div[@role='heading']/span[normalize-space(.)=" + xpathLiteral(groupHeading(filterName)) + "]]";
+	}
+
+	// All the option links of a filter (Brands: HP, Dell, ...). The list also holds the "See more" / "See less" link,
+	// so the caller drops those names. Free delivery has its own entry: li[id^='p_n_free_shipping_eligible'] a.
+	public By optionLinksBy(String filterName) {
+		return By.xpath(optionLinksXpath(filterName));
+	}
+
+	// One option link, matched by its WHOLE text ("Samsung" cannot hit "Samsung Galaxy"). xpathLiteral keeps names with
+	// quotes or symbols from breaking the XPath.
+	public By optionLinkBy(String filterName, String optionName) {
+		return By.xpath(optionLinksXpath(filterName) + "[normalize-space(.)=" + xpathLiteral(optionName) + " or @aria-label=" + xpathLiteral("Apply the filter " + optionName + " to narrow results") + "]");
+	}
+
+	// The "See more" link of a filter's group. It only exists while the list is collapsed.
+	public By seeMoreLinkBy(String filterName) {
+		return By.xpath(groupXpath(filterName) + "//*[(self::a or self::button) and (starts-with(@aria-label,'See more') or normalize-space(.)='See more')]");
+	}
+
+	private String optionLinksXpath(String filterName) {
+		String key = filterName.trim().toLowerCase();
+		if (key.equals("eligible for free delivery") || key.equals("free delivery") || key.equals("freedelivery")) {
+			return "//div[@id='deliveryRefinements']//li[starts-with(@id,'p_n_free_shipping_eligible')]//a";
+		}
+		return groupXpath(filterName) + "//li//a";
+	}
+
+	// A text as an XPath string. A plain name gets quotes around it; a name that holds a quote is wrapped in the other
+	// kind of quote; a name with both kinds is built with concat().
+	private String xpathLiteral(String text) {
+		if (!text.contains("'")) {
+			return "'" + text + "'";
+		}
+		if (!text.contains("\"")) {
+			return "\"" + text + "\"";
+		}
+		String[] parts = text.split("'", -1);
+		StringBuilder xpath = new StringBuilder("concat(");
+		for (int i = 0; i < parts.length; i++) {
+			if (i > 0) {
+				xpath.append(", \"'\", ");
+			}
+			xpath.append("'").append(parts[i]).append("'");
+		}
+		return xpath.append(")").toString();
+	}
+
+	// ONE PRODUCT CARD in the results list. The card itself has the product's ASIN; the parts below are searched inside it.
+	public By searchResultCardsBy = By.xpath("//div[@data-component-type='s-search-result' and string-length(@data-asin)>0]");
+	public By cardTitleBy = By.xpath(".//h2");   // the title block (data-cy='title-recipe') starts with "Sponsored" on ads; the h2 does not
+	public By cardPriceBy = By.xpath(".//span[contains(@class,'a-price') and not(contains(@class,'a-text-price'))]//span[@class='a-offscreen']");
+	public By cardMrpBy = By.xpath(".//span[contains(@class,'a-price') and contains(@class,'a-text-price')]//span[@class='a-offscreen']");
+	public By cardRatingBy = By.xpath(".//span[@class='a-icon-alt'][contains(.,'out of 5 stars')]");   // "4.1 out of 5 stars"
+	public By cardDeliveryBy = By.xpath(".//div[@data-cy='delivery-recipe']");
+
+	// THE PRICE SECTION. Its preset ranges are links, and its own "Clear" link is inside the section, so another filter's
+	// Clear can never be mistaken for it. The ranges change between page loads: always read them by position.
+	public By priceRangeLinksBy = By.xpath("//div[@id='priceRefinements']//li[starts-with(@id,'p_36/dynamic-picker')]//a");
+	public By priceClearLinkBy = By.xpath("//div[@id='priceRefinements']//a[normalize-space(.)='Clear']");
+
+	// THE HEADING OF A FILTER, found by one of its options. The heading of Top Brands changes with the search
+	// ("Cell Phone Brands" for mobiles), so it is found by the option, not by name.
+	public By headingOfOptionBy(String option) {
+		return By.xpath("//div[@id='s-refinements']//div[@role='group'][.//li//a[normalize-space(.)=" + xpathLiteral(option) + "]]/div[@role='heading']//span");
+	}
+
+	// A PRODUCT PAGE (one product opened in its own tab). The title is productNameIndividualPage.
+	public By pageSellerBy = By.id("sellerProfileTriggerId");   // the seller of the main offer, in the buy box
+	public By pageCannotShipBy = By.xpath("//*[contains(text(),'be shipped to your selected delivery location')]");   // no Pay on Delivery / Top Brand card then
+	public By pageRatingBy = By.id("acrPopover");   // its title reads "4.2 out of 5 stars"
+	public By pageSeeAllBuyingOptionsBy = By.xpath("//a[contains(normalize-space(.),'See All Buying Options')]");   // shown when there is no buy box seller
+	public By pageOtherOffersLinkBy = By.id("aod-ingress-link");   // "New (19) from ..." when there is a buy box seller
+	public By pageOfferSellersBy = By.cssSelector("#aod-offer-soldBy a");   // the seller of each offer in the offers panel
+	public By pageTopBrandBadgeBy = By.id("TOP_BRAND");   // the icon cards under the price: the text is the label
+	public By pagePayOnDeliveryBadgeBy = By.id("PAY_ON_DELIVERY");
 
 	// The same delivery option once it is selected (Amazon makes a selected option bold: a-text-bold).
 	// filterOption is the name returned by getDeliveryDayFilterByName.

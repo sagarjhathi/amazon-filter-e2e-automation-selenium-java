@@ -183,7 +183,8 @@ public OperatingSystemFilterFlows() {
 			}
 
 			// OLD: safeAct.safeClick(productPage.clearButtonBy);
-			genericUtility.clearOption(safeAct, productPage.getAppliedfilterByTypeAndName(filterName, str), listingUrl);
+			// OLD: genericUtility.clearOption(safeAct, productPage.getAppliedfilterByTypeAndName(filterName, str), listingUrl);
+			genericUtility.clearOption(safeAct, filterName, listingUrl);
 			if (i % 10 == 0 && i != 0) {
 				driver.navigate().refresh();
 				log.info("[{}] Refreshing the page to avoid storage issue ->"+str, ThreadContext.get("testName"));

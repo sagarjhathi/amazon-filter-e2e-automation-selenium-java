@@ -1,0 +1,79 @@
+name: Card Filter Checks
+
+# Runs only tests/CardFilterChecks (src/test/runners/CardFilterChecks.xml), one search term per job.
+# Manual only: Actions > Card Filter Checks > Run workflow. The daily CI (main.yml) does not run these.
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+env:
+  JAVA_DISTRIBUTION: temurin
+  JAVA_VERSION: 24
+  WORKDIR: eclipse-workspace/Intro
+
+jobs:
+  card-checks:
+    runs-on: windows-latest
+    timeout-minutes: 300
+    strategy:
+      fail-fast: false   # one term failing shouldn't cancel the others
+      matrix:
+        term: [Laptop, Mobile, Headphones, Tablet, Speaker]
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Set up JDK
+        uses: actions/setup-java@v5
+        with:
+          distribution: ${{ env.JAVA_DISTRIBUTION }}
+          java-version: ${{ env.JAVA_VERSION }}
+          cache: maven
+
+      - name: Build project
+        run: mvn clean compile
+        working-directory: ${{ env.WORKDIR }}
+
+      - name: Run the card filter checks for one term
+        working-directory: ${{ env.WORKDIR }}
+        run: mvn test -Dsurefire.suiteXmlFiles=src/test/runners/CardFilterChecks.xml -DcardChecks.terms=${{ matrix.term }}
+        continue-on-error: true   # a failed check is a result: the logs are still uploaded below
+
+      - name: Find latest run folder
+        id: find_run
+        shell: pwsh
+        run: |
+          $runFolder = Get-ChildItem -Path "${{ env.WORKDIR }}" -Directory -Filter "run_*" |
+                       Sort-Object LastWriteTime -Descending |
+                       Select-Object -First 1
+          echo "RUN_FOLDER=$($runFolder.Name)" >> $env:GITHUB_ENV
+
+      - name: Upload logs, screenshots and Extent report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: card-checks-${{ matrix.term }}
+          path: ${{ env.WORKDIR }}/${{ env.RUN_FOLDER }}
+          retention-days: 30
+
+      - name: Upload what was read (collected JSON)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: card-checks-collected-${{ matrix.term }}
+          path: ${{ env.WORKDIR }}/collected
+          if-no-files-found: warn
+          retention-days: 30
+
+      - name: Upload surefire reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: card-checks-surefire-${{ matrix.term }}
+          path: ${{ env.WORKDIR }}/target/surefire-reports
+          if-no-files-found: warn
+          retention-days: 30
