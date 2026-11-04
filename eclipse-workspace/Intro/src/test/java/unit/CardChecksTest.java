@@ -182,18 +182,37 @@ public class CardChecksTest {
 		Assert.assertEquals(CardChecks.DISCOUNT.threshold, 0.4);
 	}
 
-	// ---- the class has 10 kinds of test, one per search term ----
+	// ---- the card tests: their terms, and the 4 CI shards (TestNG groups) ----
 
+	private static final List<String> SHARDS = Arrays.asList(
+			"CardBrands", "CardSellerReviewsDelivery", "CardTopBrandsRating", "CardPriceDiscountPayOnDelivery");
+
+	// The tests TestNG will run: for each card test method, one run per search term listed for it in filterCoverage.json.
 	@Test
-	public void cardFilterChecksHasTenKindsOfTestsAndFiftyRuns() {
+	public void cardFilterChecksHasTenKindsOfTestsAndTheCoveragePromisesFiftyRuns() {
 		int kinds = 0;
+		int runs = 0;
 		for (Method method : CardFilterChecks.class.getDeclaredMethods()) {
 			if (method.isAnnotationPresent(Test.class)) {
 				kinds++;
+				runs += TestInputs.termsFor(method.getName()).size();
 			}
 		}
 		Assert.assertEquals(kinds, 10, "kinds of test");
-		Assert.assertEquals(TestInputs.searchTerms().size(), 5, "search terms");
-		Assert.assertEquals(kinds * TestInputs.searchTerms().size(), 50, "tests in the suite");
+		Assert.assertEquals(runs, 50, "tests in the suite");
+	}
+
+	// Every card test is in exactly one of the 4 shards (and in CardChecks, which is all of them), so no test is left out of the CI.
+	@Test
+	public void everyCardTestIsInExactlyOneShard() {
+		for (Method method : CardFilterChecks.class.getDeclaredMethods()) {
+			if (!method.isAnnotationPresent(Test.class)) {
+				continue;
+			}
+			List<String> groups = Arrays.asList(method.getAnnotation(Test.class).groups());
+			long shards = SHARDS.stream().filter(groups::contains).count();
+			Assert.assertEquals(shards, 1, method.getName() + " must be in exactly one shard group, its groups: " + groups);
+			Assert.assertTrue(groups.contains("CardChecks"), method.getName() + " must also be in the CardChecks group");
+		}
 	}
 }

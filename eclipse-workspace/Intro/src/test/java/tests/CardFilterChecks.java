@@ -1,5 +1,6 @@
 package test.java.tests;
 
+import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -41,9 +42,15 @@ import main.java.amazonfilterapplicatione2e.utilities.GenericUtility;
 // What was read is saved in collected/ before any check. The rules and thresholds are in utilities/CardChecks.java; the steps on the pages
 // are in flows/CardFilterFlows.java and flows/ProductPageFlows.java. This class only says what to open, what to read and what to compare.
 //
-// Run (no retries, own suite file):  mvn test -Dsurefire.suiteXmlFiles=src/test/runners/CardFilterChecks.xml
-//   -DcardChecks.terms=Headphones   only these search terms (comma separated); blank = all of searchTerms.json
-//   -DsellerProductsPerOption=5  -DbadgeProducts=all|N  -DratingProducts=8  -DpageDelayMs=2000
+// Run (no retries, own suite file):  mvn test "-Dsurefire.suiteXmlFiles=src/test/runners/CardFilterChecks.xml"
+//   The CI runs it in 4 shards, one TestNG group each (the group names say what the shard tests):
+//     CardBrands                      Brands
+//     CardSellerReviewsDelivery       Seller, Customer Reviews, Eligible for Free Delivery
+//     CardTopBrandsRating             Top Brands, rating on the card against the product page
+//     CardPriceDiscountPayOnDelivery  Price range, Discount, Pay On Delivery, card self-check
+//   "-Dgroups=CardBrands"   one shard (CardChecks = every card test)
+//   "-DcardChecks.terms=Headphones"   only these search terms (comma separated); the terms of each test are in data/filterCoverage.json
+//   "-DsellerProductsPerOption=5"  "-DbadgeProducts=all|N"  "-DratingProducts=8"  "-DpageDelayMs=2000"
 public class CardFilterChecks extends BaseTest {
 
 	private final Logger log = LoggerUtility.getLogger(CardFilterChecks.class);
@@ -51,12 +58,17 @@ public class CardFilterChecks extends BaseTest {
 	// A test that reads no cards at all has found nothing to judge.
 	private static final String EXPECT_CARDS = "At least one card was read";
 
-	@DataProvider(name = "SearchTerms")
-	public Object[][] searchTerms() {
+	// The search terms of each test come from data/filterCoverage.json (TestInputs.termsFor), like the old tests.
+	// -DcardChecks.terms=Headphones,Mobile limits a run to those terms (only the ones the test covers).
+	// parallel = true: the terms of one test run side by side, as many as data-provider-thread-count in the suite file says (2).
+	@DataProvider(name = "SearchTerms", parallel = true)
+	public Object[][] searchTerms(Method testMethod) {
+		List<String> terms = TestInputs.termsFor(testMethod.getName());
 		String only = ConfigManager.get("cardChecks.terms");
-		List<String> terms = only == null || only.isBlank()
-				? TestInputs.searchTerms()
-				: Arrays.stream(only.split(",")).map(String::trim).filter(t -> !t.isEmpty()).collect(Collectors.toList());
+		if (only != null && !only.isBlank()) {
+			List<String> wanted = Arrays.stream(only.split(",")).map(String::trim).filter(t -> !t.isEmpty()).collect(Collectors.toList());
+			terms = terms.stream().filter(wanted::contains).collect(Collectors.toList());
+		}
 		Object[][] data = new Object[terms.size()][1];
 		for (int i = 0; i < terms.size(); i++) {
 			data[i][0] = terms.get(i);
@@ -69,28 +81,28 @@ public class CardFilterChecks extends BaseTest {
 	// FILTERS CHECKED ON THE CARDS
 	// ---------------------------------------------------------------------------------------------
 
-	@Test(dataProvider = "SearchTerms", description = "Brands filter, checked on the cards")
+	@Test(dataProvider = "SearchTerms", groups = { "CardBrands", "CardChecks" }, description = "Brands filter, checked on the cards")
 	public void brandsFilterCheckedOnTheCards(String searchTerm) throws InterruptedException {
 		checkCardRule(searchTerm, CardChecks.BRANDS);
 	}
 
-	@Test(dataProvider = "SearchTerms", description = "Customer Reviews filter, checked on the cards")
+	@Test(dataProvider = "SearchTerms", groups = { "CardSellerReviewsDelivery", "CardChecks" }, description = "Customer Reviews filter, checked on the cards")
 	public void customerReviewsFilterCheckedOnTheCards(String searchTerm) throws InterruptedException {
 		checkCardRule(searchTerm, CardChecks.CUSTOMER_REVIEWS);
 	}
 
-	@Test(dataProvider = "SearchTerms", description = "Eligible for Free Delivery filter, checked on the cards")
+	@Test(dataProvider = "SearchTerms", groups = { "CardSellerReviewsDelivery", "CardChecks" }, description = "Eligible for Free Delivery filter, checked on the cards")
 	public void freeDeliveryFilterCheckedOnTheCards(String searchTerm) throws InterruptedException {
 		checkCardRule(searchTerm, CardChecks.FREE_DELIVERY);
 	}
 
 	// Loose rule and a low threshold, because the printed discount is not always the one the filter uses (see CardChecks.DISCOUNT).
-	@Test(dataProvider = "SearchTerms", description = "Discount filter, checked on the cards")
+	@Test(dataProvider = "SearchTerms", groups = { "CardPriceDiscountPayOnDelivery", "CardChecks" }, description = "Discount filter, checked on the cards")
 	public void discountFilterCheckedOnTheCards(String searchTerm) throws InterruptedException {
 		checkCardRule(searchTerm, CardChecks.DISCOUNT);
 	}
 
-	@Test(dataProvider = "SearchTerms", description = "Price range filter, checked on the cards")
+	@Test(dataProvider = "SearchTerms", groups = { "CardPriceDiscountPayOnDelivery", "CardChecks" }, description = "Price range filter, checked on the cards")
 	public void priceRangeFilterCheckedOnTheCards(String searchTerm) throws InterruptedException {
 		start(searchTerm + ": Price range filter, checked on the cards",
 				searchTerm + " Price: every range is applied; the URL and both sliders show the range, and at least 90% of the card prices are inside it");
@@ -125,7 +137,7 @@ public class CardFilterChecks extends BaseTest {
 		soft.assertAll();
 	}
 
-	@Test(dataProvider = "SearchTerms", description = "price, M.R.P. and printed discount of each card agree")
+	@Test(dataProvider = "SearchTerms", groups = { "CardPriceDiscountPayOnDelivery", "CardChecks" }, description = "price, M.R.P. and printed discount of each card agree")
 	public void cardSelfCheck(String searchTerm) throws InterruptedException {
 		start(searchTerm + ": price, M.R.P. and printed discount of each card agree",
 				searchTerm + " card self-check: (M.R.P. - price) / M.R.P. rounds to the printed discount; at least 95% of the cards must agree");
@@ -146,7 +158,7 @@ public class CardFilterChecks extends BaseTest {
 	// FILTERS AND FACTS CHECKED ON THE PRODUCT PAGES
 	// ---------------------------------------------------------------------------------------------
 
-	@Test(dataProvider = "SearchTerms", description = "Pay On Delivery filter, checked on the product pages")
+	@Test(dataProvider = "SearchTerms", groups = { "CardPriceDiscountPayOnDelivery", "CardChecks" }, description = "Pay On Delivery filter, checked on the product pages")
 	public void payOnDeliveryFilterCheckedOnTheProductPages(String searchTerm) throws InterruptedException {
 		start(searchTerm + ": Pay On Delivery filter, checked on the product pages",
 				searchTerm + " Pay On Delivery: the filter is applied; every product page read must show the Pay on Delivery card (a product that cannot be shipped to the location is not judged)");
@@ -176,7 +188,7 @@ public class CardFilterChecks extends BaseTest {
 		soft.assertAll();
 	}
 
-	@Test(dataProvider = "SearchTerms", description = "Top Brands filter, checked on the product pages")
+	@Test(dataProvider = "SearchTerms", groups = { "CardTopBrandsRating", "CardChecks" }, description = "Top Brands filter, checked on the product pages")
 	public void topBrandsFilterCheckedOnTheProductPages(String searchTerm) throws InterruptedException {
 		start(searchTerm + ": Top Brands filter, checked on the product pages",
 				searchTerm + " Top Brands: the filter is applied; every product page read must show the Top Brand card");
@@ -212,7 +224,7 @@ public class CardFilterChecks extends BaseTest {
 	}
 
 	// How reliable the Seller filter is has not been settled yet, so a seller that does not match is reported, not failed.
-	@Test(dataProvider = "SearchTerms", description = "Seller filter, checked on the product pages")
+	@Test(dataProvider = "SearchTerms", groups = { "CardSellerReviewsDelivery", "CardChecks" }, description = "Seller filter, checked on the product pages")
 	public void sellerFilterCheckedOnTheProductPages(String searchTerm) throws InterruptedException {
 		start(searchTerm + ": Seller filter, checked on the product pages",
 				searchTerm + " Seller: each option is applied; the product must be sold by that seller in the buy box or in another offer (reported, not failed)");
@@ -250,7 +262,7 @@ public class CardFilterChecks extends BaseTest {
 		soft.assertAll();
 	}
 
-	@Test(dataProvider = "SearchTerms", description = "rating on the card equals the rating on the product page")
+	@Test(dataProvider = "SearchTerms", groups = { "CardTopBrandsRating", "CardChecks" }, description = "rating on the card equals the rating on the product page")
 	public void ratingOnTheCardEqualsRatingOnTheProductPage(String searchTerm) throws InterruptedException {
 		start(searchTerm + ": rating on the card equals the rating on the product page",
 				searchTerm + " rating: the rating on the card equals the rating on the product page (within 0.1); at least 90% must agree");

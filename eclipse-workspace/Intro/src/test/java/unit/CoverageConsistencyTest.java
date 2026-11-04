@@ -13,18 +13,21 @@ import org.testng.annotations.Test;
 
 import main.java.amazonfilterapplicatione2e.fileReader.TestInputs;
 import test.java.tests.AmazonTests;
+import test.java.tests.CardFilterChecks;
 
 // Checks that the test data files agree with each other and with the tests. A misspelt name would otherwise
 // silently drop tests (a filter that no test uses, or a search term nobody listed).
 // Run:  mvn test -Dsurefire.suiteXmlFiles=src/test/runners/UnitTests.xml
 public class CoverageConsistencyTest {
 
-	// The @Test methods of AmazonTests.
+	// The @Test methods of AmazonTests (the old tests) and CardFilterChecks (the card checks): both take their search terms from the same data files.
 	private static Set<String> testMethods() {
 		Set<String> names = new HashSet<>();
-		for (Method method : AmazonTests.class.getDeclaredMethods()) {
-			if (method.isAnnotationPresent(Test.class)) {
-				names.add(method.getName());
+		for (Class<?> testClass : new Class<?>[] { AmazonTests.class, CardFilterChecks.class }) {
+			for (Method method : testClass.getDeclaredMethods()) {
+				if (method.isAnnotationPresent(Test.class)) {
+					names.add(method.getName());
+				}
 			}
 		}
 		return names;

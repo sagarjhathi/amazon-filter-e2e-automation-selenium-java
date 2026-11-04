@@ -1,8 +1,9 @@
 name: Card Filter Checks
 
-# Runs only tests/CardFilterChecks (src/test/runners/CardFilterChecks.xml), one search term per job.
+# Runs only tests/CardFilterChecks (src/test/runners/CardFilterChecks.xml), in 4 shards: one TestNG group per job, named after what it tests.
+# Each test gets its search terms from data/filterCoverage.json; 2 terms run at a time inside a shard.
 # Starts by hand (Actions > Card Filter Checks > Run workflow) or on a push to the branch listed under "on:". The daily CI (main.yml) does not run these.
-# Jobs: check (compile + unit tests) -> card-checks (one job per term) -> report (merged Allure report + one site, published to gh-pages).
+# Jobs: check (compile + unit tests) -> card-checks (one job per shard) -> report (merged Allure report + one site, published to gh-pages).
 on:
   push:
     # TEMPORARY: a push to this branch runs the card checks and publishes their reports. Remove it before merging to master.
@@ -44,15 +45,17 @@ jobs:
         run: mvn -q test "-Dsurefire.suiteXmlFiles=src/test/runners/UnitTests.xml"
         working-directory: ${{ env.WORKDIR }}
 
-  # One job per search term: runs the card checks for that term and uploads its report, logs and what was read.
+  # One job per shard (TestNG group): runs that group's card checks and uploads its report, logs and what was read.
+  # CardBrands: Brands. CardSellerReviewsDelivery: Seller, Customer Reviews, Free Delivery. CardTopBrandsRating: Top Brands, rating.
+  # CardPriceDiscountPayOnDelivery: Price range, Discount, Pay On Delivery, card self-check.
   card-checks:
     needs: check
     runs-on: windows-latest
     timeout-minutes: 300
     strategy:
-      fail-fast: false   # one term failing shouldn't cancel the others
+      fail-fast: false   # one shard failing shouldn't cancel the others
       matrix:
-        term: [Laptop, Mobile, Headphones, Tablet, Speaker]
+        group: [CardBrands, CardSellerReviewsDelivery, CardTopBrandsRating, CardPriceDiscountPayOnDelivery]
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -70,9 +73,9 @@ jobs:
         run: mvn clean compile
         working-directory: ${{ env.WORKDIR }}
 
-      - name: Run the card filter checks for one term
+      - name: Run the card filter checks of one shard
         working-directory: ${{ env.WORKDIR }}
-        run: mvn test "-Dsurefire.suiteXmlFiles=src/test/runners/CardFilterChecks.xml" "-DcardChecks.terms=${{ matrix.term }}"
+        run: mvn test "-Dsurefire.suiteXmlFiles=src/test/runners/CardFilterChecks.xml" "-Dgroups=${{ matrix.group }}"
         continue-on-error: true   # a failed check is a result: the reports are still uploaded below
 
       - name: Find latest run folder
@@ -85,12 +88,12 @@ jobs:
           echo "RUN_FOLDER=$($runFolder.Name)" >> $env:GITHUB_ENV
 
       # The run folder is the report: reports/ExtentReport.html, with logs/ and screenshots/ next to it (the report links to them).
-      # The report job downloads these by the name card-checks-<term>-report.
+      # The report job downloads these by the name card-checks-<shard>-report.
       - name: Upload Extent report (with its logs and screenshots)
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: card-checks-${{ matrix.term }}-report
+          name: card-checks-${{ matrix.group }}-report
           path: ${{ env.WORKDIR }}/${{ env.RUN_FOLDER }}
           retention-days: 7
 
@@ -98,7 +101,7 @@ jobs:
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: card-checks-collected-${{ matrix.term }}
+          name: card-checks-collected-${{ matrix.group }}
           path: ${{ env.WORKDIR }}/collected
           if-no-files-found: warn
           retention-days: 30
@@ -107,29 +110,29 @@ jobs:
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: card-checks-surefire-${{ matrix.term }}
+          name: card-checks-surefire-${{ matrix.group }}
           path: ${{ env.WORKDIR }}/target/surefire-reports
           if-no-files-found: warn
           retention-days: 30
 
-      # The raw Allure results of this term. The report job merges the five terms into one Allure report.
+      # The raw Allure results of this shard. The report job merges the four shards into one Allure report.
       - name: Upload Allure results
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: card-checks-allure-results-${{ matrix.term }}
+          name: card-checks-allure-results-${{ matrix.group }}
           path: ${{ env.WORKDIR }}/target/allure-results
           if-no-files-found: warn
           retention-days: 7
 
-  # Collects the per-term reports into one site and publishes it to the gh-pages branch. Runs even when some terms
+  # Collects the per-shard reports into one site and publishes it to the gh-pages branch. Runs even when some shards
   # failed; skipped when the checks never ran. It replaces ONLY card-checks/ and index.html there; the CI Pipeline's allure/, extent/ and run-info.txt are left alone.
   report:
     needs: card-checks
     if: ${{ !cancelled() && needs.card-checks.result != 'skipped' }}
     runs-on: ubuntu-latest
     timeout-minutes: 20
-    # contents: write is needed to push to gh-pages; actions: write to delete the per-term artifacts afterwards.
+    # contents: write is needed to push to gh-pages; actions: write to delete the per-shard artifacts afterwards.
     permissions:
       contents: write
       actions: write
@@ -143,30 +146,30 @@ jobs:
         uses: actions/checkout@v4
 
       # Without merge-multiple, each artifact lands in its own folder named like the artifact.
-      - name: Download the per-term reports
+      - name: Download the per-shard reports
         uses: actions/download-artifact@v4
         with:
           path: all-reports
           pattern: card-checks-*-report
 
-      # Result files have unique names, so the five terms can be merged into one folder.
-      - name: Download the per-term Allure results
+      # Result files have unique names, so the shards can be merged into one folder.
+      - name: Download the per-shard Allure results
         uses: actions/download-artifact@v4
         with:
           path: allure-results
           pattern: card-checks-allure-results-*
           merge-multiple: true
 
-      # site/card-checks/extent/<term>/ is each term's run folder, kept whole (the Extent report links to its logs/ and screenshots/).
+      # site/card-checks/extent/<shard>/ is each shard's run folder, kept whole (the Extent report links to its logs/ and screenshots/).
       # The Extent reports are not merged, they are separate pages. The landing page links them by fixed names.
       - name: Build the site
         run: |
           mkdir -p site/card-checks/extent
           for dir in all-reports/card-checks-*-report; do
             [ -d "$dir" ] || continue
-            term="${dir#all-reports/card-checks-}"
-            term="${term%-report}"
-            mv "$dir" "site/card-checks/extent/$term"
+            shard="${dir#all-reports/card-checks-}"
+            shard="${shard%-report}"
+            mv "$dir" "site/card-checks/extent/$shard"
           done
           if [ -z "$(ls -A site/card-checks/extent)" ]; then echo "No reports were downloaded."; exit 1; fi
 
@@ -229,9 +232,9 @@ jobs:
           git commit -m "Publish card checks reports from run #${{ github.run_number }}"
           git push --force origin latest:gh-pages
 
-      # The per-term reports and Allure results only exist to feed this job; card-checks-site holds the reports.
+      # The per-shard reports and Allure results only exist to feed this job; card-checks-site holds the reports.
       # If any step above failed, this step is skipped and they stay, so the job can be re-run without re-running the checks.
-      - name: Delete the per-term artifacts
+      - name: Delete the per-shard artifacts
         if: ${{ success() }}
         continue-on-error: true   # cleanup only: a failure here must not fail the run
         env:

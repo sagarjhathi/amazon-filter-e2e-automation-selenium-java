@@ -13,5 +13,16 @@
   "Get It Today":                          ["Mobile", "Laptop", "Tablet"],
   "Get It by Tomorrow":                    ["Mobile", "Laptop", "Tablet"],
   "Get It in 2 Days":                      ["Mobile", "Laptop", "Tablet"],
-  "Free Delivery":                         ["Mobile", "Laptop", "Tablet"]
+  "Free Delivery":                         ["Mobile", "Laptop", "Tablet"],
+
+  "Brands (cards)":                        ["Laptop", "Mobile", "Headphones", "Tablet", "Speaker"],
+  "Customer Reviews (cards)":              ["Laptop", "Mobile", "Headphones", "Tablet", "Speaker"],
+  "Eligible for Free Delivery (cards)":    ["Laptop", "Mobile", "Headphones", "Tablet", "Speaker"],
+  "Discount (cards)":                      ["Laptop", "Mobile", "Headphones", "Tablet", "Speaker"],
+  "Price range (cards)":                   ["Laptop", "Mobile", "Headphones", "Tablet", "Speaker"],
+  "Pay On Delivery (cards)":               ["Laptop", "Mobile", "Headphones", "Tablet", "Speaker"],
+  "Top Brands (cards)":                    ["Laptop", "Mobile", "Headphones", "Tablet", "Speaker"],
+  "Seller (cards)":                        ["Laptop", "Mobile", "Headphones", "Tablet", "Speaker"],
+  "Card self-check":                       ["Laptop", "Mobile", "Headphones", "Tablet", "Speaker"],
+  "Card rating":                           ["Laptop", "Mobile", "Headphones", "Tablet", "Speaker"]
 }
