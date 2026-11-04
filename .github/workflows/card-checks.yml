@@ -2,6 +2,7 @@ name: Card Filter Checks
 
 # Runs only tests/CardFilterChecks (src/test/runners/CardFilterChecks.xml), one search term per job.
 # Manual only: Actions > Card Filter Checks > Run workflow. The daily CI (main.yml) does not run these.
+# Jobs: check (compile + unit tests) -> card-checks (one job per term) -> report (one site with all the reports, published to gh-pages).
 on:
   workflow_dispatch:
 
@@ -14,7 +15,35 @@ env:
   WORKDIR: eclipse-workspace/Intro
 
 jobs:
+  # Runs once, so a compile error or a broken unit test stops the run before five browsers start. Opens no Amazon page.
+  check:
+    runs-on: windows-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Set up JDK
+        uses: actions/setup-java@v5
+        with:
+          distribution: ${{ env.JAVA_DISTRIBUTION }}
+          java-version: ${{ env.JAVA_VERSION }}
+          cache: maven
+
+      - name: Compile main and test code
+        run: mvn -q test-compile
+        working-directory: ${{ env.WORKDIR }}
+
+      # The unit suite: no browser. (The project has no lint or style tool in pom.xml, so there is nothing to run for that.)
+      - name: Unit tests
+        run: mvn -q test -Dsurefire.suiteXmlFiles=src/test/runners/UnitTests.xml
+        working-directory: ${{ env.WORKDIR }}
+
+  # One job per search term: runs the card checks for that term and uploads its report, logs and what was read.
   card-checks:
+    needs: check
     runs-on: windows-latest
     timeout-minutes: 300
     strategy:
@@ -41,7 +70,7 @@ jobs:
       - name: Run the card filter checks for one term
         working-directory: ${{ env.WORKDIR }}
         run: mvn test -Dsurefire.suiteXmlFiles=src/test/runners/CardFilterChecks.xml -DcardChecks.terms=${{ matrix.term }}
-        continue-on-error: true   # a failed check is a result: the logs are still uploaded below
+        continue-on-error: true   # a failed check is a result: the reports are still uploaded below
 
       - name: Find latest run folder
         id: find_run
@@ -52,13 +81,15 @@ jobs:
                        Select-Object -First 1
           echo "RUN_FOLDER=$($runFolder.Name)" >> $env:GITHUB_ENV
 
-      - name: Upload logs, screenshots and Extent report
+      # The run folder is the report: reports/ExtentReport.html, with logs/ and screenshots/ next to it (the report links to them).
+      # The report job downloads these by the name card-checks-<term>-report.
+      - name: Upload Extent report (with its logs and screenshots)
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: card-checks-${{ matrix.term }}
+          name: card-checks-${{ matrix.term }}-report
           path: ${{ env.WORKDIR }}/${{ env.RUN_FOLDER }}
-          retention-days: 30
+          retention-days: 7
 
       - name: Upload what was read (collected JSON)
         if: always()
@@ -77,3 +108,94 @@ jobs:
           path: ${{ env.WORKDIR }}/target/surefire-reports
           if-no-files-found: warn
           retention-days: 30
+
+  # Collects the per-term reports into one site (one folder per term plus a small index page) and publishes it to
+  # the gh-pages branch, in the folder card-checks/. Runs even when some terms failed; skipped when the checks never ran.
+  report:
+    needs: card-checks
+    if: ${{ !cancelled() && needs.card-checks.result != 'skipped' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    # contents: write is needed to push to gh-pages; actions: write to delete the per-term artifacts afterwards.
+    permissions:
+      contents: write
+      actions: write
+    # Only one publish at a time, so two runs never push to gh-pages together.
+    concurrency:
+      group: pages-publish
+      cancel-in-progress: false
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # Without merge-multiple, each artifact lands in its own folder named like the artifact.
+      - name: Download the per-term reports
+        uses: actions/download-artifact@v4
+        with:
+          path: all-reports
+          pattern: card-checks-*-report
+
+      # site/card-checks/<term>/ is each term's run folder; the Extent reports are not merged, they are separate pages.
+      # The index page lists the terms that have a report.
+      - name: Build the site
+        run: |
+          mkdir -p site/card-checks
+          : > links.html
+          for dir in all-reports/card-checks-*-report; do
+            [ -d "$dir" ] || continue
+            term="${dir#all-reports/card-checks-}"
+            term="${term%-report}"
+            mv "$dir" "site/card-checks/$term"
+            echo "<a class=\"report\" href=\"./$term/reports/ExtentReport.html\"><strong>$term</strong>Extent report with logs and screenshots</a>" >> links.html
+          done
+          if [ ! -s links.html ]; then echo "No reports were downloaded."; exit 1; fi
+
+          RUN="Run #${{ github.run_number }} - commit ${GITHUB_SHA::7} - $(date -u +'%Y-%m-%d %H:%M UTC')"
+          echo "$RUN" > site/card-checks/run-info.txt
+          sed -e "s|@@RUN@@|$RUN|" -e '/@@LINKS@@/{r links.html' -e 'd}' .github/pages/card-checks-index.html > site/card-checks/index.html
+
+      # Also downloadable, so the reports are available when publishing is skipped. Open index.html from the unzipped folder.
+      - name: Upload the site
+        uses: actions/upload-artifact@v4
+        with:
+          name: card-checks-site
+          path: site/
+          retention-days: 30
+
+      # ---- Publish ----
+
+      - name: Check out gh-pages
+        if: ${{ github.event_name == 'push' || github.event_name == 'workflow_dispatch' }}
+        uses: actions/checkout@v4
+        with:
+          ref: gh-pages
+          path: pages
+
+      - name: Publish to gh-pages
+        if: ${{ github.event_name == 'push' || github.event_name == 'workflow_dispatch' }}
+        run: |
+          cd pages
+          # Only the card-checks folder is replaced. Every other folder and file on the branch is left as it is.
+          rm -rf card-checks
+          cp -r ../site/card-checks card-checks
+          touch .nojekyll
+
+          # One fresh commit each time, so the branch never grows with old reports.
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git checkout --orphan latest
+          git add -A
+          git commit -m "Publish card checks reports from run #${{ github.run_number }}"
+          git push --force origin latest:gh-pages
+
+      # The per-term reports only exist to feed this job; card-checks-site holds them all. If any step above failed,
+      # this step is skipped and they stay, so the job can be re-run without re-running the checks.
+      - name: Delete the per-term report artifacts
+        if: ${{ success() }}
+        continue-on-error: true   # cleanup only: a failure here must not fail the run
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh api "repos/${{ github.repository }}/actions/runs/${{ github.run_id }}/artifacts" --paginate \
+            --jq '.artifacts[] | select(.name | test("^card-checks-[A-Za-z]+-report$")) | .id' |
+            xargs -I{} gh api -X DELETE "repos/${{ github.repository }}/actions/artifacts/{}"
