@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Amazon Filter E2E: Selenium + Java Test Reports</title>
+  <style>
+    body { margin: 0; padding: 48px 16px; background: #f5f6f8; color: #1a1a2e;
+           font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+    .container { max-width: 680px; margin: 0 auto; }
+    h1 { font-size: 24px; margin: 0 0 4px 0; }
+    h2 { font-size: 18px; margin: 36px 0 4px 0; }
+    p, .subtitle { color: #6b7280; font-size: 14px; margin: 4px 0 12px 0; }
+    a.card { display: block; background: #fff; border: 1px solid #e5e7eb; border-radius: 10px;
+             padding: 16px 20px; margin-bottom: 12px; text-decoration: none; color: inherit; }
+    a.card:hover { box-shadow: 0 4px 14px rgba(0, 0, 0, .08); border-color: #c7d2fe; }
+    .card-title { font-size: 16px; font-weight: 600; margin-bottom: 4px; }
+    .card-desc { font-size: 13px; color: #6b7280; }
+    .badge { display: inline-block; font-size: 11px; font-weight: 600; color: #4338ca; background: #eef2ff;
+             border-radius: 999px; padding: 2px 10px; margin-bottom: 8px; }
+    .extent { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 8px 0; }
+    .extent a { font-size: 14px; padding: 6px 12px; border: 1px solid #d1d5db; border-radius: 8px; background: #fff;
+                text-decoration: none; color: #1a1a2e; }
+    .extent a:hover { border-color: #2563eb; }
+    small { color: #6b7280; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Amazon Filter E2E: Selenium + Java Test Reports</h1>
+    <div class="subtitle">Latest results on amazon.in. Each suite is run by its own workflow and publishes only its own folders.</div>
+
+    <h2>CI Pipeline</h2>
+    <p>Every filter option is applied and the products are checked against it.</p>
+
+    <a class="card" href="./allure/">
+      <span class="badge">MERGED</span>
+      <div class="card-title">Allure report</div>
+      <div class="card-desc">All 3 groups in one dashboard, with trend graphs across runs.</div>
+    </a>
+
+    <p>Extent report of each group:</p>
+    <div class="extent">
+      <a href="./extent/BatteryProcessorStorage/reports/ExtentReport.html">Battery / Processor / Storage</a>
+      <a href="./extent/BrandsScreenSizeTypeCamEtc/reports/ExtentReport.html">Brands / Screen Size / Camera</a>
+      <a href="./extent/DeliveryPriceOs/reports/ExtentReport.html">Delivery / Price / OS</a>
+    </div>
+    <small data-info="run-info.txt"></small>
+
+    <h2>Card Filter Checks</h2>
+    <p>Filters checked against exact facts on the product cards and the product pages.</p>
+
+    <a class="card" href="./card-checks/allure/">
+      <span class="badge">MERGED</span>
+      <div class="card-title">Allure report</div>
+      <div class="card-desc">All 5 search terms in one dashboard, with trend graphs across runs.</div>
+    </a>
+
+    <p>Extent report of each search term:</p>
+    <div class="extent">
+      <a href="./card-checks/extent/Laptop/reports/ExtentReport.html">Laptop</a>
+      <a href="./card-checks/extent/Mobile/reports/ExtentReport.html">Mobile</a>
+      <a href="./card-checks/extent/Headphones/reports/ExtentReport.html">Headphones</a>
+      <a href="./card-checks/extent/Tablet/reports/ExtentReport.html">Tablet</a>
+      <a href="./card-checks/extent/Speaker/reports/ExtentReport.html">Speaker</a>
+    </div>
+    <small data-info="card-checks/run-info.txt"></small>
+  </div>
+
+  <!-- Each workflow writes the run line of its own reports (run number, commit, time) to a text file.
+       A suite that has not published yet has none, and its section then says so. -->
+  <script>
+    document.querySelectorAll("[data-info]").forEach(function (line) {
+      fetch(line.dataset.info + "?t=" + Date.now())
+        .then(function (response) { if (!response.ok) { throw new Error(response.status); } return response.text(); })
+        .then(function (text) { line.textContent = text.trim(); })
+        .catch(function () { line.textContent = "No run published yet."; });
+    });
+  </script>
+</body>
+</html>

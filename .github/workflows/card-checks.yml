@@ -1,9 +1,12 @@
 name: Card Filter Checks
 
 # Runs only tests/CardFilterChecks (src/test/runners/CardFilterChecks.xml), one search term per job.
-# Manual only: Actions > Card Filter Checks > Run workflow. The daily CI (main.yml) does not run these.
-# Jobs: check (compile + unit tests) -> card-checks (one job per term) -> report (one site with all the reports, published to gh-pages).
+# Starts by hand (Actions > Card Filter Checks > Run workflow) or on a push to the branch listed under "on:". The daily CI (main.yml) does not run these.
+# Jobs: check (compile + unit tests) -> card-checks (one job per term) -> report (merged Allure report + one site, published to gh-pages).
 on:
+  push:
+    # TEMPORARY: a push to this branch runs the card checks and publishes their reports. Remove it before merging to master.
+    branches: [port-improv-from-sibling]
   workflow_dispatch:
 
 permissions:
@@ -109,8 +112,18 @@ jobs:
           if-no-files-found: warn
           retention-days: 30
 
-  # Collects the per-term reports into one site (one folder per term plus a small index page) and publishes it to
-  # the gh-pages branch, in the folder card-checks/. Runs even when some terms failed; skipped when the checks never ran.
+      # The raw Allure results of this term. The report job merges the five terms into one Allure report.
+      - name: Upload Allure results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: card-checks-allure-results-${{ matrix.term }}
+          path: ${{ env.WORKDIR }}/target/allure-results
+          if-no-files-found: warn
+          retention-days: 7
+
+  # Collects the per-term reports into one site and publishes it to the gh-pages branch. Runs even when some terms
+  # failed; skipped when the checks never ran. It replaces ONLY card-checks/ and index.html there; the CI Pipeline's allure/, extent/ and run-info.txt are left alone.
   report:
     needs: card-checks
     if: ${{ !cancelled() && needs.card-checks.result != 'skipped' }}
@@ -120,11 +133,12 @@ jobs:
     permissions:
       contents: write
       actions: write
-    # Only one publish at a time, so two runs never push to gh-pages together.
+    # Only one publish at a time (the same group as main.yml), so two runs never push to gh-pages together.
     concurrency:
       group: pages-publish
       cancel-in-progress: false
     steps:
+      # The landing page (.github/pages/index.html) is copied from here.
       - name: Checkout code
         uses: actions/checkout@v4
 
@@ -135,26 +149,59 @@ jobs:
           path: all-reports
           pattern: card-checks-*-report
 
-      # site/card-checks/<term>/ is each term's run folder; the Extent reports are not merged, they are separate pages.
-      # The index page lists the terms that have a report.
+      # Result files have unique names, so the five terms can be merged into one folder.
+      - name: Download the per-term Allure results
+        uses: actions/download-artifact@v4
+        with:
+          path: allure-results
+          pattern: card-checks-allure-results-*
+          merge-multiple: true
+
+      # site/card-checks/extent/<term>/ is each term's run folder, kept whole (the Extent report links to its logs/ and screenshots/).
+      # The Extent reports are not merged, they are separate pages. The landing page links them by fixed names.
       - name: Build the site
         run: |
-          mkdir -p site/card-checks
-          : > links.html
+          mkdir -p site/card-checks/extent
           for dir in all-reports/card-checks-*-report; do
             [ -d "$dir" ] || continue
             term="${dir#all-reports/card-checks-}"
             term="${term%-report}"
-            mv "$dir" "site/card-checks/$term"
-            echo "<a class=\"report\" href=\"./$term/reports/ExtentReport.html\"><strong>$term</strong>Extent report with logs and screenshots</a>" >> links.html
+            mv "$dir" "site/card-checks/extent/$term"
           done
-          if [ ! -s links.html ]; then echo "No reports were downloaded."; exit 1; fi
+          if [ -z "$(ls -A site/card-checks/extent)" ]; then echo "No reports were downloaded."; exit 1; fi
 
-          RUN="Run #${{ github.run_number }} - commit ${GITHUB_SHA::7} - $(date -u +'%Y-%m-%d %H:%M UTC')"
-          echo "$RUN" > site/card-checks/run-info.txt
-          sed -e "s|@@RUN@@|$RUN|" -e '/@@LINKS@@/{r links.html' -e 'd}' .github/pages/card-checks-index.html > site/card-checks/index.html
+          # The landing page reads this line to show which run the card-checks reports are from.
+          echo "Run #${{ github.run_number }} - commit ${GITHUB_SHA::7} - $(date -u +'%Y-%m-%d %H:%M UTC')" > site/card-checks/run-info.txt
+          cp .github/pages/index.html site/index.html
 
-      # Also downloadable, so the reports are available when publishing is skipped. Open index.html from the unzipped folder.
+      - name: Set up Node (for Allure CLI)
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      # The gh-pages branch holds the previously published reports; the last Allure report of the card checks (card-checks/allure)
+      # keeps its history there, which is copied back so the trend graphs carry over.
+      - name: Check out gh-pages
+        if: ${{ github.event_name == 'push' || github.event_name == 'workflow_dispatch' }}
+        uses: actions/checkout@v4
+        with:
+          ref: gh-pages
+          path: pages
+
+      # The first time there is no history, so nothing is copied.
+      - name: Copy previous Allure history (for trend graphs)
+        run: |
+          if [ -d pages/card-checks/allure/history ]; then
+            cp -r pages/card-checks/allure/history allure-results/history
+          fi
+
+      - name: Generate the merged Allure report
+        run: |
+          npm install -g allure-commandline
+          allure generate allure-results --clean --report-name "Amazon Filter E2E - Card Filter Checks" -o site/card-checks/allure
+
+      # Also downloadable, so the reports are available when publishing is skipped.
+      # Open site/index.html from the unzipped folder; the Allure report needs "npx allure open" (browsers block its data loading from a plain file).
       - name: Upload the site
         uses: actions/upload-artifact@v4
         with:
@@ -164,20 +211,14 @@ jobs:
 
       # ---- Publish ----
 
-      - name: Check out gh-pages
-        if: ${{ github.event_name == 'push' || github.event_name == 'workflow_dispatch' }}
-        uses: actions/checkout@v4
-        with:
-          ref: gh-pages
-          path: pages
-
       - name: Publish to gh-pages
         if: ${{ github.event_name == 'push' || github.event_name == 'workflow_dispatch' }}
         run: |
           cd pages
-          # Only the card-checks folder is replaced. Every other folder and file on the branch is left as it is.
+          # Only card-checks/ and index.html are replaced. Every other folder and file on the branch (the CI Pipeline's allure/, extent/, run-info.txt) is left as it is.
           rm -rf card-checks
           cp -r ../site/card-checks card-checks
+          cp ../site/index.html index.html
           touch .nojekyll
 
           # One fresh commit each time, so the branch never grows with old reports.
@@ -188,14 +229,14 @@ jobs:
           git commit -m "Publish card checks reports from run #${{ github.run_number }}"
           git push --force origin latest:gh-pages
 
-      # The per-term reports only exist to feed this job; card-checks-site holds them all. If any step above failed,
-      # this step is skipped and they stay, so the job can be re-run without re-running the checks.
-      - name: Delete the per-term report artifacts
+      # The per-term reports and Allure results only exist to feed this job; card-checks-site holds the reports.
+      # If any step above failed, this step is skipped and they stay, so the job can be re-run without re-running the checks.
+      - name: Delete the per-term artifacts
         if: ${{ success() }}
         continue-on-error: true   # cleanup only: a failure here must not fail the run
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
           gh api "repos/${{ github.repository }}/actions/runs/${{ github.run_id }}/artifacts" --paginate \
-            --jq '.artifacts[] | select(.name | test("^card-checks-[A-Za-z]+-report$")) | .id' |
+            --jq '.artifacts[] | select(.name | test("^card-checks-([A-Za-z]+-report|allure-results-[A-Za-z]+)$")) | .id' |
             xargs -I{} gh api -X DELETE "repos/${{ github.repository }}/actions/artifacts/{}"

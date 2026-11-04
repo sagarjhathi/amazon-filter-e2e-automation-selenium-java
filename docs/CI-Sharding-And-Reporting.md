@@ -163,7 +163,7 @@ place (or nowhere). So instead, each shard's entire downloaded folder — `repor
 its own named subfolder:
 
 ```
-run_<common-timestamp>/
+extent/                            (at the root of gh-pages; there is no run_<timestamp> folder any more)
   BatteryProcessorStorage/
     reports/ExtentReport.html   <- internal ../logs, ../screenshots still resolve correctly
     logs/...
@@ -176,9 +176,8 @@ run_<common-timestamp>/
     reports/ExtentReport.html
     logs/...
     screenshots/...
-  allure-report/
-    index.html
 ```
+The merged Allure report is published next to it as `allure/` (with its `history/`), the run line as `run-info.txt`, and the card checks in their own `card-checks/` folder (see `.github/workflows/card-checks.yml`).
 Because nothing inside each shard's folder was touched — only the folder itself was moved and
 renamed — none of the HTML's internal relative links need rewriting. Three separate, fully
 working Extent reports, plus one merged Allure dashboard.

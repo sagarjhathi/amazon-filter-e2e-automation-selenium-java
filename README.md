@@ -91,7 +91,7 @@ This framework is built using a rich, modern, and production oriented technology
 - **Parallel test sharding** using a matrix build: tests are split into three meaningfully named TestNG groups, each running on its own runner.
 - **CI aware configuration toggling** that adjusts execution scale based on the trigger source.
 - **Artifact storage** for preserving logs, screenshots, and Allure results.
-- **GitHub Pages deployment** of a report hub page linking the merged Allure report and each shard's Extent report.
+- **GitHub Pages deployment** of one landing page with two sections (CI Pipeline and Card Filter Checks). Each links its merged Allure report (with trend history) and its Extent reports (one per CI group / per search term). Each workflow publishes only its own folders: `allure/`, `extent/` for the CI Pipeline; `card-checks/` for the card checks.
 - **Downloadable merged Allure report**: each run also uploads it as a single HTML file (artifact `allure-report-merged`, kept 30 days) that opens without a server.
 
 ## Team Communication and Alerting
