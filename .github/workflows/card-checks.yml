@@ -46,8 +46,8 @@ jobs:
         working-directory: ${{ env.WORKDIR }}
 
   # One job per shard (TestNG group): runs that group's card checks and uploads its report, logs and what was read.
-  # CardBrands: Brands. CardSellerReviewsDelivery: Seller, Customer Reviews, Free Delivery. CardTopBrandsRating: Top Brands, rating.
-  # CardPriceDiscountPayOnDelivery: Price range, Discount, Pay On Delivery, card self-check.
+  # CardSeller: Seller. CardBrandsReviewsDelivery: Brands, Customer Reviews, Free Delivery. CardTopBrandsPayOnDelivery: Top Brands, Pay On Delivery.
+  # CardRatingPriceDiscountSelfCheck: rating on the card vs the product page, Price range, Discount, card self-check. Balanced by run time (Seller is the longest).
   card-checks:
     needs: check
     runs-on: windows-latest
@@ -55,7 +55,7 @@ jobs:
     strategy:
       fail-fast: false   # one shard failing shouldn't cancel the others
       matrix:
-        group: [CardBrands, CardSellerReviewsDelivery, CardTopBrandsRating, CardPriceDiscountPayOnDelivery]
+        group: [CardSeller, CardBrandsReviewsDelivery, CardTopBrandsPayOnDelivery, CardRatingPriceDiscountSelfCheck]
     steps:
       - name: Checkout code
         uses: actions/checkout@v4

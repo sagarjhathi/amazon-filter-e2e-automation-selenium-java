@@ -145,7 +145,7 @@ public class CardChecks {
 		if (Double.isNaN(price) || Double.isNaN(mrp) || Double.isNaN(printed)) {
 			return new Judged(shorten(card.title, 40), Verdict.NO_VALUE);
 		}
-		String what = shorten(card.title, 40) + " price " + price + ", M.R.P. " + mrp + ", printed " + printed + "%";
+		String what = shorten(card.title, 40) + " price " + price + ", M.R.P. " + mrp + ", printed " + printed + "% (as read: '" + card.price + "', '" + card.mrp + "', '" + card.discount + "')";
 		boolean agrees = Math.abs(Math.round((mrp - price) / mrp * 100) - printed) <= 1;
 		return new Judged(what, agrees ? Verdict.FITS : Verdict.DOES_NOT_FIT);
 	}

@@ -185,7 +185,7 @@ public class CardChecksTest {
 	// ---- the card tests: their terms, and the 4 CI shards (TestNG groups) ----
 
 	private static final List<String> SHARDS = Arrays.asList(
-			"CardBrands", "CardSellerReviewsDelivery", "CardTopBrandsRating", "CardPriceDiscountPayOnDelivery");
+			"CardSeller", "CardBrandsReviewsDelivery", "CardTopBrandsPayOnDelivery", "CardRatingPriceDiscountSelfCheck");
 
 	// The tests TestNG will run: for each card test method, one run per search term listed for it in filterCoverage.json.
 	@Test

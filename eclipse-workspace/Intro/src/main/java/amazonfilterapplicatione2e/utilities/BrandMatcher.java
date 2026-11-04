@@ -27,7 +27,7 @@ public class BrandMatcher {
 		ALIASES.put("tecno", new String[] { "spark" });
 		ALIASES.put("creative", new String[] { "sound blaster" });
 		// OLD: ALIASES.put("leaf studios", new String[] { "leaf" });   (removed: "leaf" is an everyday word)
-		// OLD: ALIASES.put("ant esports", new String[] { "ant" });   (removed: "ant" is an everyday word)
+		ALIASES.put("ant esports", new String[] { "ant" });   // restored: titles say "Ant Glory 20"
 		ALIASES.put("polk audio", new String[] { "polk" });
 		ALIASES.put("samsung", new String[] { "galaxy" });
 		ALIASES.put("google", new String[] { "pixel" });

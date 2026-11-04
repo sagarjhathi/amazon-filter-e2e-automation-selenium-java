@@ -253,6 +253,15 @@ public class ProductPageFlows extends BasePage {
 		return false;
 	}
 
+	// Scrolls the offers panel (its own scroll box, when it has one) and the last seller into view, so the panel loads more offers.
+	private void scrollOffersPanelToEnd() {
+		((JavascriptExecutor) driver).executeScript(
+				"var box = document.querySelector('#all-offers-display-scroller, #aod-container');"
+				+ "if (box) { box.scrollTop = box.scrollHeight; }"
+				+ "var all = document.querySelectorAll('#aod-offer-soldBy a');"
+				+ "if (all.length) { all[all.length - 1].scrollIntoView({block:'end'}); }");
+	}
+
 	// Opens the panel with all the offers of a product page and returns the seller of each offer (each name once).
 	// The panel is opened with "See All Buying Options" (no buy box seller) or the "New (n) from" link (a buy box seller).
 	// When the page has neither, the same product is loaded with ?aod=1, which opens the panel by itself. Returns [] if it cannot be read.
@@ -274,12 +283,19 @@ public class ProductPageFlows extends BasePage {
 			new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.presenceOfElementLocated(productPage.pageOfferSellersBy));
 			pause(1000);
 
-			// The panel lists about 12 offers and loads more as it is scrolled. Scroll to its end until no more appear.
+			// OLD: 5 rounds, each scrolled the last seller into view and waited 1 s; it stopped at the first round with nothing new,
+			//      and the panel stopped at 10-11 sellers in the CI run (more load slowly, or only when the panel itself is scrolled).
+			// The panel lists about 12 offers and loads more as it is scrolled. Scroll the panel to its end and wait up to 2 s for new
+			// sellers; repeat until a whole wait brings none (or 5 rounds). Only then are the sellers read.
 			for (int round = 0; round < 5; round++) {
-				List<WebElement> before = driver.findElements(productPage.pageOfferSellersBy);
-				((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView({block:'end'});", before.get(before.size() - 1));
-				pause(1000);
-				if (driver.findElements(productPage.pageOfferSellersBy).size() == before.size()) {
+				int before = driver.findElements(productPage.pageOfferSellersBy).size();
+				scrollOffersPanelToEnd();
+				boolean grew = false;
+				for (int waited = 0; waited < 4 && !grew; waited++) {
+					pause(500);
+					grew = driver.findElements(productPage.pageOfferSellersBy).size() > before;
+				}
+				if (!grew) {
 					break;
 				}
 			}

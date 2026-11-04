@@ -145,7 +145,7 @@ public class FilterMatcherTest {
 		assertTrue(BrandMatcher.titleHasBrand("Jio", "JioBharat V4 4G keypad phone"));
 		assertTrue(BrandMatcher.titleHasBrand("Creative", "Sound Blaster X5"));
 		// OLD: assertTrue(BrandMatcher.titleHasBrand("Leaf Studios", "Leaf Bass Headphones"));   (the "leaf" alias was removed: everyday word)
-		// OLD: assertTrue(BrandMatcher.titleHasBrand("ANT Esports", "Ant Mouse Pad"));   (the "ant" alias was removed: everyday word)
+		assertTrue(BrandMatcher.titleHasBrand("ANT Esports", "Ant Mouse Pad"));   // the "ant" alias is back
 		assertTrue(BrandMatcher.titleHasBrand("ANT Esports", "ANT Esports GM320 Mouse"));   // the brand name itself still passes
 	}
 
