@@ -41,7 +41,7 @@ jobs:
 
       # The unit suite: no browser. (The project has no lint or style tool in pom.xml, so there is nothing to run for that.)
       - name: Unit tests
-        run: mvn -q test -Dsurefire.suiteXmlFiles=src/test/runners/UnitTests.xml
+        run: mvn -q test "-Dsurefire.suiteXmlFiles=src/test/runners/UnitTests.xml"
         working-directory: ${{ env.WORKDIR }}
 
   # One job per search term: runs the card checks for that term and uploads its report, logs and what was read.
@@ -72,7 +72,7 @@ jobs:
 
       - name: Run the card filter checks for one term
         working-directory: ${{ env.WORKDIR }}
-        run: mvn test -Dsurefire.suiteXmlFiles=src/test/runners/CardFilterChecks.xml -DcardChecks.terms=${{ matrix.term }}
+        run: mvn test "-Dsurefire.suiteXmlFiles=src/test/runners/CardFilterChecks.xml" "-DcardChecks.terms=${{ matrix.term }}"
         continue-on-error: true   # a failed check is a result: the reports are still uploaded below
 
       - name: Find latest run folder

@@ -44,7 +44,7 @@ jobs:
 
       # The unit suite: no browser. (The project has no lint or style tool in pom.xml, so there is nothing to run for that.)
       - name: Unit tests
-        run: mvn -q test -Dsurefire.suiteXmlFiles=src/test/runners/UnitTests.xml
+        run: mvn -q test "-Dsurefire.suiteXmlFiles=src/test/runners/UnitTests.xml"
         working-directory: ${{ env.WORKDIR }}
 
   # One job per TestNG group (a third of the main suite each).
