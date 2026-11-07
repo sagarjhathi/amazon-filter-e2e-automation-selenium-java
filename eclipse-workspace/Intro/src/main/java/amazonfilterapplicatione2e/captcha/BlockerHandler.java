@@ -97,14 +97,7 @@ public class BlockerHandler extends BasePage {
 		throw new SkipException("Blocked by Amazon: the service unavailable (503) page persisted after " + UNAVAILABLE_RETRIES + " reload. URL: " + driver.getCurrentUrl());
 	}
 
-	// A short wait that is not tied to any page element (we are waiting for Amazon, not for the page), so Thread.sleep is used.
-	private void pause(int milliseconds) {
-		try {
-			Thread.sleep(milliseconds);
-		} catch (InterruptedException e) {
-			Thread.currentThread().interrupt();
-		}
-	}
+	// pause(ms) is inherited from BasePage.
 
 	private boolean isServiceUnavailablePage() {
 		try {

@@ -144,8 +144,9 @@ public class FilterMatcherTest {
 		assertTrue(BrandMatcher.titleHasBrand("Mi", "Redmi Note 15"));
 		assertTrue(BrandMatcher.titleHasBrand("Jio", "JioBharat V4 4G keypad phone"));
 		assertTrue(BrandMatcher.titleHasBrand("Creative", "Sound Blaster X5"));
-		assertTrue(BrandMatcher.titleHasBrand("Leaf Studios", "Leaf Bass Headphones"));
-		assertTrue(BrandMatcher.titleHasBrand("ANT Esports", "Ant Mouse Pad"));
+		// OLD: assertTrue(BrandMatcher.titleHasBrand("Leaf Studios", "Leaf Bass Headphones"));   (the "leaf" alias was removed: everyday word)
+		assertTrue(BrandMatcher.titleHasBrand("ANT Esports", "Ant Mouse Pad"));   // the "ant" alias is back
+		assertTrue(BrandMatcher.titleHasBrand("ANT Esports", "ANT Esports GM320 Mouse"));   // the brand name itself still passes
 	}
 
 	// An alias is looked up only in the brand's own list, so it cannot let another brand's product pass.
@@ -159,5 +160,24 @@ public class FilterMatcherTest {
 	@Test
 	public void typosAreNotAliased() {
 		assertFalse(BrandMatcher.titleHasBrand("Xiaomi", "Radmi Note 15"));
+	}
+
+	// Aliases added from the TypeScript project (names that titles use instead of the brand).
+	@Test
+	public void newAliasesPassTheirOwnBrand() {
+		assertTrue(BrandMatcher.titleHasBrand("JIO", "JioBharat B2 4G Keypad Phone"));
+		assertTrue(BrandMatcher.titleHasBrand("Polk Audio", "POLK DB652 DB+ 6.5\""));
+		assertTrue(BrandMatcher.titleHasBrand("Apple", "iPad 10th Gen"));
+		assertTrue(BrandMatcher.titleHasBrand("Samsung", "Galaxy A56 5G"));
+		assertTrue(BrandMatcher.titleHasBrand("Dell", "Dell Inspiron 15"));
+		assertTrue(BrandMatcher.titleHasBrand("Amazon", "Fire TV Stick 4K Max"));
+	}
+
+	// An alias is looked up only in its own brand's list, so it cannot let another brand's product pass.
+	@Test
+	public void newAliasesDoNotLeakToOtherBrands() {
+		assertFalse(BrandMatcher.titleHasBrand("Samsung", "Redmi Note 15"));
+		assertFalse(BrandMatcher.titleHasBrand("Lenovo", "Dell Inspiron 15"));
+		assertFalse(BrandMatcher.titleHasBrand("Amazon", "Fire-Boltt Ninja Call Pro Smartwatch"));   // a different brand: "fire" alone is not an alias
 	}
 }

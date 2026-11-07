@@ -24,7 +24,7 @@ import com.google.gson.reflect.TypeToken;
 // filterCoverage.json (keyed by filter, not by test method) so the coverage reads like the left navigation.
 public class TestInputs {
 
-	// Which filter each test method checks. The name must match a key in filterCoverage.json.
+	// Which filter each test method checks (the old tests in AmazonTests and the card checks in CardFilterChecks). The name must match a key in filterCoverage.json.
 	private static final Map<String, String> FILTER_OF_TEST = new HashMap<>();
 	static {
 		FILTER_OF_TEST.put("verifyingTheBrandsFilterFunctionality", "brands");
@@ -41,6 +41,19 @@ public class TestInputs {
 		FILTER_OF_TEST.put("verifyingGetItByTomorrowFilterFunctionality", "Get It by Tomorrow");
 		FILTER_OF_TEST.put("verifyingGetItIn2DaysFilterFunctionality", "Get It in 2 Days");
 		FILTER_OF_TEST.put("verifyingFreeDeliveryFilterFunctionality", "Free Delivery");
+
+		// The card checks (tests/CardFilterChecks). The key says what the test checks; the filter it looks for in the left navigation is the part before " (cards)".
+		// All five search terms showed every one of these filters when the coverage was written (the Top Brands heading changes with the search, so the test finds it by its option).
+		FILTER_OF_TEST.put("brandsFilterCheckedOnTheCards", "Brands (cards)");
+		FILTER_OF_TEST.put("customerReviewsFilterCheckedOnTheCards", "Customer Reviews (cards)");
+		FILTER_OF_TEST.put("freeDeliveryFilterCheckedOnTheCards", "Eligible for Free Delivery (cards)");
+		FILTER_OF_TEST.put("discountFilterCheckedOnTheCards", "Discount (cards)");
+		FILTER_OF_TEST.put("priceRangeFilterCheckedOnTheCards", "Price range (cards)");
+		FILTER_OF_TEST.put("payOnDeliveryFilterCheckedOnTheProductPages", "Pay On Delivery (cards)");
+		FILTER_OF_TEST.put("topBrandsFilterCheckedOnTheProductPages", "Top Brands (cards)");
+		FILTER_OF_TEST.put("sellerFilterCheckedOnTheProductPages", "Seller (cards)");
+		FILTER_OF_TEST.put("cardSelfCheck", "Card self-check");
+		FILTER_OF_TEST.put("ratingOnTheCardEqualsRatingOnTheProductPage", "Card rating");
 	}
 
 	// Read once, the first time this class is used.

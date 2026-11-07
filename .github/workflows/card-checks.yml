@@ -1,0 +1,245 @@
+name: Card checks
+
+# Runs only tests/CardFilterChecks (src/test/runners/CardFilterChecks.xml), in 4 shards: one TestNG group per job, named after what it tests.
+# Each test gets its search terms from data/filterCoverage.json; 2 terms run at a time inside a shard.
+# Starts by hand (Actions > Card checks > Run workflow) or on a push to the branch listed under "on:". The daily CI (main-suite.yml) does not run these.
+# Jobs: check (compile + unit tests) -> card-checks (one job per shard) -> report (merged Allure report + one site, published to gh-pages).
+on:
+  push:
+    # TEMPORARY: a push to this branch runs the card checks and publishes their reports. Remove it before merging to master.
+    branches: [port-improv-from-sibling]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+env:
+  JAVA_DISTRIBUTION: temurin
+  JAVA_VERSION: 24
+  WORKDIR: eclipse-workspace/Intro
+
+jobs:
+  # Runs once, so a compile error or a broken unit test stops the run before five browsers start. Opens no Amazon page.
+  check:
+    runs-on: windows-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Set up JDK
+        uses: actions/setup-java@v5
+        with:
+          distribution: ${{ env.JAVA_DISTRIBUTION }}
+          java-version: ${{ env.JAVA_VERSION }}
+          cache: maven
+
+      - name: Compile main and test code
+        run: mvn -q test-compile
+        working-directory: ${{ env.WORKDIR }}
+
+      # The unit suite: no browser. (The project has no lint or style tool in pom.xml, so there is nothing to run for that.)
+      - name: Unit tests
+        run: mvn -q test "-Dsurefire.suiteXmlFiles=src/test/runners/UnitTests.xml"
+        working-directory: ${{ env.WORKDIR }}
+
+  # One job per shard (TestNG group): runs that group's card checks and uploads its report, logs and what was read.
+  # CardSeller: Seller. CardBrandsReviewsDelivery: Brands, Customer Reviews, Free Delivery. CardTopBrandsPayOnDelivery: Top Brands, Pay On Delivery.
+  # CardRatingPriceDiscountSelfCheck: rating on the card vs the product page, Price range, Discount, card self-check. Balanced by run time (Seller is the longest).
+  card-checks:
+    needs: check
+    runs-on: windows-latest
+    timeout-minutes: 300
+    strategy:
+      fail-fast: false   # one shard failing shouldn't cancel the others
+      matrix:
+        group: [CardSeller, CardBrandsReviewsDelivery, CardTopBrandsPayOnDelivery, CardRatingPriceDiscountSelfCheck]
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Set up JDK
+        uses: actions/setup-java@v5
+        with:
+          distribution: ${{ env.JAVA_DISTRIBUTION }}
+          java-version: ${{ env.JAVA_VERSION }}
+          cache: maven
+
+      - name: Build project
+        run: mvn clean compile
+        working-directory: ${{ env.WORKDIR }}
+
+      - name: Run the card filter checks of one shard
+        working-directory: ${{ env.WORKDIR }}
+        run: mvn test "-Dsurefire.suiteXmlFiles=src/test/runners/CardFilterChecks.xml" "-Dgroups=${{ matrix.group }}"
+        continue-on-error: true   # a failed check is a result: the reports are still uploaded below
+
+      - name: Find latest run folder
+        id: find_run
+        shell: pwsh
+        run: |
+          $runFolder = Get-ChildItem -Path "${{ env.WORKDIR }}" -Directory -Filter "run_*" |
+                       Sort-Object LastWriteTime -Descending |
+                       Select-Object -First 1
+          echo "RUN_FOLDER=$($runFolder.Name)" >> $env:GITHUB_ENV
+
+      # The run folder is the report: reports/ExtentReport.html, with logs/ and screenshots/ next to it (the report links to them).
+      # The report job downloads these by the name card-checks-<shard>-report.
+      - name: Upload Extent report (with its logs and screenshots)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: card-checks-${{ matrix.group }}-report
+          path: ${{ env.WORKDIR }}/${{ env.RUN_FOLDER }}
+          retention-days: 7
+
+      - name: Upload what was read (collected JSON)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: card-checks-collected-${{ matrix.group }}
+          path: ${{ env.WORKDIR }}/collected
+          if-no-files-found: warn
+          retention-days: 30
+
+      - name: Upload surefire reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: card-checks-surefire-${{ matrix.group }}
+          path: ${{ env.WORKDIR }}/target/surefire-reports
+          if-no-files-found: warn
+          retention-days: 30
+
+      # The raw Allure results of this shard. The report job merges the four shards into one Allure report.
+      - name: Upload Allure results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: card-checks-allure-results-${{ matrix.group }}
+          path: ${{ env.WORKDIR }}/target/allure-results
+          if-no-files-found: warn
+          retention-days: 7
+
+  # Collects the per-shard reports into one site and publishes it to the gh-pages branch. Runs even when some shards
+  # failed; skipped when the checks never ran. It replaces ONLY card-checks/ and index.html there; the Main suite's allure/, extent/ and run-info.txt are left alone.
+  report:
+    needs: card-checks
+    if: ${{ !cancelled() && needs.card-checks.result != 'skipped' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    # contents: write is needed to push to gh-pages; actions: write to delete the per-shard artifacts afterwards.
+    permissions:
+      contents: write
+      actions: write
+    # Only one publish at a time (the same group as main-suite.yml), so two runs never push to gh-pages together.
+    concurrency:
+      group: pages-publish
+      cancel-in-progress: false
+    steps:
+      # The landing page (.github/pages/index.html) is copied from here.
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # Without merge-multiple, each artifact lands in its own folder named like the artifact.
+      - name: Download the per-shard reports
+        uses: actions/download-artifact@v4
+        with:
+          path: all-reports
+          pattern: card-checks-*-report
+
+      # Result files have unique names, so the shards can be merged into one folder.
+      - name: Download the per-shard Allure results
+        uses: actions/download-artifact@v4
+        with:
+          path: allure-results
+          pattern: card-checks-allure-results-*
+          merge-multiple: true
+
+      # site/card-checks/extent/<shard>/ is each shard's run folder, kept whole (the Extent report links to its logs/ and screenshots/).
+      # The Extent reports are not merged, they are separate pages. The landing page links them by fixed names.
+      - name: Build the site
+        run: |
+          mkdir -p site/card-checks/extent
+          for dir in all-reports/card-checks-*-report; do
+            [ -d "$dir" ] || continue
+            shard="${dir#all-reports/card-checks-}"
+            shard="${shard%-report}"
+            mv "$dir" "site/card-checks/extent/$shard"
+          done
+          if [ -z "$(ls -A site/card-checks/extent)" ]; then echo "No reports were downloaded."; exit 1; fi
+
+          # The landing page reads this line to show which run the card-checks reports are from.
+          echo "Run #${{ github.run_number }} - commit ${GITHUB_SHA::7} - $(date -u +'%Y-%m-%d %H:%M UTC')" > site/card-checks/run-info.txt
+          cp .github/pages/index.html site/index.html
+
+      - name: Set up Node (for Allure CLI)
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      # The gh-pages branch holds the previously published reports; the last Allure report of the card checks (card-checks/allure)
+      # keeps its history there, which is copied back so the trend graphs carry over.
+      - name: Check out gh-pages
+        if: ${{ github.event_name == 'push' || github.event_name == 'workflow_dispatch' }}
+        uses: actions/checkout@v4
+        with:
+          ref: gh-pages
+          path: pages
+
+      # The first time there is no history, so nothing is copied.
+      - name: Copy previous Allure history (for trend graphs)
+        run: |
+          if [ -d pages/card-checks/allure/history ]; then
+            cp -r pages/card-checks/allure/history allure-results/history
+          fi
+
+      - name: Generate the merged Allure report
+        run: |
+          npm install -g allure-commandline
+          allure generate allure-results --clean --report-name "Amazon Filter E2E - Card checks" -o site/card-checks/allure
+
+      # Also downloadable, so the reports are available when publishing is skipped.
+      # Open site/index.html from the unzipped folder; the Allure report needs "npx allure open" (browsers block its data loading from a plain file).
+      - name: Upload the site
+        uses: actions/upload-artifact@v4
+        with:
+          name: card-checks-site
+          path: site/
+          retention-days: 30
+
+      # ---- Publish ----
+
+      - name: Publish to gh-pages
+        if: ${{ github.event_name == 'push' || github.event_name == 'workflow_dispatch' }}
+        run: |
+          cd pages
+          # Only card-checks/ and index.html are replaced. Every other folder and file on the branch (the Main suite's allure/, extent/, run-info.txt) is left as it is.
+          rm -rf card-checks
+          cp -r ../site/card-checks card-checks
+          cp ../site/index.html index.html
+          touch .nojekyll
+
+          # One fresh commit each time, so the branch never grows with old reports.
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git checkout --orphan latest
+          git add -A
+          git commit -m "Publish card checks reports from run #${{ github.run_number }}"
+          git push --force origin latest:gh-pages
+
+      # The per-shard reports and Allure results only exist to feed this job; card-checks-site holds the reports.
+      # If any step above failed, this step is skipped and they stay, so the job can be re-run without re-running the checks.
+      - name: Delete the per-shard artifacts
+        if: ${{ success() }}
+        continue-on-error: true   # cleanup only: a failure here must not fail the run
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh api "repos/${{ github.repository }}/actions/runs/${{ github.run_id }}/artifacts" --paginate \
+            --jq '.artifacts[] | select(.name | test("^card-checks-([A-Za-z]+-report|allure-results-[A-Za-z]+)$")) | .id' |
+            xargs -I{} gh api -X DELETE "repos/${{ github.repository }}/actions/artifacts/{}"

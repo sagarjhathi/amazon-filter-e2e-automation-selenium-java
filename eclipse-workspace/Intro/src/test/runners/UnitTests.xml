@@ -6,6 +6,7 @@
     <classes>
       <class name="test.java.unit.FilterMatcherTest"/>
       <class name="test.java.unit.CoverageConsistencyTest"/>
+      <class name="test.java.unit.CardChecksTest"/>
     </classes>
   </test>
 </suite>

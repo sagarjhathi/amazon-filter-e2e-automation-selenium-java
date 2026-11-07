@@ -91,7 +91,7 @@ This framework is built using a rich, modern, and production oriented technology
 - **Parallel test sharding** using a matrix build: tests are split into three meaningfully named TestNG groups, each running on its own runner.
 - **CI aware configuration toggling** that adjusts execution scale based on the trigger source.
 - **Artifact storage** for preserving logs, screenshots, and Allure results.
-- **GitHub Pages deployment** of a report hub page linking the merged Allure report and each shard's Extent report.
+- **GitHub Pages deployment** of one landing page with two sections (Main suite and Card checks). Each links its merged Allure report (with trend history) and its Extent reports (one per CI group / per search term). Each workflow publishes only its own folders: `allure/`, `extent/` for the Main suite; `card-checks/` for the card checks.
 - **Downloadable merged Allure report**: each run also uploads it as a single HTML file (artifact `allure-report-merged`, kept 30 days) that opens without a server.
 
 ## Team Communication and Alerting
@@ -284,7 +284,7 @@ project-root/
 │                                      plus older per-area suite files
 │
 ├── .github/workflows/
-│     main.yml (matrix-sharded tests, publish job, Discord, Pages)
+│     main-suite.yml (matrix-sharded tests, publish job, Discord, Pages)
 │
 ├── LICENSE
 ├── dependency-map.html
@@ -393,14 +393,14 @@ Email notifications are slower and often ignored. Discord provides real time not
 - Add new filters by updating flow classes and page layers
 - Add new UI checks by extending GenericUtility and PDP validation methods
 - Add new supported browsers by modifying DriverManager
-- Add new tests by tagging them with an existing TestNG group (or a new, meaningfully named one, then add it to the matrix in `main.yml`)
+- Add new tests by tagging them with an existing TestNG group (or a new, meaningfully named one, then add it to the matrix in `main-suite.yml`)
 
 ---
 
 # Troubleshooting
 - Captcha can appear during Amazon navigation. Retrying the test usually resolves it
 - If certain report links do not open, confirm that GitHub Pages deployed all screenshots and logs
-- If a test never appears in CI results, check that it has a `groups` tag matching one of the matrix shards in `main.yml`
+- If a test never appears in CI results, check that it has a `groups` tag matching one of the matrix shards in `main-suite.yml`
 - On Windows, very long screenshot file names can exceed the path limit during git operations; run `git config core.longpaths true`
 - SafeActions already mitigates stale element exceptions. Increase wait durations only when necessary
 

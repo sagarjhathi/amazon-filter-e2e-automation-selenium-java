@@ -25,4 +25,25 @@ public class BasePage {
         
         
     }	
+
+	// Small helpers shared by the flows.
+
+	// A short wait that is not tied to any page element (we are waiting for Amazon, not for the page), so Thread.sleep is used.
+	protected void pause(int milliseconds) {
+		try {
+			Thread.sleep(milliseconds);
+		} catch (InterruptedException e) {
+			Thread.currentThread().interrupt();
+		}
+	}
+
+	// The text with every run of whitespace turned into one space, "" for null.
+	protected String collapse(String text) {
+		return text == null ? "" : text.replaceAll("\\s+", " ").trim();
+	}
+
+	// The first line of an exception message, "" for null.
+	protected String firstLine(String message) {
+		return message == null ? "" : message.split("\n")[0];
+	}
 }

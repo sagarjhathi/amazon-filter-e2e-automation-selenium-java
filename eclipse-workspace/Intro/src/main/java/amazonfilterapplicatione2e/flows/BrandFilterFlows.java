@@ -211,7 +211,8 @@ public class BrandFilterFlows extends BasePage{
 			// }
 			// OLD: the commented block above clicked Clear, or went back one page when that failed.
 			// Now: clear, confirm the brand is gone, and fall back to the stored results page address.
-			genericUtility.clearOption(safeAct, productPage.getAppliedfilterByTypeAndName(filterName, str), listingUrl);
+			// OLD: genericUtility.clearOption(safeAct, productPage.getAppliedfilterByTypeAndName(filterName, str), listingUrl);
+			genericUtility.clearOption(safeAct, filterName, listingUrl);
 
 			// Periodic refresh to mitigate browser memory/storage buildup over a long brand loop.
 			if (i % 10 == 0 && i != 0) {

@@ -1,4 +1,4 @@
-name: CI Pipeline 
+name: Main suite
 
 on:
   push:
@@ -21,7 +21,35 @@ env:
   ARTIFACT_RETENTION_DAYS: 7
 
 jobs:
+  # Runs once, so a compile error or a broken unit test stops the run before the browsers start. Opens no Amazon page.
+  check:
+    runs-on: windows-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Set up JDK
+        uses: actions/setup-java@v5
+        with:
+          distribution: ${{ env.JAVA_DISTRIBUTION }}
+          java-version: ${{ env.JAVA_VERSION }}
+          cache: maven
+
+      - name: Compile main and test code
+        run: mvn -q test-compile
+        working-directory: ${{ env.WORKDIR }}
+
+      # The unit suite: no browser. (The project has no lint or style tool in pom.xml, so there is nothing to run for that.)
+      - name: Unit tests
+        run: mvn -q test "-Dsurefire.suiteXmlFiles=src/test/runners/UnitTests.xml"
+        working-directory: ${{ env.WORKDIR }}
+
+  # One job per TestNG group (a third of the main suite each).
   test:
+    needs: check
     runs-on: windows-latest
     timeout-minutes: 300
     strategy:
@@ -130,17 +158,29 @@ jobs:
           if-no-files-found: warn
 
 
+  # Merges the group reports into one Allure report and publishes everything to the gh-pages branch (GitHub Pages).
+  # It replaces ONLY allure/, extent/, run-info.txt and index.html there; card-checks.yml publishes card-checks/ and index.html.
+  # Pull requests build the merged Allure report (downloadable below) but publish nothing.
   publish:
     needs: test
-    if: always()
+    # Still runs when a group failed; skipped only when the tests never ran (for example a compile error in check).
+    if: ${{ !cancelled() && needs.test.result != 'skipped' }}
     runs-on: windows-latest
     timeout-minutes: 60
+    # contents: write is needed to push to gh-pages; actions: write to delete the per-group artifacts afterwards.
+    permissions:
+      contents: write
+      actions: write
+    # Only one publish at a time (the same group as card-checks.yml), so two runs never push to gh-pages together.
+    concurrency:
+      group: pages-publish
+      cancel-in-progress: false
     steps:
-      - name: Set RUN_TIMESTAMP (Windows runner)
-        shell: pwsh
-        run: |
-          $ts = Get-Date -Format 'yyyy-MM-dd_HH-mm-ss'
-          Add-Content -Path $env:GITHUB_ENV -Value "RUN_TIMESTAMP=$ts"
+      # The landing page (.github/pages/index.html) is copied from here.
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
 
       - name: Download BatteryProcessorStorage report
         uses: actions/download-artifact@v4
@@ -178,10 +218,33 @@ jobs:
           name: allure-results-DeliveryPriceOs
           path: allure-results/DeliveryPriceOs
 
+      - name: Enable long paths (Windows)
+        shell: pwsh
+        run: git config --global core.longpaths true
+
+      # Not on pull requests (they publish nothing). Checked out before the Allure report is built:
+      # the report published last time keeps its history on it, for the trend graphs.
+      - name: Checkout gh-pages
+        if: ${{ github.event_name != 'pull_request' }}
+        uses: actions/checkout@v4
+        with:
+          clean: false
+          ref: gh-pages
+          path: gh-pages
+
       - name: Set up Node (for Allure CLI)
         uses: actions/setup-node@v4
         with:
           node-version: '20'
+
+      # Carries the trend history forward: allure/history on the branch. It is put into one of the results folders;
+      # allure reads it from there. The first time (and on pull requests) there is none, so nothing is copied.
+      - name: Copy previous Allure history (for trend graphs)
+        shell: pwsh
+        run: |
+          if (Test-Path gh-pages/allure/history) {
+            Copy-Item -Recurse gh-pages/allure/history allure-results/BatteryProcessorStorage/history
+          }
 
       - name: Generate merged Allure report
         run: |
@@ -199,98 +262,39 @@ jobs:
           path: allure-report-single
           retention-days: 30
 
-      - name: Enable long paths (Windows)
+      # ---- Publish (not on pull requests) ----
+
+      # TEMPORARY: the old layout published a run_<timestamp> folder per run at the root of the branch.
+      # Delete this step after the first successful run on the new layout: no run_* folder is left by then.
+      - name: Remove the old run_* folders
+        if: ${{ github.event_name != 'pull_request' }}
         shell: pwsh
-        run: git config --global core.longpaths true
+        run: Get-ChildItem -Path gh-pages -Directory -Filter 'run_*' | Remove-Item -Recurse -Force
 
-      - name: Checkout gh-pages
-        uses: actions/checkout@v4
-        with:
-          clean: false
-          ref: gh-pages
-          path: gh-pages
-
-
-      - name: Clean gh-pages
-        shell: pwsh
-        run: |
-          Get-ChildItem -Path gh-pages -Force | Where-Object { $_.Name -ne '.git' } | Remove-Item -Recurse -Force
-
-
+      # Replaces ONLY allure/, extent/, run-info.txt and index.html on the branch; card-checks/ is left as it is.
+      # Each group's run folder is copied whole, untouched: its ExtentReport.html uses ../logs and ../screenshots relative links.
       - name: Assemble published site
+        if: ${{ github.event_name != 'pull_request' }}
         shell: pwsh
         run: |
-          $run = "run_$env:RUN_TIMESTAMP"
-          $runPath = "gh-pages/$run"
-          New-Item -ItemType Directory -Path $runPath -Force | Out-Null
+          Remove-Item -Recurse -Force -ErrorAction SilentlyContinue gh-pages/allure, gh-pages/extent, gh-pages/run-info.txt
+          New-Item -ItemType Directory -Path gh-pages/extent | Out-Null
 
-          # Each shard's reports/logs/screenshots folder is moved as a whole, untouched -
-          # its ExtentReport.html uses ../logs and ../screenshots relative links, so the
-          # three subfolders inside it must stay exactly as the shard produced them.
-          Copy-Item -Recurse -Force "shards/BatteryProcessorStorage" "$runPath/BatteryProcessorStorage"
-          Copy-Item -Recurse -Force "shards/BrandsScreenSizeTypeCamEtc" "$runPath/BrandsScreenSizeTypeCamEtc"
-          Copy-Item -Recurse -Force "shards/DeliveryPriceOs" "$runPath/DeliveryPriceOs"
-          Copy-Item -Recurse -Force "allure-report" "$runPath/allure-report"
+          Copy-Item -Recurse "shards/BatteryProcessorStorage" "gh-pages/extent/BatteryProcessorStorage"
+          Copy-Item -Recurse "shards/BrandsScreenSizeTypeCamEtc" "gh-pages/extent/BrandsScreenSizeTypeCamEtc"
+          Copy-Item -Recurse "shards/DeliveryPriceOs" "gh-pages/extent/DeliveryPriceOs"
+          Copy-Item -Recurse "allure-report" "gh-pages/allure"
 
-          $indexPath = "gh-pages/index.html"
-          $lines = @(
-            '<!DOCTYPE html>'
-            '<html lang="en">'
-            '<head>'
-            '<meta charset="UTF-8">'
-            '<meta name="viewport" content="width=device-width, initial-scale=1">'
-            '<title>Selenium + Java Test Report Hub</title>'
-            '<style>'
-            '  body { margin:0; padding:48px 20px; background:#f5f6f8;'
-            '         font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;'
-            '         color:#1a1a2e; }'
-            '  .container { max-width:680px; margin:0 auto; }'
-            '  h1 { font-size:24px; margin:0 0 4px 0; }'
-            '  .subtitle { color:#6b7280; font-size:14px; margin-bottom:32px; }'
-            '  .card { display:block; background:#ffffff; border:1px solid #e5e7eb; border-radius:10px;'
-            '          padding:18px 20px; margin-bottom:12px; text-decoration:none; color:inherit;'
-            '          transition:box-shadow .15s ease, border-color .15s ease; }'
-            '  .card:hover { box-shadow:0 4px 14px rgba(0,0,0,.08); border-color:#c7d2fe; }'
-            '  .card-title { font-size:16px; font-weight:600; margin-bottom:4px; }'
-            '  .card-desc { font-size:13px; color:#6b7280; }'
-            '  .badge { display:inline-block; font-size:11px; font-weight:600; color:#4338ca;'
-            '           background:#eef2ff; border-radius:999px; padding:2px 10px; margin-bottom:8px; }'
-            '</style>'
-            '</head>'
-            '<body>'
-            '<div class="container">'
-            '<h1>Amazon Filter E2E - Selenium + Java Test Report Hub</h1>'
-            "<div class='subtitle'>Run: $run</div>"
+          # The landing page reads this line to show which run the Main suite reports are from.
+          $when = (Get-Date).ToUniversalTime().ToString('yyyy-MM-dd HH:mm')
+          "Run #$env:GITHUB_RUN_NUMBER - commit $($env:GITHUB_SHA.Substring(0,7)) - $when UTC" | Set-Content -Path gh-pages/run-info.txt
 
-            "<a class='card' href='$run/allure-report/index.html'>"
-            '<span class="badge">MERGED</span>'
-            '<div class="card-title">Allure report</div>'
-            '<div class="card-desc">All 3 shards combined in one dashboard</div>'
-            '</a>'
-
-            "<a class='card' href='$run/BatteryProcessorStorage/reports/ExtentReport.html'>"
-            '<div class="card-title">Battery / Processor / Storage / Discount</div>'
-            '<div class="card-desc">Extent report for this shard</div>'
-            '</a>'
-
-            "<a class='card' href='$run/BrandsScreenSizeTypeCamEtc/reports/ExtentReport.html'>"
-            '<div class="card-title">Brands / Screen Size / Display Type / Camera</div>'
-            '<div class="card-desc">Extent report for this shard</div>'
-            '</a>'
-
-            "<a class='card' href='$run/DeliveryPriceOs/reports/ExtentReport.html'>"
-            '<div class="card-title">Delivery / Price / OS Version</div>'
-            '<div class="card-desc">Extent report for this shard</div>'
-            '</a>'
-
-            '</div>'
-            '</body>'
-            '</html>'
-          )
-          Set-Content -Path $indexPath -Value $lines
-
+          # The same landing page file is used by card-checks.yml, so whichever workflow ran last leaves a page with both sections.
+          Copy-Item .github/pages/index.html gh-pages/index.html -Force
+          if (-not (Test-Path gh-pages/.nojekyll)) { New-Item -ItemType File -Path gh-pages/.nojekyll | Out-Null }
 
       - name: Deploy
+        if: ${{ github.event_name != 'pull_request' }}
         shell: pwsh
         working-directory: gh-pages
         run: |
@@ -304,6 +308,19 @@ jobs:
           git add -A
           git commit -m "Update report"
           git push origin gh-pages-deploy:gh-pages --force
+
+      # The per-group artifacts only exist to feed this job; the published site holds the reports. If any step above
+      # failed, this step is skipped and they stay, so the job can be re-run without re-running the tests.
+      - name: Delete the per-group artifacts
+        if: ${{ success() && github.event_name != 'pull_request' }}
+        continue-on-error: true   # cleanup only: a failure here must not fail the run
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh api "repos/${{ github.repository }}/actions/runs/${{ github.run_id }}/artifacts" --paginate \
+            --jq '.artifacts[] | select(.name | test("^(extent|allure-results)-[A-Za-z]+$")) | .id' |
+            xargs -I{} gh api -X DELETE "repos/${{ github.repository }}/actions/artifacts/{}"
 
       - name: Notify Discord – End of Test
         if: always()
@@ -326,4 +343,4 @@ jobs:
           timestamp=$(TZ='Asia/Kolkata' date +"%Y-%m-%d %I:%M %p IST")
           pagesUrl="https://sagarjhathi.github.io/amazon-filter-e2e-automation/"
 
-          curl -H "Content-Type: application/json" -X POST -d "{\"content\": \"$status_emoji **CI Pipeline** (${{ github.ref_name }}): tests $status\n Triggered by: ${{ github.actor }}\n Commit: \`$commit_short\`\n Completed at: $timestamp\n [View Full Run Details]($runUrl)\n [Open Latest Report on GitHub Pages]($pagesUrl)\"}" "$DISCORD_WEBHOOK"
+          curl -H "Content-Type: application/json" -X POST -d "{\"content\": \"$status_emoji **Main suite** (${{ github.ref_name }}): tests $status\n Triggered by: ${{ github.actor }}\n Commit: \`$commit_short\`\n Completed at: $timestamp\n [View Full Run Details]($runUrl)\n [Open Latest Report on GitHub Pages]($pagesUrl)\"}" "$DISCORD_WEBHOOK"

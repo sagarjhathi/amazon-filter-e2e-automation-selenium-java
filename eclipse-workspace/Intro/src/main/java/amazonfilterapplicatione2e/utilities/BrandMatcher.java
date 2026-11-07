@@ -18,7 +18,7 @@ public class BrandMatcher {
 	private static final Map<String, String[]> ALIASES = new HashMap<>();
 	static {
 		ALIASES.put("motorola", new String[] { "moto" });
-		ALIASES.put("apple", new String[] { "iphone" });
+		ALIASES.put("apple", new String[] { "iphone", "ipad", "macbook", "airpods", "imac" });
 		ALIASES.put("panasonic", new String[] { "technics" });
 		ALIASES.put("itel", new String[] { "zeno" });
 		ALIASES.put("jio", new String[] { "jiobharat", "jiophone", "jiotag" });
@@ -26,8 +26,18 @@ public class BrandMatcher {
 		ALIASES.put("mi", new String[] { "redmi" });
 		ALIASES.put("tecno", new String[] { "spark" });
 		ALIASES.put("creative", new String[] { "sound blaster" });
-		ALIASES.put("leaf studios", new String[] { "leaf" });
-		ALIASES.put("ant esports", new String[] { "ant" });
+		// OLD: ALIASES.put("leaf studios", new String[] { "leaf" });   (removed: "leaf" is an everyday word)
+		ALIASES.put("ant esports", new String[] { "ant" });   // restored: titles say "Ant Glory 20"
+		ALIASES.put("polk audio", new String[] { "polk" });
+		ALIASES.put("samsung", new String[] { "galaxy" });
+		ALIASES.put("google", new String[] { "pixel" });
+		ALIASES.put("amazon", new String[] { "kindle", "fire tv" });
+		ALIASES.put("lenovo", new String[] { "thinkpad", "ideapad", "loq" });
+		ALIASES.put("asus", new String[] { "rog", "tuf", "vivobook", "zenbook" });
+		ALIASES.put("hp", new String[] { "pavilion", "victus" });
+		ALIASES.put("dell", new String[] { "inspiron", "latitude", "alienware", "xps", "vostro" });
+		ALIASES.put("acer", new String[] { "predator" });
+		// OLD: ALIASES.put("microsoft", new String[] { "surface" });   (removed: "surface" is an everyday word)
 	}
 
 	public static boolean titleHasBrand(String brand, String title) {

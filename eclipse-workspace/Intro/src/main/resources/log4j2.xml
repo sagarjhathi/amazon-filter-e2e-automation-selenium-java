@@ -9,6 +9,10 @@
 
     <Routing name="RoutingAppender">
     <Routes pattern="$${ctx:logFileName}">
+        <!-- Lines logged while no test is running (no logFileName) are dropped, not written into some test's log -->
+        <Route key="$${ctx:logFileName}">
+            <Null name="NoTest"/>
+        </Route>
         <Route>
             <File name="FileAppender-${ctx:logFileName}"
                   fileName="${ctx:logPath}/${ctx:logFileName}.log">

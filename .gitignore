@@ -30,3 +30,6 @@ eclipse-workspace/Intro/.classpath
 .classpath
 .project
 .settings/
+
+# Output of the card checks (CardChecks.saveCollected): run data, not source
+eclipse-workspace/Intro/collected/
