@@ -1,0 +1,15 @@
+11:28:41 [TestNG-test-Test-1] INFO  verifyingBatteryCapacityFilterFunctionality_Speaker_11-28-41 - No existing WebDriver found for current thread. Initializing a new ChromeDriver...
+11:28:41 [TestNG-test-Test-1] INFO  verifyingBatteryCapacityFilterFunctionality_Speaker_11-28-41 - WebDriverManager: chromedriver setup OK
+11:28:42 [TestNG-test-Test-1] INFO  verifyingBatteryCapacityFilterFunctionality_Speaker_11-28-41 - ChromeDriver initialized successfully for thread: 34
+11:28:44 [TestNG-test-Test-1] INFO  verifyingBatteryCapacityFilterFunctionality_Speaker_11-28-41 - [verifyingBatteryCapacityFilterFunctionality_Speaker_11-28-41] Opening amazon Landing page
+11:28:44 [TestNG-test-Test-1] INFO  verifyingBatteryCapacityFilterFunctionality_Speaker_11-28-41 - [verifyingBatteryCapacityFilterFunctionality_Speaker_11-28-41] Within safeFindElement method
+11:28:44 [TestNG-test-Test-1] INFO  verifyingBatteryCapacityFilterFunctionality_Speaker_11-28-41 - [verifyingBatteryCapacityFilterFunctionality_Speaker_11-28-41]Found the element returning it ,element ->[[ChromeDriver: chrome on windows (d79c493a7261cd3903c2c75f4751ba52)] -> xpath: //a[@id='nav-logo-sprites']]
+11:28:45 [TestNG-test-Test-1] INFO  verifyingBatteryCapacityFilterFunctionality_Speaker_11-28-41 - [verifyingBatteryCapacityFilterFunctionality_Speaker_11-28-41] clearBlockers took 482 ms
+11:28:45 [TestNG-test-Test-1] INFO  verifyingBatteryCapacityFilterFunctionality_Speaker_11-28-41 - [verifyingBatteryCapacityFilterFunctionality_Speaker_11-28-41] Giving input within the search bar
+11:28:45 [TestNG-test-Test-1] INFO  verifyingBatteryCapacityFilterFunctionality_Speaker_11-28-41 - [verifyingBatteryCapacityFilterFunctionality_Speaker_11-28-41] Within safeClick method
+11:28:49 [TestNG-test-Test-1] INFO  verifyingBatteryCapacityFilterFunctionality_Speaker_11-28-41 - [verifyingBatteryCapacityFilterFunctionality_Speaker_11-28-41] Clicked the  [[ChromeDriver: chrome on windows (d79c493a7261cd3903c2c75f4751ba52)] -> xpath: //input[@id='nav-search-submit-button']]   using safeClick
+11:28:49 [TestNG-test-Test-1] INFO  verifyingBatteryCapacityFilterFunctionality_Speaker_11-28-41 - [verifyingBatteryCapacityFilterFunctionality_Speaker_11-28-41] Clicking on the submit in the search bar
+11:28:49 [TestNG-test-Test-1] INFO  verifyingBatteryCapacityFilterFunctionality_Speaker_11-28-41 - [verifyingBatteryCapacityFilterFunctionality_Speaker_11-28-41] clearBlockers took 210 ms
+11:28:49 [TestNG-test-Test-1] INFO  verifyingBatteryCapacityFilterFunctionality_Speaker_11-28-41 - [verifyingBatteryCapacityFilterFunctionality_Speaker_11-28-41] Within filterCheckUnderList method
+11:28:51 [TestNG-test-Test-1] INFO  verifyingBatteryCapacityFilterFunctionality_Speaker_11-28-41 - [verifyingBatteryCapacityFilterFunctionality_Speaker_11-28-41] Filter option does not exist within the filter check List
+11:28:51 [TestNG-test-Test-1] WARN  verifyingBatteryCapacityFilterFunctionality_Speaker_11-28-41 - [verifyingBatteryCapacityFilterFunctionality_Speaker_11-28-41]  Filter option 'Battery Capacity' does not exist in the list. Skipping the test.

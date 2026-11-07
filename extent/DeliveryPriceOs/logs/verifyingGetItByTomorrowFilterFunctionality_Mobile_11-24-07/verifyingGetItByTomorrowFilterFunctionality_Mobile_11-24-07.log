@@ -1,0 +1,122 @@
+11:24:07 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Mobile_11-24-07 - No existing WebDriver found for current thread. Initializing a new ChromeDriver...
+11:24:11 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Mobile_11-24-07 - WebDriverManager: chromedriver setup OK
+11:24:20 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Mobile_11-24-07 - ChromeDriver initialized successfully for thread: 36
+11:24:21 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Mobile_11-24-07 - [verifyingGetItByTomorrowFilterFunctionality_Mobile_11-24-07] Opening amazon Landing page
+11:24:21 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Mobile_11-24-07 - [verifyingGetItByTomorrowFilterFunctionality_Mobile_11-24-07] Within safeFindElement method
+11:24:24 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Mobile_11-24-07 - [verifyingGetItByTomorrowFilterFunctionality_Mobile_11-24-07]Found the element returning it ,element ->[[ChromeDriver: chrome on windows (831522b890e97e995ead8db395b41025)] -> xpath: //a[@id='nav-logo-sprites']]
+11:24:24 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Mobile_11-24-07 - [verifyingGetItByTomorrowFilterFunctionality_Mobile_11-24-07] clearBlockers took 124 ms
+11:24:25 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Mobile_11-24-07 - [verifyingGetItByTomorrowFilterFunctionality_Mobile_11-24-07] Giving input within the search bar
+11:24:25 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Mobile_11-24-07 - [verifyingGetItByTomorrowFilterFunctionality_Mobile_11-24-07] Within safeClick method
+11:24:30 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Mobile_11-24-07 - [verifyingGetItByTomorrowFilterFunctionality_Mobile_11-24-07] Clicked the  [[ChromeDriver: chrome on windows (831522b890e97e995ead8db395b41025)] -> xpath: //input[@id='nav-search-submit-button']]   using safeClick
+11:24:30 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Mobile_11-24-07 - [verifyingGetItByTomorrowFilterFunctionality_Mobile_11-24-07] Clicking on the submit in the search bar
+11:24:31 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Mobile_11-24-07 - [verifyingGetItByTomorrowFilterFunctionality_Mobile_11-24-07] clearBlockers took 35 ms
+11:24:31 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Mobile_11-24-07 - [verifyingGetItByTomorrowFilterFunctionality_Mobile_11-24-07] Within validateDeliveryFilterOptionsWithResult method
+11:24:31 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Mobile_11-24-07 - [verifyingGetItByTomorrowFilterFunctionality_Mobile_11-24-07] Within safeClick method
+11:24:32 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Mobile_11-24-07 - [verifyingGetItByTomorrowFilterFunctionality_Mobile_11-24-07] Clicked the  [[ChromeDriver: chrome on windows (831522b890e97e995ead8db395b41025)] -> xpath: //span[@class='a-size-base a-color-base puis-bold-weight-text' and text()='Delivery Day']/parent::div/following-sibling::ul//span[@class='a-size-base a-color-base' and text()='Get It by Tomorrow']]   using safeClick
+11:24:32 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Mobile_11-24-07 - [verifyingGetItByTomorrowFilterFunctionality_Mobile_11-24-07] Within getMoreButtonByFilterTypeAndName method
+11:24:32 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Mobile_11-24-07 - [verifyingGetItByTomorrowFilterFunctionality_Mobile_11-24-07] Clicked on By.xpath: //span[@class='a-size-base a-color-base puis-bold-weight-text' and text()='Delivery Day']/parent::div/following-sibling::ul//span[@class='a-size-base a-color-base' and text()='Get It by Tomorrow']
+11:24:33 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Mobile_11-24-07 - [verifyingGetItByTomorrowFilterFunctionality_Mobile_11-24-07] Within safeFindElements 
+11:24:33 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Mobile_11-24-07 - [verifyingGetItByTomorrowFilterFunctionality_Mobile_11-24-07] Returning the  [[[ChromeDriver: chrome on windows (831522b890e97e995ead8db395b41025)] -> xpath: //div[@class='a-section a-spacing-small a-spacing-top-small']], [[ChromeDriver: chrome on windows (831522b890e97e995ead8db395b41025)] -> xpath: //div[@class='a-section a-spacing-small a-spacing-top-small']], [[ChromeDriver: chrome on windows (831522b890e97e995ead8db395b41025)] -> xpath: //div[@class='a-section a-spacing-small a-spacing-top-small']], [[ChromeDriver: chrome on windows (831522b890e97e995ead8db395b41025)] -> xpath: //div[@class='a-section a-spacing-small a-spacing-top-small']], [[ChromeDriver: chrome on windows (831522b890e97e995ead8db395b41025)] -> xpath: //div[@class='a-section a-spacing-small a-spacing-top-small']], [[ChromeDriver: chrome on windows (831522b890e97e995ead8db395b41025)] -> xpath: //div[@class='a-section a-spacing-small a-spacing-top-small']], [[ChromeDriver: chrome on windows (831522b890e97e995ead8db395b41025)] -> xpath: //div[@class='a-section a-spacing-small a-spacing-top-small']], [[ChromeDriver: chrome on windows (831522b890e97e995ead8db395b41025)] -> xpath: //div[@class='a-section a-spacing-small a-spacing-top-small']], [[ChromeDriver: chrome on windows (831522b890e97e995ead8db395b41025)] -> xpath: //div[@class='a-section a-spacing-small a-spacing-top-small']], [[ChromeDriver: chrome on windows (831522b890e97e995ead8db395b41025)] -> xpath: //div[@class='a-section a-spacing-small a-spacing-top-small']], [[ChromeDriver: chrome on windows (831522b890e97e995ead8db395b41025)] -> xpath: //div[@class='a-section a-spacing-small a-spacing-top-small']], [[ChromeDriver: chrome on windows (831522b890e97e995ead8db395b41025)] -> xpath: //div[@class='a-section a-spacing-small a-spacing-top-small']], [[ChromeDriver: chrome on windows (831522b890e97e995ead8db395b41025)] -> xpath: //div[@class='a-section a-spacing-small a-spacing-top-small']], [[ChromeDriver: chrome on windows (831522b890e97e995ead8db395b41025)] -> xpath: //div[@class='a-section a-spacing-small a-spacing-top-small']], [[ChromeDriver: chrome on windows (831522b890e97e995ead8db395b41025)] -> xpath: //div[@class='a-section a-spacing-small a-spacing-top-small']], [[ChromeDriver: chrome on windows (831522b890e97e995ead8db395b41025)] -> xpath: //div[@class='a-section a-spacing-small a-spacing-top-small']], [[ChromeDriver: chrome on windows (831522b890e97e995ead8db395b41025)] -> xpath: //div[@class='a-section a-spacing-small a-spacing-top-small']], [[ChromeDriver: chrome on windows (831522b890e97e995ead8db395b41025)] -> xpath: //div[@class='a-section a-spacing-small a-spacing-top-small']]] from the safeFindElements method
+11:24:33 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Mobile_11-24-07 - [verifyingGetItByTomorrowFilterFunctionality_Mobile_11-24-07] Created hashset with required data to assert with Within validateDeliveryFilterOptionsWithResult method
+11:24:33 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Mobile_11-24-07 - [verifyingGetItByTomorrowFilterFunctionality_Mobile_11-24-07] this is the set  [Today, 8 Nov, 7 Nov, Tomorrow]
+11:24:33 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Mobile_11-24-07 - [verifyingGetItByTomorrowFilterFunctionality_Mobile_11-24-07] Within deliveryElements loop iterating over the products  Within validateDeliveryFilterOptionsWithResult method
+11:24:33 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Mobile_11-24-07 - [verifyingGetItByTomorrowFilterFunctionality_Mobile_11-24-07] Checking if the allowedDateParts have the assert text — index 0, text: Sponsored
+Redmi Note 17 5G (Dark Night, 6GB RAM, 128GB ROM) | 8000mAh Battery + 45W Fast Charging | 6.99" TrueColour AMOLED | Snapdragon 4 Gen 4 | 50MP Dual AI Camera | Corning® Gorilla® Glass 7i | IP65
+3.2
+(138)
+300+ bought in past month
+₹27,999
+M.R.P:
+₹39,999 (30% off)
+Save extra with No Cost EMI
+FREE delivery Tue, 10 Nov
+Or fastest delivery Tomorrow 8 am - 12 pm
+Add to cart
++2 other colors/patterns
+11:24:33 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Mobile_11-24-07 - [verifyingGetItByTomorrowFilterFunctionality_Mobile_11-24-07] Within deliveryElements loop iterating over the products  Within validateDeliveryFilterOptionsWithResult method
+11:24:33 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Mobile_11-24-07 - [verifyingGetItByTomorrowFilterFunctionality_Mobile_11-24-07] Checking if the allowedDateParts have the assert text — index 1, text: Redmi 15C 5G Prime Edition (Midnight Black, 6GB + 128GB) | Massive 6000mAh Battery | Segment's Largest 17.53cm Display Up to 120Hz | MediaTek Dimensity 6300 | 33W Fast Charging | 50MP AI Dual Camera
+3.9
+(1K)
+5K+ bought in past month
+Mega Festival Deal
+₹17,999
+M.R.P:
+₹31,999 (44% off)
+Up to 5% back with Amazon Pay ICI...
+FREE delivery Tue, 10 Nov
+Or fastest delivery Tomorrow 8 am - 12 pm
+Add to cart
+11:24:33 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Mobile_11-24-07 - [verifyingGetItByTomorrowFilterFunctionality_Mobile_11-24-07] Within deliveryElements loop iterating over the products  Within validateDeliveryFilterOptionsWithResult method
+11:24:33 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Mobile_11-24-07 - [verifyingGetItByTomorrowFilterFunctionality_Mobile_11-24-07] Checking if the allowedDateParts have the assert text — index 2, text: OnePlus Nord CE6 Lite | 8GB+128GB | Hyper Black | Segment's Fastest Dimensity 7400 Apex Processor | 7000mAh Battery | Segment's Highest 144Hz Refresh Rate | 50MP Main Camera, 4K Video Recording
+4.4
+(1.2K)
+5K+ bought in past month
+Mega Festival Deal
+₹26,499
+M.R.P:
+₹33,999 (22% off)
+Up to 5% back with Amazon Pay ICI...
+FREE delivery Tue, 10 Nov
+Or fastest delivery Tomorrow 8 am - 12 pm
+Add to cart
+11:24:33 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Mobile_11-24-07 - [verifyingGetItByTomorrowFilterFunctionality_Mobile_11-24-07] Within deliveryElements loop iterating over the products  Within validateDeliveryFilterOptionsWithResult method
+11:24:33 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Mobile_11-24-07 - [verifyingGetItByTomorrowFilterFunctionality_Mobile_11-24-07] Checking if the allowedDateParts have the assert text — index 3, text: Sponsored
+Apple iPhone 16 128 GB: 5G Mobile Phone with Camera Control, A18 Chip and a Big Boost in Battery Life. Works with AirPods; Black
+4.5
+(2.8K)
+5K+ bought in past month
+₹79,990
+M.R.P:
+₹89,900 (11% off)
+Up to 5% back with Amazon Pay ICI...
+FREE delivery Tue, 10 Nov
+Or fastest delivery Tomorrow 8 am - 12 pm
+Add to cart
++4 other colors/patterns
+11:24:33 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Mobile_11-24-07 - [verifyingGetItByTomorrowFilterFunctionality_Mobile_11-24-07] Within deliveryElements loop iterating over the products  Within validateDeliveryFilterOptionsWithResult method
+11:24:33 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Mobile_11-24-07 - [verifyingGetItByTomorrowFilterFunctionality_Mobile_11-24-07] Checking if the allowedDateParts have the assert text — index 4, text: OnePlus N6x | 4GB+128GB | Burgundy Red | 7000mAh Battery | Power for Days | 48-Months Smoothness | Smooth 120Hz Display | Largest 5300mm2 Cooling System | Military-Grade Durability
+3.5
+(426)
+5K+ bought in past month
+Mega Festival Deal
+₹18,999
+M.R.P:
+₹28,999 (34% off)
+You pay ₹18,499 with coupon
+FREE delivery Tue, 10 Nov
+Or fastest delivery Tomorrow 8 am - 12 pm
+Add to cart
+11:24:33 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Mobile_11-24-07 - [verifyingGetItByTomorrowFilterFunctionality_Mobile_11-24-07] Within deliveryElements loop iterating over the products  Within validateDeliveryFilterOptionsWithResult method
+11:24:34 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Mobile_11-24-07 - [verifyingGetItByTomorrowFilterFunctionality_Mobile_11-24-07] Checking if the allowedDateParts have the assert text — index 5, text: OnePlus N6x | 4GB+64GB | Burgundy Red | 7000mAh Battery | Power for Days | 36-Months Smoothness | Smooth 120Hz Display | Largest 5300mm2 Cooling System | Military-Grade Durability
+3.6
+(196)
+3K+ bought in past month
+Mega Festival Deal
+₹18,499
+M.R.P:
+₹25,999 (29% off)
+Up to 5% back with Amazon Pay ICI...
+FREE delivery Tue, 10 Nov
+Or fastest delivery Tomorrow 8 am - 12 pm
+Add to cart
+11:24:34 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Mobile_11-24-07 - [verifyingGetItByTomorrowFilterFunctionality_Mobile_11-24-07] Within deliveryElements loop iterating over the products  Within validateDeliveryFilterOptionsWithResult method
+11:24:34 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Mobile_11-24-07 - [verifyingGetItByTomorrowFilterFunctionality_Mobile_11-24-07] Assert text not found within AllowedDateParts — index 6, text: Samsung Galaxy M17 5G Mobile (Sapphire Black, 6GB RAM, 128GB Storage) | 50MP OIS Triple Camera | Super AMOLED Display | Gorilla Glass Victus | 6 Gen OS Upgrades | Knox Security | AI
+4.1
+(1K)
+5K+ bought in past month
+₹21,999
+M.R.P:
+₹23,999 (8% off)
+Up to 5% back with Amazon Pay ICI...
+FREE delivery Tue, 10 Nov
+Add to cart
+11:24:34 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Mobile_11-24-07 - [verifyingGetItByTomorrowFilterFunctionality_Mobile_11-24-07] Asserting delivery filter: isValid=false, index=6, text=Samsung Galaxy M17 5G Mobile (Sapphire Black, 6GB RAM, 128GB Storage) | 50MP OIS Triple Camera | Super AMOLED Display | Gorilla Glass Victus | 6 Gen OS Upgrades | Knox Security | AI
+4.1
+(1K)
+5K+ bought in past month
+₹21,999
+M.R.P:
+₹23,999 (8% off)
+Up to 5% back with Amazon Pay ICI...
+FREE delivery Tue, 10 Nov
+Add to cart
