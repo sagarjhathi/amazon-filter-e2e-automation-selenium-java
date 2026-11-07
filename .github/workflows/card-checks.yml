@@ -2,12 +2,14 @@ name: Card checks
 
 # Runs only tests/CardFilterChecks (src/test/runners/CardFilterChecks.xml), in 4 shards: one TestNG group per job, named after what it tests.
 # Each test gets its search terms from data/filterCoverage.json; 2 terms run at a time inside a shard.
-# Starts by hand (Actions > Card checks > Run workflow) or on a push to the branch listed under "on:". The daily CI (main-suite.yml) does not run these.
+# Runs on a push to master, on a pull request to master (reports built and downloadable, nothing published), and by hand (Actions > Card checks > Run workflow).
+# The daily schedule belongs to main-suite.yml only; these checks do not run nightly.
 # Jobs: check (compile + unit tests) -> card-checks (one job per shard) -> report (merged Allure report + one site, published to gh-pages).
 on:
   push:
-    # TEMPORARY: a push to this branch runs the card checks and publishes their reports. Remove it before merging to master.
-    branches: [port-improv-from-sibling]
+    branches: [master]
+  pull_request:
+    branches: [master]
   workflow_dispatch:
 
 permissions:
