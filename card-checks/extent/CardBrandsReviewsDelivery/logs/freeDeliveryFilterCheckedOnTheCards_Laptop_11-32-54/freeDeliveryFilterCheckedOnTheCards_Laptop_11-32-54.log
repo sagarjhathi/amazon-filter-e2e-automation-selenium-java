@@ -1,0 +1,33 @@
+11:32:54 [TestNG-PoolService-1] INFO  freeDeliveryFilterCheckedOnTheCards_Laptop_11-32-54 - No existing WebDriver found for current thread. Initializing a new ChromeDriver...
+11:32:54 [TestNG-PoolService-1] INFO  freeDeliveryFilterCheckedOnTheCards_Laptop_11-32-54 - WebDriverManager: chromedriver setup OK
+11:32:56 [TestNG-PoolService-1] INFO  freeDeliveryFilterCheckedOnTheCards_Laptop_11-32-54 - ChromeDriver initialized successfully for thread: 208
+11:32:56 [TestNG-PoolService-1] INFO  freeDeliveryFilterCheckedOnTheCards_Laptop_11-32-54 - [freeDeliveryFilterCheckedOnTheCards_Laptop_11-32-54] TEST: Laptop: Eligible for Free Delivery filter, checked on the cards
+11:32:56 [TestNG-PoolService-1] INFO  freeDeliveryFilterCheckedOnTheCards_Laptop_11-32-54 - [freeDeliveryFilterCheckedOnTheCards_Laptop_11-32-54] ==================== RULE: Laptop Eligible for Free Delivery: every option is applied; the card prints a "FREE delivery" line; at least 90% of the cards must fit ====================
+11:32:57 [TestNG-PoolService-1] INFO  freeDeliveryFilterCheckedOnTheCards_Laptop_11-32-54 - [freeDeliveryFilterCheckedOnTheCards_Laptop_11-32-54] Opening amazon Landing page
+11:32:57 [TestNG-PoolService-1] INFO  freeDeliveryFilterCheckedOnTheCards_Laptop_11-32-54 - [freeDeliveryFilterCheckedOnTheCards_Laptop_11-32-54] Within safeFindElement method
+11:32:57 [TestNG-PoolService-1] INFO  freeDeliveryFilterCheckedOnTheCards_Laptop_11-32-54 - [freeDeliveryFilterCheckedOnTheCards_Laptop_11-32-54]Found the element returning it ,element ->[[ChromeDriver: chrome on windows (a76a486b3dd87256b0aeed7547188e81)] -> xpath: //a[@id='nav-logo-sprites']]
+11:32:58 [TestNG-PoolService-1] INFO  freeDeliveryFilterCheckedOnTheCards_Laptop_11-32-54 - [freeDeliveryFilterCheckedOnTheCards_Laptop_11-32-54] clearBlockers took 177 ms
+11:32:58 [TestNG-PoolService-1] INFO  freeDeliveryFilterCheckedOnTheCards_Laptop_11-32-54 - [freeDeliveryFilterCheckedOnTheCards_Laptop_11-32-54] Giving input within the search bar
+11:32:58 [TestNG-PoolService-1] INFO  freeDeliveryFilterCheckedOnTheCards_Laptop_11-32-54 - [freeDeliveryFilterCheckedOnTheCards_Laptop_11-32-54] Within safeClick method
+11:32:59 [TestNG-PoolService-1] INFO  freeDeliveryFilterCheckedOnTheCards_Laptop_11-32-54 - [freeDeliveryFilterCheckedOnTheCards_Laptop_11-32-54] Clicked the  [[ChromeDriver: chrome on windows (a76a486b3dd87256b0aeed7547188e81)] -> xpath: //input[@id='nav-search-submit-button']]   using safeClick
+11:32:59 [TestNG-PoolService-1] INFO  freeDeliveryFilterCheckedOnTheCards_Laptop_11-32-54 - [freeDeliveryFilterCheckedOnTheCards_Laptop_11-32-54] Clicking on the submit in the search bar
+11:33:00 [TestNG-PoolService-1] INFO  freeDeliveryFilterCheckedOnTheCards_Laptop_11-32-54 - [freeDeliveryFilterCheckedOnTheCards_Laptop_11-32-54] clearBlockers took 74 ms
+11:33:00 [TestNG-PoolService-1] INFO  freeDeliveryFilterCheckedOnTheCards_Laptop_11-32-54 - [freeDeliveryFilterCheckedOnTheCards_Laptop_11-32-54] SEARCH 'Laptop' -> https://www.amazon.in/s?k=Laptop&ref=nb_sb_noss
+11:33:00 [TestNG-PoolService-1] INFO  freeDeliveryFilterCheckedOnTheCards_Laptop_11-32-54 - [freeDeliveryFilterCheckedOnTheCards_Laptop_11-32-54] Within filterCheckUnderList method
+11:33:00 [TestNG-PoolService-1] INFO  freeDeliveryFilterCheckedOnTheCards_Laptop_11-32-54 - [freeDeliveryFilterCheckedOnTheCards_Laptop_11-32-54] Found the Filter within the filter check List
+11:33:01 [TestNG-PoolService-1] INFO  freeDeliveryFilterCheckedOnTheCards_Laptop_11-32-54 - [freeDeliveryFilterCheckedOnTheCards_Laptop_11-32-54] 'Eligible for Free Delivery' options on the page: [Free Shipping]
+11:33:01 [TestNG-PoolService-1] INFO  freeDeliveryFilterCheckedOnTheCards_Laptop_11-32-54 - [freeDeliveryFilterCheckedOnTheCards_Laptop_11-32-54] FILTER 'Eligible for Free Delivery': checking 1 of 1 option(s)
+11:33:01 [TestNG-PoolService-1] INFO  freeDeliveryFilterCheckedOnTheCards_Laptop_11-32-54 - [freeDeliveryFilterCheckedOnTheCards_Laptop_11-32-54] OPTION 'Free Shipping' (1 of 1)
+11:33:01 [TestNG-PoolService-1] INFO  freeDeliveryFilterCheckedOnTheCards_Laptop_11-32-54 - [freeDeliveryFilterCheckedOnTheCards_Laptop_11-32-54] clearBlockers took 32 ms
+11:33:03 [TestNG-PoolService-1] INFO  freeDeliveryFilterCheckedOnTheCards_Laptop_11-32-54 - [freeDeliveryFilterCheckedOnTheCards_Laptop_11-32-54] 'Free Shipping' applied after 1258 ms
+11:33:05 [TestNG-PoolService-1] INFO  freeDeliveryFilterCheckedOnTheCards_Laptop_11-32-54 - [freeDeliveryFilterCheckedOnTheCards_Laptop_11-32-54] 16 card(s) on screen
+11:33:05 [TestNG-PoolService-1] INFO  freeDeliveryFilterCheckedOnTheCards_Laptop_11-32-54 - [freeDeliveryFilterCheckedOnTheCards_Laptop_11-32-54] 'Free Shipping': 16 card(s): 16 with a price, 14 with a rating, 16 with a printed discount, 16 with a delivery line, 0 with no main offer
+11:33:05 [TestNG-PoolService-1] INFO  freeDeliveryFilterCheckedOnTheCards_Laptop_11-32-54 - [freeDeliveryFilterCheckedOnTheCards_Laptop_11-32-54] Within safeClick method
+11:33:05 [TestNG-PoolService-1] INFO  freeDeliveryFilterCheckedOnTheCards_Laptop_11-32-54 - [freeDeliveryFilterCheckedOnTheCards_Laptop_11-32-54] Clicked the  [[ChromeDriver: chrome on windows (a76a486b3dd87256b0aeed7547188e81)] -> xpath: //div[@id='deliveryRefinements']//a[normalize-space(.)='Clear']]   using safeClick
+11:33:05 [TestNG-PoolService-1] INFO  freeDeliveryFilterCheckedOnTheCards_Laptop_11-32-54 - [freeDeliveryFilterCheckedOnTheCards_Laptop_11-32-54] Cleared 'Eligible for Free Delivery' (the Clear link is gone)
+11:33:05 [TestNG-PoolService-1] INFO  freeDeliveryFilterCheckedOnTheCards_Laptop_11-32-54 - [freeDeliveryFilterCheckedOnTheCards_Laptop_11-32-54] clearBlockers took 58 ms
+11:33:05 [TestNG-PoolService-1] INFO  freeDeliveryFilterCheckedOnTheCards_Laptop_11-32-54 - [freeDeliveryFilterCheckedOnTheCards_Laptop_11-32-54] 'Free Shipping' cleared
+11:33:05 [TestNG-PoolService-1] INFO  freeDeliveryFilterCheckedOnTheCards_Laptop_11-32-54 - [freeDeliveryFilterCheckedOnTheCards_Laptop_11-32-54] DONE: 1 option(s) read, not applied: []
+11:33:05 [TestNG-PoolService-1] INFO  freeDeliveryFilterCheckedOnTheCards_Laptop_11-32-54 - [freeDeliveryFilterCheckedOnTheCards_Laptop_11-32-54] Saved what was read to collected\Laptop__Eligible_for_Free_Delivery.json
+11:33:05 [TestNG-PoolService-1] INFO  freeDeliveryFilterCheckedOnTheCards_Laptop_11-32-54 - [freeDeliveryFilterCheckedOnTheCards_Laptop_11-32-54] CHECK Laptop Eligible for Free Delivery 'Free Shipping': 16 of 16 judged fit (needs at least 0.9), 0 show no value
+11:33:05 [TestNG-PoolService-1] INFO  freeDeliveryFilterCheckedOnTheCards_Laptop_11-32-54 - [freeDeliveryFilterCheckedOnTheCards_Laptop_11-32-54] Finished 'freeDeliveryFilterCheckedOnTheCards': passed in 8864 ms

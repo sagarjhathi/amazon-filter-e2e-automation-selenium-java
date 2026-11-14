@@ -1,0 +1,19 @@
+11:24:25 [TestNG-PoolService-2] INFO  cardSelfCheck_Tablet_11-24-25 - No existing WebDriver found for current thread. Initializing a new ChromeDriver...
+11:24:25 [TestNG-PoolService-2] INFO  cardSelfCheck_Tablet_11-24-25 - WebDriverManager: chromedriver setup OK
+11:24:27 [TestNG-PoolService-2] INFO  cardSelfCheck_Tablet_11-24-25 - ChromeDriver initialized successfully for thread: 35
+11:24:27 [TestNG-PoolService-2] INFO  cardSelfCheck_Tablet_11-24-25 - [cardSelfCheck_Tablet_11-24-25] TEST: Tablet: price, M.R.P. and printed discount of each card agree
+11:24:27 [TestNG-PoolService-2] INFO  cardSelfCheck_Tablet_11-24-25 - [cardSelfCheck_Tablet_11-24-25] ==================== RULE: Tablet card self-check: (M.R.P. - price) / M.R.P. rounds to the printed discount; at least 95% of the cards must agree ====================
+11:24:28 [TestNG-PoolService-2] INFO  cardSelfCheck_Tablet_11-24-25 - [cardSelfCheck_Tablet_11-24-25] Opening amazon Landing page
+11:24:28 [TestNG-PoolService-2] INFO  cardSelfCheck_Tablet_11-24-25 - [cardSelfCheck_Tablet_11-24-25] Within safeFindElement method
+11:24:29 [TestNG-PoolService-2] INFO  cardSelfCheck_Tablet_11-24-25 - [cardSelfCheck_Tablet_11-24-25]Found the element returning it ,element ->[[ChromeDriver: chrome on windows (5f52ef761967eec712f26922952530d0)] -> xpath: //a[@id='nav-logo-sprites']]
+11:24:29 [TestNG-PoolService-2] INFO  cardSelfCheck_Tablet_11-24-25 - [cardSelfCheck_Tablet_11-24-25] clearBlockers took 161 ms
+11:24:29 [TestNG-PoolService-2] INFO  cardSelfCheck_Tablet_11-24-25 - [cardSelfCheck_Tablet_11-24-25] Giving input within the search bar
+11:24:29 [TestNG-PoolService-2] INFO  cardSelfCheck_Tablet_11-24-25 - [cardSelfCheck_Tablet_11-24-25] Within safeClick method
+11:24:31 [TestNG-PoolService-2] INFO  cardSelfCheck_Tablet_11-24-25 - [cardSelfCheck_Tablet_11-24-25] Clicked the  [[ChromeDriver: chrome on windows (5f52ef761967eec712f26922952530d0)] -> xpath: //input[@id='nav-search-submit-button']]   using safeClick
+11:24:31 [TestNG-PoolService-2] INFO  cardSelfCheck_Tablet_11-24-25 - [cardSelfCheck_Tablet_11-24-25] Clicking on the submit in the search bar
+11:24:31 [TestNG-PoolService-2] INFO  cardSelfCheck_Tablet_11-24-25 - [cardSelfCheck_Tablet_11-24-25] clearBlockers took 37 ms
+11:24:31 [TestNG-PoolService-2] INFO  cardSelfCheck_Tablet_11-24-25 - [cardSelfCheck_Tablet_11-24-25] SEARCH 'Tablet' -> https://www.amazon.in/s?k=Tablet&ref=nb_sb_noss
+11:24:34 [TestNG-PoolService-2] INFO  cardSelfCheck_Tablet_11-24-25 - [cardSelfCheck_Tablet_11-24-25] 16 card(s) on screen
+11:24:34 [TestNG-PoolService-2] INFO  cardSelfCheck_Tablet_11-24-25 - [cardSelfCheck_Tablet_11-24-25] Saved what was read to collected\Tablet__Card_self-check.json
+11:24:34 [TestNG-PoolService-2] INFO  cardSelfCheck_Tablet_11-24-25 - [cardSelfCheck_Tablet_11-24-25] CHECK Tablet card self-check: 15 of 15 judged fit (needs at least 0.95), 1 show no value
+11:24:34 [TestNG-PoolService-2] INFO  cardSelfCheck_Tablet_11-24-25 - [cardSelfCheck_Tablet_11-24-25] Tablet card self-check: not judged (no value): Redmi Pad 2, 11-inch (27.94 CM), LCD Dis

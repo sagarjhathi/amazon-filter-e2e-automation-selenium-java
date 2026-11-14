@@ -1,0 +1,19 @@
+11:24:00 [TestNG-PoolService-2] INFO  cardSelfCheck_Mobile_11-24-00 - No existing WebDriver found for current thread. Initializing a new ChromeDriver...
+11:24:05 [TestNG-PoolService-2] INFO  cardSelfCheck_Mobile_11-24-00 - WebDriverManager: chromedriver setup OK
+11:24:13 [TestNG-PoolService-2] INFO  cardSelfCheck_Mobile_11-24-00 - ChromeDriver initialized successfully for thread: 35
+11:24:13 [TestNG-PoolService-2] INFO  cardSelfCheck_Mobile_11-24-00 - [cardSelfCheck_Mobile_11-24-00] TEST: Mobile: price, M.R.P. and printed discount of each card agree
+11:24:13 [TestNG-PoolService-2] INFO  cardSelfCheck_Mobile_11-24-00 - [cardSelfCheck_Mobile_11-24-00] ==================== RULE: Mobile card self-check: (M.R.P. - price) / M.R.P. rounds to the printed discount; at least 95% of the cards must agree ====================
+11:24:14 [TestNG-PoolService-2] INFO  cardSelfCheck_Mobile_11-24-00 - [cardSelfCheck_Mobile_11-24-00] Opening amazon Landing page
+11:24:14 [TestNG-PoolService-2] INFO  cardSelfCheck_Mobile_11-24-00 - [cardSelfCheck_Mobile_11-24-00] Within safeFindElement method
+11:24:16 [TestNG-PoolService-2] INFO  cardSelfCheck_Mobile_11-24-00 - [cardSelfCheck_Mobile_11-24-00]Found the element returning it ,element ->[[ChromeDriver: chrome on windows (c11f559b214cfe66ba9c8bbf523c8a83)] -> xpath: //a[@id='nav-logo-sprites']]
+11:24:17 [TestNG-PoolService-2] INFO  cardSelfCheck_Mobile_11-24-00 - [cardSelfCheck_Mobile_11-24-00] clearBlockers took 460 ms
+11:24:17 [TestNG-PoolService-2] INFO  cardSelfCheck_Mobile_11-24-00 - [cardSelfCheck_Mobile_11-24-00] Giving input within the search bar
+11:24:17 [TestNG-PoolService-2] INFO  cardSelfCheck_Mobile_11-24-00 - [cardSelfCheck_Mobile_11-24-00] Within safeClick method
+11:24:17 [TestNG-PoolService-2] INFO  cardSelfCheck_Mobile_11-24-00 - [cardSelfCheck_Mobile_11-24-00] Clicked the  [[ChromeDriver: chrome on windows (c11f559b214cfe66ba9c8bbf523c8a83)] -> xpath: //input[@id='nav-search-submit-button']]   using safeClick
+11:24:17 [TestNG-PoolService-2] INFO  cardSelfCheck_Mobile_11-24-00 - [cardSelfCheck_Mobile_11-24-00] Clicking on the submit in the search bar
+11:24:20 [TestNG-PoolService-2] INFO  cardSelfCheck_Mobile_11-24-00 - [cardSelfCheck_Mobile_11-24-00] clearBlockers took 2584 ms
+11:24:20 [TestNG-PoolService-2] INFO  cardSelfCheck_Mobile_11-24-00 - [cardSelfCheck_Mobile_11-24-00] SEARCH 'Mobile' -> https://www.amazon.in/s?k=Mobile&ref=nb_sb_noss
+11:24:23 [TestNG-PoolService-2] INFO  cardSelfCheck_Mobile_11-24-00 - [cardSelfCheck_Mobile_11-24-00] 16 card(s) on screen
+11:24:23 [TestNG-PoolService-2] INFO  cardSelfCheck_Mobile_11-24-00 - [cardSelfCheck_Mobile_11-24-00] Saved what was read to collected\Mobile__Card_self-check.json
+11:24:23 [TestNG-PoolService-2] INFO  cardSelfCheck_Mobile_11-24-00 - [cardSelfCheck_Mobile_11-24-00] CHECK Mobile card self-check: 15 of 15 judged fit (needs at least 0.95), 1 show no value
+11:24:23 [TestNG-PoolService-2] INFO  cardSelfCheck_Mobile_11-24-00 - [cardSelfCheck_Mobile_11-24-00] Mobile card self-check: not judged (no value): Samsung Galaxy M17e 5G Mobile (Vibe Viol

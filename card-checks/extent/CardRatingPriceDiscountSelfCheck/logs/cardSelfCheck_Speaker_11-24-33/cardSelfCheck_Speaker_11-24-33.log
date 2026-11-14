@@ -1,0 +1,19 @@
+11:24:33 [TestNG-PoolService-1] INFO  cardSelfCheck_Speaker_11-24-33 - No existing WebDriver found for current thread. Initializing a new ChromeDriver...
+11:24:33 [TestNG-PoolService-1] INFO  cardSelfCheck_Speaker_11-24-33 - WebDriverManager: chromedriver setup OK
+11:24:35 [TestNG-PoolService-1] INFO  cardSelfCheck_Speaker_11-24-33 - ChromeDriver initialized successfully for thread: 34
+11:24:35 [TestNG-PoolService-1] INFO  cardSelfCheck_Speaker_11-24-33 - [cardSelfCheck_Speaker_11-24-33] TEST: Speaker: price, M.R.P. and printed discount of each card agree
+11:24:35 [TestNG-PoolService-1] INFO  cardSelfCheck_Speaker_11-24-33 - [cardSelfCheck_Speaker_11-24-33] ==================== RULE: Speaker card self-check: (M.R.P. - price) / M.R.P. rounds to the printed discount; at least 95% of the cards must agree ====================
+11:24:35 [TestNG-PoolService-1] INFO  cardSelfCheck_Speaker_11-24-33 - [cardSelfCheck_Speaker_11-24-33] Opening amazon Landing page
+11:24:35 [TestNG-PoolService-1] INFO  cardSelfCheck_Speaker_11-24-33 - [cardSelfCheck_Speaker_11-24-33] Within safeFindElement method
+11:24:36 [TestNG-PoolService-1] INFO  cardSelfCheck_Speaker_11-24-33 - [cardSelfCheck_Speaker_11-24-33]Found the element returning it ,element ->[[ChromeDriver: chrome on windows (955e27fa9f0a76f8528cbbddd608b446)] -> xpath: //a[@id='nav-logo-sprites']]
+11:24:36 [TestNG-PoolService-1] INFO  cardSelfCheck_Speaker_11-24-33 - [cardSelfCheck_Speaker_11-24-33] clearBlockers took 176 ms
+11:24:36 [TestNG-PoolService-1] INFO  cardSelfCheck_Speaker_11-24-33 - [cardSelfCheck_Speaker_11-24-33] Giving input within the search bar
+11:24:36 [TestNG-PoolService-1] INFO  cardSelfCheck_Speaker_11-24-33 - [cardSelfCheck_Speaker_11-24-33] Within safeClick method
+11:24:38 [TestNG-PoolService-1] INFO  cardSelfCheck_Speaker_11-24-33 - [cardSelfCheck_Speaker_11-24-33] Clicked the  [[ChromeDriver: chrome on windows (955e27fa9f0a76f8528cbbddd608b446)] -> xpath: //input[@id='nav-search-submit-button']]   using safeClick
+11:24:38 [TestNG-PoolService-1] INFO  cardSelfCheck_Speaker_11-24-33 - [cardSelfCheck_Speaker_11-24-33] Clicking on the submit in the search bar
+11:24:38 [TestNG-PoolService-1] INFO  cardSelfCheck_Speaker_11-24-33 - [cardSelfCheck_Speaker_11-24-33] clearBlockers took 32 ms
+11:24:38 [TestNG-PoolService-1] INFO  cardSelfCheck_Speaker_11-24-33 - [cardSelfCheck_Speaker_11-24-33] SEARCH 'Speaker' -> https://www.amazon.in/s?k=Speaker&ref=nb_sb_noss
+11:24:40 [TestNG-PoolService-1] INFO  cardSelfCheck_Speaker_11-24-33 - [cardSelfCheck_Speaker_11-24-33] 16 card(s) on screen
+11:24:40 [TestNG-PoolService-1] INFO  cardSelfCheck_Speaker_11-24-33 - [cardSelfCheck_Speaker_11-24-33] Saved what was read to collected\Speaker__Card_self-check.json
+11:24:40 [TestNG-PoolService-1] INFO  cardSelfCheck_Speaker_11-24-33 - [cardSelfCheck_Speaker_11-24-33] CHECK Speaker card self-check: 16 of 16 judged fit (needs at least 0.95), 0 show no value
+11:24:40 [TestNG-PoolService-1] INFO  cardSelfCheck_Speaker_11-24-33 - [cardSelfCheck_Speaker_11-24-33] Finished 'cardSelfCheck': passed in 5435 ms

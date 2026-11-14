@@ -1,0 +1,20 @@
+23:20:05 [TestNG-test-Test-1] INFO  verifyingBatteryCapacityFilterFunctionality_Laptop_23-20-05 - No existing WebDriver found for current thread. Initializing a new ChromeDriver...
+23:20:05 [TestNG-test-Test-1] INFO  verifyingBatteryCapacityFilterFunctionality_Laptop_23-20-05 - WebDriverManager: chromedriver setup OK
+23:20:07 [TestNG-test-Test-1] INFO  verifyingBatteryCapacityFilterFunctionality_Laptop_23-20-05 - ChromeDriver initialized successfully for thread: 34
+23:20:07 [TestNG-test-Test-1] INFO  verifyingBatteryCapacityFilterFunctionality_Laptop_23-20-05 - [verifyingBatteryCapacityFilterFunctionality_Laptop_23-20-05] Opening amazon Landing page
+23:20:07 [TestNG-test-Test-1] INFO  verifyingBatteryCapacityFilterFunctionality_Laptop_23-20-05 - [verifyingBatteryCapacityFilterFunctionality_Laptop_23-20-05] Within safeFindElement method
+23:20:12 [TestNG-test-Test-1] INFO  verifyingBatteryCapacityFilterFunctionality_Laptop_23-20-05 - [verifyingBatteryCapacityFilterFunctionality_Laptop_23-20-05]Retrying findElement for: ->By.xpath: //a[@id='nav-logo-sprites']
+23:20:12 [TestNG-test-Test-1] INFO  verifyingBatteryCapacityFilterFunctionality_Laptop_23-20-05 - [verifyingBatteryCapacityFilterFunctionality_Laptop_23-20-05]Refrehsing the page , while trying to safely find : ->By.xpath: //a[@id='nav-logo-sprites']
+23:20:17 [TestNG-test-Test-1] INFO  verifyingBatteryCapacityFilterFunctionality_Laptop_23-20-05 - [verifyingBatteryCapacityFilterFunctionality_Laptop_23-20-05]Retrying findElement for: ->By.xpath: //a[@id='nav-logo-sprites']
+23:20:18 [TestNG-test-Test-1] INFO  verifyingBatteryCapacityFilterFunctionality_Laptop_23-20-05 - [verifyingBatteryCapacityFilterFunctionality_Laptop_23-20-05]Refrehsing the page , while trying to safely find : ->By.xpath: //a[@id='nav-logo-sprites']
+23:20:18 [TestNG-test-Test-1] INFO  verifyingBatteryCapacityFilterFunctionality_Laptop_23-20-05 - [verifyingBatteryCapacityFilterFunctionality_Laptop_23-20-05] Skipping action: Element not found after 2   attemps
+23:20:18 [TestNG-test-Test-1] WARN  verifyingBatteryCapacityFilterFunctionality_Laptop_23-20-05 - [verifyingBatteryCapacityFilterFunctionality_Laptop_23-20-05] Captcha detected. Attempt 1
+23:20:20 [TestNG-test-Test-1] INFO  verifyingBatteryCapacityFilterFunctionality_Laptop_23-20-05 - [verifyingBatteryCapacityFilterFunctionality_Laptop_23-20-05] clearBlockers took 2821 ms
+23:20:21 [TestNG-test-Test-1] INFO  verifyingBatteryCapacityFilterFunctionality_Laptop_23-20-05 - [verifyingBatteryCapacityFilterFunctionality_Laptop_23-20-05] Giving input within the search bar
+23:20:21 [TestNG-test-Test-1] INFO  verifyingBatteryCapacityFilterFunctionality_Laptop_23-20-05 - [verifyingBatteryCapacityFilterFunctionality_Laptop_23-20-05] Within safeClick method
+23:20:23 [TestNG-test-Test-1] INFO  verifyingBatteryCapacityFilterFunctionality_Laptop_23-20-05 - [verifyingBatteryCapacityFilterFunctionality_Laptop_23-20-05] Clicked the  [[ChromeDriver: chrome on windows (96be23bba684acb6d21f377a35ab47f7)] -> xpath: //input[@id='nav-search-submit-button']]   using safeClick
+23:20:23 [TestNG-test-Test-1] INFO  verifyingBatteryCapacityFilterFunctionality_Laptop_23-20-05 - [verifyingBatteryCapacityFilterFunctionality_Laptop_23-20-05] Clicking on the submit in the search bar
+23:20:23 [TestNG-test-Test-1] INFO  verifyingBatteryCapacityFilterFunctionality_Laptop_23-20-05 - [verifyingBatteryCapacityFilterFunctionality_Laptop_23-20-05] clearBlockers took 45 ms
+23:20:23 [TestNG-test-Test-1] INFO  verifyingBatteryCapacityFilterFunctionality_Laptop_23-20-05 - [verifyingBatteryCapacityFilterFunctionality_Laptop_23-20-05] Within filterCheckUnderList method
+23:20:24 [TestNG-test-Test-1] INFO  verifyingBatteryCapacityFilterFunctionality_Laptop_23-20-05 - [verifyingBatteryCapacityFilterFunctionality_Laptop_23-20-05] Filter option does not exist within the filter check List
+23:20:24 [TestNG-test-Test-1] WARN  verifyingBatteryCapacityFilterFunctionality_Laptop_23-20-05 - [verifyingBatteryCapacityFilterFunctionality_Laptop_23-20-05]  Filter option 'Battery Capacity' does not exist in the list. Skipping the test.

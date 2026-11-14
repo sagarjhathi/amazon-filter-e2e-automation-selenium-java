@@ -1,0 +1,223 @@
+22:57:19 [TestNG-test-Test-1] INFO  verifyingFreeDeliveryFilterFunctionality_Mobile_22-57-19 - No existing WebDriver found for current thread. Initializing a new ChromeDriver...
+22:57:23 [TestNG-test-Test-1] INFO  verifyingFreeDeliveryFilterFunctionality_Mobile_22-57-19 - WebDriverManager: chromedriver setup OK
+22:57:37 [TestNG-test-Test-1] INFO  verifyingFreeDeliveryFilterFunctionality_Mobile_22-57-19 - ChromeDriver initialized successfully for thread: 34
+22:57:38 [TestNG-test-Test-1] INFO  verifyingFreeDeliveryFilterFunctionality_Mobile_22-57-19 - [verifyingFreeDeliveryFilterFunctionality_Mobile_22-57-19] Opening amazon Landing page
+22:57:38 [TestNG-test-Test-1] INFO  verifyingFreeDeliveryFilterFunctionality_Mobile_22-57-19 - [verifyingFreeDeliveryFilterFunctionality_Mobile_22-57-19] Within safeFindElement method
+22:57:43 [TestNG-test-Test-1] INFO  verifyingFreeDeliveryFilterFunctionality_Mobile_22-57-19 - [verifyingFreeDeliveryFilterFunctionality_Mobile_22-57-19]Retrying findElement for: ->By.xpath: //a[@id='nav-logo-sprites']
+22:57:45 [TestNG-test-Test-1] INFO  verifyingFreeDeliveryFilterFunctionality_Mobile_22-57-19 - [verifyingFreeDeliveryFilterFunctionality_Mobile_22-57-19]Refrehsing the page , while trying to safely find : ->By.xpath: //a[@id='nav-logo-sprites']
+22:57:45 [TestNG-test-Test-1] INFO  verifyingFreeDeliveryFilterFunctionality_Mobile_22-57-19 - [verifyingFreeDeliveryFilterFunctionality_Mobile_22-57-19]Found the element returning it ,element ->[[ChromeDriver: chrome on windows (a059769e8b92239d69dbf3b202e4e00b)] -> xpath: //a[@id='nav-logo-sprites']]
+22:57:45 [TestNG-test-Test-1] INFO  verifyingFreeDeliveryFilterFunctionality_Mobile_22-57-19 - [verifyingFreeDeliveryFilterFunctionality_Mobile_22-57-19] clearBlockers took 16 ms
+22:57:45 [TestNG-test-Test-1] INFO  verifyingFreeDeliveryFilterFunctionality_Mobile_22-57-19 - [verifyingFreeDeliveryFilterFunctionality_Mobile_22-57-19] Giving input within the search bar
+22:57:45 [TestNG-test-Test-1] INFO  verifyingFreeDeliveryFilterFunctionality_Mobile_22-57-19 - [verifyingFreeDeliveryFilterFunctionality_Mobile_22-57-19] Within safeClick method
+22:57:50 [TestNG-test-Test-1] INFO  verifyingFreeDeliveryFilterFunctionality_Mobile_22-57-19 - [verifyingFreeDeliveryFilterFunctionality_Mobile_22-57-19] Clicked the  [[ChromeDriver: chrome on windows (a059769e8b92239d69dbf3b202e4e00b)] -> xpath: //input[@id='nav-search-submit-button']]   using safeClick
+22:57:50 [TestNG-test-Test-1] INFO  verifyingFreeDeliveryFilterFunctionality_Mobile_22-57-19 - [verifyingFreeDeliveryFilterFunctionality_Mobile_22-57-19] Clicking on the submit in the search bar
+22:57:50 [TestNG-test-Test-1] INFO  verifyingFreeDeliveryFilterFunctionality_Mobile_22-57-19 - [verifyingFreeDeliveryFilterFunctionality_Mobile_22-57-19] clearBlockers took 67 ms
+22:57:50 [TestNG-test-Test-1] INFO  verifyingFreeDeliveryFilterFunctionality_Mobile_22-57-19 - [verifyingFreeDeliveryFilterFunctionality_Mobile_22-57-19] Within validateDeliveryFilterOptionsWithResult method
+22:57:50 [TestNG-test-Test-1] INFO  verifyingFreeDeliveryFilterFunctionality_Mobile_22-57-19 - [verifyingFreeDeliveryFilterFunctionality_Mobile_22-57-19] Within safeClick method
+22:57:51 [TestNG-test-Test-1] INFO  verifyingFreeDeliveryFilterFunctionality_Mobile_22-57-19 - [verifyingFreeDeliveryFilterFunctionality_Mobile_22-57-19] Clicked the  [[ChromeDriver: chrome on windows (a059769e8b92239d69dbf3b202e4e00b)] -> xpath: //span[@class='a-size-base a-color-base puis-bold-weight-text' and text()='Eligible for Free Delivery']/parent::div/following-sibling::ul//span[@class='a-size-base a-color-base' and text()='Free Shipping']]   using safeClick
+22:57:51 [TestNG-test-Test-1] INFO  verifyingFreeDeliveryFilterFunctionality_Mobile_22-57-19 - [verifyingFreeDeliveryFilterFunctionality_Mobile_22-57-19] Within getMoreButtonByFilterTypeAndName method
+22:57:51 [TestNG-test-Test-1] INFO  verifyingFreeDeliveryFilterFunctionality_Mobile_22-57-19 - [verifyingFreeDeliveryFilterFunctionality_Mobile_22-57-19] Clicked on By.xpath: //span[@class='a-size-base a-color-base puis-bold-weight-text' and text()='Eligible for Free Delivery']/parent::div/following-sibling::ul//span[@class='a-size-base a-color-base' and text()='Free Shipping']
+22:57:52 [TestNG-test-Test-1] INFO  verifyingFreeDeliveryFilterFunctionality_Mobile_22-57-19 - [verifyingFreeDeliveryFilterFunctionality_Mobile_22-57-19] Within safeFindElements 
+22:57:52 [TestNG-test-Test-1] INFO  verifyingFreeDeliveryFilterFunctionality_Mobile_22-57-19 - [verifyingFreeDeliveryFilterFunctionality_Mobile_22-57-19] Returning the  [[[ChromeDriver: chrome on windows (a059769e8b92239d69dbf3b202e4e00b)] -> xpath: //div[@class='a-section a-spacing-small a-spacing-top-small']], [[ChromeDriver: chrome on windows (a059769e8b92239d69dbf3b202e4e00b)] -> xpath: //div[@class='a-section a-spacing-small a-spacing-top-small']], [[ChromeDriver: chrome on windows (a059769e8b92239d69dbf3b202e4e00b)] -> xpath: //div[@class='a-section a-spacing-small a-spacing-top-small']], [[ChromeDriver: chrome on windows (a059769e8b92239d69dbf3b202e4e00b)] -> xpath: //div[@class='a-section a-spacing-small a-spacing-top-small']], [[ChromeDriver: chrome on windows (a059769e8b92239d69dbf3b202e4e00b)] -> xpath: //div[@class='a-section a-spacing-small a-spacing-top-small']], [[ChromeDriver: chrome on windows (a059769e8b92239d69dbf3b202e4e00b)] -> xpath: //div[@class='a-section a-spacing-small a-spacing-top-small']], [[ChromeDriver: chrome on windows (a059769e8b92239d69dbf3b202e4e00b)] -> xpath: //div[@class='a-section a-spacing-small a-spacing-top-small']], [[ChromeDriver: chrome on windows (a059769e8b92239d69dbf3b202e4e00b)] -> xpath: //div[@class='a-section a-spacing-small a-spacing-top-small']], [[ChromeDriver: chrome on windows (a059769e8b92239d69dbf3b202e4e00b)] -> xpath: //div[@class='a-section a-spacing-small a-spacing-top-small']], [[ChromeDriver: chrome on windows (a059769e8b92239d69dbf3b202e4e00b)] -> xpath: //div[@class='a-section a-spacing-small a-spacing-top-small']], [[ChromeDriver: chrome on windows (a059769e8b92239d69dbf3b202e4e00b)] -> xpath: //div[@class='a-section a-spacing-small a-spacing-top-small']], [[ChromeDriver: chrome on windows (a059769e8b92239d69dbf3b202e4e00b)] -> xpath: //div[@class='a-section a-spacing-small a-spacing-top-small']], [[ChromeDriver: chrome on windows (a059769e8b92239d69dbf3b202e4e00b)] -> xpath: //div[@class='a-section a-spacing-small a-spacing-top-small']], [[ChromeDriver: chrome on windows (a059769e8b92239d69dbf3b202e4e00b)] -> xpath: //div[@class='a-section a-spacing-small a-spacing-top-small']], [[ChromeDriver: chrome on windows (a059769e8b92239d69dbf3b202e4e00b)] -> xpath: //div[@class='a-section a-spacing-small a-spacing-top-small']], [[ChromeDriver: chrome on windows (a059769e8b92239d69dbf3b202e4e00b)] -> xpath: //div[@class='a-section a-spacing-small a-spacing-top-small']]] from the safeFindElements method
+22:57:52 [TestNG-test-Test-1] INFO  verifyingFreeDeliveryFilterFunctionality_Mobile_22-57-19 - [verifyingFreeDeliveryFilterFunctionality_Mobile_22-57-19] Created hashset with required data to assert with Within validateDeliveryFilterOptionsWithResult method
+22:57:52 [TestNG-test-Test-1] INFO  verifyingFreeDeliveryFilterFunctionality_Mobile_22-57-19 - [verifyingFreeDeliveryFilterFunctionality_Mobile_22-57-19] this is the set  [FREE delivery]
+22:57:52 [TestNG-test-Test-1] INFO  verifyingFreeDeliveryFilterFunctionality_Mobile_22-57-19 - [verifyingFreeDeliveryFilterFunctionality_Mobile_22-57-19] Within deliveryElements loop iterating over the products  Within validateDeliveryFilterOptionsWithResult method
+22:57:52 [TestNG-test-Test-1] INFO  verifyingFreeDeliveryFilterFunctionality_Mobile_22-57-19 - [verifyingFreeDeliveryFilterFunctionality_Mobile_22-57-19] Checking if the allowedDateParts have the assert text — index 0, text: realme narzo 80 Lite 4G (See Blue,4GB+64GB) 2026 | 6300mAh Segment's Biggest Battery | 7.94mm Slim Design | 300% Ultra Volume | Pulse Light: 9 Colors, 5 Glow Modes | Ai Assist
+4.1
+(2.3K)
+3K+ bought in past month
+Limited time deal
+₹11,998
+M.R.P:
+₹16,999 (29% off)
+Up to 5% back with Amazon Pay ICI...
+FREE delivery Tue, 17 Nov
+Add to cart
+22:57:52 [TestNG-test-Test-1] INFO  verifyingFreeDeliveryFilterFunctionality_Mobile_22-57-19 - [verifyingFreeDeliveryFilterFunctionality_Mobile_22-57-19] Within deliveryElements loop iterating over the products  Within validateDeliveryFilterOptionsWithResult method
+22:57:52 [TestNG-test-Test-1] INFO  verifyingFreeDeliveryFilterFunctionality_Mobile_22-57-19 - [verifyingFreeDeliveryFilterFunctionality_Mobile_22-57-19] Checking if the allowedDateParts have the assert text — index 1, text: Samsung Galaxy M07 Mobile (Black, 4GB RAM, 64GB Storage) | MediaTek Helio G99 | AnTuTu 624K | IP54| 50MP Camera | 7.6mm Slim | 5000mAh Battery | 25W Fast Charging | 6 Gen OS Upgrades | Without Charger
+4.1
+(2.9K)
+5K+ bought in past month
+₹11,999
+M.R.P:
+₹16,999 (29% off)
+Up to 5% back with Amazon Pay ICI...
+FREE delivery Tue, 17 Nov
+Or fastest delivery Mon, 16 Nov
+Add to cart
+22:57:52 [TestNG-test-Test-1] INFO  verifyingFreeDeliveryFilterFunctionality_Mobile_22-57-19 - [verifyingFreeDeliveryFilterFunctionality_Mobile_22-57-19] Within deliveryElements loop iterating over the products  Within validateDeliveryFilterOptionsWithResult method
+22:57:52 [TestNG-test-Test-1] INFO  verifyingFreeDeliveryFilterFunctionality_Mobile_22-57-19 - [verifyingFreeDeliveryFilterFunctionality_Mobile_22-57-19] Checking if the allowedDateParts have the assert text — index 2, text: Redmi 15C 5G Prime Edition (Midnight Black, 6GB + 128GB) | Massive 6000mAh Battery | Segment's Largest 17.53cm Display Up to 120Hz | MediaTek Dimensity 6300 | 33W Fast Charging | 50MP AI Dual Camera
+3.9
+(1.1K)
+5K+ bought in past month
+₹18,999
+M.R.P:
+₹31,999 (41% off)
+Up to 5% back with Amazon Pay ICI...
+FREE delivery Mon, 16 Nov
+Or fastest delivery Today 4 pm - 8 pm
+Add to cart
+22:57:52 [TestNG-test-Test-1] INFO  verifyingFreeDeliveryFilterFunctionality_Mobile_22-57-19 - [verifyingFreeDeliveryFilterFunctionality_Mobile_22-57-19] Within deliveryElements loop iterating over the products  Within validateDeliveryFilterOptionsWithResult method
+22:57:52 [TestNG-test-Test-1] INFO  verifyingFreeDeliveryFilterFunctionality_Mobile_22-57-19 - [verifyingFreeDeliveryFilterFunctionality_Mobile_22-57-19] Checking if the allowedDateParts have the assert text — index 3, text: Samsung Galaxy A56 5G Mobile (Awesome Violet Glow, 8GB, 128GB) | Segment Most Complete Triple Camera | 50MP | AI Editing | 4nm Processor | sAMOLED | 5000mAh | Gorilla Glass Victus+| Knox Security
+4.4
+(1.3K)
+5K+ bought in past month
+Limited time deal
+₹31,999
+M.R.P:
+₹49,999 (36% off)
+Up to 5% back with Amazon Pay ICI...
+FREE delivery Mon, 16 Nov
+Or fastest delivery Today 4 pm - 8 pm
+Add to cart
+22:57:52 [TestNG-test-Test-1] INFO  verifyingFreeDeliveryFilterFunctionality_Mobile_22-57-19 - [verifyingFreeDeliveryFilterFunctionality_Mobile_22-57-19] Within deliveryElements loop iterating over the products  Within validateDeliveryFilterOptionsWithResult method
+22:57:52 [TestNG-test-Test-1] INFO  verifyingFreeDeliveryFilterFunctionality_Mobile_22-57-19 - [verifyingFreeDeliveryFilterFunctionality_Mobile_22-57-19] Checking if the allowedDateParts have the assert text — index 4, text: Lava Bold N4 Lite (Empire Gold, 3GB RAM, 32GB Storage) | 6.56" qHD Display | 8MP Rear Camera | 5000 mAh Battery | Free Service @ Home | Fingerprint Reader | Charger & Phone-Cover in Box
+3.3
+(142)
+3K+ bought in past month
+₹8,299
+M.R.P:
+₹9,999 (17% off)
+Up to 5% back with Amazon Pay ICI...
+FREE delivery Mon, 16 Nov
+Or fastest delivery Today 4 pm - 8 pm
+Add to cart
+22:57:52 [TestNG-test-Test-1] INFO  verifyingFreeDeliveryFilterFunctionality_Mobile_22-57-19 - [verifyingFreeDeliveryFilterFunctionality_Mobile_22-57-19] Within deliveryElements loop iterating over the products  Within validateDeliveryFilterOptionsWithResult method
+22:57:52 [TestNG-test-Test-1] INFO  verifyingFreeDeliveryFilterFunctionality_Mobile_22-57-19 - [verifyingFreeDeliveryFilterFunctionality_Mobile_22-57-19] Checking if the allowedDateParts have the assert text — index 5, text: Lava Bold N4 Pro 5G (Opulent Lilac, 6GB RAM, 128GB Storage) | 50MP AI Rear Camera | 6000mAh Battery with 18W Fast Charge | 500K+ Antutu | IP64 Rated |Clean Android 16 | Free Service @ Home
+3.5
+(260)
+2K+ bought in past month
+₹14,999
+M.R.P:
+₹21,999 (32% off)
+Up to 5% back with Amazon Pay ICI...
+FREE delivery Mon, 16 Nov
+Or fastest delivery Today 4 pm - 8 pm
+Add to cart
+22:57:52 [TestNG-test-Test-1] INFO  verifyingFreeDeliveryFilterFunctionality_Mobile_22-57-19 - [verifyingFreeDeliveryFilterFunctionality_Mobile_22-57-19] Within deliveryElements loop iterating over the products  Within validateDeliveryFilterOptionsWithResult method
+22:57:52 [TestNG-test-Test-1] INFO  verifyingFreeDeliveryFilterFunctionality_Mobile_22-57-19 - [verifyingFreeDeliveryFilterFunctionality_Mobile_22-57-19] Checking if the allowedDateParts have the assert text — index 6, text: Itel Zeno 300 | 6000mAh Mega Battery Smartphone | 18W Type-C Fast Charging | 6.56” HD+ 90Hz Display | Unisoc T7100 Octa-Core | 4GB + 8GB RAM, 64GB Storage | Android 16 Go | Black
+3.0
+(62)
+2K+ bought in past month
+₹9,549
+M.R.P:
+₹14,999 (36% off)
+Up to 5% back with Amazon Pay ICI...
+FREE delivery Mon, 16 Nov
+Or fastest delivery Tomorrow, 15 Nov
+Add to cart
+22:57:52 [TestNG-test-Test-1] INFO  verifyingFreeDeliveryFilterFunctionality_Mobile_22-57-19 - [verifyingFreeDeliveryFilterFunctionality_Mobile_22-57-19] Within deliveryElements loop iterating over the products  Within validateDeliveryFilterOptionsWithResult method
+22:57:53 [TestNG-test-Test-1] INFO  verifyingFreeDeliveryFilterFunctionality_Mobile_22-57-19 - [verifyingFreeDeliveryFilterFunctionality_Mobile_22-57-19] Checking if the allowedDateParts have the assert text — index 7, text: Motorola g37 Power (Pantone Impenetrable, 8GB RAM, 128GB Storage) | Dimensity 6400 Processor | 50MP Rear Camera | 8MP Front Camera | 6.66" HD+ Display | 7000mAh Battery | Expandable Up to 1TB
+3.8
+(109)
+1K+ bought in past month
+₹21,249
+M.R.P:
+₹37,999 (44% off)
+Up to 5% back with Amazon Pay ICI...
+FREE delivery Mon, 16 Nov
+Or fastest delivery Today 4 pm - 8 pm
+Add to cart
+22:57:53 [TestNG-test-Test-1] INFO  verifyingFreeDeliveryFilterFunctionality_Mobile_22-57-19 - [verifyingFreeDeliveryFilterFunctionality_Mobile_22-57-19] Within deliveryElements loop iterating over the products  Within validateDeliveryFilterOptionsWithResult method
+22:57:53 [TestNG-test-Test-1] INFO  verifyingFreeDeliveryFilterFunctionality_Mobile_22-57-19 - [verifyingFreeDeliveryFilterFunctionality_Mobile_22-57-19] Checking if the allowedDateParts have the assert text — index 8, text: POCO C85X 5G Smartphone, Emerald Green, 4GB RAM, 64GB Storage
+3.5
+(455)
+3K+ bought in past month
+₹13,749
+M.R.P:
+₹20,999 (35% off)
+Up to 5% back with Amazon Pay ICI...
+FREE delivery Mon, 16 Nov
+Or fastest delivery Today
+Add to cart
+More Buying Choices
+₹13,745(18 new offers)
+22:57:53 [TestNG-test-Test-1] INFO  verifyingFreeDeliveryFilterFunctionality_Mobile_22-57-19 - [verifyingFreeDeliveryFilterFunctionality_Mobile_22-57-19] Within deliveryElements loop iterating over the products  Within validateDeliveryFilterOptionsWithResult method
+22:57:53 [TestNG-test-Test-1] INFO  verifyingFreeDeliveryFilterFunctionality_Mobile_22-57-19 - [verifyingFreeDeliveryFilterFunctionality_Mobile_22-57-19] Checking if the allowedDateParts have the assert text — index 9, text: iQOO Z10 Lite 5G (Titanium Blue 2026, 4GB RAM, 128GB Storage) | Dimensity 6300 5G Processor | 50MP Sony AI Camera | 6000 mAh Battery | IP64 Rated & Military Grade Shock-Resistance*
+4.0
+(2.1K)
+500+ bought in past month
+₹18,999
+M.R.P:
+₹28,999 (34% off)
+Up to 5% back with Amazon Pay ICI...
+FREE delivery Mon, 16 Nov
+Or fastest delivery Today 4 pm - 8 pm
+Add to cart
+22:57:53 [TestNG-test-Test-1] INFO  verifyingFreeDeliveryFilterFunctionality_Mobile_22-57-19 - [verifyingFreeDeliveryFilterFunctionality_Mobile_22-57-19] Within deliveryElements loop iterating over the products  Within validateDeliveryFilterOptionsWithResult method
+22:57:53 [TestNG-test-Test-1] INFO  verifyingFreeDeliveryFilterFunctionality_Mobile_22-57-19 - [verifyingFreeDeliveryFilterFunctionality_Mobile_22-57-19] Checking if the allowedDateParts have the assert text — index 10, text: OnePlus N6 Lite 4G | 4GB+64GB | Neo Green | Massive 7000mAh Long-Lasting Battery | 120Hz Ultra Smooth Display | 36 Months Fast & Smooth | Military-Grade Durability
+3.1
+(164)
+2K+ bought in past month
+₹16,999
+M.R.P:
+₹24,999 (32% off)
+Up to 5% back with Amazon Pay ICI...
+FREE delivery Mon, 16 Nov
+Or fastest delivery Today 4 pm - 8 pm
+Add to cart
+22:57:53 [TestNG-test-Test-1] INFO  verifyingFreeDeliveryFilterFunctionality_Mobile_22-57-19 - [verifyingFreeDeliveryFilterFunctionality_Mobile_22-57-19] Within deliveryElements loop iterating over the products  Within validateDeliveryFilterOptionsWithResult method
+22:57:53 [TestNG-test-Test-1] INFO  verifyingFreeDeliveryFilterFunctionality_Mobile_22-57-19 - [verifyingFreeDeliveryFilterFunctionality_Mobile_22-57-19] Checking if the allowedDateParts have the assert text — index 11, text: Samsung Galaxy M17 5G Mobile (Sapphire Black, 4GB RAM, 128GB Storage) | 50MP OIS Triple Camera | Super AMOLED Display | Gorilla Glass Victus | 6 Gen OS Upgrades | Knox Security | AI
+3.9
+(1.1K)
+1K+ bought in past month
+₹17,999
+Up to 5% back with Amazon Pay ICI...
+FREE delivery Mon, 16 Nov
+Or fastest delivery Today 4 pm - 8 pm
+Add to cart
+22:57:53 [TestNG-test-Test-1] INFO  verifyingFreeDeliveryFilterFunctionality_Mobile_22-57-19 - [verifyingFreeDeliveryFilterFunctionality_Mobile_22-57-19] Within deliveryElements loop iterating over the products  Within validateDeliveryFilterOptionsWithResult method
+22:57:53 [TestNG-test-Test-1] INFO  verifyingFreeDeliveryFilterFunctionality_Mobile_22-57-19 - [verifyingFreeDeliveryFilterFunctionality_Mobile_22-57-19] Checking if the allowedDateParts have the assert text — index 12, text: POCO C81X, Ice Blue (3GB, 64GB)
+3.8
+(39)
+1K+ bought in past month
+₹10,780
+M.R.P:
+₹18,999 (43% off)
+Up to 5% back with Amazon Pay ICI...
+FREE delivery Mon, 16 Nov
+Or fastest delivery Today
+Add to cart
+22:57:53 [TestNG-test-Test-1] INFO  verifyingFreeDeliveryFilterFunctionality_Mobile_22-57-19 - [verifyingFreeDeliveryFilterFunctionality_Mobile_22-57-19] Within deliveryElements loop iterating over the products  Within validateDeliveryFilterOptionsWithResult method
+22:57:53 [TestNG-test-Test-1] INFO  verifyingFreeDeliveryFilterFunctionality_Mobile_22-57-19 - [verifyingFreeDeliveryFilterFunctionality_Mobile_22-57-19] Checking if the allowedDateParts have the assert text — index 13, text: Peace N-i17 5G 6GB/64GB Smartphone (Red)
+₹8,499
+M.R.P:
+₹14,999 (43% off)
+Up to 5% back with Amazon Pay ICI...
+FREE delivery Mon, 23 Nov
+Add to cart
+22:57:53 [TestNG-test-Test-1] INFO  verifyingFreeDeliveryFilterFunctionality_Mobile_22-57-19 - [verifyingFreeDeliveryFilterFunctionality_Mobile_22-57-19] Within deliveryElements loop iterating over the products  Within validateDeliveryFilterOptionsWithResult method
+22:57:53 [TestNG-test-Test-1] INFO  verifyingFreeDeliveryFilterFunctionality_Mobile_22-57-19 - [verifyingFreeDeliveryFilterFunctionality_Mobile_22-57-19] Checking if the allowedDateParts have the assert text — index 14, text: Motorola Edge 60 Fusion 5G, Pantone Mykonos Blue, 256 GB, 12 GB RAM
+4.2
+(590)
+4K+ bought in past month
+One-time purchase
+₹28,699
+M.R.P:
+₹37,999 (24% off)
+Up to 5% back with Amazon Pay ICI...
+FREE delivery Tue, 17 Nov
+Add to cart
+More Buying Choices
+₹25,468(10 new offers)
+Get it faster
+₹29,990
+M.R.P:
+₹37,999 (21% off)
+Up to 5% back with Amazon Pay ICI...
+FREE delivery Mon, 16 Nov
+Or fastest delivery Today
+22:57:53 [TestNG-test-Test-1] INFO  verifyingFreeDeliveryFilterFunctionality_Mobile_22-57-19 - [verifyingFreeDeliveryFilterFunctionality_Mobile_22-57-19] Within deliveryElements loop iterating over the products  Within validateDeliveryFilterOptionsWithResult method
+22:57:53 [TestNG-test-Test-1] INFO  verifyingFreeDeliveryFilterFunctionality_Mobile_22-57-19 - [verifyingFreeDeliveryFilterFunctionality_Mobile_22-57-19] Checking if the allowedDateParts have the assert text — index 15, text: realme P4 Lite 5G (Mosaic Green, 4GB RAM, 64GB) | 13MP Camera | 6.8" 144Hz Display | Dimensity 6300 5G | 7000mAh Battery | 15W Charging
+4.1
+(79)
+500+ bought in past month
+₹15,990
+M.R.P:
+₹19,999 (20% off)
+Up to 5% back with Amazon Pay ICI...
+FREE delivery Mon, 16 Nov
+Or fastest delivery Today
+Add to cart
+22:57:53 [TestNG-test-Test-1] INFO  verifyingFreeDeliveryFilterFunctionality_Mobile_22-57-19 - [verifyingFreeDeliveryFilterFunctionality_Mobile_22-57-19] Returning the list with boolean values   Within validateDeliveryFilterOptionsWithResult method
+22:57:53 [TestNG-test-Test-1] INFO  verifyingFreeDeliveryFilterFunctionality_Mobile_22-57-19 - [verifyingFreeDeliveryFilterFunctionality_Mobile_22-57-19] Asserting delivery filter: isValid=true, index=-1, text=All the things are valid no errors
