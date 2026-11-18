@@ -16,7 +16,7 @@ public class TestDataProvider {
 	    }
 
 	// Every test uses this one provider. TestNG tells it which test is asking, and it returns
-	// the search terms written for that test in data/testInputs.json (one row per term).
+	// the search terms written for that test in data/filterCoverage.json (one row per term).
 	@DataProvider(name = "TestRuns")
 	public Object[][] testRuns(Method testMethod) {
 		List<String> terms = TestInputs.termsFor(testMethod.getName());

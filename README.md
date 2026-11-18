@@ -22,6 +22,8 @@ Use this index to quickly navigate the README. Click any entry to jump to that s
 - [Folder Structure](#folder-structure)
 - [Running Tests](#running-tests)
 - [Test Inputs](#test-inputs)
+- [Card Filter Checks](#card-filter-checks)
+- [Unit Tests](#unit-tests)
 - [How Results Are Decided](#how-results-are-decided)
 - [Known Limitations](#known-limitations)
 - [Engineering Decisions Explained](#engineering-decisions-explained)
@@ -53,7 +55,7 @@ This framework is built using a rich, modern, and production oriented technology
   - Retry analyzers for flaky test handling
 
 ## Data and Input Systems
-- **`data/testInputs.json` (read with Gson)** lists the search terms each test runs for, so a test only runs for products where its filter applies.
+- **JSON data files (read with Gson)**: `searchTerms.json`, `filterCoverage.json` (the search terms each filter runs for) and `filterHeadings.json` (headings that differ per search term), so a test only runs for products where its filter applies.
 - **Apache POI 5.4.1** for reading Excel files (`Products.xlsx` is still available through the `ExcelData` data provider).
 - **Custom FileReader classes** for handling property files and environment configurations.
 - **ConfigManager** for centralized configuration control.
@@ -273,18 +275,20 @@ project-root/
 │       │
 │       ├── main/resources/
 │       │   ├── configs/           UtilData.properties
-│       │   ├── data/              testInputs.json (search terms per test), Products.xlsx
+│       │   ├── data/              searchTerms.json, filterCoverage.json, filterHeadings.json, Products.xlsx
 │       │   └── log4j2.xml
 │       │
 │       └── test/
-│           ├── java/tests/            AmazonTests (tests tagged with groups)
+│           ├── java/tests/            AmazonTests (tests tagged with groups), CardFilterChecks (card checks)
+│           ├── java/unit/             unit tests (no browser)
 │           ├── java/retry/            RetryFailedTest, RetryListener
 │           ├── testDataProvider/      TestDataProvider (TestRuns, ExcelData)
-│           └── runners/               AllTestsGlobal.xml (default suite)
-│                                      plus older per-area suite files
+│           └── runners/               AllTestsGlobal.xml (default suite), CardFilterChecks.xml,
+│                                      UnitTests.xml, plus per-group suite files
 │
 ├── .github/workflows/
 │     main-suite.yml (matrix-sharded tests, publish job, Discord, Pages)
+│     card-checks.yml (card checks in 4 shards, merged report, Pages)
 │
 ├── LICENSE
 ├── dependency-map.html
@@ -328,13 +332,41 @@ Note: the smoke-run flags are read by most filter flows; the Operating System fl
 
 # Test Inputs
 
-Each test runs only for the search terms listed for it in `src/main/resources/data/testInputs.json`, one line per test method:
+Search terms are listed per **filter** in `src/main/resources/data/filterCoverage.json`, one line per filter:
 
 ```json
-"verifyingStorageCapacityFilterFunctionality": ["Mobile", "Tablet"]
+"Storage Capacity": ["Mobile", "Laptop", "Tablet"]
 ```
 
-A single `TestRuns` data provider reads that file (TestNG passes in the test method, so the provider knows which line to use). This keeps a filter from running on a category where Amazon does not show it, which used to end in a silent pass. To run a test for one more product, add its search term to that test's line. A test with no line fails with a clear message.
+- `searchTerms.json` lists the search terms that exist.
+- `filterHeadings.json` holds only the headings that differ from the filter's own name (Amazon calls the same filter "HDD Size" on laptops and "Storage Capacity" on phones).
+- `TestInputs.FILTER_OF_TEST` maps each test method to its filter. The `TestRuns` data provider (older tests) and the `SearchTerms` data provider (card checks) read the terms for the test method TestNG passes in.
+
+This keeps a filter from running on a category where Amazon does not show it, which used to end in a silent pass. To run a filter for one more product, add its search term to that filter's line. A test with no filter or no terms fails with a clear message. The unit test `CoverageConsistencyTest` checks that the files and the tests agree.
+
+---
+
+# Card Filter Checks
+
+`tests/CardFilterChecks.java` checks the filters whose result the page states exactly (numbers, labels, product IDs) against the product cards or product pages. There are 10 kinds of check, each run for the search terms in `filterCoverage.json`. What was read is saved to `collected/` before any check. A filter the search does not show is skipped with the reason.
+
+```bash
+mvn test "-Dsurefire.suiteXmlFiles=src/test/runners/CardFilterChecks.xml"
+mvn test "-Dsurefire.suiteXmlFiles=src/test/runners/CardFilterChecks.xml" "-Dgroups=CardSeller"
+mvn test "-Dsurefire.suiteXmlFiles=src/test/runners/CardFilterChecks.xml" "-DcardChecks.terms=Headphones"
+```
+
+CI (`card-checks.yml`) runs it in four shards, one TestNG group each: `CardSeller`, `CardBrandsReviewsDelivery`, `CardTopBrandsPayOnDelivery`, `CardRatingPriceDiscountSelfCheck` (`CardChecks` = all). It runs on pushes and pull requests to master and by hand, and publishes its own section on the Pages site. Like the main suite, it retries a test once after a technical error (not after a failed assertion).
+
+---
+
+# Unit Tests
+
+Tests with no browser and no Amazon (`FilterMatcherTest`, `CoverageConsistencyTest`, `CardChecksTest`). Both workflows run them in a `check` job before any browser starts.
+
+```bash
+mvn test "-Dsurefire.suiteXmlFiles=src/test/runners/UnitTests.xml"
+```
 
 ---
 

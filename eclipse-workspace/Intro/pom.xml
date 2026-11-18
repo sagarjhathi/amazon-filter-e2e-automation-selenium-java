@@ -11,7 +11,7 @@
     <log4j.version>2.20.0</log4j.version>
     <allure.version>2.29.0</allure.version>
     <!-- Empty by default = no group filter = run everything, same as today.
-         Override per shard with: mvn test -Dgroups=BatteryProcessorOsStorage -->
+         Override per shard with: mvn test -Dgroups=BatteryProcessorStorage -->
     <groups></groups>
   </properties>
 
@@ -100,7 +100,7 @@
 
     
     
-    <!-- JSON: reads data/testInputs.json. This is the version Selenium already brings in; it is now declared explicitly. -->
+    <!-- JSON: reads the data/*.json files (TestInputs). This is the version Selenium already brings in; it is now declared explicitly. -->
     <dependency>
       <groupId>com.google.code.gson</groupId>
       <artifactId>gson</artifactId>
@@ -164,7 +164,7 @@
   
   
     <profile>
-      <id>BatteryProcessorOsStorage</id>
+      <id>BatteryProcessorStorage</id>
       <build>
         <plugins>
           <plugin>
@@ -173,7 +173,7 @@
             <version>3.0.0-M5</version>
             <configuration>
               <suiteXmlFiles>
-                <suiteXmlFile>src/test/runners/BatteryProcessorOsStorage.xml</suiteXmlFile>
+                <suiteXmlFile>src/test/runners/BatteryProcessorStorage.xml</suiteXmlFile>
               </suiteXmlFiles>
             </configuration>
           </plugin>
@@ -200,7 +200,7 @@
     </profile>
 
     <profile>
-      <id>testng</id>
+      <id>DeliveryPriceOs</id>
       <build>
         <plugins>
           <plugin>
@@ -209,25 +209,7 @@
             <version>3.0.0-M5</version>
             <configuration>
               <suiteXmlFiles>
-                <suiteXmlFile>src/test/runners/testng.xml</suiteXmlFile>
-              </suiteXmlFiles>
-            </configuration>
-          </plugin>
-        </plugins>
-      </build>
-    </profile>
-
-    <profile>
-      <id>DeliveryAndPrice.xml</id>
-      <build>
-        <plugins>
-          <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-surefire-plugin</artifactId>
-            <version>3.0.0-M5</version>
-            <configuration>
-              <suiteXmlFiles>
-                <suiteXmlFile>src/test/runners/DeliveryAndPrice.xml</suiteXmlFile>
+                <suiteXmlFile>src/test/runners/DeliveryPriceOs.xml</suiteXmlFile>
               </suiteXmlFiles>
             </configuration>
           </plugin>

@@ -58,6 +58,8 @@ jobs:
       fail-fast: false   # one shard failing shouldn't cancel the others
       matrix:
         group: [CardSeller, CardBrandsReviewsDelivery, CardTopBrandsPayOnDelivery, CardRatingPriceDiscountSelfCheck]
+    env:
+      IS_CRON: ${{ github.event_name == 'schedule' }}   # same as main-suite.yml: "true" only for the nightly cron (this workflow has no schedule yet, so it is "false")
     steps:
       - name: Checkout code
         uses: actions/checkout@v4

@@ -42,7 +42,7 @@ import main.java.amazonfilterapplicatione2e.utilities.GenericUtility;
 // What was read is saved in collected/ before any check. The rules and thresholds are in utilities/CardChecks.java; the steps on the pages
 // are in flows/CardFilterFlows.java and flows/ProductPageFlows.java. This class only says what to open, what to read and what to compare.
 //
-// Run (no retries, own suite file):  mvn test "-Dsurefire.suiteXmlFiles=src/test/runners/CardFilterChecks.xml"
+// Run (own suite file; a technical error is retried once, an assertion failure is not):  mvn test "-Dsurefire.suiteXmlFiles=src/test/runners/CardFilterChecks.xml"
 //   The CI runs it in 4 shards, one TestNG group each (the group names say what the shard tests):
 //     CardSeller                       Seller (the slowest test: it opens many offer panels)
 //     CardBrandsReviewsDelivery     Brands, Customer Reviews, Eligible for Free Delivery
