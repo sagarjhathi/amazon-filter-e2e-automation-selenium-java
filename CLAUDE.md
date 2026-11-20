@@ -69,7 +69,7 @@ Run from `eclipse-workspace/Intro/`. Needs a real browser and live amazon.in. No
 - Smoke size: `mvn clean test -DrunForAllFilterOptions=false -DoverideFilteOptionsCount=2` (README)
 - Card checks: `mvn test "-Dsurefire.suiteXmlFiles=src/test/runners/CardFilterChecks.xml"`; one shard `"-Dgroups=CardSeller"` (also `CardBrandsReviewsDelivery`, `CardTopBrandsPayOnDelivery`, `CardRatingPriceDiscountSelfCheck`; `CardChecks` = all); one term `"-DcardChecks.terms=Headphones"`
 - Single method: `mvn test -Dtest=...` is UNVERIFIED (pom pins `suiteXmlFiles`, which may override `-Dtest`). `LocalExecution.xml` runs only the brands test.
-- Reports: Extent at `run_<timestamp>/reports/ExtentReport.html` (logs and screenshots next to it); Allure raw results in `target/allure-results`; CI publishes both to GitHub Pages `https://sagarjhathi.github.io/amazon-filter-e2e-automation/` and uploads artifact `allure-report-merged`.
+- Reports: Extent at `run_<timestamp>/reports/ExtentReport.html` (logs and screenshots next to it); Allure raw results in `target/allure-results`; CI publishes both to GitHub Pages `https://sagarjhathi.github.io/amazon-filter-e2e-automation-selenium-java/` and uploads artifact `allure-report-merged`.
 - Config overrides: any key in `UtilData.properties` can be set by `-Dkey=value` or env var `KEY_UPPER` (e.g. `chrome.headless` -> `CHROME_HEADLESS`); `-DUtilData.file=<path>` swaps the whole file.
 - CI triggers: `main-suite.yml` = push/PR to master, manual, nightly cron `50 17 * * *` UTC; `card-checks.yml` = push/PR to master and manual only (no cron). Both set `IS_CRON`.
 - Branch `arch-improvement` is old and must not be used for anything (user decision).

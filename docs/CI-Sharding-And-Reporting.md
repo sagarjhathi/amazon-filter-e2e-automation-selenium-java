@@ -266,7 +266,7 @@ push/PR/schedule triggers CI
                               git checkout --orphan + force-push → gh-pages
                                         │
                                         ▼
-                      https://sagarjhathi.github.io/amazon-filter-e2e-automation/
+                      https://sagarjhathi.github.io/amazon-filter-e2e-automation-selenium-java/
                       (GitHub Pages — serves the branch statically, no server to run)
 ```
 

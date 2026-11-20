@@ -131,7 +131,7 @@ the old name was never updated or removed).
 
 ## 3. Public-repo hygiene (one-time cleanup)
 
-This repo is public (`github.com/sagarjhathi/amazon-filter-e2e-automation`). A due-diligence pass
+This repo is public (`github.com/sagarjhathi/amazon-filter-e2e-automation-selenium-java`). A due-diligence pass
 found and addressed:
 
 - **No `LICENSE` file existed** — added MIT, with a README disclaimer that this project is for

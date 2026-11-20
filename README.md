@@ -442,7 +442,7 @@ Email notifications are slower and often ignored. Discord provides real time not
 
 A visual reference generated directly from the codebase: the actual class-to-class import wiring across every layer, the TestNG lifecycle for a single filter test, and the full CI/CD journey from a git push to the published Extent report.
 
-**[Preview dependency-map.html →](https://htmlpreview.github.io/?https://github.com/sagarjhathi/amazon-filter-e2e-automation/blob/master/dependency-map.html)**
+**[Preview dependency-map.html →](https://htmlpreview.github.io/?https://github.com/sagarjhathi/amazon-filter-e2e-automation-selenium-java/blob/master/dependency-map.html)**
 
 ---
 
