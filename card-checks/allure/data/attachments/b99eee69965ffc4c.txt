@@ -1,0 +1,21 @@
+17:31:53 [TestNG-PoolService-2] INFO  cardSelfCheck_Mobile_17-31-53 - No existing WebDriver found for current thread. Initializing a new ChromeDriver...
+17:31:58 [TestNG-PoolService-2] INFO  cardSelfCheck_Mobile_17-31-53 - WebDriverManager: chromedriver setup OK
+17:32:24 [TestNG-PoolService-2] INFO  cardSelfCheck_Mobile_17-31-53 - ChromeDriver initialized successfully for thread: 35
+17:32:24 [TestNG-PoolService-2] INFO  cardSelfCheck_Mobile_17-31-53 - [cardSelfCheck_Mobile_17-31-53] TEST: Mobile: price, M.R.P. and printed discount of each card agree
+17:32:24 [TestNG-PoolService-2] INFO  cardSelfCheck_Mobile_17-31-53 - [cardSelfCheck_Mobile_17-31-53] ==================== RULE: Mobile card self-check: (M.R.P. - price) / M.R.P. rounds to the printed discount; at least 95% of the cards must agree ====================
+17:32:27 [TestNG-PoolService-2] INFO  cardSelfCheck_Mobile_17-31-53 - [cardSelfCheck_Mobile_17-31-53] Opening amazon Landing page
+17:32:27 [TestNG-PoolService-2] INFO  cardSelfCheck_Mobile_17-31-53 - [cardSelfCheck_Mobile_17-31-53] Within safeFindElement method
+17:32:32 [TestNG-PoolService-2] INFO  cardSelfCheck_Mobile_17-31-53 - [cardSelfCheck_Mobile_17-31-53]Retrying findElement for: ->By.xpath: //a[@id='nav-logo-sprites']
+17:32:35 [TestNG-PoolService-2] INFO  cardSelfCheck_Mobile_17-31-53 - [cardSelfCheck_Mobile_17-31-53]Refrehsing the page , while trying to safely find : ->By.xpath: //a[@id='nav-logo-sprites']
+17:32:37 [TestNG-PoolService-2] INFO  cardSelfCheck_Mobile_17-31-53 - [cardSelfCheck_Mobile_17-31-53]Found the element returning it ,element ->[[ChromeDriver: chrome on windows (96393c9c6993cdca37ae5d4cdbf26112)] -> xpath: //a[@id='nav-logo-sprites']]
+17:32:37 [TestNG-PoolService-2] INFO  cardSelfCheck_Mobile_17-31-53 - [cardSelfCheck_Mobile_17-31-53] clearBlockers took 16 ms
+17:32:37 [TestNG-PoolService-2] INFO  cardSelfCheck_Mobile_17-31-53 - [cardSelfCheck_Mobile_17-31-53] Giving input within the search bar
+17:32:37 [TestNG-PoolService-2] INFO  cardSelfCheck_Mobile_17-31-53 - [cardSelfCheck_Mobile_17-31-53] Within safeClick method
+17:32:41 [TestNG-PoolService-2] INFO  cardSelfCheck_Mobile_17-31-53 - [cardSelfCheck_Mobile_17-31-53] Clicked the  [[ChromeDriver: chrome on windows (96393c9c6993cdca37ae5d4cdbf26112)] -> xpath: //input[@id='nav-search-submit-button']]   using safeClick
+17:32:41 [TestNG-PoolService-2] INFO  cardSelfCheck_Mobile_17-31-53 - [cardSelfCheck_Mobile_17-31-53] Clicking on the submit in the search bar
+17:32:41 [TestNG-PoolService-2] INFO  cardSelfCheck_Mobile_17-31-53 - [cardSelfCheck_Mobile_17-31-53] clearBlockers took 293 ms
+17:32:41 [TestNG-PoolService-2] INFO  cardSelfCheck_Mobile_17-31-53 - [cardSelfCheck_Mobile_17-31-53] SEARCH 'Mobile' -> https://www.amazon.in/s?k=Mobile&ref=nb_sb_noss
+17:32:45 [TestNG-PoolService-2] INFO  cardSelfCheck_Mobile_17-31-53 - [cardSelfCheck_Mobile_17-31-53] 16 card(s) on screen
+17:32:46 [TestNG-PoolService-2] INFO  cardSelfCheck_Mobile_17-31-53 - [cardSelfCheck_Mobile_17-31-53] Saved what was read to collected\Mobile__Card_self-check.json
+17:32:46 [TestNG-PoolService-2] INFO  cardSelfCheck_Mobile_17-31-53 - [cardSelfCheck_Mobile_17-31-53] CHECK Mobile card self-check: 15 of 15 judged fit (needs at least 0.95), 1 show no value
+17:32:46 [TestNG-PoolService-2] INFO  cardSelfCheck_Mobile_17-31-53 - [cardSelfCheck_Mobile_17-31-53] Mobile card self-check: not judged (no value): Samsung Galaxy M17e 5G Mobile (Blitz Blu

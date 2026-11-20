@@ -1,0 +1,72 @@
+17:32:51 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Laptop_17-32-51 - No existing WebDriver found for current thread. Initializing a new ChromeDriver...
+17:32:51 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Laptop_17-32-51 - WebDriverManager: chromedriver setup OK
+17:32:54 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Laptop_17-32-51 - ChromeDriver initialized successfully for thread: 36
+17:32:59 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Laptop_17-32-51 - [verifyingGetItByTomorrowFilterFunctionality_Laptop_17-32-51] Opening amazon Landing page
+17:32:59 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Laptop_17-32-51 - [verifyingGetItByTomorrowFilterFunctionality_Laptop_17-32-51] Within safeFindElement method
+17:32:59 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Laptop_17-32-51 - [verifyingGetItByTomorrowFilterFunctionality_Laptop_17-32-51]Found the element returning it ,element ->[[ChromeDriver: chrome on windows (684d2bf592656f76d5cf7cde92145195)] -> xpath: //a[@id='nav-logo-sprites']]
+17:32:59 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Laptop_17-32-51 - [verifyingGetItByTomorrowFilterFunctionality_Laptop_17-32-51] clearBlockers took 29 ms
+17:33:00 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Laptop_17-32-51 - [verifyingGetItByTomorrowFilterFunctionality_Laptop_17-32-51] Giving input within the search bar
+17:33:00 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Laptop_17-32-51 - [verifyingGetItByTomorrowFilterFunctionality_Laptop_17-32-51] Within safeClick method
+17:33:04 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Laptop_17-32-51 - [verifyingGetItByTomorrowFilterFunctionality_Laptop_17-32-51] Clicked the  [[ChromeDriver: chrome on windows (684d2bf592656f76d5cf7cde92145195)] -> xpath: //input[@id='nav-search-submit-button']]   using safeClick
+17:33:04 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Laptop_17-32-51 - [verifyingGetItByTomorrowFilterFunctionality_Laptop_17-32-51] Clicking on the submit in the search bar
+17:33:05 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Laptop_17-32-51 - [verifyingGetItByTomorrowFilterFunctionality_Laptop_17-32-51] clearBlockers took 15 ms
+17:33:05 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Laptop_17-32-51 - [verifyingGetItByTomorrowFilterFunctionality_Laptop_17-32-51] Within validateDeliveryFilterOptionsWithResult method
+17:33:05 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Laptop_17-32-51 - [verifyingGetItByTomorrowFilterFunctionality_Laptop_17-32-51] Within safeClick method
+17:33:06 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Laptop_17-32-51 - [verifyingGetItByTomorrowFilterFunctionality_Laptop_17-32-51] Clicked the  [[ChromeDriver: chrome on windows (684d2bf592656f76d5cf7cde92145195)] -> xpath: //span[@class='a-size-base a-color-base puis-bold-weight-text' and text()='Delivery Day']/parent::div/following-sibling::ul//span[@class='a-size-base a-color-base' and text()='Get It by Tomorrow']]   using safeClick
+17:33:06 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Laptop_17-32-51 - [verifyingGetItByTomorrowFilterFunctionality_Laptop_17-32-51] Within getMoreButtonByFilterTypeAndName method
+17:33:06 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Laptop_17-32-51 - [verifyingGetItByTomorrowFilterFunctionality_Laptop_17-32-51] Clicked on By.xpath: //span[@class='a-size-base a-color-base puis-bold-weight-text' and text()='Delivery Day']/parent::div/following-sibling::ul//span[@class='a-size-base a-color-base' and text()='Get It by Tomorrow']
+17:33:07 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Laptop_17-32-51 - [verifyingGetItByTomorrowFilterFunctionality_Laptop_17-32-51] Within safeFindElements 
+17:33:08 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Laptop_17-32-51 - [verifyingGetItByTomorrowFilterFunctionality_Laptop_17-32-51] Returning the  [[[ChromeDriver: chrome on windows (684d2bf592656f76d5cf7cde92145195)] -> xpath: //div[@class='a-section a-spacing-small a-spacing-top-small']], [[ChromeDriver: chrome on windows (684d2bf592656f76d5cf7cde92145195)] -> xpath: //div[@class='a-section a-spacing-small a-spacing-top-small']], [[ChromeDriver: chrome on windows (684d2bf592656f76d5cf7cde92145195)] -> xpath: //div[@class='a-section a-spacing-small a-spacing-top-small']], [[ChromeDriver: chrome on windows (684d2bf592656f76d5cf7cde92145195)] -> xpath: //div[@class='a-section a-spacing-small a-spacing-top-small']], [[ChromeDriver: chrome on windows (684d2bf592656f76d5cf7cde92145195)] -> xpath: //div[@class='a-section a-spacing-small a-spacing-top-small']], [[ChromeDriver: chrome on windows (684d2bf592656f76d5cf7cde92145195)] -> xpath: //div[@class='a-section a-spacing-small a-spacing-top-small']], [[ChromeDriver: chrome on windows (684d2bf592656f76d5cf7cde92145195)] -> xpath: //div[@class='a-section a-spacing-small a-spacing-top-small']], [[ChromeDriver: chrome on windows (684d2bf592656f76d5cf7cde92145195)] -> xpath: //div[@class='a-section a-spacing-small a-spacing-top-small']], [[ChromeDriver: chrome on windows (684d2bf592656f76d5cf7cde92145195)] -> xpath: //div[@class='a-section a-spacing-small a-spacing-top-small']], [[ChromeDriver: chrome on windows (684d2bf592656f76d5cf7cde92145195)] -> xpath: //div[@class='a-section a-spacing-small a-spacing-top-small']], [[ChromeDriver: chrome on windows (684d2bf592656f76d5cf7cde92145195)] -> xpath: //div[@class='a-section a-spacing-small a-spacing-top-small']], [[ChromeDriver: chrome on windows (684d2bf592656f76d5cf7cde92145195)] -> xpath: //div[@class='a-section a-spacing-small a-spacing-top-small']], [[ChromeDriver: chrome on windows (684d2bf592656f76d5cf7cde92145195)] -> xpath: //div[@class='a-section a-spacing-small a-spacing-top-small']], [[ChromeDriver: chrome on windows (684d2bf592656f76d5cf7cde92145195)] -> xpath: //div[@class='a-section a-spacing-small a-spacing-top-small']], [[ChromeDriver: chrome on windows (684d2bf592656f76d5cf7cde92145195)] -> xpath: //div[@class='a-section a-spacing-small a-spacing-top-small']], [[ChromeDriver: chrome on windows (684d2bf592656f76d5cf7cde92145195)] -> xpath: //div[@class='a-section a-spacing-small a-spacing-top-small']], [[ChromeDriver: chrome on windows (684d2bf592656f76d5cf7cde92145195)] -> xpath: //div[@class='a-section a-spacing-small a-spacing-top-small']], [[ChromeDriver: chrome on windows (684d2bf592656f76d5cf7cde92145195)] -> xpath: //div[@class='a-section a-spacing-small a-spacing-top-small']]] from the safeFindElements method
+17:33:08 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Laptop_17-32-51 - [verifyingGetItByTomorrowFilterFunctionality_Laptop_17-32-51] Created hashset with required data to assert with Within validateDeliveryFilterOptionsWithResult method
+17:33:08 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Laptop_17-32-51 - [verifyingGetItByTomorrowFilterFunctionality_Laptop_17-32-51] this is the set  [21 Nov, Today, 20 Nov, Tomorrow]
+17:33:08 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Laptop_17-32-51 - [verifyingGetItByTomorrowFilterFunctionality_Laptop_17-32-51] Within deliveryElements loop iterating over the products  Within validateDeliveryFilterOptionsWithResult method
+17:33:08 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Laptop_17-32-51 - [verifyingGetItByTomorrowFilterFunctionality_Laptop_17-32-51] Checking if the allowedDateParts have the assert text — index 0, text: Sponsored
+Primebook 2 Neo (2026) | 8GB RAM, 128GB Storage (Expandable Upto 512GB) | MediaTek Helio G99 | Android 15 (PrimeOS 3.0) | 11.6-Inch HD IPS Display | Type-C Fast Charging | Thin & Light AI Laptop
+4.2
+(599)
+50+ bought in past month
+₹25,990
+M.R.P:
+₹36,990 (30% off)
+Save extra with No Cost EMI
+FREE delivery Sun, 22 Nov
+Or fastest delivery Tomorrow, 21 Nov
+Service: Device Setup
+Add to cart
+17:33:08 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Laptop_17-32-51 - [verifyingGetItByTomorrowFilterFunctionality_Laptop_17-32-51] Within deliveryElements loop iterating over the products  Within validateDeliveryFilterOptionsWithResult method
+17:33:08 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Laptop_17-32-51 - [verifyingGetItByTomorrowFilterFunctionality_Laptop_17-32-51] Checking if the allowedDateParts have the assert text — index 1, text: Sponsored
+Primebook 2 Pro (2026) AI Laptop | 8GB RAM, 128GB UFS Storage (Expandable upto 1TB) | 14.1-Inch FHD IPS Display | 14 Hrs Battery | MediaTek Helio G99 | PrimeOS 3.0 (Android)| Thin & Light Laptop, Gray
+4.3
+(1K)
+200+ bought in past month
+₹28,990
+M.R.P:
+₹39,990 (28% off)
+Save extra with No Cost EMI
+FREE delivery Sun, 22 Nov
+Or fastest delivery Tomorrow, 21 Nov
+Service: Device Setup
+Add to cart
+17:33:08 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Laptop_17-32-51 - [verifyingGetItByTomorrowFilterFunctionality_Laptop_17-32-51] Within deliveryElements loop iterating over the products  Within validateDeliveryFilterOptionsWithResult method
+17:33:08 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Laptop_17-32-51 - [verifyingGetItByTomorrowFilterFunctionality_Laptop_17-32-51] Assert text not found within AllowedDateParts — index 2, text: Dell 15 (Previously Inspiron) Laptop, 14th Gen Intel Core i3/Core 3 100U Processor, 8GB DDR4, 512 SSD, 15.6" FHD 120Hz IPS AG 250 nit Display, Win 11 + Office H&S 2024, Carbon Black, 1.63Kg
+4.1
+(424)
+100+ bought in past month
+₹58,500
+M.R.P:
+₹62,598 (7% off)
+Save extra with No Cost EMI
+FREE delivery Sun, 22 Nov
+Service: Device Setup
+Add to cart
+17:33:08 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Laptop_17-32-51 - [verifyingGetItByTomorrowFilterFunctionality_Laptop_17-32-51] Asserting delivery filter: isValid=false, index=2, text=Dell 15 (Previously Inspiron) Laptop, 14th Gen Intel Core i3/Core 3 100U Processor, 8GB DDR4, 512 SSD, 15.6" FHD 120Hz IPS AG 250 nit Display, Win 11 + Office H&S 2024, Carbon Black, 1.63Kg
+4.1
+(424)
+100+ bought in past month
+₹58,500
+M.R.P:
+₹62,598 (7% off)
+Save extra with No Cost EMI
+FREE delivery Sun, 22 Nov
+Service: Device Setup
+Add to cart

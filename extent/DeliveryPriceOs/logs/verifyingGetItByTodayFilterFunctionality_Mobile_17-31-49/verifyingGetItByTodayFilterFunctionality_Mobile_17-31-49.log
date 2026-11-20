@@ -1,0 +1,13 @@
+17:31:49 [TestNG-test-Test-2] INFO  verifyingGetItByTodayFilterFunctionality_Mobile_17-31-49 - No existing WebDriver found for current thread. Initializing a new ChromeDriver...
+17:31:57 [TestNG-test-Test-2] INFO  verifyingGetItByTodayFilterFunctionality_Mobile_17-31-49 - WebDriverManager: chromedriver setup OK
+17:32:28 [TestNG-test-Test-2] INFO  verifyingGetItByTodayFilterFunctionality_Mobile_17-31-49 - ChromeDriver initialized successfully for thread: 35
+17:32:35 [TestNG-test-Test-2] INFO  verifyingGetItByTodayFilterFunctionality_Mobile_17-31-49 - [verifyingGetItByTodayFilterFunctionality_Mobile_17-31-49] Opening amazon Landing page
+17:32:39 [TestNG-test-Test-2] INFO  verifyingGetItByTodayFilterFunctionality_Mobile_17-31-49 - [verifyingGetItByTodayFilterFunctionality_Mobile_17-31-49] Within safeFindElement method
+17:32:40 [TestNG-test-Test-2] INFO  verifyingGetItByTodayFilterFunctionality_Mobile_17-31-49 - [verifyingGetItByTodayFilterFunctionality_Mobile_17-31-49]Found the element returning it ,element ->[[ChromeDriver: chrome on windows (5e1666b51e9ca72758cac8c15fe5b738)] -> xpath: //a[@id='nav-logo-sprites']]
+17:32:40 [TestNG-test-Test-2] INFO  verifyingGetItByTodayFilterFunctionality_Mobile_17-31-49 - [verifyingGetItByTodayFilterFunctionality_Mobile_17-31-49] clearBlockers took 61 ms
+17:32:41 [TestNG-test-Test-2] INFO  verifyingGetItByTodayFilterFunctionality_Mobile_17-31-49 - [verifyingGetItByTodayFilterFunctionality_Mobile_17-31-49] Giving input within the search bar
+17:32:41 [TestNG-test-Test-2] INFO  verifyingGetItByTodayFilterFunctionality_Mobile_17-31-49 - [verifyingGetItByTodayFilterFunctionality_Mobile_17-31-49] Within safeClick method
+17:32:47 [TestNG-test-Test-2] INFO  verifyingGetItByTodayFilterFunctionality_Mobile_17-31-49 - [verifyingGetItByTodayFilterFunctionality_Mobile_17-31-49] Clicked the  [[ChromeDriver: chrome on windows (5e1666b51e9ca72758cac8c15fe5b738)] -> xpath: //input[@id='nav-search-submit-button']]   using safeClick
+17:32:47 [TestNG-test-Test-2] INFO  verifyingGetItByTodayFilterFunctionality_Mobile_17-31-49 - [verifyingGetItByTodayFilterFunctionality_Mobile_17-31-49] Clicking on the submit in the search bar
+17:32:48 [TestNG-test-Test-2] INFO  verifyingGetItByTodayFilterFunctionality_Mobile_17-31-49 - [verifyingGetItByTodayFilterFunctionality_Mobile_17-31-49] clearBlockers took 70 ms
+17:32:58 [TestNG-test-Test-2] WARN  verifyingGetItByTodayFilterFunctionality_Mobile_17-31-49 - [verifyingGetItByTodayFilterFunctionality_Mobile_17-31-49]  Filter option 'Get It Today' does not exist. Skipping the test.

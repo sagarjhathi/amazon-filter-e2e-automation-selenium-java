@@ -1,0 +1,2953 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Selenium + Java | Amazon Filter E2E</title>
+<link rel="apple-touch-icon" href="https://cdn.jsdelivr.net/gh/extent-framework/extent-github-cdn@b00a2d0486596e73dd7326beacf352c639623a0e/commons/img/logo.png">
+<link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/extent-framework/extent-github-cdn@b00a2d0486596e73dd7326beacf352c639623a0e/commons/img/logo.png">
+<link href="https://cdn.jsdelivr.net/gh/extent-framework/extent-github-cdn@ce8b10435bcbae260c334c0d0c6b61d2c19b6168/spark/css/spark-style.css" rel="stylesheet" />
+<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/gh/extent-framework/extent-github-cdn@7cc78ce/spark/js/jsontree.js"></script>
+<style type="text/css"></style></head><body class="spa -report dark">
+  <div class="app">
+    <div class="layout">
+<div class="header navbar">
+<div class="vheader">
+<div class="nav-logo">
+<a href="#">
+<div class="logo" style="background-image: url('https://cdn.jsdelivr.net/gh/extent-framework/extent-github-cdn@b00a2d0486596e73dd7326beacf352c639623a0e/commons/img/logo.png')"></div>
+</a>
+</div>
+<ul class="nav-left">
+<li class="search-box">
+<a class="search-toggle" href="#">
+<i class="search-icon fa fa-search"></i>
+<i class="search-icon-close fa fa-close"></i>
+</a>
+</li>
+<li class="search-input"><input id="search-tests" class="form-control" type="text" placeholder="Search..."></li>
+</ul>
+<ul class="nav-right">
+<li class="m-r-10">
+<a href="#"><span class="badge badge-primary">Amazon Filter E2E - Selenium + Java Automation Report</span></a>
+</li>
+<li class="m-r-10">
+<a href="#"><span class="badge badge-primary">Nov 20, 2026 05:31:49 PM</span></a>
+</li>
+</ul>
+</div>
+</div><div class="side-nav">
+<div class="side-nav-inner">
+<ul class="side-nav-menu">
+<li class="nav-item dropdown" onclick="toggleView('test-view')">
+<a id="nav-test" class="dropdown-toggle" href="#">
+<span class="ico"><i class="fa fa-list"></i></span>
+</a>
+</li>
+<li class="nav-item dropdown" onclick="toggleView('exception-view')">
+<a id="nav-exception" class="dropdown-toggle" href="#">
+<span class="ico"><i class="fa fa-bug"></i></span>
+</a>
+</li>
+<li class="nav-item dropdown" onclick="toggleView('dashboard-view')">
+<a id="nav-dashboard" class="dropdown-toggle" href="#">
+<span class="ico"><i class="fa fa-bar-chart"></i></span>
+</a>
+</li>
+</ul>
+</div>
+</div>      <div class="vcontainer">
+        <div class="main-content">
+<div class="test-wrapper row view test-view">
+  <div class="test-list">
+    <div class="test-list-tools">
+<ul class="tools pull-left">
+<li><a href="#"><span class="font-size-14">Tests</span></a></li>
+</ul>
+<ul class="tools text-right">
+<li class="dropdown">
+<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-exclamation-circle"></i></a>
+<ul id="status-toggle" class="dropdown-menu dropdown-md p-v-0">
+<a class="dropdown-item" status="pass" href="#"><span>Pass</span><span class="status success"></span></a>
+<a class="dropdown-item" status="fail" href="#"><span>Fail</span><span class="status danger"></span></a>
+<a class="dropdown-item" status="skip" href="#"><span>Skip</span><span class="status warning"></span></a>
+<div class="dropdown-divider"></div>
+<a status="clear" class="dropdown-item" href="#"><span>Clear</span><span class="pull-right"><i class="fa fa-close"></i></span></a>
+</ul>
+</li>
+</ul>
+</div>    <div class="test-list-wrapper scrollable">
+      <ul class="test-list-item">
+        <li class="test-item"  status="skip" test-id="1"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">verifyingGetItByTodayFilterFunctionality_Mobile_17-31-49</p>
+            <p class="text-sm">
+              <span>5:32:28 PM</span> / <span>00:00:30:875</span>
+              <span class="badge skip-bg log float-right">Skip</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-skip">verifyingGetItByTodayFilterFunctionality_Mobile_17-31-49</h5>
+<span class='badge badge-success'>11.20.2026 5:32:28 PM</span>
+<span class='badge badge-danger'>11.20.2026 5:32:59 PM</span>
+<span class='badge badge-default'>00:00:30:875</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=1</span>
+<span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
+<span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
+<span title='Expand all nodes' class='badge badge-default pointer float-right et'><i class="fa fa-expand"></i></span>
+</div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>5:32:28 PM</td>
+        <td>
+          Test Input Parameter: <b>Mobile</b>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log skip-bg">Skip</span></td>
+        <td>5:32:59 PM</td>
+        <td>
+          Test Skipped
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>5:32:59 PM</td>
+        <td>
+          Skip reason: Filter 'Get It Today' is not in the left navigation for 'Mobile' in this session. The page showed: Popular Shopping Ideas, Delivery Day, Eligible for Free Delivery, Customer Reviews, Brands, Price, Deals & Discounts, Discount, Colour, Pay On Delivery, Cell Phone Brands, Item Condition, Seller, Availability, New Arrivals, Supported Satellite Navigation System, Flash, Jack Type, Purpose, RAM Size, GPS Navigation, Included Components, Front Camera Resolution, Security Feature, Wireless Network Technology, Aspect Ratio, Cellular Technology, Weight, Connectivity, Battery Type, Battery Capacity, Rear Camera Photo Sensor Resolution, Screen Size, Processor Speed, Battery Life, Market Version, Video Capture Resolution, Display Type, Storage Capacity, Camera Resolution, Display Refresh Rate in Hertz, SIM Card Slot Count, Connector Type, Camera Feature, GenAI Model, Display Resolution, Input, Mobile Phone Primary Camera Resolution, Camera Modes, Sim Card Size, Country of Origin, Operating System, Carrier Lock Status. URL: https://www.amazon.in/s?k=Mobile&ref=nb_sb_noss. Title: 'Amazon.in : Mobile'.
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>5:32:59 PM</td>
+        <td>
+          📂 Logs:
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>5:32:59 PM</td>
+        <td>
+          📄 <a href='../logs/verifyingGetItByTodayFilterFunctionality_Mobile_17-31-49/verifyingGetItByTodayFilterFunctionality_Mobile_17-31-49.log' target='_blank'>verifyingGetItByTodayFilterFunctionality_Mobile_17-31-49.log</a>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>5:32:59 PM</td>
+        <td>
+          📸 Screenshots:
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>5:32:59 PM</td>
+        <td>
+          
+    <div class="row mb-3"><div class="col-md-3">
+    
+
+<img data-featherlight='../screenshots/verifyingGetItByTodayFilterFunctionality_Mobile_17-31-49/Mobile173104739900.png' src="../screenshots/verifyingGetItByTodayFilterFunctionality_Mobile_17-31-49/Mobile173104739900.png">
+  
+    
+
+    </div></div>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>5:32:59 PM</td>
+        <td>
+          
+    <div class="row mb-3"><div class="col-md-3">
+    
+
+<img data-featherlight='../screenshots/verifyingGetItByTodayFilterFunctionality_Mobile_17-31-49/Mobile177492945500.png' src="../screenshots/verifyingGetItByTodayFilterFunctionality_Mobile_17-31-49/Mobile177492945500.png">
+  
+    
+
+    </div></div>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>5:32:59 PM</td>
+        <td>
+          
+    <div class="row mb-3"><div class="col-md-3">
+    
+
+<img data-featherlight='../screenshots/verifyingGetItByTodayFilterFunctionality_Mobile_17-31-49/Mobile184645334500.png' src="../screenshots/verifyingGetItByTodayFilterFunctionality_Mobile_17-31-49/Mobile184645334500.png">
+  
+    
+
+    </div></div>
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="pass" test-id="2"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">verifyingFreeDeliveryFilterFunctionality_Mobile_17-31-49</p>
+            <p class="text-sm">
+              <span>5:32:31 PM</span> / <span>00:00:18:341</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-pass">verifyingFreeDeliveryFilterFunctionality_Mobile_17-31-49</h5>
+<span class='badge badge-success'>11.20.2026 5:32:31 PM</span>
+<span class='badge badge-danger'>11.20.2026 5:32:50 PM</span>
+<span class='badge badge-default'>00:00:18:341</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=2</span>
+<span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
+<span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
+<span title='Expand all nodes' class='badge badge-default pointer float-right et'><i class="fa fa-expand"></i></span>
+</div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>5:32:31 PM</td>
+        <td>
+          Test Input Parameter: <b>Mobile</b>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>5:32:50 PM</td>
+        <td>
+          Test Passed
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>5:32:50 PM</td>
+        <td>
+          📂 Logs:
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>5:32:50 PM</td>
+        <td>
+          📄 <a href='../logs/verifyingFreeDeliveryFilterFunctionality_Mobile_17-31-49/verifyingFreeDeliveryFilterFunctionality_Mobile_17-31-49.log' target='_blank'>verifyingFreeDeliveryFilterFunctionality_Mobile_17-31-49.log</a>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>5:32:50 PM</td>
+        <td>
+          📸 Screenshots:
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>5:32:50 PM</td>
+        <td>
+          
+    <div class="row mb-3"><div class="col-md-3">
+    
+
+<img data-featherlight='../screenshots/verifyingFreeDeliveryFilterFunctionality_Mobile_17-31-49/Mobile184134027700.png' src="../screenshots/verifyingFreeDeliveryFilterFunctionality_Mobile_17-31-49/Mobile184134027700.png">
+  
+    
+
+    </div></div>
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="fail" test-id="3"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">verifyingGetItByTomorrowFilterFunctionality_Mobile_17-31-49</p>
+            <p class="text-sm">
+              <span>5:32:31 PM</span> / <span>00:00:18:345</span>
+              <span class="badge fail-bg log float-right">Fail</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-fail">verifyingGetItByTomorrowFilterFunctionality_Mobile_17-31-49</h5>
+<span class='badge badge-success'>11.20.2026 5:32:31 PM</span>
+<span class='badge badge-danger'>11.20.2026 5:32:50 PM</span>
+<span class='badge badge-default'>00:00:18:345</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=3</span>
+<span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
+<span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
+<span title='Expand all nodes' class='badge badge-default pointer float-right et'><i class="fa fa-expand"></i></span>
+</div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>5:32:31 PM</td>
+        <td>
+          Test Input Parameter: <b>Mobile</b>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log fail-bg">Fail</span></td>
+        <td>5:32:50 PM</td>
+        <td>
+          <textarea readonly class="code-block">java.lang.AssertionError: Delivery filter validation failed at index 9. Text: realme NARZO 100x 5G (Midnight Black,6GB+256GB) Biggest 8000mAh Battery | 45W Fast Charge | 144Hz, 1200nits Bright Display | 7 Years Battery Health | Military-Grade Resistance | 48-Month Fluency
+4.0
+(171)
+200+ bought in past month
+₹26,999
+M.R.P:
+₹39,999 (33% off)
+Up to 5% back with Amazon Pay ICI...
+FREE delivery Tue, 24 Nov
+Add to cart expected [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:111)
+	at org.testng.Assert.failNotEquals(Assert.java:1578)
+	at org.testng.Assert.assertTrue(Assert.java:57)
+	at test.java.tests.AmazonTests.verifyingGetItByTomorrowFilterFunctionality(AmazonTests.java:111)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:686)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:992)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:545)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328)
+	at org.testng.internal.thread.graph.TestNGFutureTask.run(TestNGFutureTask.java:22)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1095)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:619)
+	at java.base/java.lang.Thread.run(Thread.java:1447)
+</textarea>
+          
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>5:32:50 PM</td>
+        <td>
+          📂 Logs:
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>5:32:50 PM</td>
+        <td>
+          📄 <a href='../logs/verifyingGetItByTomorrowFilterFunctionality_Mobile_17-31-49/verifyingGetItByTomorrowFilterFunctionality_Mobile_17-31-49.log' target='_blank'>verifyingGetItByTomorrowFilterFunctionality_Mobile_17-31-49.log</a>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>5:32:50 PM</td>
+        <td>
+          📸 Screenshots:
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>5:32:50 PM</td>
+        <td>
+          
+    <div class="row mb-3"><div class="col-md-3">
+    
+
+<img data-featherlight='../screenshots/verifyingGetItByTomorrowFilterFunctionality_Mobile_17-31-49/Mobile184134503700.png' src="../screenshots/verifyingGetItByTomorrowFilterFunctionality_Mobile_17-31-49/Mobile184134503700.png">
+  
+    
+
+    </div></div>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>5:32:50 PM</td>
+        <td>
+          
+    <div class="row mb-3"><div class="col-md-3">
+    
+
+<img data-featherlight='../screenshots/verifyingGetItByTomorrowFilterFunctionality_Mobile_17-31-49/Mobile185904309700.png' src="../screenshots/verifyingGetItByTomorrowFilterFunctionality_Mobile_17-31-49/Mobile185904309700.png">
+  
+    
+
+    </div></div>
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="fail" test-id="4"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">verifyingGetItByTomorrowFilterFunctionality_Laptop_17-32-51</p>
+            <p class="text-sm">
+              <span>5:32:54 PM</span> / <span>00:00:14:112</span>
+              <span class="badge fail-bg log float-right">Fail</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-fail">verifyingGetItByTomorrowFilterFunctionality_Laptop_17-32-51</h5>
+<span class='badge badge-success'>11.20.2026 5:32:54 PM</span>
+<span class='badge badge-danger'>11.20.2026 5:33:08 PM</span>
+<span class='badge badge-default'>00:00:14:112</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=4</span>
+<span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
+<span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
+<span title='Expand all nodes' class='badge badge-default pointer float-right et'><i class="fa fa-expand"></i></span>
+</div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>5:32:54 PM</td>
+        <td>
+          Test Input Parameter: <b>Laptop</b>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log fail-bg">Fail</span></td>
+        <td>5:33:08 PM</td>
+        <td>
+          <textarea readonly class="code-block">java.lang.AssertionError: Delivery filter validation failed at index 2. Text: Dell 15 (Previously Inspiron) Laptop, 14th Gen Intel Core i3/Core 3 100U Processor, 8GB DDR4, 512 SSD, 15.6" FHD 120Hz IPS AG 250 nit Display, Win 11 + Office H&S 2024, Carbon Black, 1.63Kg
+4.1
+(424)
+100+ bought in past month
+₹58,500
+M.R.P:
+₹62,598 (7% off)
+Save extra with No Cost EMI
+FREE delivery Sun, 22 Nov
+Service: Device Setup
+Add to cart expected [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:111)
+	at org.testng.Assert.failNotEquals(Assert.java:1578)
+	at org.testng.Assert.assertTrue(Assert.java:57)
+	at test.java.tests.AmazonTests.verifyingGetItByTomorrowFilterFunctionality(AmazonTests.java:111)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:686)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:992)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:545)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328)
+	at org.testng.internal.thread.graph.TestNGFutureTask.run(TestNGFutureTask.java:22)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1095)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:619)
+	at java.base/java.lang.Thread.run(Thread.java:1447)
+</textarea>
+          
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>5:33:08 PM</td>
+        <td>
+          📂 Logs:
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>5:33:08 PM</td>
+        <td>
+          📄 <a href='../logs/verifyingGetItByTomorrowFilterFunctionality_Laptop_17-32-51/verifyingGetItByTomorrowFilterFunctionality_Laptop_17-32-51.log' target='_blank'>verifyingGetItByTomorrowFilterFunctionality_Laptop_17-32-51.log</a>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>5:33:08 PM</td>
+        <td>
+          📸 Screenshots:
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>5:33:08 PM</td>
+        <td>
+          
+    <div class="row mb-3"><div class="col-md-3">
+    
+
+<img data-featherlight='../screenshots/verifyingGetItByTomorrowFilterFunctionality_Laptop_17-32-51/Laptop202090286900.png' src="../screenshots/verifyingGetItByTomorrowFilterFunctionality_Laptop_17-32-51/Laptop202090286900.png">
+  
+    
+
+    </div></div>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>5:33:08 PM</td>
+        <td>
+          
+    <div class="row mb-3"><div class="col-md-3">
+    
+
+<img data-featherlight='../screenshots/verifyingGetItByTomorrowFilterFunctionality_Laptop_17-32-51/Laptop203839810300.png' src="../screenshots/verifyingGetItByTomorrowFilterFunctionality_Laptop_17-32-51/Laptop203839810300.png">
+  
+    
+
+    </div></div>
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="pass" test-id="5"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">verifyingFreeDeliveryFilterFunctionality_Laptop_17-32-51</p>
+            <p class="text-sm">
+              <span>5:32:54 PM</span> / <span>00:00:13:769</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-pass">verifyingFreeDeliveryFilterFunctionality_Laptop_17-32-51</h5>
+<span class='badge badge-success'>11.20.2026 5:32:54 PM</span>
+<span class='badge badge-danger'>11.20.2026 5:33:07 PM</span>
+<span class='badge badge-default'>00:00:13:769</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=5</span>
+<span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
+<span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
+<span title='Expand all nodes' class='badge badge-default pointer float-right et'><i class="fa fa-expand"></i></span>
+</div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>5:32:54 PM</td>
+        <td>
+          Test Input Parameter: <b>Laptop</b>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>5:33:07 PM</td>
+        <td>
+          Test Passed
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>5:33:07 PM</td>
+        <td>
+          📂 Logs:
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>5:33:07 PM</td>
+        <td>
+          📄 <a href='../logs/verifyingFreeDeliveryFilterFunctionality_Laptop_17-32-51/verifyingFreeDeliveryFilterFunctionality_Laptop_17-32-51.log' target='_blank'>verifyingFreeDeliveryFilterFunctionality_Laptop_17-32-51.log</a>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>5:33:07 PM</td>
+        <td>
+          📸 Screenshots:
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>5:33:07 PM</td>
+        <td>
+          
+    <div class="row mb-3"><div class="col-md-3">
+    
+
+<img data-featherlight='../screenshots/verifyingFreeDeliveryFilterFunctionality_Laptop_17-32-51/Laptop202096582800.png' src="../screenshots/verifyingFreeDeliveryFilterFunctionality_Laptop_17-32-51/Laptop202096582800.png">
+  
+    
+
+    </div></div>
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="skip" test-id="6"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">verifyingGetItByTodayFilterFunctionality_Laptop_17-33-04</p>
+            <p class="text-sm">
+              <span>5:33:06 PM</span> / <span>00:00:21:225</span>
+              <span class="badge skip-bg log float-right">Skip</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-skip">verifyingGetItByTodayFilterFunctionality_Laptop_17-33-04</h5>
+<span class='badge badge-success'>11.20.2026 5:33:06 PM</span>
+<span class='badge badge-danger'>11.20.2026 5:33:27 PM</span>
+<span class='badge badge-default'>00:00:21:225</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=6</span>
+<span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
+<span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
+<span title='Expand all nodes' class='badge badge-default pointer float-right et'><i class="fa fa-expand"></i></span>
+</div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>5:33:06 PM</td>
+        <td>
+          Test Input Parameter: <b>Laptop</b>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log skip-bg">Skip</span></td>
+        <td>5:33:27 PM</td>
+        <td>
+          Test Skipped
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>5:33:27 PM</td>
+        <td>
+          Skip reason: Filter 'Get It Today' is not in the left navigation for 'Laptop' in this session. The page showed: Popular Shopping Ideas, Eligible for Free Delivery, Brands, Customer Reviews, Discount, Screen Size, Computers & Accessories Brands, RAM Size, Connectivity, Price, Deals & Discounts, Item Condition, Pay On Delivery, Cellular Technology, HDD Size, Availability, Display Type, Seller, Operating System, CPU Manufacturer, Processor Speed, Special Features, New Arrivals, Battery Life, Hard Drive Type, Weight, Display Resolution, Purpose, Audio Output Type, Cell Composition, GPU Manufacturer, Wi-Fi Generation, Input, RAM Technology, USB Ports, Security Feature, Display Maximum Resolution, Keyboard Type, Graphics Memory, Processor Count, Display Refresh Rate in Hertz, Hardware Interface, RAM Type, Hard Disk Interface, Memory Slots, Country of Origin, Laptop Type. URL: https://www.amazon.in/s?k=Laptop&ref=nb_sb_noss. Title: 'Amazon.in : Laptop'.
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>5:33:27 PM</td>
+        <td>
+          📂 Logs:
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>5:33:27 PM</td>
+        <td>
+          📄 <a href='../logs/verifyingGetItByTodayFilterFunctionality_Laptop_17-33-04/verifyingGetItByTodayFilterFunctionality_Laptop_17-33-04.log' target='_blank'>verifyingGetItByTodayFilterFunctionality_Laptop_17-33-04.log</a>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>5:33:27 PM</td>
+        <td>
+          📸 Screenshots:
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>5:33:27 PM</td>
+        <td>
+          
+    <div class="row mb-3"><div class="col-md-3">
+    
+
+<img data-featherlight='../screenshots/verifyingGetItByTodayFilterFunctionality_Laptop_17-33-04/Laptop204196659200.png' src="../screenshots/verifyingGetItByTodayFilterFunctionality_Laptop_17-33-04/Laptop204196659200.png">
+  
+    
+
+    </div></div>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>5:33:27 PM</td>
+        <td>
+          
+    <div class="row mb-3"><div class="col-md-3">
+    
+
+<img data-featherlight='../screenshots/verifyingGetItByTodayFilterFunctionality_Laptop_17-33-04/Laptop206279996800.png' src="../screenshots/verifyingGetItByTodayFilterFunctionality_Laptop_17-33-04/Laptop206279996800.png">
+  
+    
+
+    </div></div>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>5:33:27 PM</td>
+        <td>
+          
+    <div class="row mb-3"><div class="col-md-3">
+    
+
+<img data-featherlight='../screenshots/verifyingGetItByTodayFilterFunctionality_Laptop_17-33-04/Laptop212186170400.png' src="../screenshots/verifyingGetItByTodayFilterFunctionality_Laptop_17-33-04/Laptop212186170400.png">
+  
+    
+
+    </div></div>
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="fail" test-id="7"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">verifyingGetItByTomorrowFilterFunctionality_Tablet_17-33-08</p>
+            <p class="text-sm">
+              <span>5:33:11 PM</span> / <span>00:00:18:224</span>
+              <span class="badge fail-bg log float-right">Fail</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-fail">verifyingGetItByTomorrowFilterFunctionality_Tablet_17-33-08</h5>
+<span class='badge badge-success'>11.20.2026 5:33:11 PM</span>
+<span class='badge badge-danger'>11.20.2026 5:33:29 PM</span>
+<span class='badge badge-default'>00:00:18:224</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=7</span>
+<span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
+<span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
+<span title='Expand all nodes' class='badge badge-default pointer float-right et'><i class="fa fa-expand"></i></span>
+</div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>5:33:11 PM</td>
+        <td>
+          Test Input Parameter: <b>Tablet</b>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log fail-bg">Fail</span></td>
+        <td>5:33:29 PM</td>
+        <td>
+          <textarea readonly class="code-block">java.lang.AssertionError: Delivery filter validation failed at index 5. Text: Lenovo Tab (Smartchoice) | 10.1 Inch Display| Wi-Fi Only| 4 GB RAM + 64 GB ROM (Expandable up to 1 TB)| Metal Body| Dual Speakers with Dolby Atmos| Android 14| Color: Polar Blue
+4.3
+(686)
+1K+ bought in past month
+₹16,990
+M.R.P:
+₹18,000 (6% off)
+Save extra with No Cost EMI
+FREE delivery Sun, 22 Nov
+Add to cart expected [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:111)
+	at org.testng.Assert.failNotEquals(Assert.java:1578)
+	at org.testng.Assert.assertTrue(Assert.java:57)
+	at test.java.tests.AmazonTests.verifyingGetItByTomorrowFilterFunctionality(AmazonTests.java:111)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:686)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:992)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:545)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328)
+	at org.testng.internal.thread.graph.TestNGFutureTask.run(TestNGFutureTask.java:22)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1095)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:619)
+	at java.base/java.lang.Thread.run(Thread.java:1447)
+</textarea>
+          
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>5:33:29 PM</td>
+        <td>
+          📂 Logs:
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>5:33:29 PM</td>
+        <td>
+          📄 <a href='../logs/verifyingGetItByTomorrowFilterFunctionality_Tablet_17-33-08/verifyingGetItByTomorrowFilterFunctionality_Tablet_17-33-08.log' target='_blank'>verifyingGetItByTomorrowFilterFunctionality_Tablet_17-33-08.log</a>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>5:33:29 PM</td>
+        <td>
+          📸 Screenshots:
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>5:33:29 PM</td>
+        <td>
+          
+    <div class="row mb-3"><div class="col-md-3">
+    
+
+<img data-featherlight='../screenshots/verifyingGetItByTomorrowFilterFunctionality_Tablet_17-33-08/Tablet223290266800.png' src="../screenshots/verifyingGetItByTomorrowFilterFunctionality_Tablet_17-33-08/Tablet223290266800.png">
+  
+    
+
+    </div></div>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>5:33:29 PM</td>
+        <td>
+          
+    <div class="row mb-3"><div class="col-md-3">
+    
+
+<img data-featherlight='../screenshots/verifyingGetItByTomorrowFilterFunctionality_Tablet_17-33-08/Tablet224913512600.png' src="../screenshots/verifyingGetItByTomorrowFilterFunctionality_Tablet_17-33-08/Tablet224913512600.png">
+  
+    
+
+    </div></div>
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="pass" test-id="8"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">verifyingFreeDeliveryFilterFunctionality_Tablet_17-33-08</p>
+            <p class="text-sm">
+              <span>5:33:11 PM</span> / <span>00:00:20:066</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-pass">verifyingFreeDeliveryFilterFunctionality_Tablet_17-33-08</h5>
+<span class='badge badge-success'>11.20.2026 5:33:11 PM</span>
+<span class='badge badge-danger'>11.20.2026 5:33:31 PM</span>
+<span class='badge badge-default'>00:00:20:066</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=8</span>
+<span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
+<span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
+<span title='Expand all nodes' class='badge badge-default pointer float-right et'><i class="fa fa-expand"></i></span>
+</div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>5:33:11 PM</td>
+        <td>
+          Test Input Parameter: <b>Tablet</b>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>5:33:31 PM</td>
+        <td>
+          Test Passed
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>5:33:31 PM</td>
+        <td>
+          📂 Logs:
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>5:33:31 PM</td>
+        <td>
+          📄 <a href='../logs/verifyingFreeDeliveryFilterFunctionality_Tablet_17-33-08/verifyingFreeDeliveryFilterFunctionality_Tablet_17-33-08.log' target='_blank'>verifyingFreeDeliveryFilterFunctionality_Tablet_17-33-08.log</a>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>5:33:31 PM</td>
+        <td>
+          📸 Screenshots:
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>5:33:31 PM</td>
+        <td>
+          
+    <div class="row mb-3"><div class="col-md-3">
+    
+
+<img data-featherlight='../screenshots/verifyingFreeDeliveryFilterFunctionality_Tablet_17-33-08/Tablet225179765600.png' src="../screenshots/verifyingFreeDeliveryFilterFunctionality_Tablet_17-33-08/Tablet225179765600.png">
+  
+    
+
+    </div></div>
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="fail" test-id="9"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">verifyingGetItIn2DaysFilterFunctionality_Mobile_17-33-29</p>
+            <p class="text-sm">
+              <span>5:33:31 PM</span> / <span>00:00:13:788</span>
+              <span class="badge fail-bg log float-right">Fail</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-fail">verifyingGetItIn2DaysFilterFunctionality_Mobile_17-33-29</h5>
+<span class='badge badge-success'>11.20.2026 5:33:31 PM</span>
+<span class='badge badge-danger'>11.20.2026 5:33:45 PM</span>
+<span class='badge badge-default'>00:00:13:788</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=9</span>
+<span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
+<span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
+<span title='Expand all nodes' class='badge badge-default pointer float-right et'><i class="fa fa-expand"></i></span>
+</div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>5:33:31 PM</td>
+        <td>
+          Test Input Parameter: <b>Mobile</b>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log fail-bg">Fail</span></td>
+        <td>5:33:45 PM</td>
+        <td>
+          <textarea readonly class="code-block">java.lang.AssertionError: Delivery filter validation failed at index 9. Text: realme NARZO 100x 5G (Midnight Black,6GB+256GB) Biggest 8000mAh Battery | 45W Fast Charge | 144Hz, 1200nits Bright Display | 7 Years Battery Health | Military-Grade Resistance | 48-Month Fluency
+4.0
+(171)
+200+ bought in past month
+₹26,999
+M.R.P:
+₹39,999 (33% off)
+Up to 5% back with Amazon Pay ICI...
+FREE delivery Tue, 24 Nov
+Add to cart expected [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:111)
+	at org.testng.Assert.failNotEquals(Assert.java:1578)
+	at org.testng.Assert.assertTrue(Assert.java:57)
+	at test.java.tests.AmazonTests.verifyingGetItIn2DaysFilterFunctionality(AmazonTests.java:163)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:686)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:992)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:545)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328)
+	at org.testng.internal.thread.graph.TestNGFutureTask.run(TestNGFutureTask.java:22)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1095)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:619)
+	at java.base/java.lang.Thread.run(Thread.java:1447)
+</textarea>
+          
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>5:33:45 PM</td>
+        <td>
+          📂 Logs:
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>5:33:45 PM</td>
+        <td>
+          📄 <a href='../logs/verifyingGetItIn2DaysFilterFunctionality_Mobile_17-33-29/verifyingGetItIn2DaysFilterFunctionality_Mobile_17-33-29.log' target='_blank'>verifyingGetItIn2DaysFilterFunctionality_Mobile_17-33-29.log</a>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>5:33:45 PM</td>
+        <td>
+          📸 Screenshots:
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>5:33:45 PM</td>
+        <td>
+          
+    <div class="row mb-3"><div class="col-md-3">
+    
+
+<img data-featherlight='../screenshots/verifyingGetItIn2DaysFilterFunctionality_Mobile_17-33-29/Mobile228987434600.png' src="../screenshots/verifyingGetItIn2DaysFilterFunctionality_Mobile_17-33-29/Mobile228987434600.png">
+  
+    
+
+    </div></div>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>5:33:45 PM</td>
+        <td>
+          
+    <div class="row mb-3"><div class="col-md-3">
+    
+
+<img data-featherlight='../screenshots/verifyingGetItIn2DaysFilterFunctionality_Mobile_17-33-29/Mobile240966792800.png' src="../screenshots/verifyingGetItIn2DaysFilterFunctionality_Mobile_17-33-29/Mobile240966792800.png">
+  
+    
+
+    </div></div>
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="skip" test-id="10"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">verifyingGetItByTodayFilterFunctionality_Tablet_17-33-29</p>
+            <p class="text-sm">
+              <span>5:33:32 PM</span> / <span>00:00:22:483</span>
+              <span class="badge skip-bg log float-right">Skip</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-skip">verifyingGetItByTodayFilterFunctionality_Tablet_17-33-29</h5>
+<span class='badge badge-success'>11.20.2026 5:33:32 PM</span>
+<span class='badge badge-danger'>11.20.2026 5:33:55 PM</span>
+<span class='badge badge-default'>00:00:22:483</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=10</span>
+<span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
+<span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
+<span title='Expand all nodes' class='badge badge-default pointer float-right et'><i class="fa fa-expand"></i></span>
+</div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>5:33:32 PM</td>
+        <td>
+          Test Input Parameter: <b>Tablet</b>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log skip-bg">Skip</span></td>
+        <td>5:33:55 PM</td>
+        <td>
+          Test Skipped
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>5:33:55 PM</td>
+        <td>
+          Skip reason: Filter 'Get It Today' is not in the left navigation for 'Tablet' in this session. The page showed: Popular Shopping Ideas, Delivery Day, Eligible for Free Delivery, Customer Reviews, Price, Deals & Discounts, Brands, Discount, Pay On Delivery, Colour, Seller, Item Condition, Computers & Accessories Brands, Availability, New Arrivals, Weight, Special Features, Width, Purpose, Wireless Technology, Camera Description, Length, Wireless Standard, Cellular Technology, GPU Manufacturer, Battery Life, Display Size, Display Type, Generation, Display Maximum Resolution, CPU Manufacturer, Country of Origin, Thickness, Rear Camera Photo Sensor Resolution, Resolution, Model Year, Aspect Ratio, CPU Speed, Operating System, Hardware Interface, Storage Capacity, RAM Size, Front Camera Resolution, Screen Resolution, Primary Camera, Battery Power, Age. URL: https://www.amazon.in/s?k=Tablet&crid=3H4WD5NQ2EFKE&sprefix=tabl%2Caps%2C366&ref=nb_sb_noss_2. Title: 'Amazon.in : Tablet'.
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>5:33:55 PM</td>
+        <td>
+          📂 Logs:
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>5:33:55 PM</td>
+        <td>
+          📄 <a href='../logs/verifyingGetItByTodayFilterFunctionality_Tablet_17-33-29/verifyingGetItByTodayFilterFunctionality_Tablet_17-33-29.log' target='_blank'>verifyingGetItByTodayFilterFunctionality_Tablet_17-33-29.log</a>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>5:33:55 PM</td>
+        <td>
+          📸 Screenshots:
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>5:33:55 PM</td>
+        <td>
+          
+    <div class="row mb-3"><div class="col-md-3">
+    
+
+<img data-featherlight='../screenshots/verifyingGetItByTodayFilterFunctionality_Tablet_17-33-29/Tablet232649741500.png' src="../screenshots/verifyingGetItByTodayFilterFunctionality_Tablet_17-33-29/Tablet232649741500.png">
+  
+    
+
+    </div></div>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>5:33:55 PM</td>
+        <td>
+          
+    <div class="row mb-3"><div class="col-md-3">
+    
+
+<img data-featherlight='../screenshots/verifyingGetItByTodayFilterFunctionality_Tablet_17-33-29/Tablet234650916800.png' src="../screenshots/verifyingGetItByTodayFilterFunctionality_Tablet_17-33-29/Tablet234650916800.png">
+  
+    
+
+    </div></div>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>5:33:55 PM</td>
+        <td>
+          
+    <div class="row mb-3"><div class="col-md-3">
+    
+
+<img data-featherlight='../screenshots/verifyingGetItByTodayFilterFunctionality_Tablet_17-33-29/Tablet241274580600.png' src="../screenshots/verifyingGetItByTodayFilterFunctionality_Tablet_17-33-29/Tablet241274580600.png">
+  
+    
+
+    </div></div>
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="fail" test-id="11"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">verifyingOperatingSystemVersionFilterFunctionality_Mobile_17-33-31</p>
+            <p class="text-sm">
+              <span>5:33:33 PM</span> / <span>00:04:06:132</span>
+              <span class="badge fail-bg log float-right">Fail</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-fail">verifyingOperatingSystemVersionFilterFunctionality_Mobile_17-33-31</h5>
+<span class='badge badge-success'>11.20.2026 5:33:33 PM</span>
+<span class='badge badge-danger'>11.20.2026 5:37:39 PM</span>
+<span class='badge badge-default'>00:04:06:132</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=11</span>
+<span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
+<span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
+<span title='Expand all nodes' class='badge badge-default pointer float-right et'><i class="fa fa-expand"></i></span>
+</div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>5:33:33 PM</td>
+        <td>
+          Test Input Parameter: <b>Mobile</b>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log fail-bg">Fail</span></td>
+        <td>5:37:39 PM</td>
+        <td>
+          <textarea readonly class="code-block">java.lang.AssertionError: The following asserts failed:
+	 filter 'android 14' not found in product details.
+-------------------------------------------------------------
+ Title: apple iphone 17e 512 gb: 15.40 cm (6.1″) super retina xdr display, a19 chip, all-day battery life, 48mp fusion camera, 256gb starting storage; soft pink
+ Key Features: brand apple
+operating system ios 26
+memory storage capacity 512 gb
+screen size 6.1 inches
+model name iphone 17e
+ About: about this item
+say hello to a good buy — iphone 17e comes with many of the same great features as iphone 17 at a wallet-friendly price.
+durable design. brilliant display — stunning 15.40 cm (6.1″) super retina xdr display. ceramic shield 2 front with 3x better scratch resistance than iphone 16e. usb-c lets you charge and connect to apple devices and a wide variety of accessories.
+all-day battery life — text, browse and binge movies and shows for hours on end.
+fast wireless charging. all in a snap with magsafe — iphone 17e lets you charge wirelessly up to 15w, compared to 7.5w with iphone 16e. that means when you need to charge, it’s easy, convenient and fast.
+a19 chip. blasts and lasts — a19 makes everything you do feel fast and fluid, now and for years to come — including powerful aaa gaming, 4k streaming and more.
+two advanced cameras in one — the 48mp fusion camera delivers optical-quality 2x telephoto. and next-generation portraits let you shoot photos in any mode and turn them into beautiful portraits later by adding a background blur after the shot.
+more space for what matters — with storage starting at 256gb, there’s plenty of room for everything you love, now and in the future — from super-high-resolution photos to 4k videos to your favourite apps, games and more.
+show more
+ Tech Details: apple iphone 17e 512 gb: 15.40 cm mobile phone information
+technical details
+manufacturer apple
+country of origin india
+item model number mhu34hn/a
+product dimensions 0.78 x 7.15 x 14.67 cm; 169 g
+asin b0gqvhnx7r
+additional information
+manufacturer apple, apple inc, one apple park way, cupertino, ca 95014, usa. or apple india private limited 13th floor, prestige minsk square, municipal no. 6, cubbon road, bengaluru, karnataka - 560001, india
+packer not applicable for apple (always)
+importer (if applicable) apple india private limited 13th floor, prestige minsk square, municipal no. 6, cubbon road, bengaluru, karnataka - 560001, india
+item weight 169 g
+item dimensions lxwxh 8 x 71 x 147 millimeters
+net quantity 1.0 count
+included components usb-c charge cable, iphone 17e
+generic name iphone 17e
+-------------------------------------------------------------,
+	 filter 'android 9.0' not found in product details.
+-------------------------------------------------------------
+ Title: oppo f21s pro (dawnlight gold, 8gb ram, 128 storage)|6.43" fhd+ amoled|32mp front camera with microlens|4500 mah battery with 33w supervooc charger|with no cost emi/additional exchange offers
+ Key Features: brand oppo
+operating system android 11.0
+ram memory installed size 8 gb
+cpu model snapdragon
+cpu speed 3.56 ghz
+ About: about this item
+6.43" inch (16.33cm) fhd+ amoled punch-hole display with 2400x1080 pixels. large screen to body ratio of 90.8%
+ultra-slim retro design with orbit light for notifications
+ai triple camera setup - 64mp + 2mp + 2mp with microlens| 32mp front camera with flagship sony imx709 sensor
+big 4500 mah battery with 33w supervooc charging
+memory, storage & sim: 8 gb ram (+ ram expansion up to 5gb) | 128 gb rom | expandable upto 1tb | sim 1 + sim 2+ micro sd
+› see more product details
+ Tech Details: oppo f21s pro mobile phone information
+additional details
+camera
+battery
+video
+feedback
+would you like to tell us about a lower price?
+display
+connectivity
+item details
+
+measurements
+navigation
+-------------------------------------------------------------
+	at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:46)
+	at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:30)
+	at test.java.tests.AmazonTests.verifyingOperatingSystemVersionFilterFunctionality(AmazonTests.java:1184)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:686)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:992)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:545)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328)
+	at org.testng.internal.thread.graph.TestNGFutureTask.run(TestNGFutureTask.java:22)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1095)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:619)
+	at java.base/java.lang.Thread.run(Thread.java:1447)
+</textarea>
+          
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>5:37:39 PM</td>
+        <td>
+          📂 Logs:
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>5:37:39 PM</td>
+        <td>
+          📄 <a href='../logs/verifyingOperatingSystemVersionFilterFunctionality_Mobile_17-33-31/verifyingOperatingSystemVersionFilterFunctionality_Mobile_17-33-31.log' target='_blank'>verifyingOperatingSystemVersionFilterFunctionality_Mobile_17-33-31.log</a>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>5:37:39 PM</td>
+        <td>
+          📸 Screenshots:
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>5:37:39 PM</td>
+        <td>
+          
+    <div class="row mb-3"><div class="col-md-3">
+    
+
+<img data-featherlight='../screenshots/verifyingOperatingSystemVersionFilterFunctionality_Mobile_17-33-31/Mobile260227899900.png' src="../screenshots/verifyingOperatingSystemVersionFilterFunctionality_Mobile_17-33-31/Mobile260227899900.png">
+  
+    
+
+    </div></div>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>5:37:39 PM</td>
+        <td>
+          
+    <div class="row mb-3"><div class="col-md-3">
+    
+
+<img data-featherlight='../screenshots/verifyingOperatingSystemVersionFilterFunctionality_Mobile_17-33-31/Mobile287606088100.png' src="../screenshots/verifyingOperatingSystemVersionFilterFunctionality_Mobile_17-33-31/Mobile287606088100.png">
+  
+    
+
+    </div></div>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>5:37:39 PM</td>
+        <td>
+          
+    <div class="row mb-3"><div class="col-md-3">
+    
+
+<img data-featherlight='../screenshots/verifyingOperatingSystemVersionFilterFunctionality_Mobile_17-33-31/Mobile320849205600.png' src="../screenshots/verifyingOperatingSystemVersionFilterFunctionality_Mobile_17-33-31/Mobile320849205600.png">
+  
+    
+
+    </div></div>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>5:37:39 PM</td>
+        <td>
+          
+    <div class="row mb-3"><div class="col-md-3">
+    
+
+<img data-featherlight='../screenshots/verifyingOperatingSystemVersionFilterFunctionality_Mobile_17-33-31/Mobile353015959200.png' src="../screenshots/verifyingOperatingSystemVersionFilterFunctionality_Mobile_17-33-31/Mobile353015959200.png">
+  
+    
+
+    </div></div>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>5:37:39 PM</td>
+        <td>
+          
+    <div class="row mb-3"><div class="col-md-3">
+    
+
+<img data-featherlight='../screenshots/verifyingOperatingSystemVersionFilterFunctionality_Mobile_17-33-31/Mobile384762582700.png' src="../screenshots/verifyingOperatingSystemVersionFilterFunctionality_Mobile_17-33-31/Mobile384762582700.png">
+  
+    
+
+    </div></div>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>5:37:39 PM</td>
+        <td>
+          
+    <div class="row mb-3"><div class="col-md-3">
+    
+
+<img data-featherlight='../screenshots/verifyingOperatingSystemVersionFilterFunctionality_Mobile_17-33-31/Mobile415874941500.png' src="../screenshots/verifyingOperatingSystemVersionFilterFunctionality_Mobile_17-33-31/Mobile415874941500.png">
+  
+    
+
+    </div></div>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>5:37:39 PM</td>
+        <td>
+          
+    <div class="row mb-3"><div class="col-md-3">
+    
+
+<img data-featherlight='../screenshots/verifyingOperatingSystemVersionFilterFunctionality_Mobile_17-33-31/Mobile447429430300.png' src="../screenshots/verifyingOperatingSystemVersionFilterFunctionality_Mobile_17-33-31/Mobile447429430300.png">
+  
+    
+
+    </div></div>
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="skip" test-id="12"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">verifyingGetItIn2DaysFilterFunctionality_Laptop_17-33-45</p>
+            <p class="text-sm">
+              <span>5:33:47 PM</span> / <span>00:00:18:491</span>
+              <span class="badge skip-bg log float-right">Skip</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-skip">verifyingGetItIn2DaysFilterFunctionality_Laptop_17-33-45</h5>
+<span class='badge badge-success'>11.20.2026 5:33:47 PM</span>
+<span class='badge badge-danger'>11.20.2026 5:34:05 PM</span>
+<span class='badge badge-default'>00:00:18:491</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=12</span>
+<span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
+<span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
+<span title='Expand all nodes' class='badge badge-default pointer float-right et'><i class="fa fa-expand"></i></span>
+</div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>5:33:47 PM</td>
+        <td>
+          Test Input Parameter: <b>Laptop</b>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log skip-bg">Skip</span></td>
+        <td>5:34:05 PM</td>
+        <td>
+          Test Skipped
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>5:34:05 PM</td>
+        <td>
+          Skip reason: Filter 'Get It in 2 Days' is not in the left navigation for 'Laptop' in this session. The page showed: Popular Shopping Ideas, Eligible for Free Delivery, Brands, Customer Reviews, Discount, Computers & Accessories Brands, Screen Size, RAM Size, Connectivity, Price, Deals & Discounts, Pay On Delivery, Item Condition, Cellular Technology, Availability, HDD Size, Display Type, Seller, Operating System, CPU Manufacturer, Processor Speed, Special Features, Battery Life, New Arrivals, Weight, Hard Drive Type, Display Resolution, Audio Output Type, Purpose, Input, GPU Manufacturer, Country of Origin, USB Ports, Keyboard Type, Display Refresh Rate in Hertz, Graphics Memory, Processor Count, Memory Slots, Wi-Fi Generation, Cell Composition, Security Feature, Hard Disk Interface, Display Maximum Resolution, RAM Type, RAM Technology, Hardware Interface, Laptop Type. URL: https://www.amazon.in/s?k=Laptop&crid=3CQXC34VBZ3WG&sprefix=%2Caps%2C227&ref=nb_sb_noss. Title: 'Amazon.in : Laptop'.
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>5:34:05 PM</td>
+        <td>
+          📂 Logs:
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>5:34:05 PM</td>
+        <td>
+          📄 <a href='../logs/verifyingGetItIn2DaysFilterFunctionality_Laptop_17-33-45/verifyingGetItIn2DaysFilterFunctionality_Laptop_17-33-45.log' target='_blank'>verifyingGetItIn2DaysFilterFunctionality_Laptop_17-33-45.log</a>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>5:34:05 PM</td>
+        <td>
+          📸 Screenshots:
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>5:34:05 PM</td>
+        <td>
+          
+    <div class="row mb-3"><div class="col-md-3">
+    
+
+<img data-featherlight='../screenshots/verifyingGetItIn2DaysFilterFunctionality_Laptop_17-33-45/Laptop244553365200.png' src="../screenshots/verifyingGetItIn2DaysFilterFunctionality_Laptop_17-33-45/Laptop244553365200.png">
+  
+    
+
+    </div></div>
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="pass" test-id="13"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">verifyingPriceSilderFunctionality_Mobile_17-33-55</p>
+            <p class="text-sm">
+              <span>5:33:57 PM</span> / <span>00:00:18:250</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-pass">verifyingPriceSilderFunctionality_Mobile_17-33-55</h5>
+<span class='badge badge-success'>11.20.2026 5:33:57 PM</span>
+<span class='badge badge-danger'>11.20.2026 5:34:15 PM</span>
+<span class='badge badge-default'>00:00:18:250</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=13</span>
+<span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
+<span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
+<span title='Expand all nodes' class='badge badge-default pointer float-right et'><i class="fa fa-expand"></i></span>
+</div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>5:34:15 PM</td>
+        <td>
+          Test Passed
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>5:34:15 PM</td>
+        <td>
+          📂 Logs:
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>5:34:15 PM</td>
+        <td>
+          📄 <a href='../logs/verifyingPriceSilderFunctionality_Mobile_17-33-55/verifyingPriceSilderFunctionality_Mobile_17-33-55.log' target='_blank'>verifyingPriceSilderFunctionality_Mobile_17-33-55.log</a>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>5:34:15 PM</td>
+        <td>
+          📸 Screenshots:
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>5:34:15 PM</td>
+        <td>
+          
+    <div class="row mb-3"><div class="col-md-3">
+    
+
+<img data-featherlight='../screenshots/verifyingPriceSilderFunctionality_Mobile_17-33-55/Mobile255004996800.png' src="../screenshots/verifyingPriceSilderFunctionality_Mobile_17-33-55/Mobile255004996800.png">
+  
+    
+
+    </div></div>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>5:34:15 PM</td>
+        <td>
+          
+    <div class="row mb-3"><div class="col-md-3">
+    
+
+<img data-featherlight='../screenshots/verifyingPriceSilderFunctionality_Mobile_17-33-55/Mobile264698644200.png' src="../screenshots/verifyingPriceSilderFunctionality_Mobile_17-33-55/Mobile264698644200.png">
+  
+    
+
+    </div></div>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>5:34:15 PM</td>
+        <td>
+          
+    <div class="row mb-3"><div class="col-md-3">
+    
+
+<img data-featherlight='../screenshots/verifyingPriceSilderFunctionality_Mobile_17-33-55/Mobile269253693000.png' src="../screenshots/verifyingPriceSilderFunctionality_Mobile_17-33-55/Mobile269253693000.png">
+  
+    
+
+    </div></div>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>5:34:15 PM</td>
+        <td>
+          
+    <div class="row mb-3"><div class="col-md-3">
+    
+
+<img data-featherlight='../screenshots/verifyingPriceSilderFunctionality_Mobile_17-33-55/Mobile272833833000.png' src="../screenshots/verifyingPriceSilderFunctionality_Mobile_17-33-55/Mobile272833833000.png">
+  
+    
+
+    </div></div>
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="skip" test-id="14"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">verifyingGetItIn2DaysFilterFunctionality_Tablet_17-34-06</p>
+            <p class="text-sm">
+              <span>5:34:08 PM</span> / <span>00:00:18:013</span>
+              <span class="badge skip-bg log float-right">Skip</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-skip">verifyingGetItIn2DaysFilterFunctionality_Tablet_17-34-06</h5>
+<span class='badge badge-success'>11.20.2026 5:34:08 PM</span>
+<span class='badge badge-danger'>11.20.2026 5:34:26 PM</span>
+<span class='badge badge-default'>00:00:18:013</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=14</span>
+<span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
+<span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
+<span title='Expand all nodes' class='badge badge-default pointer float-right et'><i class="fa fa-expand"></i></span>
+</div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>5:34:08 PM</td>
+        <td>
+          Test Input Parameter: <b>Tablet</b>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log skip-bg">Skip</span></td>
+        <td>5:34:26 PM</td>
+        <td>
+          Test Skipped
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>5:34:26 PM</td>
+        <td>
+          Skip reason: Filter 'Get It in 2 Days' is not in the left navigation for 'Tablet' in this session. The page showed: Popular Shopping Ideas, Eligible for Free Delivery, Customer Reviews, Brands, Price, Deals & Discounts, Discount, Pay On Delivery, Colour, Computers & Accessories Brands, Seller, Item Condition, Availability, New Arrivals, Weight, Camera Description, Wireless Technology, Width, Special Features, Country of Origin, Display Size, Purpose, Wireless Standard, Front Camera Resolution, Battery Life, Rear Camera Photo Sensor Resolution, Model Year, Length, Display Type, Thickness, GPU Manufacturer, Resolution, Generation, RAM Size, CPU Speed, Hardware Interface, Operating System, Display Maximum Resolution, Aspect Ratio, CPU Manufacturer, Storage Capacity, Cellular Technology, Screen Resolution, Battery Power, Primary Camera, Age. URL: https://www.amazon.in/s?k=Tablet&crid=2X6EN2CVZ2A15&sprefix=t%2Caps%2C333&ref=nb_sb_noss_2. Title: 'Amazon.in : Tablet'.
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>5:34:26 PM</td>
+        <td>
+          📂 Logs:
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>5:34:26 PM</td>
+        <td>
+          📄 <a href='../logs/verifyingGetItIn2DaysFilterFunctionality_Tablet_17-34-06/verifyingGetItIn2DaysFilterFunctionality_Tablet_17-34-06.log' target='_blank'>verifyingGetItIn2DaysFilterFunctionality_Tablet_17-34-06.log</a>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>5:34:26 PM</td>
+        <td>
+          📸 Screenshots:
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>5:34:26 PM</td>
+        <td>
+          
+    <div class="row mb-3"><div class="col-md-3">
+    
+
+<img data-featherlight='../screenshots/verifyingGetItIn2DaysFilterFunctionality_Tablet_17-34-06/Tablet265564800000.png' src="../screenshots/verifyingGetItIn2DaysFilterFunctionality_Tablet_17-34-06/Tablet265564800000.png">
+  
+    
+
+    </div></div>
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="fail" test-id="15"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">verifyingPriceSilderFunctionality_Laptop_17-34-15</p>
+            <p class="text-sm">
+              <span>5:34:17 PM</span> / <span>00:00:15:248</span>
+              <span class="badge fail-bg log float-right">Fail</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-fail">verifyingPriceSilderFunctionality_Laptop_17-34-15</h5>
+<span class='badge badge-success'>11.20.2026 5:34:17 PM</span>
+<span class='badge badge-danger'>11.20.2026 5:34:32 PM</span>
+<span class='badge badge-default'>00:00:15:248</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=15</span>
+<span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
+<span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
+<span title='Expand all nodes' class='badge badge-default pointer float-right et'><i class="fa fa-expand"></i></span>
+</div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log fail-bg">Fail</span></td>
+        <td>5:34:32 PM</td>
+        <td>
+          <textarea readonly class="code-block">java.lang.AssertionError: The following asserts failed:
+	Price out of range: ProductIndex=20, AppliedMin=44900.0, AppliedMax=87700.0, ActualPrice=44800.0
+	at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:46)
+	at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:30)
+	at test.java.tests.AmazonTests.verifyingPriceSilderFunctionality(AmazonTests.java:562)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:686)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:992)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:545)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328)
+	at org.testng.internal.thread.graph.TestNGFutureTask.run(TestNGFutureTask.java:22)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1095)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:619)
+	at java.base/java.lang.Thread.run(Thread.java:1447)
+</textarea>
+          
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>5:34:32 PM</td>
+        <td>
+          📂 Logs:
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>5:34:32 PM</td>
+        <td>
+          📄 <a href='../logs/verifyingPriceSilderFunctionality_Laptop_17-34-15/verifyingPriceSilderFunctionality_Laptop_17-34-15.log' target='_blank'>verifyingPriceSilderFunctionality_Laptop_17-34-15.log</a>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>5:34:32 PM</td>
+        <td>
+          📸 Screenshots:
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>5:34:32 PM</td>
+        <td>
+          
+    <div class="row mb-3"><div class="col-md-3">
+    
+
+<img data-featherlight='../screenshots/verifyingPriceSilderFunctionality_Laptop_17-34-15/Laptop274903869800.png' src="../screenshots/verifyingPriceSilderFunctionality_Laptop_17-34-15/Laptop274903869800.png">
+  
+    
+
+    </div></div>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>5:34:32 PM</td>
+        <td>
+          
+    <div class="row mb-3"><div class="col-md-3">
+    
+
+<img data-featherlight='../screenshots/verifyingPriceSilderFunctionality_Laptop_17-34-15/Laptop283833255000.png' src="../screenshots/verifyingPriceSilderFunctionality_Laptop_17-34-15/Laptop283833255000.png">
+  
+    
+
+    </div></div>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>5:34:32 PM</td>
+        <td>
+          
+    <div class="row mb-3"><div class="col-md-3">
+    
+
+<img data-featherlight='../screenshots/verifyingPriceSilderFunctionality_Laptop_17-34-15/Laptop286760930200.png' src="../screenshots/verifyingPriceSilderFunctionality_Laptop_17-34-15/Laptop286760930200.png">
+  
+    
+
+    </div></div>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>5:34:32 PM</td>
+        <td>
+          
+    <div class="row mb-3"><div class="col-md-3">
+    
+
+<img data-featherlight='../screenshots/verifyingPriceSilderFunctionality_Laptop_17-34-15/Laptop289593998400.png' src="../screenshots/verifyingPriceSilderFunctionality_Laptop_17-34-15/Laptop289593998400.png">
+  
+    
+
+    </div></div>
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="pass" test-id="16"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">verifyingPriceSilderFunctionality_Tablet_17-34-34</p>
+            <p class="text-sm">
+              <span>5:34:35 PM</span> / <span>00:00:15:317</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-pass">verifyingPriceSilderFunctionality_Tablet_17-34-34</h5>
+<span class='badge badge-success'>11.20.2026 5:34:35 PM</span>
+<span class='badge badge-danger'>11.20.2026 5:34:50 PM</span>
+<span class='badge badge-default'>00:00:15:317</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=16</span>
+<span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
+<span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
+<span title='Expand all nodes' class='badge badge-default pointer float-right et'><i class="fa fa-expand"></i></span>
+</div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>5:34:50 PM</td>
+        <td>
+          Test Passed
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>5:34:50 PM</td>
+        <td>
+          📂 Logs:
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>5:34:50 PM</td>
+        <td>
+          📄 <a href='../logs/verifyingPriceSilderFunctionality_Tablet_17-34-34/verifyingPriceSilderFunctionality_Tablet_17-34-34.log' target='_blank'>verifyingPriceSilderFunctionality_Tablet_17-34-34.log</a>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>5:34:50 PM</td>
+        <td>
+          📸 Screenshots:
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>5:34:50 PM</td>
+        <td>
+          
+    <div class="row mb-3"><div class="col-md-3">
+    
+
+<img data-featherlight='../screenshots/verifyingPriceSilderFunctionality_Tablet_17-34-34/Tablet293149095000.png' src="../screenshots/verifyingPriceSilderFunctionality_Tablet_17-34-34/Tablet293149095000.png">
+  
+    
+
+    </div></div>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>5:34:50 PM</td>
+        <td>
+          
+    <div class="row mb-3"><div class="col-md-3">
+    
+
+<img data-featherlight='../screenshots/verifyingPriceSilderFunctionality_Tablet_17-34-34/Tablet301854646500.png' src="../screenshots/verifyingPriceSilderFunctionality_Tablet_17-34-34/Tablet301854646500.png">
+  
+    
+
+    </div></div>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>5:34:50 PM</td>
+        <td>
+          
+    <div class="row mb-3"><div class="col-md-3">
+    
+
+<img data-featherlight='../screenshots/verifyingPriceSilderFunctionality_Tablet_17-34-34/Tablet305431766000.png' src="../screenshots/verifyingPriceSilderFunctionality_Tablet_17-34-34/Tablet305431766000.png">
+  
+    
+
+    </div></div>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>5:34:50 PM</td>
+        <td>
+          
+    <div class="row mb-3"><div class="col-md-3">
+    
+
+<img data-featherlight='../screenshots/verifyingPriceSilderFunctionality_Tablet_17-34-34/Tablet307822862400.png' src="../screenshots/verifyingPriceSilderFunctionality_Tablet_17-34-34/Tablet307822862400.png">
+  
+    
+
+    </div></div>
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="fail" test-id="17"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">verifyingOperatingSystemVersionFilterFunctionality_Laptop_17-37-40</p>
+            <p class="text-sm">
+              <span>5:37:42 PM</span> / <span>00:05:57:285</span>
+              <span class="badge fail-bg log float-right">Fail</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-fail">verifyingOperatingSystemVersionFilterFunctionality_Laptop_17-37-40</h5>
+<span class='badge badge-success'>11.20.2026 5:37:42 PM</span>
+<span class='badge badge-danger'>11.20.2026 5:43:39 PM</span>
+<span class='badge badge-default'>00:05:57:285</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=17</span>
+<span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
+<span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
+<span title='Expand all nodes' class='badge badge-default pointer float-right et'><i class="fa fa-expand"></i></span>
+</div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>5:37:42 PM</td>
+        <td>
+          Test Input Parameter: <b>Laptop</b>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log fail-bg">Fail</span></td>
+        <td>5:43:39 PM</td>
+        <td>
+          <textarea readonly class="code-block">java.lang.AssertionError: The following asserts failed:
+	 filter 'windows 10 home' not found in product details.
+-------------------------------------------------------------
+ Title: microsoft surface pro 3 detachable detachable 2 in 1 laptop tablet touch | 12" 1366x768 hd | core i5-4300u - 128gb ssd hard drive - 4gb ram | cores @ ghz win 10 home silver
+ Key Features: brand microsoft
+model name surface pro 3 detachable 2-in-1
+screen size 12 inches
+colour black/white
+hard disk size 128 gb
+cpu model core i5
+ram memory installed size 4 gb
+ About: about this item
+intel core i5 processor: released in 2014. the detachable 2-in-1 surface pro 3 is the latest release from microsoft in the surface pro 12-inch family. it comes with all the latest technology, including ddr4 memory with clock at a whopping 3200mhz and a 4th generation intel processor. core i5-4300u processor cores enable exceptional multitasking. processor will run at @ghz and consume minimal power to extend battery life
+display & graphics - this detachable 2-in-1 surface pro 3 comes with a 12-inch touchscreen with resolution (1366 x 768) for incredibly clear images and a graphics card built into the intel core i5-4300u processor that will use the computer's 4gb of ram for graphics memory.
+high speed ram & huge space - 4gb ddr4 ram running at 3200mhz will allow you to seamlessly run multiple apps and browser tabs at once and a 128gb pcie nvme m.2 solid state drive will provide quick start-up, data transfers, and large file storage
+operating system: windows 10 is microsoft most proven operating system and if you want to upgrade to the latest windows 11, windows 11 is a simple free upgrade via windows update. the home edition will come with everything you need, but you can also upgrade to windows pro from the windows store for $100.
+additional details: a wecbam comes built-in. wifi and bluetooth are integrated.
+› see more product details
+ Tech Details: product information
+additional details
+display
+connectivity
+input devices
+feedback
+would you like to tell us about a lower price?
+processor
+item details
+memory
+-------------------------------------------------------------,
+	 filter 'windows 10 pro' not found in product details.
+-------------------------------------------------------------
+ Title: 𝗗𝗲𝗹𝗹model 5400 laptop| i5 8th gen processor | 8gb ddr4 ram | 256gb ssd | 14" fhd display | win 10 (pre-owned & tested)
+ Key Features: brand generic
+model name laptop
+screen size 14 inches
+colour black
+hard disk size 256 gb
+cpu model core i5
+ram memory installed size 8 gb
+ About: about this item
+this product is tested to work and look like new with minimal to no signs of wear & tear; the product comes with relevant accessories and is backed by a minimum 3 month seller warranty; box may be generic
+i5 8th gen performance — fast, smooth, and reliable processing power for work, study, and daily multitasking
+8gb ddr4 ram — efficient multitasking with quicker app response and seamless workflow
+256gb ssd storage — enjoy ultra-fast boot times, quicker file access, and secure storage for all essentials
+14" full hd display — sharp, clear, and vibrant visuals ideal for office tasks, browsing, and entertainment
+essential connectivity — usb, hdmi, type-c & more for seamless device and accessory support
+professionally tested — ensures reliable performance, durability, and smooth daily usage
+› see more product details
+ Tech Details: 𝗗𝗲𝗹𝗹model 5400 laptop information
+additional details
+display
+connectivity
+ports & slots
+audio
+feedback
+would you like to tell us about a lower price?
+processor
+item details
+memory
+battery
+input devices
+-------------------------------------------------------------,
+	 filter 'windows 10 pro' not found in product details.
+-------------------------------------------------------------
+ Title: 𝗗𝗲𝗹𝗹laptop 5410 model| i5 10th gen processor | 8gb ddr4 ram | fast 512gb ssd | hd graphics 620 | 14" fhd display | win 10 pro (pre-owned & tested)
+ Key Features: brand generic
+model name 5410
+screen size 14 inches
+colour silver
+hard disk size 512 gb
+cpu model core i5
+ram memory installed size 8 gb
+ About: about this item
+disclaimer: the laptop shown in the images is for reference only. as this is a pre-owned product, the actual unit may vary in appearance, including cosmetic differences, while maintaining the same specifications and functionality. this product is tested to work and look like new with minimal to no signs of wear & tear; the product comes with relevant accessories and is backed by a minimum 3 month seller warranty; box may be generic (warranty doesn't includes physical damage, battery issues and motherboard issues)
+⚡ powerful 10th gen performance: powered by core i5 10th gen processor that delivers smooth and reliable performance for office work, multitasking, browsing, meetings, and daily productivity.
+🚀 smooth multitasking: equipped with 8gb ddr4 ram for seamless performance while running multiple applications, spreadsheets, presentations, and business software without lag.
+💾 fast & reliable storage: 512gb ssd ensures faster boot time, quick data access, and improved overall system speed compared to traditional hdd storage.
+🖥️ crisp 14" full hd display: enjoy sharp visuals on the 14-inch hd (1920 × 1080) anti-glare display, perfect for long work sessions, video calls, streaming, and presentations.
+🔗 business-class connectivity: built for professionals with hd graphics, multiple usb ports, hdmi, wi-fi, and bluetooth, making it ideal for office, remote work, and business use.
+✔️ professionally tested quality: laptop is professionally inspected, fully tested, and in a+ condition, ensuring stable performance and reliable usage. 🛡️ warranty for peace of mind: comes with 3-month seller warranty covering internal hardware or technical issues (physical damage not covered).
+› see more product details
+ Tech Details: 𝗗𝗲𝗹𝗹laptop information
+additional details
+memory
+connectivity
+input devices
+audio
+feedback
+would you like to tell us about a lower price?
+processor
+item details
+display
+battery
+ports & slots
+-------------------------------------------------------------,
+	 filter 'dos' not found in product details.
+-------------------------------------------------------------
+ Title: hp professional 15 (2026), intel (i3 14th gen) core 3 100u - (8 gb ddr5/512 gb ssd/intel uhd graphics) - thin & light business laptop/15.6" fhd/silver/1.5kg
+ Key Features: brand hp
+model name hp 15
+screen size 15.6 inches
+colour silver
+hard disk size 512 gb
+cpu model intel core 3
+ram memory installed size 8 gb
+ About: about this item
+processor: intel core 3 100u (14th gen, up to 4.7 ghz max turbo frequency, 10 mb cache, 6 cores, 8 threads)
+memory: 8 gb ddr5 5200 mhz ram (expandable up to 32 gb) | storage: 512 gb pcie nvme ssd (expandable upto 1tb)
+display & graphics: 39.62 cm (15.6") diagonal, fhd (1920 x 1080), narrow bezel, anti-glare, 250 nits, 45% ntsc | graphics: intel uhd graphics
+ports: 1 usb type-c 5gbps signaling rate; 2 usb type-a 5gbps signaling rate; 1 ac power; 1 hdmi 1.4b; 1 stereo headphone/microphone combo jack
+other features: 720p hd camera with privacy shutter | audio: stereo speakers, integrated digital microphone| networking: realtek wi-fi 6 rtl8852be-vt 802.11a/b/g/n/ax (2x2) and bluetooth 5.4 wireless card
+› see more product details
+ Tech Details: product information
+additional details
+display
+connectivity
+battery
+input devices
+feedback
+would you like to tell us about a lower price?
+processor
+item details
+
+memory
+ports & slots
+audio
+-------------------------------------------------------------
+	at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:46)
+	at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:30)
+	at test.java.tests.AmazonTests.verifyingOperatingSystemVersionFilterFunctionality(AmazonTests.java:1184)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:686)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:992)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:545)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328)
+	at org.testng.internal.thread.graph.TestNGFutureTask.run(TestNGFutureTask.java:22)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1095)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:619)
+	at java.base/java.lang.Thread.run(Thread.java:1447)
+</textarea>
+          
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>5:43:39 PM</td>
+        <td>
+          📂 Logs:
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>5:43:39 PM</td>
+        <td>
+          📄 <a href='../logs/verifyingOperatingSystemVersionFilterFunctionality_Laptop_17-37-40/verifyingOperatingSystemVersionFilterFunctionality_Laptop_17-37-40.log' target='_blank'>verifyingOperatingSystemVersionFilterFunctionality_Laptop_17-37-40.log</a>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>5:43:39 PM</td>
+        <td>
+          📸 Screenshots:
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>5:43:39 PM</td>
+        <td>
+          
+    <div class="row mb-3"><div class="col-md-3">
+    
+
+<img data-featherlight='../screenshots/verifyingOperatingSystemVersionFilterFunctionality_Laptop_17-37-40/Laptop515820016600.png' src="../screenshots/verifyingOperatingSystemVersionFilterFunctionality_Laptop_17-37-40/Laptop515820016600.png">
+  
+    
+
+    </div></div>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>5:43:39 PM</td>
+        <td>
+          
+    <div class="row mb-3"><div class="col-md-3">
+    
+
+<img data-featherlight='../screenshots/verifyingOperatingSystemVersionFilterFunctionality_Laptop_17-37-40/Laptop576739978700.png' src="../screenshots/verifyingOperatingSystemVersionFilterFunctionality_Laptop_17-37-40/Laptop576739978700.png">
+  
+    
+
+    </div></div>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>5:43:39 PM</td>
+        <td>
+          
+    <div class="row mb-3"><div class="col-md-3">
+    
+
+<img data-featherlight='../screenshots/verifyingOperatingSystemVersionFilterFunctionality_Laptop_17-37-40/Laptop626059024600.png' src="../screenshots/verifyingOperatingSystemVersionFilterFunctionality_Laptop_17-37-40/Laptop626059024600.png">
+  
+    
+
+    </div></div>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>5:43:39 PM</td>
+        <td>
+          
+    <div class="row mb-3"><div class="col-md-3">
+    
+
+<img data-featherlight='../screenshots/verifyingOperatingSystemVersionFilterFunctionality_Laptop_17-37-40/Laptop691657370300.png' src="../screenshots/verifyingOperatingSystemVersionFilterFunctionality_Laptop_17-37-40/Laptop691657370300.png">
+  
+    
+
+    </div></div>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>5:43:39 PM</td>
+        <td>
+          
+    <div class="row mb-3"><div class="col-md-3">
+    
+
+<img data-featherlight='../screenshots/verifyingOperatingSystemVersionFilterFunctionality_Laptop_17-37-40/Laptop750594565600.png' src="../screenshots/verifyingOperatingSystemVersionFilterFunctionality_Laptop_17-37-40/Laptop750594565600.png">
+  
+    
+
+    </div></div>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>5:43:39 PM</td>
+        <td>
+          
+    <div class="row mb-3"><div class="col-md-3">
+    
+
+<img data-featherlight='../screenshots/verifyingOperatingSystemVersionFilterFunctionality_Laptop_17-37-40/Laptop808916745400.png' src="../screenshots/verifyingOperatingSystemVersionFilterFunctionality_Laptop_17-37-40/Laptop808916745400.png">
+  
+    
+
+    </div></div>
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="fail" test-id="18"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">verifyingOperatingSystemVersionFilterFunctionality_Tablet_17-43-39</p>
+            <p class="text-sm">
+              <span>5:43:41 PM</span> / <span>00:04:04:649</span>
+              <span class="badge fail-bg log float-right">Fail</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-fail">verifyingOperatingSystemVersionFilterFunctionality_Tablet_17-43-39</h5>
+<span class='badge badge-success'>11.20.2026 5:43:41 PM</span>
+<span class='badge badge-danger'>11.20.2026 5:47:46 PM</span>
+<span class='badge badge-default'>00:04:04:649</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=18</span>
+<span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
+<span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
+<span title='Expand all nodes' class='badge badge-default pointer float-right et'><i class="fa fa-expand"></i></span>
+</div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>5:43:41 PM</td>
+        <td>
+          Test Input Parameter: <b>Tablet</b>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log fail-bg">Fail</span></td>
+        <td>5:47:46 PM</td>
+        <td>
+          <textarea readonly class="code-block">java.lang.AssertionError: The following asserts failed:
+	 filter 'android' not found in product details.
+-------------------------------------------------------------
+ Title: lenovo idea tab (smartchoice) with tab pen | wifi only |11" 2.5k ips display |6gb ram + 128gb rom (expandable upto 2tb)| mediatek dimensity 6300|7040mah|4 speakers| grey
+ Key Features: brand lenovo
+model name idea tab
+memory storage capacity 128 gb
+screen size 11 inches
+display resolution maximum 2560x1600 pixels
+ About: about this item
+immersive display & precision input for learning and creativity: featuring a vibrant 11-inch 2.5k display with a sharp 2560 × 1600 resolution, smooth 90hz refresh rate, and up to 500 nits brightness, this tablet delivers crisp visuals for reading, note-taking, streaming, and studying. the tüv low blue light certification helps reduce eye strain during extended usage, while the included lenovo tab pen enables natural handwriting, sketching, annotation, and note-taking, making it the perfect companion for students, professionals, and creative users alike.
+reliable performance for smooth everyday learning: powered by the mediatek dimensity 6300 octa-core processor, featuring 2 high-performance cortex-a76 cores clocked at up to 2.4ghz and 6 power-efficient cortex-a55 cores up to 2.0ghz, this tablet delivers responsive performance for multitasking, online classes, educational apps, video streaming, and productivity tasks. designed to balance speed and efficiency, it ensures a smooth and dependable experience for students and learners throughout the day.
+ample memory & expandable storage for growing needs: equipped with 6gb lpddr4x ram and 128gb ufs 2.2 storage, this tablet ensures smooth app performance, faster data access, and efficient multitasking for learning, entertainment, and everyday productivity. with support for up to 256gb ufs 2.2 internal storage on the system board and expandable storage up to 2tb via microsd card (exfat), you'll have plenty of space to store e-books, study materials, videos, apps, and important files without worrying about running out of storage.
+immersive audio & clear video calls: experience rich, room-filling sound with quad speakers optimized with dolby atmos, delivering immersive audio for online classes, movies, music, and gaming. capture clear photos and stay connected with a 5mp front camera for video calls and virtual learning, along with an 8mp rear camera for scanning documents, taking notes, and everyday photography.
+long-lasting battery for study and entertainment – stay productive throughout the day with a powerful 7040mah battery designed for extended learning and entertainment. enjoy up to 12 hours of youtube streaming on a single charge, making it ideal for online classes, study sessions, and videos, while the included 20w charger helps you power up quickly and get back to learning faster.
+reliable connectivity for learning and entertainment: stay connected at home, in the classroom, or at the office with wi-fi connectivity, delivering fast and stable internet access for online classes, video calls, streaming, web browsing, and cloud-based productivity. designed for users who primarily connect through wireless networks, this wi-fi-only tablet offers a seamless and dependable experience for everyday learning, work, and entertainment.
+› see more product details
+ Tech Details: product information
+item details
+
+connectivity
+camera
+feedback
+would you like to tell us about a lower price?
+additional details
+display
+memory
+battery
+processor
+features
+audio
+-------------------------------------------------------------,
+	 filter 'android' not found in product details.
+-------------------------------------------------------------
+ Title: lenovo yoga tab plus smartchoice ai tablet with pen + keyboard |12.7" display, 3k resolution, 144 hz|16gb ram, 512gb rom|snapdragon 8 gen 3|10200 mah|6 speakers|usb 3.0 with dp-out|1year adp free|teal
+ Key Features: brand lenovo
+model name yoga tab plus
+memory storage capacity 512 gb
+screen size 12.7 inches
+display resolution maximum 2944x1840 pixels
+ About: about this item
+think it. create it. share it: from brainstorming concepts and sketching wireframes to editing videos and composing music, the lenovo yoga tab plus is engineered to fuel every stage of the creative process — its ai-powered features accelerate your workflow, the included keyboard makes writing and ideation effortless, and the immersive 6-speaker audio system inspires creativity with rich, room-filling sound at every step.
+bigger, brighter, and built for creativity – experience stunning detail on the expansive 12.7-inch 3k puresight pro display with a sharp 2944 × 1840 resolution. enjoy ultra-smooth visuals with a 144hz refresh rate, up to 900 nits peak brightness, and vibrant 100% dci-p3 color accuracy for designing, editing, and content creation. the anti-reflection coating and tüv-certified high visibility technology ensure comfortable viewing during long creative sessions, whether you're sketching, editing videos, or multitasking
+powerful performance for creative workflows – powered by the qualcomm snapdragon 8 gen 3 mobile platform, this tablet combines ultra-fast x4, a720, and a520 cores running up to 3.3 ghz for seamless multitasking, editing, and creative productivity. with up to 20 tops ai performance, it accelerates ai-assisted workflows, enhances responsiveness, and handles demanding creative applications effortlessly while maintaining impressive power efficiency.
+fast, smooth, and built for creativity – experience ultra-responsive performance with 16gb lpddr5x memory paired with lightning-fast 512gb ufs 4.0 storage for seamless multitasking, faster app launches, and efficient creative workflows. whether you're editing high-resolution content, managing large files, or switching between demanding applications, this setup delivers the speed, reliability, and smooth responsiveness needed for professional creativity and productivity.
+immersive sound and precision cameras for creators – experience rich, cinematic audio with a premium 6-speaker system featuring 2 solo tweeters and 4 sls sub-woofers, expertly tuned by harman/kardon and enhanced with dolby atmos. whether you're editing videos, streaming content, or enjoying music, every detail sounds deeper and more immersive. capture sharp photos, detailed videos, and crystal-clear video calls with the 13mp front camera and dual rear camera setup (13mp + 2mp with flashlight), designed to support creative workflows and collaboration effortlessly.
+long-lasting power for creativity and productivity – the integrated 10,200mah battery is built to keep up with extended creative sessions, multitasking, and entertainment, delivering up to 11 hours of youtube streaming on a single charge. with support for 45w quick charge, you can power up quickly and get back to designing, editing, streaming, and creating without long interruptions.
+› see more product details
+ Tech Details: product information
+item details
+
+connectivity
+camera
+feedback
+would you like to tell us about a lower price?
+additional details
+display
+memory
+battery
+processor
+features
+audio
+-------------------------------------------------------------,
+	 filter 'android 12' not found in product details.
+-------------------------------------------------------------
+ Title: lenovo tab k9| wifi+4g tablet| 8.7 inch (22.86 cm) hd display| 4gb ram, 64gb storage (expandable upto 128 gb)| dual speaker with dolby atmos| luna grey
+ Key Features: brand lenovo
+model name tab k9
+memory storage capacity 64 gb
+screen size 8.7 inches
+display resolution maximum 1340 x 800
+ About: about this item
+display: 22.10 cms (8.7 inch) screen provides a comfortable viewing experience for browsing, streaming, and productivity tasks
+memory & storage: 4 gb ram ensures smooth multitasking performance, whilst 64 gb internal storage offers ample space for apps, photos, videos, and documents
+connectivity options: wi-fi + lte capability allows you to stay connected at home with wireless internet or on the go with mobile data network support
+portable design: compact tablet form factor makes it easy to carry in bags for travel, commuting, or moving between rooms
+brand quality: lenovo tab k9 delivers reliable performance backed by lenovo's reputation for quality tablet devices
+› see more product details
+ Tech Details: product information
+item details
+
+connectivity
+camera
+feedback
+would you like to tell us about a lower price?
+additional details
+display
+memory
+battery
+processor
+features
+audio
+-------------------------------------------------------------,
+	 filter 'android 11' not found in product details.
+-------------------------------------------------------------
+ Title: 7 inch tablet, quad core android 13 os, 32gb rom, wi-fi, bluetooth, dual camera, usb c tablet pc, 7 inch hd ips touchscreen, android pad (green)
+ Key Features: brand volentex
+model name k7
+memory storage capacity 32 gb
+screen size 7 inches
+display resolution maximum 1024 x 600 pixels
+ About: about this item
+2+2gb ram & 32gb rom: 2gb ram + 2gb expandable memory can run most android applications with 1.5ghz low power quad-core processor, with 178°ips touch screen and 178°viewing angle lcd screen.
+android 13 os with google play: original gms certified android 13 os tablet, hundreds of apps can be installed. micro sd expandable up to 512gb (not included), easily stores a variety of videos, music, photos and more.
+pocket tablet with excellent protective protective case special non-slip and drop-proof leather case, no fear
+3000mah long battery life enjoy up to 6 hours of reading, surfing the web, watching videos and listening to music at home or on the go.
+7 inch tablet: enjoy popular apps, videos, music and more. bluetooth 4.2 and wifi communication protocols
+› see more product details
+ Tech Details: product information
+item details
+battery
+processor
+camera
+feedback
+would you like to tell us about a lower price?
+additional details
+display
+memory
+connectivity
+features
+-------------------------------------------------------------,
+	 filter 'android 9.0 pie' not found in product details.
+-------------------------------------------------------------
+ Title: lenovo m8 hd 2nd gen with wi-fi (8 inch, 3gb, 32 gb) [year-2020], grey
+ Key Features: brand lenovo
+model name lenovo tab m8 hd (8 inch, 3 gb, 32 gb, lte)
+memory storage capacity 32 gb
+screen size 8 inches
+display resolution maximum hd
+ About: about this item
+8 inch ips display; 350 nits brightness; display type - hd, ips, screen refresh rate - 60 hz;calling supported (yes); 3gb ram| 32gb rom| expandable upto 128 gb; processor description - mediatek helio a22 (4c, 4x a53 @2ghz) processor; operating system - android 9 pie
+battery power - 5000 mah lithium-ion battery; charger wattage - 10w; 8 mp primary camera, 2 mp secondary camera; camera flash - no
+finger print sensor - no, gps - yes, stylus compatible - no; headphone jack (yes); speaker wattage - 2w; compatibility with external hdd - no, use micro sd card
+cellular technology: 4g; graphics description: integrated; 1 year warranty; included components - lenovo tab m8, travel adapter (5v/1a), cable, quick-start guide, warranty card; ram memory installed size: 3 gb; memory storage capacity: 32 gb
+warranty type: limited; headphones jack: 3.5mm
+› see more product details
+ Tech Details: product information
+item details
+
+battery
+processor
+features
+audio
+feedback
+would you like to tell us about a lower price?
+additional details
+display
+memory
+connectivity
+camera
+-------------------------------------------------------------,
+	 filter 'android 9.0 pie' not found in product details.
+-------------------------------------------------------------
+ Title: domo slate s10 tablet pc, 7-inch ips display, 4gb ram + 32gb storage with 4g calling volte and lte supported, dual sim slot, octa-core cpu (black)
+ Key Features: brand domo
+model name slate s10 4g
+memory storage capacity 32 gb
+screen size 7 inches
+display resolution maximum 1024x600
+ About: about this item
+7-inch (diagonal) lcd - backlit glossy widescreen display | 4g calling volte and lte supported | dual sim slot
+4gb ram | 32gb storage | 128gb expandable
+dual camera | 8mp front | 13mp rear (interpolated) with led flash
+high-performance octa-core processor: powered by the mtk 6750 octa-core processor
+built-in 3000 mah battery
+› see more product details
+ Tech Details: product information
+item details
+battery
+processor
+camera
+feedback
+would you like to tell us about a lower price?
+additional details
+display
+memory
+connectivity
+features
+-------------------------------------------------------------
+	at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:46)
+	at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:30)
+	at test.java.tests.AmazonTests.verifyingOperatingSystemVersionFilterFunctionality(AmazonTests.java:1184)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:686)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:992)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:545)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328)
+	at org.testng.internal.thread.graph.TestNGFutureTask.run(TestNGFutureTask.java:22)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1095)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:619)
+	at java.base/java.lang.Thread.run(Thread.java:1447)
+</textarea>
+          
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>5:47:46 PM</td>
+        <td>
+          📂 Logs:
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>5:47:46 PM</td>
+        <td>
+          📄 <a href='../logs/verifyingOperatingSystemVersionFilterFunctionality_Tablet_17-43-39/verifyingOperatingSystemVersionFilterFunctionality_Tablet_17-43-39.log' target='_blank'>verifyingOperatingSystemVersionFilterFunctionality_Tablet_17-43-39.log</a>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>5:47:46 PM</td>
+        <td>
+          📸 Screenshots:
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>5:47:46 PM</td>
+        <td>
+          
+    <div class="row mb-3"><div class="col-md-3">
+    
+
+<img data-featherlight='../screenshots/verifyingOperatingSystemVersionFilterFunctionality_Tablet_17-43-39/Tablet1022276633600.png' src="../screenshots/verifyingOperatingSystemVersionFilterFunctionality_Tablet_17-43-39/Tablet1022276633600.png">
+  
+    
+
+    </div></div>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>5:47:46 PM</td>
+        <td>
+          
+    <div class="row mb-3"><div class="col-md-3">
+    
+
+<img data-featherlight='../screenshots/verifyingOperatingSystemVersionFilterFunctionality_Tablet_17-43-39/Tablet1055092081000.png' src="../screenshots/verifyingOperatingSystemVersionFilterFunctionality_Tablet_17-43-39/Tablet1055092081000.png">
+  
+    
+
+    </div></div>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>5:47:46 PM</td>
+        <td>
+          
+    <div class="row mb-3"><div class="col-md-3">
+    
+
+<img data-featherlight='../screenshots/verifyingOperatingSystemVersionFilterFunctionality_Tablet_17-43-39/Tablet869010433800.png' src="../screenshots/verifyingOperatingSystemVersionFilterFunctionality_Tablet_17-43-39/Tablet869010433800.png">
+  
+    
+
+    </div></div>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>5:47:46 PM</td>
+        <td>
+          
+    <div class="row mb-3"><div class="col-md-3">
+    
+
+<img data-featherlight='../screenshots/verifyingOperatingSystemVersionFilterFunctionality_Tablet_17-43-39/Tablet904259028300.png' src="../screenshots/verifyingOperatingSystemVersionFilterFunctionality_Tablet_17-43-39/Tablet904259028300.png">
+  
+    
+
+    </div></div>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>5:47:46 PM</td>
+        <td>
+          
+    <div class="row mb-3"><div class="col-md-3">
+    
+
+<img data-featherlight='../screenshots/verifyingOperatingSystemVersionFilterFunctionality_Tablet_17-43-39/Tablet925946906500.png' src="../screenshots/verifyingOperatingSystemVersionFilterFunctionality_Tablet_17-43-39/Tablet925946906500.png">
+  
+    
+
+    </div></div>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>5:47:46 PM</td>
+        <td>
+          
+    <div class="row mb-3"><div class="col-md-3">
+    
+
+<img data-featherlight='../screenshots/verifyingOperatingSystemVersionFilterFunctionality_Tablet_17-43-39/Tablet957791829200.png' src="../screenshots/verifyingOperatingSystemVersionFilterFunctionality_Tablet_17-43-39/Tablet957791829200.png">
+  
+    
+
+    </div></div>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>5:47:46 PM</td>
+        <td>
+          
+    <div class="row mb-3"><div class="col-md-3">
+    
+
+<img data-featherlight='../screenshots/verifyingOperatingSystemVersionFilterFunctionality_Tablet_17-43-39/Tablet989714025400.png' src="../screenshots/verifyingOperatingSystemVersionFilterFunctionality_Tablet_17-43-39/Tablet989714025400.png">
+  
+    
+
+    </div></div>
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+<div class="test-content scrollable">
+<div class="test-content-tools">
+<ul><li><a class="back-to-test" href="#"><i class="fa fa-arrow-left"></i></a></li></ul>
+</div>
+<div class="test-content-detail"><div class="detail-body"></div></div>
+</div></div>
+<div class="test-wrapper row view exception-view attributes-view">
+<div class="test-list">
+<div class="test-list-tools">
+<ul class="tools pull-left"><li><a href=""><span class="font-size-14">Exception</span></a></li></ul>
+<ul class="tools text-right"><li><a href="#"><span class="badge badge-primary">1</span></a></li></ul>
+</div>
+<div class="test-list-wrapper scrollable">
+<ul class="test-list-item">
+<li class="test-item">
+<div class="test-detail">
+<span class="meta">
+<span class='badge log badge-danger'>8</span>
+</span>
+<p class="name">java.lang.AssertionError</p>
+<p class="duration text-sm">8 tests</p>
+</div>
+<div class="test-contents d-none">
+<div class="info">
+<h4>java.lang.AssertionError</h4>
+<span status="fail" class='badge log badge-danger'>8 failed</span>
+</div>
+<table class='table table-sm mt-4'>
+<thead>
+<tr>
+<th class="status-col">Status</th>
+<th class="timestamp-col">Timestamp</th>
+<th>TestName</th>
+</tr>
+</thead>
+<tbody>
+<tr class="tag-test-status" status="fail">
+<td><span class="badge log fail-bg">Fail</span></td>
+<td>17:32:31 PM</td>
+<td>
+<a href="#" class="linked" test-id='3' id='3'>verifyingGetItByTomorrowFilterFunctionality_Mobile_17-31-49</a>
+</td>
+</tr>
+<tr class="tag-test-status" status="fail">
+<td><span class="badge log fail-bg">Fail</span></td>
+<td>17:32:54 PM</td>
+<td>
+<a href="#" class="linked" test-id='4' id='4'>verifyingGetItByTomorrowFilterFunctionality_Laptop_17-32-51</a>
+</td>
+</tr>
+<tr class="tag-test-status" status="fail">
+<td><span class="badge log fail-bg">Fail</span></td>
+<td>17:33:11 PM</td>
+<td>
+<a href="#" class="linked" test-id='7' id='7'>verifyingGetItByTomorrowFilterFunctionality_Tablet_17-33-08</a>
+</td>
+</tr>
+<tr class="tag-test-status" status="fail">
+<td><span class="badge log fail-bg">Fail</span></td>
+<td>17:33:31 PM</td>
+<td>
+<a href="#" class="linked" test-id='9' id='9'>verifyingGetItIn2DaysFilterFunctionality_Mobile_17-33-29</a>
+</td>
+</tr>
+<tr class="tag-test-status" status="fail">
+<td><span class="badge log fail-bg">Fail</span></td>
+<td>17:34:17 PM</td>
+<td>
+<a href="#" class="linked" test-id='15' id='15'>verifyingPriceSilderFunctionality_Laptop_17-34-15</a>
+</td>
+</tr>
+<tr class="tag-test-status" status="fail">
+<td><span class="badge log fail-bg">Fail</span></td>
+<td>17:33:33 PM</td>
+<td>
+<a href="#" class="linked" test-id='11' id='11'>verifyingOperatingSystemVersionFilterFunctionality_Mobile_17-33-31</a>
+</td>
+</tr>
+<tr class="tag-test-status" status="fail">
+<td><span class="badge log fail-bg">Fail</span></td>
+<td>17:37:42 PM</td>
+<td>
+<a href="#" class="linked" test-id='17' id='17'>verifyingOperatingSystemVersionFilterFunctionality_Laptop_17-37-40</a>
+</td>
+</tr>
+<tr class="tag-test-status" status="fail">
+<td><span class="badge log fail-bg">Fail</span></td>
+<td>17:43:41 PM</td>
+<td>
+<a href="#" class="linked" test-id='18' id='18'>verifyingOperatingSystemVersionFilterFunctionality_Tablet_17-43-39</a>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="test-content scrollable">
+<div class="test-content-detail">
+<div class="detail-body"></div>
+</div>
+</div>
+</div><div class="container-fluid p-4 view dashboard-view">
+<div class="row">
+<div class="col-md-3">
+<div class="card"><div class="card-body">
+<p class="m-b-0">Started</p>
+<h3>Nov 20, 2026 05:31:49 PM</h3>
+</div></div>
+</div>
+<div class="col-md-3">
+<div class="card"><div class="card-body">
+<p class="m-b-0">Ended</p>
+<h3>Nov 20, 2026 05:47:46 PM</h3>
+</div></div>
+</div>
+<div class="col-md-3">
+<div class="card"><div class="card-body">
+<p class="m-b-0 text-pass">Tests Passed</p>
+<h3>5</h3>
+</div></div>
+</div>
+<div class="col-md-3">
+<div class="card"><div class="card-body">
+<p class="m-b-0 text-fail">Tests Failed</p>
+<h3>8</h3>
+</div></div>
+</div>
+</div>
+<div class="row">
+<div class="col-md-6">
+<div class="card">
+<div class="card-header">
+<h6 class="card-title">Tests</h6>
+</div>
+<div class="card-body">
+<div class="">
+<canvas id='parent-analysis' width='115' height='90'></canvas>
+</div>
+</div>
+<div class="card-footer">
+<div><small data-tooltip='27%'>
+<b>5</b> tests passed
+</small>
+</div>
+<div>
+<small data-tooltip='44%'><b>8</b> tests failed,
+<b>5</b> skipped, <b data-tooltip='0%'>0</b> others
+</small>
+</div>
+</div>
+</div>
+</div>
+<div class="col-md-6">
+<div class="card">
+<div class="card-header">
+<h6 class="card-title">Log events</h6>
+</div>
+<div class="card-body">
+<div class="">
+<canvas id='events-analysis' width='115' height='90'></canvas>
+</div>
+</div>
+<div class="card-footer">
+<div><small data-tooltip='3%'><b>5</b> events passed</small></div>
+<div>
+<small data-tooltip='5%'><b>8</b> events failed,
+<b data-tooltip='%'>133</b> others
+</small>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="row"><div class="col-md-12">
+<div class="card"><div class="card-header"><p>Timeline</p></div>
+<div class="card-body pt-0"><div>
+<canvas id="timeline" height="120"></canvas>
+</div></div>
+</div>
+</div></div>
+<script>
+var timeline = {
+"verifyingGetItByTodayFilterFunctionality_Mobile_17-31-49":30.875,"verifyingFreeDeliveryFilterFunctionality_Mobile_17-31-49":18.341,"verifyingGetItByTomorrowFilterFunctionality_Mobile_17-31-49":18.345,"verifyingGetItByTomorrowFilterFunctionality_Laptop_17-32-51":14.112,"verifyingFreeDeliveryFilterFunctionality_Laptop_17-32-51":13.769,"verifyingGetItByTodayFilterFunctionality_Laptop_17-33-04":21.225,"verifyingGetItByTomorrowFilterFunctionality_Tablet_17-33-08":18.224,"verifyingFreeDeliveryFilterFunctionality_Tablet_17-33-08":20.066,"verifyingGetItIn2DaysFilterFunctionality_Mobile_17-33-29":13.788,"verifyingGetItByTodayFilterFunctionality_Tablet_17-33-29":22.483,"verifyingOperatingSystemVersionFilterFunctionality_Mobile_17-33-31":246.132,"verifyingGetItIn2DaysFilterFunctionality_Laptop_17-33-45":18.491,"verifyingPriceSilderFunctionality_Mobile_17-33-55":18.25,"verifyingGetItIn2DaysFilterFunctionality_Tablet_17-34-06":18.013,"verifyingPriceSilderFunctionality_Laptop_17-34-15":15.248,"verifyingPriceSilderFunctionality_Tablet_17-34-34":15.317,"verifyingOperatingSystemVersionFilterFunctionality_Laptop_17-37-40":357.285,"verifyingOperatingSystemVersionFilterFunctionality_Tablet_17-43-39":244.649
+};
+</script>
+<div class="row">
+</div>
+</div>
+<script>
+var statusGroup = {
+parentCount: 5,
+passParent: 5,
+failParent: 8,
+warningParent: 0,
+skipParent: 5,
+childCount: 5,
+passChild: 0,
+failChild: 0,
+warningChild: 0,
+skipChild: 0,
+infoChild: 0,
+grandChildCount: 5,
+passGrandChild: 0,
+failGrandChild: 0,
+warningGrandChild: 0,
+skipGrandChild: 0,
+infoGrandChild: 0,
+eventsCount: 5,
+passEvents: 5,
+failEvents: 8,
+warningEvents: 0,
+skipEvents: 5,
+infoEvents: 128
+};
+</script>        </div>
+      </div>
+    </div>
+  </div>
+<script src="https://cdn.jsdelivr.net/gh/extent-framework/extent-github-cdn@c05cd28cde1617b9d0c05a831daff6cb97fd9fd5/spark/js/spark-script.js"></script>
+<script type="text/javascript"></script></body>
+</html>

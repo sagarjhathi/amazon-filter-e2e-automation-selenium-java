@@ -1,0 +1,13 @@
+17:33:45 [TestNG-test-Test-3] INFO  verifyingGetItIn2DaysFilterFunctionality_Laptop_17-33-45 - No existing WebDriver found for current thread. Initializing a new ChromeDriver...
+17:33:45 [TestNG-test-Test-3] INFO  verifyingGetItIn2DaysFilterFunctionality_Laptop_17-33-45 - WebDriverManager: chromedriver setup OK
+17:33:47 [TestNG-test-Test-3] INFO  verifyingGetItIn2DaysFilterFunctionality_Laptop_17-33-45 - ChromeDriver initialized successfully for thread: 36
+17:33:47 [TestNG-test-Test-3] INFO  verifyingGetItIn2DaysFilterFunctionality_Laptop_17-33-45 - [verifyingGetItIn2DaysFilterFunctionality_Laptop_17-33-45] Opening amazon Landing page
+17:33:47 [TestNG-test-Test-3] INFO  verifyingGetItIn2DaysFilterFunctionality_Laptop_17-33-45 - [verifyingGetItIn2DaysFilterFunctionality_Laptop_17-33-45] Within safeFindElement method
+17:33:49 [TestNG-test-Test-3] INFO  verifyingGetItIn2DaysFilterFunctionality_Laptop_17-33-45 - [verifyingGetItIn2DaysFilterFunctionality_Laptop_17-33-45]Found the element returning it ,element ->[[ChromeDriver: chrome on windows (0cb8f07b4c475d4ec09e6961a529c66b)] -> xpath: //a[@id='nav-logo-sprites']]
+17:33:50 [TestNG-test-Test-3] INFO  verifyingGetItIn2DaysFilterFunctionality_Laptop_17-33-45 - [verifyingGetItIn2DaysFilterFunctionality_Laptop_17-33-45] clearBlockers took 65 ms
+17:33:50 [TestNG-test-Test-3] INFO  verifyingGetItIn2DaysFilterFunctionality_Laptop_17-33-45 - [verifyingGetItIn2DaysFilterFunctionality_Laptop_17-33-45] Giving input within the search bar
+17:33:50 [TestNG-test-Test-3] INFO  verifyingGetItIn2DaysFilterFunctionality_Laptop_17-33-45 - [verifyingGetItIn2DaysFilterFunctionality_Laptop_17-33-45] Within safeClick method
+17:33:54 [TestNG-test-Test-3] INFO  verifyingGetItIn2DaysFilterFunctionality_Laptop_17-33-45 - [verifyingGetItIn2DaysFilterFunctionality_Laptop_17-33-45] Clicked the  [[ChromeDriver: chrome on windows (0cb8f07b4c475d4ec09e6961a529c66b)] -> xpath: //input[@id='nav-search-submit-button']]   using safeClick
+17:33:54 [TestNG-test-Test-3] INFO  verifyingGetItIn2DaysFilterFunctionality_Laptop_17-33-45 - [verifyingGetItIn2DaysFilterFunctionality_Laptop_17-33-45] Clicking on the submit in the search bar
+17:33:54 [TestNG-test-Test-3] INFO  verifyingGetItIn2DaysFilterFunctionality_Laptop_17-33-45 - [verifyingGetItIn2DaysFilterFunctionality_Laptop_17-33-45] clearBlockers took 317 ms
+17:34:04 [TestNG-test-Test-3] WARN  verifyingGetItIn2DaysFilterFunctionality_Laptop_17-33-45 - [verifyingGetItIn2DaysFilterFunctionality_Laptop_17-33-45]  Filter option 'Get It in 2 Days' does not exist. Skipping the test.

@@ -1,0 +1,105 @@
+17:33:08 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Tablet_17-33-08 - No existing WebDriver found for current thread. Initializing a new ChromeDriver...
+17:33:08 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Tablet_17-33-08 - WebDriverManager: chromedriver setup OK
+17:33:11 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Tablet_17-33-08 - ChromeDriver initialized successfully for thread: 36
+17:33:11 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Tablet_17-33-08 - [verifyingGetItByTomorrowFilterFunctionality_Tablet_17-33-08] Opening amazon Landing page
+17:33:11 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Tablet_17-33-08 - [verifyingGetItByTomorrowFilterFunctionality_Tablet_17-33-08] Within safeFindElement method
+17:33:14 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Tablet_17-33-08 - [verifyingGetItByTomorrowFilterFunctionality_Tablet_17-33-08]Found the element returning it ,element ->[[ChromeDriver: chrome on windows (99ad50883fb5a1c78c4d0200232b9d23)] -> xpath: //a[@id='nav-logo-sprites']]
+17:33:14 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Tablet_17-33-08 - [verifyingGetItByTomorrowFilterFunctionality_Tablet_17-33-08] clearBlockers took 16 ms
+17:33:15 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Tablet_17-33-08 - [verifyingGetItByTomorrowFilterFunctionality_Tablet_17-33-08] Giving input within the search bar
+17:33:15 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Tablet_17-33-08 - [verifyingGetItByTomorrowFilterFunctionality_Tablet_17-33-08] Within safeClick method
+17:33:25 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Tablet_17-33-08 - [verifyingGetItByTomorrowFilterFunctionality_Tablet_17-33-08] Clicked the  [[ChromeDriver: chrome on windows (99ad50883fb5a1c78c4d0200232b9d23)] -> xpath: //input[@id='nav-search-submit-button']]   using safeClick
+17:33:25 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Tablet_17-33-08 - [verifyingGetItByTomorrowFilterFunctionality_Tablet_17-33-08] Clicking on the submit in the search bar
+17:33:26 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Tablet_17-33-08 - [verifyingGetItByTomorrowFilterFunctionality_Tablet_17-33-08] clearBlockers took 49 ms
+17:33:26 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Tablet_17-33-08 - [verifyingGetItByTomorrowFilterFunctionality_Tablet_17-33-08] Within validateDeliveryFilterOptionsWithResult method
+17:33:26 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Tablet_17-33-08 - [verifyingGetItByTomorrowFilterFunctionality_Tablet_17-33-08] Within safeClick method
+17:33:27 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Tablet_17-33-08 - [verifyingGetItByTomorrowFilterFunctionality_Tablet_17-33-08] Clicked the  [[ChromeDriver: chrome on windows (99ad50883fb5a1c78c4d0200232b9d23)] -> xpath: //span[@class='a-size-base a-color-base puis-bold-weight-text' and text()='Delivery Day']/parent::div/following-sibling::ul//span[@class='a-size-base a-color-base' and text()='Get It by Tomorrow']]   using safeClick
+17:33:27 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Tablet_17-33-08 - [verifyingGetItByTomorrowFilterFunctionality_Tablet_17-33-08] Within getMoreButtonByFilterTypeAndName method
+17:33:27 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Tablet_17-33-08 - [verifyingGetItByTomorrowFilterFunctionality_Tablet_17-33-08] Clicked on By.xpath: //span[@class='a-size-base a-color-base puis-bold-weight-text' and text()='Delivery Day']/parent::div/following-sibling::ul//span[@class='a-size-base a-color-base' and text()='Get It by Tomorrow']
+17:33:28 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Tablet_17-33-08 - [verifyingGetItByTomorrowFilterFunctionality_Tablet_17-33-08] Within safeFindElements 
+17:33:29 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Tablet_17-33-08 - [verifyingGetItByTomorrowFilterFunctionality_Tablet_17-33-08] Returning the  [[[ChromeDriver: chrome on windows (99ad50883fb5a1c78c4d0200232b9d23)] -> xpath: //div[@class='a-section a-spacing-small a-spacing-top-small']], [[ChromeDriver: chrome on windows (99ad50883fb5a1c78c4d0200232b9d23)] -> xpath: //div[@class='a-section a-spacing-small a-spacing-top-small']], [[ChromeDriver: chrome on windows (99ad50883fb5a1c78c4d0200232b9d23)] -> xpath: //div[@class='a-section a-spacing-small a-spacing-top-small']], [[ChromeDriver: chrome on windows (99ad50883fb5a1c78c4d0200232b9d23)] -> xpath: //div[@class='a-section a-spacing-small a-spacing-top-small']], [[ChromeDriver: chrome on windows (99ad50883fb5a1c78c4d0200232b9d23)] -> xpath: //div[@class='a-section a-spacing-small a-spacing-top-small']], [[ChromeDriver: chrome on windows (99ad50883fb5a1c78c4d0200232b9d23)] -> xpath: //div[@class='a-section a-spacing-small a-spacing-top-small']], [[ChromeDriver: chrome on windows (99ad50883fb5a1c78c4d0200232b9d23)] -> xpath: //div[@class='a-section a-spacing-small a-spacing-top-small']], [[ChromeDriver: chrome on windows (99ad50883fb5a1c78c4d0200232b9d23)] -> xpath: //div[@class='a-section a-spacing-small a-spacing-top-small']], [[ChromeDriver: chrome on windows (99ad50883fb5a1c78c4d0200232b9d23)] -> xpath: //div[@class='a-section a-spacing-small a-spacing-top-small']], [[ChromeDriver: chrome on windows (99ad50883fb5a1c78c4d0200232b9d23)] -> xpath: //div[@class='a-section a-spacing-small a-spacing-top-small']], [[ChromeDriver: chrome on windows (99ad50883fb5a1c78c4d0200232b9d23)] -> xpath: //div[@class='a-section a-spacing-small a-spacing-top-small']], [[ChromeDriver: chrome on windows (99ad50883fb5a1c78c4d0200232b9d23)] -> xpath: //div[@class='a-section a-spacing-small a-spacing-top-small']], [[ChromeDriver: chrome on windows (99ad50883fb5a1c78c4d0200232b9d23)] -> xpath: //div[@class='a-section a-spacing-small a-spacing-top-small']], [[ChromeDriver: chrome on windows (99ad50883fb5a1c78c4d0200232b9d23)] -> xpath: //div[@class='a-section a-spacing-small a-spacing-top-small']], [[ChromeDriver: chrome on windows (99ad50883fb5a1c78c4d0200232b9d23)] -> xpath: //div[@class='a-section a-spacing-small a-spacing-top-small']], [[ChromeDriver: chrome on windows (99ad50883fb5a1c78c4d0200232b9d23)] -> xpath: //div[@class='a-section a-spacing-small a-spacing-top-small']], [[ChromeDriver: chrome on windows (99ad50883fb5a1c78c4d0200232b9d23)] -> xpath: //div[@class='a-section a-spacing-small a-spacing-top-small']], [[ChromeDriver: chrome on windows (99ad50883fb5a1c78c4d0200232b9d23)] -> xpath: //div[@class='a-section a-spacing-small a-spacing-top-small']], [[ChromeDriver: chrome on windows (99ad50883fb5a1c78c4d0200232b9d23)] -> xpath: //div[@class='a-section a-spacing-small a-spacing-top-small']], [[ChromeDriver: chrome on windows (99ad50883fb5a1c78c4d0200232b9d23)] -> xpath: //div[@class='a-section a-spacing-small a-spacing-top-small']]] from the safeFindElements method
+17:33:29 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Tablet_17-33-08 - [verifyingGetItByTomorrowFilterFunctionality_Tablet_17-33-08] Created hashset with required data to assert with Within validateDeliveryFilterOptionsWithResult method
+17:33:29 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Tablet_17-33-08 - [verifyingGetItByTomorrowFilterFunctionality_Tablet_17-33-08] this is the set  [21 Nov, Today, 20 Nov, Tomorrow]
+17:33:29 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Tablet_17-33-08 - [verifyingGetItByTomorrowFilterFunctionality_Tablet_17-33-08] Within deliveryElements loop iterating over the products  Within validateDeliveryFilterOptionsWithResult method
+17:33:29 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Tablet_17-33-08 - [verifyingGetItByTomorrowFilterFunctionality_Tablet_17-33-08] Checking if the allowedDateParts have the assert text — index 0, text: Sponsored
+Lenovo Idea Tab (Smartchoice) with Tab Pen | WiFi Only |11" 2.5K IPS Display |6GB RAM + 128GB ROM (Expandable Upto 2TB)| MediaTek Dimensity 6300|7040mAh|4 Speakers| Grey
+4.0
+(122)
+2K+ bought in past month
+₹27,999
+M.R.P:
+₹48,000 (42% off)
+Save extra with No Cost EMI
+FREE delivery Sun, 22 Nov
+Or fastest delivery Tomorrow, 21 Nov
+Add to cart
+17:33:29 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Tablet_17-33-08 - [verifyingGetItByTomorrowFilterFunctionality_Tablet_17-33-08] Within deliveryElements loop iterating over the products  Within validateDeliveryFilterOptionsWithResult method
+17:33:29 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Tablet_17-33-08 - [verifyingGetItByTomorrowFilterFunctionality_Tablet_17-33-08] Checking if the allowedDateParts have the assert text — index 1, text: Sponsored
+Lenovo Idea Tab Pro Gen 2 with Pen Plus {Smartchoice} 13" Display, 3.5K Resolution, 144Hz Refresh | 8GB, 256GB | Snapdragon 8s Gen 4 | 10200mAh, 4 JBL Speakers, USB 3.0 with DP-Out, Wi-Fi 7, Luna Grey
+4.1
+(272)
+1K+ bought in past month
+₹49,999
+M.R.P:
+₹70,000 (29% off)
+Save extra with No Cost EMI
+FREE delivery Sun, 22 Nov
+Or fastest delivery Tomorrow, 21 Nov
+Add to cart
++1 other color/pattern
+17:33:29 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Tablet_17-33-08 - [verifyingGetItByTomorrowFilterFunctionality_Tablet_17-33-08] Within deliveryElements loop iterating over the products  Within validateDeliveryFilterOptionsWithResult method
+17:33:29 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Tablet_17-33-08 - [verifyingGetItByTomorrowFilterFunctionality_Tablet_17-33-08] Checking if the allowedDateParts have the assert text — index 2, text: Samsung Galaxy Tab A11+ [Smartchoice], 11-inch (27.82 CM), LCD Display, 6GB RAM, 128GB ROM, Wi-Fi, Quad Speakers, Dolby Atmos, Silver, AI Enabled
+4.5
+(371)
+1K+ bought in past month
+₹21,999
+M.R.P:
+₹27,999 (21% off)
+Save extra with No Cost EMI
+FREE delivery Sun, 22 Nov
+Or fastest delivery Tomorrow, 21 Nov
+Add to cart
+17:33:29 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Tablet_17-33-08 - [verifyingGetItByTomorrowFilterFunctionality_Tablet_17-33-08] Within deliveryElements loop iterating over the products  Within validateDeliveryFilterOptionsWithResult method
+17:33:29 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Tablet_17-33-08 - [verifyingGetItByTomorrowFilterFunctionality_Tablet_17-33-08] Checking if the allowedDateParts have the assert text — index 3, text: Redmi Pad 2, 11-inch (27.94 CM), LCD Display - 2.5K Sharp & Clear, 4GB RAM, 128GB ROM, Wi-Fi, Quad Speakers, Dolby Atmos, Sky Blue, AI Enabled
+4.1
+(267)
+500+ bought in past month
+₹20,999
+Save extra with No Cost EMI
+FREE delivery Sun, 22 Nov
+Or fastest delivery Tomorrow, 21 Nov
+Add to cart
+17:33:29 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Tablet_17-33-08 - [verifyingGetItByTomorrowFilterFunctionality_Tablet_17-33-08] Within deliveryElements loop iterating over the products  Within validateDeliveryFilterOptionsWithResult method
+17:33:29 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Tablet_17-33-08 - [verifyingGetItByTomorrowFilterFunctionality_Tablet_17-33-08] Checking if the allowedDateParts have the assert text — index 4, text: Sponsored
+Xiaomi Pad 8 Nano Texture Creator's Edition with Focus Pen Pro, 11.2 -inch (28.44 CM), LCD 3.2K, 12GB RAM, 256GB ROM, Wi-Fi, Quad Speakers Dolby Atmos, Graphite Grey, AI Enabled
+4.3
+(164)
+300+ bought in past month
+₹54,999
+M.R.P:
+₹65,999 (17% off)
+Save extra with No Cost EMI
+FREE delivery Sun, 22 Nov
+Or fastest delivery Tomorrow, 21 Nov
+Add to cart
++1 other color/pattern
+17:33:29 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Tablet_17-33-08 - [verifyingGetItByTomorrowFilterFunctionality_Tablet_17-33-08] Within deliveryElements loop iterating over the products  Within validateDeliveryFilterOptionsWithResult method
+17:33:29 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Tablet_17-33-08 - [verifyingGetItByTomorrowFilterFunctionality_Tablet_17-33-08] Assert text not found within AllowedDateParts — index 5, text: Lenovo Tab (Smartchoice) | 10.1 Inch Display| Wi-Fi Only| 4 GB RAM + 64 GB ROM (Expandable up to 1 TB)| Metal Body| Dual Speakers with Dolby Atmos| Android 14| Color: Polar Blue
+4.3
+(686)
+1K+ bought in past month
+₹16,990
+M.R.P:
+₹18,000 (6% off)
+Save extra with No Cost EMI
+FREE delivery Sun, 22 Nov
+Add to cart
+17:33:29 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Tablet_17-33-08 - [verifyingGetItByTomorrowFilterFunctionality_Tablet_17-33-08] Asserting delivery filter: isValid=false, index=5, text=Lenovo Tab (Smartchoice) | 10.1 Inch Display| Wi-Fi Only| 4 GB RAM + 64 GB ROM (Expandable up to 1 TB)| Metal Body| Dual Speakers with Dolby Atmos| Android 14| Color: Polar Blue
+4.3
+(686)
+1K+ bought in past month
+₹16,990
+M.R.P:
+₹18,000 (6% off)
+Save extra with No Cost EMI
+FREE delivery Sun, 22 Nov
+Add to cart

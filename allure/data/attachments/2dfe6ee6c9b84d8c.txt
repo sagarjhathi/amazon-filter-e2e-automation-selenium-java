@@ -1,0 +1,278 @@
+17:32:51 [TestNG-test-Test-1] INFO  verifyingFreeDeliveryFilterFunctionality_Laptop_17-32-51 - No existing WebDriver found for current thread. Initializing a new ChromeDriver...
+17:32:51 [TestNG-test-Test-1] INFO  verifyingFreeDeliveryFilterFunctionality_Laptop_17-32-51 - WebDriverManager: chromedriver setup OK
+17:32:54 [TestNG-test-Test-1] INFO  verifyingFreeDeliveryFilterFunctionality_Laptop_17-32-51 - ChromeDriver initialized successfully for thread: 34
+17:32:54 [TestNG-test-Test-1] INFO  verifyingFreeDeliveryFilterFunctionality_Laptop_17-32-51 - [verifyingFreeDeliveryFilterFunctionality_Laptop_17-32-51] Opening amazon Landing page
+17:32:54 [TestNG-test-Test-1] INFO  verifyingFreeDeliveryFilterFunctionality_Laptop_17-32-51 - [verifyingFreeDeliveryFilterFunctionality_Laptop_17-32-51] Within safeFindElement method
+17:32:57 [TestNG-test-Test-1] INFO  verifyingFreeDeliveryFilterFunctionality_Laptop_17-32-51 - [verifyingFreeDeliveryFilterFunctionality_Laptop_17-32-51]Found the element returning it ,element ->[[ChromeDriver: chrome on windows (3e374392320801e2caa83c96025be890)] -> xpath: //a[@id='nav-logo-sprites']]
+17:32:57 [TestNG-test-Test-1] INFO  verifyingFreeDeliveryFilterFunctionality_Laptop_17-32-51 - [verifyingFreeDeliveryFilterFunctionality_Laptop_17-32-51] clearBlockers took 262 ms
+17:32:58 [TestNG-test-Test-1] INFO  verifyingFreeDeliveryFilterFunctionality_Laptop_17-32-51 - [verifyingFreeDeliveryFilterFunctionality_Laptop_17-32-51] Giving input within the search bar
+17:32:58 [TestNG-test-Test-1] INFO  verifyingFreeDeliveryFilterFunctionality_Laptop_17-32-51 - [verifyingFreeDeliveryFilterFunctionality_Laptop_17-32-51] Within safeClick method
+17:33:03 [TestNG-test-Test-1] INFO  verifyingFreeDeliveryFilterFunctionality_Laptop_17-32-51 - [verifyingFreeDeliveryFilterFunctionality_Laptop_17-32-51] Clicked the  [[ChromeDriver: chrome on windows (3e374392320801e2caa83c96025be890)] -> xpath: //input[@id='nav-search-submit-button']]   using safeClick
+17:33:03 [TestNG-test-Test-1] INFO  verifyingFreeDeliveryFilterFunctionality_Laptop_17-32-51 - [verifyingFreeDeliveryFilterFunctionality_Laptop_17-32-51] Clicking on the submit in the search bar
+17:33:04 [TestNG-test-Test-1] INFO  verifyingFreeDeliveryFilterFunctionality_Laptop_17-32-51 - [verifyingFreeDeliveryFilterFunctionality_Laptop_17-32-51] clearBlockers took 152 ms
+17:33:04 [TestNG-test-Test-1] INFO  verifyingFreeDeliveryFilterFunctionality_Laptop_17-32-51 - [verifyingFreeDeliveryFilterFunctionality_Laptop_17-32-51] Within validateDeliveryFilterOptionsWithResult method
+17:33:04 [TestNG-test-Test-1] INFO  verifyingFreeDeliveryFilterFunctionality_Laptop_17-32-51 - [verifyingFreeDeliveryFilterFunctionality_Laptop_17-32-51] Within safeClick method
+17:33:04 [TestNG-test-Test-1] INFO  verifyingFreeDeliveryFilterFunctionality_Laptop_17-32-51 - [verifyingFreeDeliveryFilterFunctionality_Laptop_17-32-51] Clicked the  [[ChromeDriver: chrome on windows (3e374392320801e2caa83c96025be890)] -> xpath: //span[@class='a-size-base a-color-base puis-bold-weight-text' and text()='Eligible for Free Delivery']/parent::div/following-sibling::ul//span[@class='a-size-base a-color-base' and text()='Free Shipping']]   using safeClick
+17:33:04 [TestNG-test-Test-1] INFO  verifyingFreeDeliveryFilterFunctionality_Laptop_17-32-51 - [verifyingFreeDeliveryFilterFunctionality_Laptop_17-32-51] Within getMoreButtonByFilterTypeAndName method
+17:33:05 [TestNG-test-Test-1] INFO  verifyingFreeDeliveryFilterFunctionality_Laptop_17-32-51 - [verifyingFreeDeliveryFilterFunctionality_Laptop_17-32-51] Clicked on By.xpath: //span[@class='a-size-base a-color-base puis-bold-weight-text' and text()='Eligible for Free Delivery']/parent::div/following-sibling::ul//span[@class='a-size-base a-color-base' and text()='Free Shipping']
+17:33:06 [TestNG-test-Test-1] INFO  verifyingFreeDeliveryFilterFunctionality_Laptop_17-32-51 - [verifyingFreeDeliveryFilterFunctionality_Laptop_17-32-51] Within safeFindElements 
+17:33:06 [TestNG-test-Test-1] INFO  verifyingFreeDeliveryFilterFunctionality_Laptop_17-32-51 - [verifyingFreeDeliveryFilterFunctionality_Laptop_17-32-51] Returning the  [[[ChromeDriver: chrome on windows (3e374392320801e2caa83c96025be890)] -> xpath: //div[@class='a-section a-spacing-small a-spacing-top-small']], [[ChromeDriver: chrome on windows (3e374392320801e2caa83c96025be890)] -> xpath: //div[@class='a-section a-spacing-small a-spacing-top-small']], [[ChromeDriver: chrome on windows (3e374392320801e2caa83c96025be890)] -> xpath: //div[@class='a-section a-spacing-small a-spacing-top-small']], [[ChromeDriver: chrome on windows (3e374392320801e2caa83c96025be890)] -> xpath: //div[@class='a-section a-spacing-small a-spacing-top-small']], [[ChromeDriver: chrome on windows (3e374392320801e2caa83c96025be890)] -> xpath: //div[@class='a-section a-spacing-small a-spacing-top-small']], [[ChromeDriver: chrome on windows (3e374392320801e2caa83c96025be890)] -> xpath: //div[@class='a-section a-spacing-small a-spacing-top-small']], [[ChromeDriver: chrome on windows (3e374392320801e2caa83c96025be890)] -> xpath: //div[@class='a-section a-spacing-small a-spacing-top-small']], [[ChromeDriver: chrome on windows (3e374392320801e2caa83c96025be890)] -> xpath: //div[@class='a-section a-spacing-small a-spacing-top-small']], [[ChromeDriver: chrome on windows (3e374392320801e2caa83c96025be890)] -> xpath: //div[@class='a-section a-spacing-small a-spacing-top-small']], [[ChromeDriver: chrome on windows (3e374392320801e2caa83c96025be890)] -> xpath: //div[@class='a-section a-spacing-small a-spacing-top-small']], [[ChromeDriver: chrome on windows (3e374392320801e2caa83c96025be890)] -> xpath: //div[@class='a-section a-spacing-small a-spacing-top-small']], [[ChromeDriver: chrome on windows (3e374392320801e2caa83c96025be890)] -> xpath: //div[@class='a-section a-spacing-small a-spacing-top-small']], [[ChromeDriver: chrome on windows (3e374392320801e2caa83c96025be890)] -> xpath: //div[@class='a-section a-spacing-small a-spacing-top-small']], [[ChromeDriver: chrome on windows (3e374392320801e2caa83c96025be890)] -> xpath: //div[@class='a-section a-spacing-small a-spacing-top-small']], [[ChromeDriver: chrome on windows (3e374392320801e2caa83c96025be890)] -> xpath: //div[@class='a-section a-spacing-small a-spacing-top-small']], [[ChromeDriver: chrome on windows (3e374392320801e2caa83c96025be890)] -> xpath: //div[@class='a-section a-spacing-small a-spacing-top-small']], [[ChromeDriver: chrome on windows (3e374392320801e2caa83c96025be890)] -> xpath: //div[@class='a-section a-spacing-small a-spacing-top-small']], [[ChromeDriver: chrome on windows (3e374392320801e2caa83c96025be890)] -> xpath: //div[@class='a-section a-spacing-small a-spacing-top-small']], [[ChromeDriver: chrome on windows (3e374392320801e2caa83c96025be890)] -> xpath: //div[@class='a-section a-spacing-small a-spacing-top-small']], [[ChromeDriver: chrome on windows (3e374392320801e2caa83c96025be890)] -> xpath: //div[@class='a-section a-spacing-small a-spacing-top-small']], [[ChromeDriver: chrome on windows (3e374392320801e2caa83c96025be890)] -> xpath: //div[@class='a-section a-spacing-small a-spacing-top-small']], [[ChromeDriver: chrome on windows (3e374392320801e2caa83c96025be890)] -> xpath: //div[@class='a-section a-spacing-small a-spacing-top-small']]] from the safeFindElements method
+17:33:06 [TestNG-test-Test-1] INFO  verifyingFreeDeliveryFilterFunctionality_Laptop_17-32-51 - [verifyingFreeDeliveryFilterFunctionality_Laptop_17-32-51] Created hashset with required data to assert with Within validateDeliveryFilterOptionsWithResult method
+17:33:06 [TestNG-test-Test-1] INFO  verifyingFreeDeliveryFilterFunctionality_Laptop_17-32-51 - [verifyingFreeDeliveryFilterFunctionality_Laptop_17-32-51] this is the set  [FREE delivery]
+17:33:06 [TestNG-test-Test-1] INFO  verifyingFreeDeliveryFilterFunctionality_Laptop_17-32-51 - [verifyingFreeDeliveryFilterFunctionality_Laptop_17-32-51] Within deliveryElements loop iterating over the products  Within validateDeliveryFilterOptionsWithResult method
+17:33:06 [TestNG-test-Test-1] INFO  verifyingFreeDeliveryFilterFunctionality_Laptop_17-32-51 - [verifyingFreeDeliveryFilterFunctionality_Laptop_17-32-51] Checking if the allowedDateParts have the assert text — index 0, text: Sponsored
+Primebook WiFi (2026) | 4GB RAM, 64GB Storage (Expandable Upto 512GB) | 11.6-Inch HD IPS Display | MediaTek MT8183 Processor | PrimeOS (Android) | Thin and Light Laptop (1.0 Kg, Type-C Charging)
+4.2
+(433)
+400+ bought in past month
+₹14,990
+M.R.P:
+₹29,990 (50% off)
+Up to 5% back with Amazon Pay ICI...
+FREE delivery Sun, 22 Nov
+Service: Device Setup
+Add to cart
+17:33:06 [TestNG-test-Test-1] INFO  verifyingFreeDeliveryFilterFunctionality_Laptop_17-32-51 - [verifyingFreeDeliveryFilterFunctionality_Laptop_17-32-51] Within deliveryElements loop iterating over the products  Within validateDeliveryFilterOptionsWithResult method
+17:33:06 [TestNG-test-Test-1] INFO  verifyingFreeDeliveryFilterFunctionality_Laptop_17-32-51 - [verifyingFreeDeliveryFilterFunctionality_Laptop_17-32-51] Checking if the allowedDateParts have the assert text — index 1, text: Sponsored
+Primebook 2 Pro (2026) AI Laptop | 8GB RAM, 128GB UFS Storage (Expandable upto 1TB) | 14.1-Inch FHD IPS Display | 14 Hrs Battery | MediaTek Helio G99 | PrimeOS 3.0 (Android)| Thin & Light Laptop, Gray
+4.3
+(1K)
+200+ bought in past month
+₹28,990
+M.R.P:
+₹39,990 (28% off)
+Save extra with No Cost EMI
+FREE delivery Sun, 22 Nov
+Or fastest delivery Tomorrow, 21 Nov
+Service: Device Setup
+Add to cart
+17:33:06 [TestNG-test-Test-1] INFO  verifyingFreeDeliveryFilterFunctionality_Laptop_17-32-51 - [verifyingFreeDeliveryFilterFunctionality_Laptop_17-32-51] Within deliveryElements loop iterating over the products  Within validateDeliveryFilterOptionsWithResult method
+17:33:06 [TestNG-test-Test-1] INFO  verifyingFreeDeliveryFilterFunctionality_Laptop_17-32-51 - [verifyingFreeDeliveryFilterFunctionality_Laptop_17-32-51] Checking if the allowedDateParts have the assert text — index 2, text: Acer Aspire 3,AMD Ryzen 3 3200U, 8GB DDR4 RAM/256 SSD, 39.62 cm /15.6" FHD IPS Display, Win 11Home, Silver, 1.7 Kg, A325-39, BL Keyboard, Thin & Light Laptop
+5.0
+(1)
+₹37,990
+M.R.P:
+₹82,880 (54% off)
+FREE delivery Sun, 22 Nov
+Service: Device Setup
+Add to cart
+17:33:06 [TestNG-test-Test-1] INFO  verifyingFreeDeliveryFilterFunctionality_Laptop_17-32-51 - [verifyingFreeDeliveryFilterFunctionality_Laptop_17-32-51] Within deliveryElements loop iterating over the products  Within validateDeliveryFilterOptionsWithResult method
+17:33:06 [TestNG-test-Test-1] INFO  verifyingFreeDeliveryFilterFunctionality_Laptop_17-32-51 - [verifyingFreeDeliveryFilterFunctionality_Laptop_17-32-51] Checking if the allowedDateParts have the assert text — index 3, text: Acer Aspire 15,AMD Ryzen 3 3200U Processors, 8GB DDR4 RAM/512GB SSD, 39.62 cm /15.6" FHD IPS Display, Win 11Home, Light Silver, 1.58 Kg, AS15-39, BL Keyboard, Thin & Light Laptop
+2.5
+(2)
+200+ bought in past month
+₹42,990
+M.R.P:
+₹89,999 (52% off)
+FREE delivery Sun, 22 Nov
+Service: Device Setup
+Add to cart
+17:33:06 [TestNG-test-Test-1] INFO  verifyingFreeDeliveryFilterFunctionality_Laptop_17-32-51 - [verifyingFreeDeliveryFilterFunctionality_Laptop_17-32-51] Within deliveryElements loop iterating over the products  Within validateDeliveryFilterOptionsWithResult method
+17:33:06 [TestNG-test-Test-1] INFO  verifyingFreeDeliveryFilterFunctionality_Laptop_17-32-51 - [verifyingFreeDeliveryFilterFunctionality_Laptop_17-32-51] Checking if the allowedDateParts have the assert text — index 4, text: Sponsored
+Apple MacBook Pro 14.2-inch Laptop with M6 chip, 1TB SSD; Space Black
+32GB Unified Memory, 12-core CPU, 12‑core GPU. A powerful platform for AI, Liquid Retina XDR Display
+₹2,87,900
+FREE delivery Sun, 22 Nov
+Add to cart
+17:33:06 [TestNG-test-Test-1] INFO  verifyingFreeDeliveryFilterFunctionality_Laptop_17-32-51 - [verifyingFreeDeliveryFilterFunctionality_Laptop_17-32-51] Within deliveryElements loop iterating over the products  Within validateDeliveryFilterOptionsWithResult method
+17:33:06 [TestNG-test-Test-1] INFO  verifyingFreeDeliveryFilterFunctionality_Laptop_17-32-51 - [verifyingFreeDeliveryFilterFunctionality_Laptop_17-32-51] Checking if the allowedDateParts have the assert text — index 5, text: Sponsored
+Primebook 2 Neo (2026) | 8GB RAM, 128GB Storage (Expandable Upto 512GB) | MediaTek Helio G99 | Android 15 (PrimeOS 3.0) | 11.6-Inch HD IPS Display | Type-C Fast Charging | Thin & Light AI Laptop
+4.2
+(599)
+50+ bought in past month
+₹25,990
+M.R.P:
+₹36,990 (30% off)
+Save extra with No Cost EMI
+FREE delivery Sun, 22 Nov
+Or fastest delivery Tomorrow, 21 Nov
+Service: Device Setup
+Add to cart
+17:33:06 [TestNG-test-Test-1] INFO  verifyingFreeDeliveryFilterFunctionality_Laptop_17-32-51 - [verifyingFreeDeliveryFilterFunctionality_Laptop_17-32-51] Within deliveryElements loop iterating over the products  Within validateDeliveryFilterOptionsWithResult method
+17:33:06 [TestNG-test-Test-1] INFO  verifyingFreeDeliveryFilterFunctionality_Laptop_17-32-51 - [verifyingFreeDeliveryFilterFunctionality_Laptop_17-32-51] Checking if the allowedDateParts have the assert text — index 6, text: HP Chromebook 14, MediaTek Kompanio 540 (4GB LPDDR5, 128GB UFS) HD, Touch, Anti-Glare, Micro-Edge, 14''/35.6cm, ChromeOS, 100GB Google One(1yr),Modern gray,1.35kg, nm0006MU, HD Camera w/shutter Laptop
+3.6
+(29)
+200+ bought in past month
+₹25,990
+M.R.P:
+₹60,075 (57% off)
+Up to 5% back with Amazon Pay ICI...
+FREE delivery Sun, 22 Nov
+Service: Device Setup
+Add to cart
+17:33:06 [TestNG-test-Test-1] INFO  verifyingFreeDeliveryFilterFunctionality_Laptop_17-32-51 - [verifyingFreeDeliveryFilterFunctionality_Laptop_17-32-51] Within deliveryElements loop iterating over the products  Within validateDeliveryFilterOptionsWithResult method
+17:33:06 [TestNG-test-Test-1] INFO  verifyingFreeDeliveryFilterFunctionality_Laptop_17-32-51 - [verifyingFreeDeliveryFilterFunctionality_Laptop_17-32-51] Checking if the allowedDateParts have the assert text — index 7, text: Lenovo V14 Laptop, Intel Core i5-13420H 13th Gen Processor, 8GB RAM, 512GB SSD, 14-Inch FHD Display, Windows 11 Pro, MS Office 2024, Business Laptop
+4.1
+(12)
+200+ bought in past month
+₹57,390
+M.R.P:
+₹1,24,899 (54% off)
+Up to 5% back with Amazon Pay ICI...
+FREE delivery Sun, 22 Nov
+Service: Device Setup
+Add to cart
+17:33:06 [TestNG-test-Test-1] INFO  verifyingFreeDeliveryFilterFunctionality_Laptop_17-32-51 - [verifyingFreeDeliveryFilterFunctionality_Laptop_17-32-51] Within deliveryElements loop iterating over the products  Within validateDeliveryFilterOptionsWithResult method
+17:33:06 [TestNG-test-Test-1] INFO  verifyingFreeDeliveryFilterFunctionality_Laptop_17-32-51 - [verifyingFreeDeliveryFilterFunctionality_Laptop_17-32-51] Checking if the allowedDateParts have the assert text — index 8, text: Sponsored
+Apple MacBook Pro 14.2-inch Laptop with M6 chip, 1TB SSD; Silver
+16GB Unified Memory, 12-core CPU, 12‑core GPU. A powerful platform for AI, Liquid Retina XDR Display
+₹2,39,900
+FREE delivery Sun, 22 Nov
+Add to cart
+17:33:06 [TestNG-test-Test-1] INFO  verifyingFreeDeliveryFilterFunctionality_Laptop_17-32-51 - [verifyingFreeDeliveryFilterFunctionality_Laptop_17-32-51] Within deliveryElements loop iterating over the products  Within validateDeliveryFilterOptionsWithResult method
+17:33:07 [TestNG-test-Test-1] INFO  verifyingFreeDeliveryFilterFunctionality_Laptop_17-32-51 - [verifyingFreeDeliveryFilterFunctionality_Laptop_17-32-51] Checking if the allowedDateParts have the assert text — index 9, text: Sponsored
+Apple 2026 MacBook Air 13″ Laptop with M5 chip: AI and Apple Intelligence, 34.46 cm (13.6″) Liquid Retina Display, 24GB Unified Memory, 1TB SSD Storage, 12MP Center Stage Camera, Touch ID; Sky Blue
+4.7
+(58)
+₹1,94,990
+M.R.P:
+₹2,09,900 (7% off)
+Up to 5% back with Amazon Pay ICI...
+FREE delivery Sun, 22 Nov
+Add to cart
+17:33:07 [TestNG-test-Test-1] INFO  verifyingFreeDeliveryFilterFunctionality_Laptop_17-32-51 - [verifyingFreeDeliveryFilterFunctionality_Laptop_17-32-51] Within deliveryElements loop iterating over the products  Within validateDeliveryFilterOptionsWithResult method
+17:33:07 [TestNG-test-Test-1] INFO  verifyingFreeDeliveryFilterFunctionality_Laptop_17-32-51 - [verifyingFreeDeliveryFilterFunctionality_Laptop_17-32-51] Checking if the allowedDateParts have the assert text — index 10, text: Acer One 15 Smart Laptop AO15-41M-G2 | AMD Ryzen 3 7320U
+AMD Radeon 610M Graphics | 8GB DDR5 RAM | 256GB NVMe SSD | 15.6" FHD Display | Windows 11 Home | Silver
+3.4
+(30)
+100+ bought in past month
+₹37,847
+M.R.P:
+₹57,500 (34% off)
+Up to 5% back with Amazon Pay ICI...
+FREE delivery Tue, 24 Nov
+Service: Device Setup
+Add to cart
+17:33:07 [TestNG-test-Test-1] INFO  verifyingFreeDeliveryFilterFunctionality_Laptop_17-32-51 - [verifyingFreeDeliveryFilterFunctionality_Laptop_17-32-51] Within deliveryElements loop iterating over the products  Within validateDeliveryFilterOptionsWithResult method
+17:33:07 [TestNG-test-Test-1] INFO  verifyingFreeDeliveryFilterFunctionality_Laptop_17-32-51 - [verifyingFreeDeliveryFilterFunctionality_Laptop_17-32-51] Checking if the allowedDateParts have the assert text — index 11, text: HP Chromebook 14, MediaTek Kompanio 540 (4GB LPDDR5, 128GB UFS) HD, Anti-Glare, Micro-Edge, 14''/35.6cm, ChromeOS, 100 GB Google One(1yr), Modern Gray,1.35kg, nm0004MU, HD Camera w/Shutter Laptop
+2.6
+(43)
+500+ bought in past month
+₹40,990
+M.R.P:
+₹44,63,708 (99% off)
+Save extra with No Cost EMI
+FREE delivery Sun, 22 Nov
+Service: Device Setup
+Add to cart
+17:33:07 [TestNG-test-Test-1] INFO  verifyingFreeDeliveryFilterFunctionality_Laptop_17-32-51 - [verifyingFreeDeliveryFilterFunctionality_Laptop_17-32-51] Within deliveryElements loop iterating over the products  Within validateDeliveryFilterOptionsWithResult method
+17:33:07 [TestNG-test-Test-1] INFO  verifyingFreeDeliveryFilterFunctionality_Laptop_17-32-51 - [verifyingFreeDeliveryFilterFunctionality_Laptop_17-32-51] Checking if the allowedDateParts have the assert text — index 12, text: HP 15 (2026), AMD Ryzen 3 Quad Core 7335U - (8 GB DDR5/512 GB SSD/AMD Radeon 660M Graphics/Windows 11 Pro) Thin and Light Business Laptop/15.6" FHD/Fingerprint/Silver/Copilot Key/1.5 Kg/MSO 2024
+2.2
+(6)
+100+ bought in past month
+One-time purchase
+₹44,800
+M.R.P:
+₹75,000 (40% off)
+FREE delivery Tue, 24 Nov
+Service: Device Setup
+Add to cart
+Get it faster
+₹44,900
+M.R.P:
+₹75,000 (40% off)
+FREE delivery Sun, 22 Nov
+Only 2 left in stock.
+Service: Device Setup
+17:33:07 [TestNG-test-Test-1] INFO  verifyingFreeDeliveryFilterFunctionality_Laptop_17-32-51 - [verifyingFreeDeliveryFilterFunctionality_Laptop_17-32-51] Within deliveryElements loop iterating over the products  Within validateDeliveryFilterOptionsWithResult method
+17:33:07 [TestNG-test-Test-1] INFO  verifyingFreeDeliveryFilterFunctionality_Laptop_17-32-51 - [verifyingFreeDeliveryFilterFunctionality_Laptop_17-32-51] Checking if the allowedDateParts have the assert text — index 13, text: Acer Smartchoice Aspire One, AMD Ryzen 5-3500U, 8GB DDR4 RAM/ 512GB SSD, 39.62 cm /15.6" FHD IPS Display, Win 11 Home, Light Blue, 1.58KG, A115-39, Thin and Light Laptop
+₹44,990
+M.R.P:
+₹91,999 (51% off)
+FREE delivery Sun, 22 Nov
+Service: Device Setup
+Add to cart
+17:33:07 [TestNG-test-Test-1] INFO  verifyingFreeDeliveryFilterFunctionality_Laptop_17-32-51 - [verifyingFreeDeliveryFilterFunctionality_Laptop_17-32-51] Within deliveryElements loop iterating over the products  Within validateDeliveryFilterOptionsWithResult method
+17:33:07 [TestNG-test-Test-1] INFO  verifyingFreeDeliveryFilterFunctionality_Laptop_17-32-51 - [verifyingFreeDeliveryFilterFunctionality_Laptop_17-32-51] Checking if the allowedDateParts have the assert text — index 14, text: ASUS Chromebook CM1405 (2026), Smartchoice, MediaTek Kompanio 540 Processor, 4GB RAM, 64GB SSD, FHD, 14"(35.5 cm), 60Hz, Chrome OS, Pure Grey, 1.37 Kg, CM1405CM4A-S60034, Thin & Light Laptop
+3.7
+(74)
+500+ bought in past month
+₹28,990
+M.R.P:
+₹37,990 (24% off)
+Save extra with No Cost EMI
+FREE delivery Sun, 22 Nov
+Service: Device Setup
+Add to cart
+17:33:07 [TestNG-test-Test-1] INFO  verifyingFreeDeliveryFilterFunctionality_Laptop_17-32-51 - [verifyingFreeDeliveryFilterFunctionality_Laptop_17-32-51] Within deliveryElements loop iterating over the products  Within validateDeliveryFilterOptionsWithResult method
+17:33:07 [TestNG-test-Test-1] INFO  verifyingFreeDeliveryFilterFunctionality_Laptop_17-32-51 - [verifyingFreeDeliveryFilterFunctionality_Laptop_17-32-51] Checking if the allowedDateParts have the assert text — index 15, text: Dell 15 (Previously Inspiron) Laptop, 14th Gen Intel Core i3/Core 3 100U Processor, 8GB DDR4, 512 SSD, 15.6" FHD 120Hz IPS AG 250 nit Display, Win 11 + Office H&S 2024, Carbon Black, 1.63Kg
+4.1
+(424)
+100+ bought in past month
+₹58,500
+M.R.P:
+₹62,598 (7% off)
+Save extra with No Cost EMI
+FREE delivery Sun, 22 Nov
+Service: Device Setup
+Add to cart
+17:33:07 [TestNG-test-Test-1] INFO  verifyingFreeDeliveryFilterFunctionality_Laptop_17-32-51 - [verifyingFreeDeliveryFilterFunctionality_Laptop_17-32-51] Within deliveryElements loop iterating over the products  Within validateDeliveryFilterOptionsWithResult method
+17:33:07 [TestNG-test-Test-1] INFO  verifyingFreeDeliveryFilterFunctionality_Laptop_17-32-51 - [verifyingFreeDeliveryFilterFunctionality_Laptop_17-32-51] Checking if the allowedDateParts have the assert text — index 16, text: Primebook WiFi (2026) | 4GB RAM, 64GB Storage (Expandable Upto 512GB) | 11.6-Inch HD IPS Display | MediaTek MT8183 Processor | PrimeOS (Android) | Thin and Light Laptop (1.0 Kg, Type-C Charging)
+4.2
+(433)
+400+ bought in past month
+₹14,990
+M.R.P:
+₹29,990 (50% off)
+Up to 5% back with Amazon Pay ICI...
+FREE delivery Sun, 22 Nov
+Service: Device Setup
+Add to cart
+17:33:07 [TestNG-test-Test-1] INFO  verifyingFreeDeliveryFilterFunctionality_Laptop_17-32-51 - [verifyingFreeDeliveryFilterFunctionality_Laptop_17-32-51] Within deliveryElements loop iterating over the products  Within validateDeliveryFilterOptionsWithResult method
+17:33:07 [TestNG-test-Test-1] INFO  verifyingFreeDeliveryFilterFunctionality_Laptop_17-32-51 - [verifyingFreeDeliveryFilterFunctionality_Laptop_17-32-51] Checking if the allowedDateParts have the assert text — index 17, text: ASUS Chromebook CM1405 (2026), Smartchoice, MediaTek Kompanio 540 Processor, 8GB RAM, 128GB SSD, FHD, 14"(35.5 cm), Chrome OS, Pure Grey, 1.37 Kg, CM1405CM4A-S60033, Thin & Light Laptop
+3.1
+(10)
+100+ bought in past month
+₹28,990
+M.R.P:
+₹50,990 (43% off)
+Save extra with No Cost EMI
+FREE delivery Sun, 22 Nov
+Service: Device Setup
+Add to cart
+17:33:07 [TestNG-test-Test-1] INFO  verifyingFreeDeliveryFilterFunctionality_Laptop_17-32-51 - [verifyingFreeDeliveryFilterFunctionality_Laptop_17-32-51] Within deliveryElements loop iterating over the products  Within validateDeliveryFilterOptionsWithResult method
+17:33:07 [TestNG-test-Test-1] INFO  verifyingFreeDeliveryFilterFunctionality_Laptop_17-32-51 - [verifyingFreeDeliveryFilterFunctionality_Laptop_17-32-51] Checking if the allowedDateParts have the assert text — index 18, text: Acer Aspire 3 Laptop A325-45 | 15.6" (39.62 cm) HD Display | Intel Celeron N4500 | 8GB LPDDR4 RAM | 256GB SSD | Windows 11 Home | Intel UHD Graphics | Pure Silver | 1.7 Kg
+₹34,300
+M.R.P:
+₹45,900 (25% off)
+FREE delivery Mon, 23 Nov
+Or fastest delivery Sun, 22 Nov
+Add to cart
+17:33:07 [TestNG-test-Test-1] INFO  verifyingFreeDeliveryFilterFunctionality_Laptop_17-32-51 - [verifyingFreeDeliveryFilterFunctionality_Laptop_17-32-51] Within deliveryElements loop iterating over the products  Within validateDeliveryFilterOptionsWithResult method
+17:33:07 [TestNG-test-Test-1] INFO  verifyingFreeDeliveryFilterFunctionality_Laptop_17-32-51 - [verifyingFreeDeliveryFilterFunctionality_Laptop_17-32-51] Checking if the allowedDateParts have the assert text — index 19, text: Apple 2026 MacBook Neo 13″ Laptop with A18 Pro chip: Built for AI and Apple Intelligence, Liquid Retina Display, 8GB Unified Memory, 256GB SSD Storage, 1080p FaceTime HD Camera; Silver
+4.7
+(471)
+200+ bought in past month
+₹71,890
+M.R.P:
+₹79,900 (10% off)
+Up to 5% back with Amazon Pay ICI...
+FREE delivery Sun, 22 Nov
+Or fastest delivery Tomorrow, 21 Nov
+Add to cart
++3 other colors/patterns
+17:33:07 [TestNG-test-Test-1] INFO  verifyingFreeDeliveryFilterFunctionality_Laptop_17-32-51 - [verifyingFreeDeliveryFilterFunctionality_Laptop_17-32-51] Within deliveryElements loop iterating over the products  Within validateDeliveryFilterOptionsWithResult method
+17:33:07 [TestNG-test-Test-1] INFO  verifyingFreeDeliveryFilterFunctionality_Laptop_17-32-51 - [verifyingFreeDeliveryFilterFunctionality_Laptop_17-32-51] Checking if the allowedDateParts have the assert text — index 20, text: Lenovo IdeaPad Slim 3 Ryzen 3 30 15.6" (39.6cm) FHD Thin and Light Laptop (16GB RAM/512GB SSD/Windows 11/ Office 2024/Grey/1.6Kg), 82XQ01MAIN
+5.0
+(1)
+₹55,750
+M.R.P:
+₹85,000 (34% off)
+Up to 5% back with Amazon Pay ICI...
+FREE delivery Sun, 22 Nov
+Service: Device Setup
+Add to cart
+17:33:07 [TestNG-test-Test-1] INFO  verifyingFreeDeliveryFilterFunctionality_Laptop_17-32-51 - [verifyingFreeDeliveryFilterFunctionality_Laptop_17-32-51] Within deliveryElements loop iterating over the products  Within validateDeliveryFilterOptionsWithResult method
+17:33:07 [TestNG-test-Test-1] INFO  verifyingFreeDeliveryFilterFunctionality_Laptop_17-32-51 - [verifyingFreeDeliveryFilterFunctionality_Laptop_17-32-51] Checking if the allowedDateParts have the assert text — index 21, text: HP Professional 15 (2026), Intel (i3 14th Gen) Core 3 100U - (8 GB DDR5/512 GB SSD/Intel UHD Graphics) - Thin & Light Business Laptop/15.6" FHD/Silver/1.5kg
+2.9
+(66)
+50+ bought in past month
+₹47,700
+M.R.P:
+₹67,000 (29% off)
+Up to 5% back with Amazon Pay ICI...
+FREE delivery Sun, 22 Nov
+Service: Device Setup
+Add to cart
+17:33:07 [TestNG-test-Test-1] INFO  verifyingFreeDeliveryFilterFunctionality_Laptop_17-32-51 - [verifyingFreeDeliveryFilterFunctionality_Laptop_17-32-51] Returning the list with boolean values   Within validateDeliveryFilterOptionsWithResult method
+17:33:07 [TestNG-test-Test-1] INFO  verifyingFreeDeliveryFilterFunctionality_Laptop_17-32-51 - [verifyingFreeDeliveryFilterFunctionality_Laptop_17-32-51] Asserting delivery filter: isValid=true, index=-1, text=All the things are valid no errors

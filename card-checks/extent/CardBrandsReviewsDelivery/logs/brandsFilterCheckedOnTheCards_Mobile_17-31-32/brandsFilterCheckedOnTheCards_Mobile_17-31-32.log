@@ -1,0 +1,267 @@
+17:31:32 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - No existing WebDriver found for current thread. Initializing a new ChromeDriver...
+17:31:35 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - WebDriverManager: chromedriver setup OK
+17:31:44 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - ChromeDriver initialized successfully for thread: 35
+17:31:44 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] TEST: Mobile: Brands filter, checked on the cards
+17:31:44 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] ==================== RULE: Mobile Brands: every option is applied; the brand, or a known alias of it, is a whole word of the card's title; at least 90% of the cards must fit ====================
+17:31:45 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] Opening amazon Landing page
+17:31:45 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] Within safeFindElement method
+17:31:50 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32]Retrying findElement for: ->By.xpath: //a[@id='nav-logo-sprites']
+17:31:51 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32]Refrehsing the page , while trying to safely find : ->By.xpath: //a[@id='nav-logo-sprites']
+17:31:51 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32]Found the element returning it ,element ->[[ChromeDriver: chrome on windows (8ac8f600e6bc189232841ba941d3e35a)] -> xpath: //a[@id='nav-logo-sprites']]
+17:31:51 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] clearBlockers took 259 ms
+17:31:52 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] Giving input within the search bar
+17:31:52 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] Within safeClick method
+17:31:54 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] Clicked the  [[ChromeDriver: chrome on windows (8ac8f600e6bc189232841ba941d3e35a)] -> xpath: //input[@id='nav-search-submit-button']]   using safeClick
+17:31:54 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] Clicking on the submit in the search bar
+17:31:54 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] clearBlockers took 90 ms
+17:31:54 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] SEARCH 'Mobile' -> https://www.amazon.in/s?k=Mobile&ref=nb_sb_noss
+17:31:54 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] Within filterCheckUnderList method
+17:31:55 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] Found the Filter within the filter check List
+17:31:57 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] 'Brands' options on the page: [Samsung | realme | OnePlus | Apple | OPPO | Motorola | Nokia | vivo | Infinix | Google | Redmi | POCO | Itel | BlackBerry | Nothing | Lava | Karbonn | IKALL | Snexian | HMD | Easyfone | PHILIPS]
+17:31:57 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] FILTER 'Brands': checking 22 of 22 option(s)
+17:31:57 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] OPTION 'Samsung' (1 of 22)
+17:31:58 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] clearBlockers took 40 ms
+17:32:00 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] 'Samsung' applied after 1704 ms
+17:32:02 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] 16 card(s) on screen
+17:32:02 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] 'Samsung': 16 card(s): 16 with a price, 16 with a rating, 12 with a printed discount, 16 with a delivery line, 0 with no main offer
+17:32:02 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] Within safeClick method
+17:32:02 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] Clicked the  [[ChromeDriver: chrome on windows (8ac8f600e6bc189232841ba941d3e35a)] -> xpath: //div[@id='s-refinements']//div[@role='group'][div[@role='heading']/span[normalize-space(.)='Brands']]//a[normalize-space(.)='Clear']]   using safeClick
+17:32:02 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] Cleared 'Brands' (the Clear link is gone)
+17:32:02 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] clearBlockers took 75 ms
+17:32:02 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] 'Samsung' cleared
+17:32:02 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] OPTION 'realme' (2 of 22)
+17:32:05 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] clearBlockers took 58 ms
+17:32:06 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] 'realme' applied after 1286 ms
+17:32:08 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] 16 card(s) on screen
+17:32:08 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] 'realme': 16 card(s): 16 with a price, 16 with a rating, 16 with a printed discount, 16 with a delivery line, 0 with no main offer
+17:32:08 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] Within safeClick method
+17:32:09 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] Clicked the  [[ChromeDriver: chrome on windows (8ac8f600e6bc189232841ba941d3e35a)] -> xpath: //div[@id='s-refinements']//div[@role='group'][div[@role='heading']/span[normalize-space(.)='Brands']]//a[normalize-space(.)='Clear']]   using safeClick
+17:32:09 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] Cleared 'Brands' (the Clear link is gone)
+17:32:09 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] clearBlockers took 41 ms
+17:32:09 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] 'realme' cleared
+17:32:09 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] OPTION 'OnePlus' (3 of 22)
+17:32:11 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] clearBlockers took 107 ms
+17:32:12 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] 'OnePlus' applied after 1287 ms
+17:32:15 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] 16 card(s) on screen
+17:32:15 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] 'OnePlus': 16 card(s): 16 with a price, 16 with a rating, 15 with a printed discount, 16 with a delivery line, 0 with no main offer
+17:32:15 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] Within safeClick method
+17:32:15 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] Clicked the  [[ChromeDriver: chrome on windows (8ac8f600e6bc189232841ba941d3e35a)] -> xpath: //div[@id='s-refinements']//div[@role='group'][div[@role='heading']/span[normalize-space(.)='Brands']]//a[normalize-space(.)='Clear']]   using safeClick
+17:32:15 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] Cleared 'Brands' (the Clear link is gone)
+17:32:15 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] clearBlockers took 54 ms
+17:32:15 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] 'OnePlus' cleared
+17:32:15 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] OPTION 'Apple' (4 of 22)
+17:32:17 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] clearBlockers took 39 ms
+17:32:18 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] 'Apple' applied after 1253 ms
+17:32:21 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] 16 card(s) on screen
+17:32:21 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] 'Apple': 16 card(s): 14 with a price, 14 with a rating, 11 with a printed discount, 14 with a delivery line, 0 with no main offer
+17:32:21 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] Within safeClick method
+17:32:21 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] Clicked the  [[ChromeDriver: chrome on windows (8ac8f600e6bc189232841ba941d3e35a)] -> xpath: //div[@id='s-refinements']//div[@role='group'][div[@role='heading']/span[normalize-space(.)='Brands']]//a[normalize-space(.)='Clear']]   using safeClick
+17:32:21 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] Cleared 'Brands' (the Clear link is gone)
+17:32:21 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] clearBlockers took 66 ms
+17:32:21 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] 'Apple' cleared
+17:32:21 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] OPTION 'OPPO' (5 of 22)
+17:32:24 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] clearBlockers took 88 ms
+17:32:25 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] 'OPPO' applied after 1271 ms
+17:32:27 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] 16 card(s) on screen
+17:32:27 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] 'OPPO': 16 card(s): 16 with a price, 16 with a rating, 14 with a printed discount, 16 with a delivery line, 0 with no main offer
+17:32:27 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] Within safeClick method
+17:32:27 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] Clicked the  [[ChromeDriver: chrome on windows (8ac8f600e6bc189232841ba941d3e35a)] -> xpath: //div[@id='s-refinements']//div[@role='group'][div[@role='heading']/span[normalize-space(.)='Brands']]//a[normalize-space(.)='Clear']]   using safeClick
+17:32:27 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] Cleared 'Brands' (the Clear link is gone)
+17:32:27 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] clearBlockers took 47 ms
+17:32:27 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] 'OPPO' cleared
+17:32:27 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] OPTION 'Motorola' (6 of 22)
+17:32:30 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] clearBlockers took 46 ms
+17:32:31 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] 'Motorola' applied after 1757 ms
+17:32:34 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] 16 card(s) on screen
+17:32:34 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] 'Motorola': 16 card(s): 16 with a price, 16 with a rating, 15 with a printed discount, 16 with a delivery line, 0 with no main offer
+17:32:34 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] Within safeClick method
+17:32:34 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] Clicked the  [[ChromeDriver: chrome on windows (8ac8f600e6bc189232841ba941d3e35a)] -> xpath: //div[@id='s-refinements']//div[@role='group'][div[@role='heading']/span[normalize-space(.)='Brands']]//a[normalize-space(.)='Clear']]   using safeClick
+17:32:34 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] Cleared 'Brands' (the Clear link is gone)
+17:32:34 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] clearBlockers took 40 ms
+17:32:34 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] 'Motorola' cleared
+17:32:34 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] OPTION 'Nokia' (7 of 22)
+17:32:37 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] clearBlockers took 42 ms
+17:32:38 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] 'Nokia' applied after 1197 ms
+17:32:40 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] 16 card(s) on screen
+17:32:40 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] 'Nokia': 16 card(s): 16 with a price, 16 with a rating, 16 with a printed discount, 16 with a delivery line, 0 with no main offer
+17:32:40 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] Within safeClick method
+17:32:40 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] Clicked the  [[ChromeDriver: chrome on windows (8ac8f600e6bc189232841ba941d3e35a)] -> xpath: //div[@id='s-refinements']//div[@role='group'][div[@role='heading']/span[normalize-space(.)='Brands']]//a[normalize-space(.)='Clear']]   using safeClick
+17:32:40 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] Cleared 'Brands' (the Clear link is gone)
+17:32:40 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] clearBlockers took 52 ms
+17:32:40 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] 'Nokia' cleared
+17:32:40 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] OPTION 'vivo' (8 of 22)
+17:32:43 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] clearBlockers took 41 ms
+17:32:44 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] 'vivo' applied after 1795 ms
+17:32:47 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] 16 card(s) on screen
+17:32:47 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] 'vivo': 16 card(s): 16 with a price, 16 with a rating, 16 with a printed discount, 16 with a delivery line, 0 with no main offer
+17:32:47 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] Within safeClick method
+17:32:47 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] Clicked the  [[ChromeDriver: chrome on windows (8ac8f600e6bc189232841ba941d3e35a)] -> xpath: //div[@id='s-refinements']//div[@role='group'][div[@role='heading']/span[normalize-space(.)='Brands']]//a[normalize-space(.)='Clear']]   using safeClick
+17:32:47 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] Cleared 'Brands' (the Clear link is gone)
+17:32:47 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] clearBlockers took 42 ms
+17:32:47 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] 'vivo' cleared
+17:32:47 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] OPTION 'Infinix' (9 of 22)
+17:32:49 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] clearBlockers took 47 ms
+17:32:51 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] 'Infinix' applied after 1288 ms
+17:32:54 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] 16 card(s) on screen
+17:32:54 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] 'Infinix': 16 card(s): 16 with a price, 16 with a rating, 16 with a printed discount, 16 with a delivery line, 0 with no main offer
+17:32:54 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] Within safeClick method
+17:32:54 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] Clicked the  [[ChromeDriver: chrome on windows (8ac8f600e6bc189232841ba941d3e35a)] -> xpath: //div[@id='s-refinements']//div[@role='group'][div[@role='heading']/span[normalize-space(.)='Brands']]//a[normalize-space(.)='Clear']]   using safeClick
+17:32:54 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] Cleared 'Brands' (the Clear link is gone)
+17:32:54 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] clearBlockers took 53 ms
+17:32:54 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] 'Infinix' cleared
+17:32:54 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] OPTION 'Google' (10 of 22)
+17:32:56 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] clearBlockers took 41 ms
+17:32:58 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] 'Google' applied after 1685 ms
+17:33:00 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] 16 card(s) on screen
+17:33:00 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] 'Google': 16 card(s): 14 with a price, 16 with a rating, 14 with a printed discount, 16 with a delivery line, 2 with no main offer
+17:33:00 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] Within safeClick method
+17:33:00 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] Clicked the  [[ChromeDriver: chrome on windows (8ac8f600e6bc189232841ba941d3e35a)] -> xpath: //div[@id='s-refinements']//div[@role='group'][div[@role='heading']/span[normalize-space(.)='Brands']]//a[normalize-space(.)='Clear']]   using safeClick
+17:33:00 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] Cleared 'Brands' (the Clear link is gone)
+17:33:00 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] clearBlockers took 51 ms
+17:33:00 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] 'Google' cleared
+17:33:00 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] OPTION 'Redmi' (11 of 22)
+17:33:03 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] clearBlockers took 45 ms
+17:33:04 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] 'Redmi' applied after 1224 ms
+17:33:07 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] 16 card(s) on screen
+17:33:07 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] 'Redmi': 16 card(s): 15 with a price, 16 with a rating, 14 with a printed discount, 16 with a delivery line, 1 with no main offer
+17:33:07 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] Within safeClick method
+17:33:07 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] Clicked the  [[ChromeDriver: chrome on windows (8ac8f600e6bc189232841ba941d3e35a)] -> xpath: //div[@id='s-refinements']//div[@role='group'][div[@role='heading']/span[normalize-space(.)='Brands']]//a[normalize-space(.)='Clear']]   using safeClick
+17:33:07 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] Cleared 'Brands' (the Clear link is gone)
+17:33:07 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] clearBlockers took 61 ms
+17:33:07 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] 'Redmi' cleared
+17:33:07 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] OPTION 'POCO' (12 of 22)
+17:33:09 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] clearBlockers took 58 ms
+17:33:11 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] 'POCO' applied after 1716 ms
+17:33:13 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] 16 card(s) on screen
+17:33:13 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] 'POCO': 16 card(s): 15 with a price, 16 with a rating, 15 with a printed discount, 15 with a delivery line, 0 with no main offer
+17:33:13 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] Within safeClick method
+17:33:13 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] Clicked the  [[ChromeDriver: chrome on windows (8ac8f600e6bc189232841ba941d3e35a)] -> xpath: //div[@id='s-refinements']//div[@role='group'][div[@role='heading']/span[normalize-space(.)='Brands']]//a[normalize-space(.)='Clear']]   using safeClick
+17:33:13 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] Cleared 'Brands' (the Clear link is gone)
+17:33:13 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] clearBlockers took 45 ms
+17:33:13 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] 'POCO' cleared
+17:33:13 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] OPTION 'Itel' (13 of 22)
+17:33:16 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] clearBlockers took 55 ms
+17:33:17 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] 'Itel' applied after 1195 ms
+17:33:19 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] 16 card(s) on screen
+17:33:19 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] 'Itel': 16 card(s): 15 with a price, 13 with a rating, 15 with a printed discount, 16 with a delivery line, 1 with no main offer
+17:33:19 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] Within safeClick method
+17:33:19 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] Clicked the  [[ChromeDriver: chrome on windows (8ac8f600e6bc189232841ba941d3e35a)] -> xpath: //div[@id='s-refinements']//div[@role='group'][div[@role='heading']/span[normalize-space(.)='Brands']]//a[normalize-space(.)='Clear']]   using safeClick
+17:33:19 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] Cleared 'Brands' (the Clear link is gone)
+17:33:19 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] clearBlockers took 42 ms
+17:33:19 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] 'Itel' cleared
+17:33:19 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] OPTION 'BlackBerry' (14 of 22)
+17:33:22 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] clearBlockers took 42 ms
+17:33:23 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] 'BlackBerry' applied after 1176 ms
+17:33:24 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] 3 card(s) on screen
+17:33:24 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] 'BlackBerry': 3 card(s): 3 with a price, 3 with a rating, 3 with a printed discount, 3 with a delivery line, 0 with no main offer
+17:33:24 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] Within safeClick method
+17:33:24 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] Clicked the  [[ChromeDriver: chrome on windows (8ac8f600e6bc189232841ba941d3e35a)] -> xpath: //div[@id='s-refinements']//div[@role='group'][div[@role='heading']/span[normalize-space(.)='Brands']]//a[normalize-space(.)='Clear']]   using safeClick
+17:33:24 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] Cleared 'Brands' (the Clear link is gone)
+17:33:24 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] clearBlockers took 52 ms
+17:33:24 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] 'BlackBerry' cleared
+17:33:24 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] OPTION 'Nothing' (15 of 22)
+17:33:27 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] clearBlockers took 44 ms
+17:33:28 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] 'Nothing' applied after 1681 ms
+17:33:31 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] 16 card(s) on screen
+17:33:31 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] 'Nothing': 16 card(s): 16 with a price, 16 with a rating, 15 with a printed discount, 16 with a delivery line, 0 with no main offer
+17:33:31 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] Within safeClick method
+17:33:31 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] Clicked the  [[ChromeDriver: chrome on windows (8ac8f600e6bc189232841ba941d3e35a)] -> xpath: //div[@id='s-refinements']//div[@role='group'][div[@role='heading']/span[normalize-space(.)='Brands']]//a[normalize-space(.)='Clear']]   using safeClick
+17:33:31 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] Cleared 'Brands' (the Clear link is gone)
+17:33:31 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] clearBlockers took 41 ms
+17:33:31 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] 'Nothing' cleared
+17:33:31 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] OPTION 'Lava' (16 of 22)
+17:33:33 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] clearBlockers took 54 ms
+17:33:34 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] 'Lava' applied after 1200 ms
+17:33:37 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] 16 card(s) on screen
+17:33:37 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] 'Lava': 16 card(s): 16 with a price, 16 with a rating, 15 with a printed discount, 16 with a delivery line, 0 with no main offer
+17:33:37 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] Within safeClick method
+17:33:37 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] Clicked the  [[ChromeDriver: chrome on windows (8ac8f600e6bc189232841ba941d3e35a)] -> xpath: //div[@id='s-refinements']//div[@role='group'][div[@role='heading']/span[normalize-space(.)='Brands']]//a[normalize-space(.)='Clear']]   using safeClick
+17:33:37 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] Cleared 'Brands' (the Clear link is gone)
+17:33:37 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] clearBlockers took 51 ms
+17:33:37 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] 'Lava' cleared
+17:33:37 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] OPTION 'Karbonn' (17 of 22)
+17:33:39 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] clearBlockers took 46 ms
+17:33:40 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] 'Karbonn' applied after 1182 ms
+17:33:42 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] 5 card(s) on screen
+17:33:42 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] 'Karbonn': 5 card(s): 5 with a price, 5 with a rating, 5 with a printed discount, 5 with a delivery line, 0 with no main offer
+17:33:42 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] Within safeClick method
+17:33:42 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] Clicked the  [[ChromeDriver: chrome on windows (8ac8f600e6bc189232841ba941d3e35a)] -> xpath: //div[@id='s-refinements']//div[@role='group'][div[@role='heading']/span[normalize-space(.)='Brands']]//a[normalize-space(.)='Clear']]   using safeClick
+17:33:42 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] Cleared 'Brands' (the Clear link is gone)
+17:33:42 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] clearBlockers took 60 ms
+17:33:42 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] 'Karbonn' cleared
+17:33:42 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] OPTION 'IKALL' (18 of 22)
+17:33:44 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] clearBlockers took 46 ms
+17:33:45 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] 'IKALL' applied after 1178 ms
+17:33:48 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] 16 card(s) on screen
+17:33:48 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] 'IKALL': 16 card(s): 16 with a price, 15 with a rating, 15 with a printed discount, 16 with a delivery line, 0 with no main offer
+17:33:48 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] Within safeClick method
+17:33:48 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] Clicked the  [[ChromeDriver: chrome on windows (8ac8f600e6bc189232841ba941d3e35a)] -> xpath: //div[@id='s-refinements']//div[@role='group'][div[@role='heading']/span[normalize-space(.)='Brands']]//a[normalize-space(.)='Clear']]   using safeClick
+17:33:48 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] Cleared 'Brands' (the Clear link is gone)
+17:33:48 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] clearBlockers took 53 ms
+17:33:48 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] 'IKALL' cleared
+17:33:48 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] OPTION 'Snexian' (19 of 22)
+17:33:50 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] clearBlockers took 63 ms
+17:33:51 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] 'Snexian' applied after 1268 ms
+17:33:54 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] 16 card(s) on screen
+17:33:54 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] 'Snexian': 16 card(s): 16 with a price, 16 with a rating, 16 with a printed discount, 16 with a delivery line, 0 with no main offer
+17:33:54 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] Within safeClick method
+17:33:54 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] Clicked the  [[ChromeDriver: chrome on windows (8ac8f600e6bc189232841ba941d3e35a)] -> xpath: //div[@id='s-refinements']//div[@role='group'][div[@role='heading']/span[normalize-space(.)='Brands']]//a[normalize-space(.)='Clear']]   using safeClick
+17:33:54 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] Cleared 'Brands' (the Clear link is gone)
+17:33:54 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] clearBlockers took 46 ms
+17:33:54 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] 'Snexian' cleared
+17:33:54 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] OPTION 'HMD' (20 of 22)
+17:33:56 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] clearBlockers took 54 ms
+17:33:57 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] 'HMD' applied after 1184 ms
+17:33:59 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] 16 card(s) on screen
+17:33:59 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] 'HMD': 16 card(s): 16 with a price, 14 with a rating, 16 with a printed discount, 15 with a delivery line, 0 with no main offer
+17:33:59 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] Within safeClick method
+17:34:00 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] Clicked the  [[ChromeDriver: chrome on windows (8ac8f600e6bc189232841ba941d3e35a)] -> xpath: //div[@id='s-refinements']//div[@role='group'][div[@role='heading']/span[normalize-space(.)='Brands']]//a[normalize-space(.)='Clear']]   using safeClick
+17:34:00 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] Cleared 'Brands' (the Clear link is gone)
+17:34:00 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] clearBlockers took 58 ms
+17:34:00 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] 'HMD' cleared
+17:34:00 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] OPTION 'Easyfone' (21 of 22)
+17:34:02 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] clearBlockers took 46 ms
+17:34:03 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] 'Easyfone' applied after 1170 ms
+17:34:04 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] 3 card(s) on screen
+17:34:04 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] 'Easyfone': 3 card(s): 3 with a price, 3 with a rating, 3 with a printed discount, 3 with a delivery line, 0 with no main offer
+17:34:05 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] Within safeClick method
+17:34:05 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] Clicked the  [[ChromeDriver: chrome on windows (8ac8f600e6bc189232841ba941d3e35a)] -> xpath: //div[@id='s-refinements']//div[@role='group'][div[@role='heading']/span[normalize-space(.)='Brands']]//a[normalize-space(.)='Clear']]   using safeClick
+17:34:05 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] Cleared 'Brands' (the Clear link is gone)
+17:34:05 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] clearBlockers took 45 ms
+17:34:05 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] 'Easyfone' cleared
+17:34:05 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] OPTION 'PHILIPS' (22 of 22)
+17:34:07 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] clearBlockers took 51 ms
+17:34:08 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] 'PHILIPS' applied after 1188 ms
+17:34:11 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] 16 card(s) on screen
+17:34:11 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] 'PHILIPS': 16 card(s): 15 with a price, 15 with a rating, 15 with a printed discount, 16 with a delivery line, 1 with no main offer
+17:34:11 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] Within safeClick method
+17:34:11 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] Clicked the  [[ChromeDriver: chrome on windows (8ac8f600e6bc189232841ba941d3e35a)] -> xpath: //div[@id='s-refinements']//div[@role='group'][div[@role='heading']/span[normalize-space(.)='Brands']]//a[normalize-space(.)='Clear']]   using safeClick
+17:34:11 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] Cleared 'Brands' (the Clear link is gone)
+17:34:11 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] clearBlockers took 51 ms
+17:34:11 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] 'PHILIPS' cleared
+17:34:11 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] DONE: 22 option(s) read, not applied: []
+17:34:11 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] Saved what was read to collected\Mobile__Brands.json
+17:34:11 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] CHECK Mobile Brands 'Samsung': 16 of 16 judged fit (needs at least 0.9), 0 show no value
+17:34:11 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] CHECK Mobile Brands 'realme': 16 of 16 judged fit (needs at least 0.9), 0 show no value
+17:34:11 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] CHECK Mobile Brands 'OnePlus': 16 of 16 judged fit (needs at least 0.9), 0 show no value
+17:34:11 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] CHECK Mobile Brands 'Apple': 16 of 16 judged fit (needs at least 0.9), 0 show no value
+17:34:11 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] CHECK Mobile Brands 'OPPO': 16 of 16 judged fit (needs at least 0.9), 0 show no value
+17:34:11 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] CHECK Mobile Brands 'Motorola': 16 of 16 judged fit (needs at least 0.9), 0 show no value
+17:34:11 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] CHECK Mobile Brands 'Nokia': 16 of 16 judged fit (needs at least 0.9), 0 show no value
+17:34:11 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] CHECK Mobile Brands 'vivo': 16 of 16 judged fit (needs at least 0.9), 0 show no value
+17:34:11 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] CHECK Mobile Brands 'Infinix': 16 of 16 judged fit (needs at least 0.9), 0 show no value
+17:34:11 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] CHECK Mobile Brands 'Google': 16 of 16 judged fit (needs at least 0.9), 0 show no value
+17:34:11 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] CHECK Mobile Brands 'Redmi': 16 of 16 judged fit (needs at least 0.9), 0 show no value
+17:34:11 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] CHECK Mobile Brands 'POCO': 16 of 16 judged fit (needs at least 0.9), 0 show no value
+17:34:11 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] CHECK Mobile Brands 'Itel': 15 of 16 judged fit (needs at least 0.9), 0 show no value
+17:34:11 [TestNG-PoolService-2] WARN  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] Mobile Brands 'Itel': do not fit: it5027 Slim with 2.4" Big Display, 1200 mAh Batter
+17:34:11 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] CHECK Mobile Brands 'BlackBerry': 3 of 3 judged fit (needs at least 0.9), 0 show no value
+17:34:11 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] CHECK Mobile Brands 'Nothing': 16 of 16 judged fit (needs at least 0.9), 0 show no value
+17:34:11 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] CHECK Mobile Brands 'Lava': 16 of 16 judged fit (needs at least 0.9), 0 show no value
+17:34:11 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] CHECK Mobile Brands 'Karbonn': 5 of 5 judged fit (needs at least 0.9), 0 show no value
+17:34:11 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] CHECK Mobile Brands 'IKALL': 16 of 16 judged fit (needs at least 0.9), 0 show no value
+17:34:11 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] CHECK Mobile Brands 'Snexian': 16 of 16 judged fit (needs at least 0.9), 0 show no value
+17:34:11 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] CHECK Mobile Brands 'HMD': 16 of 16 judged fit (needs at least 0.9), 0 show no value
+17:34:11 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] CHECK Mobile Brands 'Easyfone': 3 of 3 judged fit (needs at least 0.9), 0 show no value
+17:34:11 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] CHECK Mobile Brands 'PHILIPS': 16 of 16 judged fit (needs at least 0.9), 0 show no value
+17:34:11 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Mobile_17-31-32 - [brandsFilterCheckedOnTheCards_Mobile_17-31-32] Finished 'brandsFilterCheckedOnTheCards': passed in 146430 ms

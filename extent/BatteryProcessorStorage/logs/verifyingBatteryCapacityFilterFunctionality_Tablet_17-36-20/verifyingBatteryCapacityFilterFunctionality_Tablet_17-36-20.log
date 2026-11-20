@@ -1,0 +1,15 @@
+17:36:20 [TestNG-test-Test-1] INFO  verifyingBatteryCapacityFilterFunctionality_Tablet_17-36-20 - No existing WebDriver found for current thread. Initializing a new ChromeDriver...
+17:36:20 [TestNG-test-Test-1] INFO  verifyingBatteryCapacityFilterFunctionality_Tablet_17-36-20 - WebDriverManager: chromedriver setup OK
+17:36:22 [TestNG-test-Test-1] INFO  verifyingBatteryCapacityFilterFunctionality_Tablet_17-36-20 - ChromeDriver initialized successfully for thread: 34
+17:36:24 [TestNG-test-Test-1] INFO  verifyingBatteryCapacityFilterFunctionality_Tablet_17-36-20 - [verifyingBatteryCapacityFilterFunctionality_Tablet_17-36-20] Opening amazon Landing page
+17:36:24 [TestNG-test-Test-1] INFO  verifyingBatteryCapacityFilterFunctionality_Tablet_17-36-20 - [verifyingBatteryCapacityFilterFunctionality_Tablet_17-36-20] Within safeFindElement method
+17:36:24 [TestNG-test-Test-1] INFO  verifyingBatteryCapacityFilterFunctionality_Tablet_17-36-20 - [verifyingBatteryCapacityFilterFunctionality_Tablet_17-36-20]Found the element returning it ,element ->[[ChromeDriver: chrome on windows (ef4e37e50befe4672c780f74dc58fb80)] -> xpath: //a[@id='nav-logo-sprites']]
+17:36:24 [TestNG-test-Test-1] INFO  verifyingBatteryCapacityFilterFunctionality_Tablet_17-36-20 - [verifyingBatteryCapacityFilterFunctionality_Tablet_17-36-20] clearBlockers took 12 ms
+17:36:25 [TestNG-test-Test-1] INFO  verifyingBatteryCapacityFilterFunctionality_Tablet_17-36-20 - [verifyingBatteryCapacityFilterFunctionality_Tablet_17-36-20] Giving input within the search bar
+17:36:25 [TestNG-test-Test-1] INFO  verifyingBatteryCapacityFilterFunctionality_Tablet_17-36-20 - [verifyingBatteryCapacityFilterFunctionality_Tablet_17-36-20] Within safeClick method
+17:36:28 [TestNG-test-Test-1] INFO  verifyingBatteryCapacityFilterFunctionality_Tablet_17-36-20 - [verifyingBatteryCapacityFilterFunctionality_Tablet_17-36-20] Clicked the  [[ChromeDriver: chrome on windows (ef4e37e50befe4672c780f74dc58fb80)] -> xpath: //input[@id='nav-search-submit-button']]   using safeClick
+17:36:28 [TestNG-test-Test-1] INFO  verifyingBatteryCapacityFilterFunctionality_Tablet_17-36-20 - [verifyingBatteryCapacityFilterFunctionality_Tablet_17-36-20] Clicking on the submit in the search bar
+17:36:28 [TestNG-test-Test-1] INFO  verifyingBatteryCapacityFilterFunctionality_Tablet_17-36-20 - [verifyingBatteryCapacityFilterFunctionality_Tablet_17-36-20] clearBlockers took 373 ms
+17:36:28 [TestNG-test-Test-1] INFO  verifyingBatteryCapacityFilterFunctionality_Tablet_17-36-20 - [verifyingBatteryCapacityFilterFunctionality_Tablet_17-36-20] Within filterCheckUnderList method
+17:36:29 [TestNG-test-Test-1] INFO  verifyingBatteryCapacityFilterFunctionality_Tablet_17-36-20 - [verifyingBatteryCapacityFilterFunctionality_Tablet_17-36-20] Filter option does not exist within the filter check List
+17:36:29 [TestNG-test-Test-1] WARN  verifyingBatteryCapacityFilterFunctionality_Tablet_17-36-20 - [verifyingBatteryCapacityFilterFunctionality_Tablet_17-36-20]  Filter option 'Battery Capacity' does not exist in the list. Skipping the test.

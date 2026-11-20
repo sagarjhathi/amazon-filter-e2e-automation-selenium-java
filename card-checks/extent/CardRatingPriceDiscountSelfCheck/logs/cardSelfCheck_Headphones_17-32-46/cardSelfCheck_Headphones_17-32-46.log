@@ -1,0 +1,25 @@
+17:32:46 [TestNG-PoolService-2] INFO  cardSelfCheck_Headphones_17-32-46 - No existing WebDriver found for current thread. Initializing a new ChromeDriver...
+17:32:46 [TestNG-PoolService-2] INFO  cardSelfCheck_Headphones_17-32-46 - WebDriverManager: chromedriver setup OK
+17:32:51 [TestNG-PoolService-2] INFO  cardSelfCheck_Headphones_17-32-46 - ChromeDriver initialized successfully for thread: 35
+17:32:51 [TestNG-PoolService-2] INFO  cardSelfCheck_Headphones_17-32-46 - [cardSelfCheck_Headphones_17-32-46] TEST: Headphones: price, M.R.P. and printed discount of each card agree
+17:32:51 [TestNG-PoolService-2] INFO  cardSelfCheck_Headphones_17-32-46 - [cardSelfCheck_Headphones_17-32-46] ==================== RULE: Headphones card self-check: (M.R.P. - price) / M.R.P. rounds to the printed discount; at least 95% of the cards must agree ====================
+17:32:52 [TestNG-PoolService-2] INFO  cardSelfCheck_Headphones_17-32-46 - [cardSelfCheck_Headphones_17-32-46] Opening amazon Landing page
+17:32:52 [TestNG-PoolService-2] INFO  cardSelfCheck_Headphones_17-32-46 - [cardSelfCheck_Headphones_17-32-46] Within safeFindElement method
+17:32:57 [TestNG-PoolService-2] INFO  cardSelfCheck_Headphones_17-32-46 - [cardSelfCheck_Headphones_17-32-46]Retrying findElement for: ->By.xpath: //a[@id='nav-logo-sprites']
+17:32:58 [TestNG-PoolService-2] INFO  cardSelfCheck_Headphones_17-32-46 - [cardSelfCheck_Headphones_17-32-46]Refrehsing the page , while trying to safely find : ->By.xpath: //a[@id='nav-logo-sprites']
+17:32:58 [TestNG-PoolService-2] INFO  cardSelfCheck_Headphones_17-32-46 - [cardSelfCheck_Headphones_17-32-46]Found the element returning it ,element ->[[ChromeDriver: chrome on windows (036b9ee6f44f0dcd99e0760450f30736)] -> xpath: //a[@id='nav-logo-sprites']]
+17:32:58 [TestNG-PoolService-2] INFO  cardSelfCheck_Headphones_17-32-46 - [cardSelfCheck_Headphones_17-32-46] clearBlockers took 27 ms
+17:32:59 [TestNG-PoolService-2] INFO  cardSelfCheck_Headphones_17-32-46 - [cardSelfCheck_Headphones_17-32-46] Giving input within the search bar
+17:32:59 [TestNG-PoolService-2] INFO  cardSelfCheck_Headphones_17-32-46 - [cardSelfCheck_Headphones_17-32-46] Within safeClick method
+17:33:03 [TestNG-PoolService-2] INFO  cardSelfCheck_Headphones_17-32-46 - [cardSelfCheck_Headphones_17-32-46] Clicked the  [[ChromeDriver: chrome on windows (036b9ee6f44f0dcd99e0760450f30736)] -> xpath: //input[@id='nav-search-submit-button']]   using safeClick
+17:33:03 [TestNG-PoolService-2] INFO  cardSelfCheck_Headphones_17-32-46 - [cardSelfCheck_Headphones_17-32-46] Clicking on the submit in the search bar
+17:33:04 [TestNG-PoolService-2] INFO  cardSelfCheck_Headphones_17-32-46 - [cardSelfCheck_Headphones_17-32-46] clearBlockers took 335 ms
+17:33:04 [TestNG-PoolService-2] INFO  cardSelfCheck_Headphones_17-32-46 - [cardSelfCheck_Headphones_17-32-46] SEARCH 'Headphones' -> https://www.amazon.in/s?k=Headphones&ref=nb_sb_noss
+17:33:08 [TestNG-PoolService-2] INFO  cardSelfCheck_Headphones_17-32-46 - [cardSelfCheck_Headphones_17-32-46] 16 card(s) on screen
+17:33:08 [TestNG-PoolService-2] INFO  cardSelfCheck_Headphones_17-32-46 - [cardSelfCheck_Headphones_17-32-46] Saved what was read to collected\Headphones__Card_self-check.json
+17:33:08 [TestNG-PoolService-2] INFO  cardSelfCheck_Headphones_17-32-46 - [cardSelfCheck_Headphones_17-32-46] CHECK Headphones card self-check: 14 of 15 judged fit (needs at least 0.95), 1 show no value
+17:33:08 [TestNG-PoolService-2] WARN  cardSelfCheck_Headphones_17-32-46 - [cardSelfCheck_Headphones_17-32-46] Headphones card self-check: do not fit: P9 Wireless Bluetooth Headphones with Mi price 399.0, M.R.P. 39900.0, printed 43.0% (as read: '₹399', '₹39,900', '(43% off)')
+17:33:08 [TestNG-PoolService-2] INFO  cardSelfCheck_Headphones_17-32-46 - [cardSelfCheck_Headphones_17-32-46] Headphones card self-check: not judged (no value): P9 Wireless Bluetooth 5.0 Over Ear Headp
+17:33:08 [TestNG-PoolService-2] INFO  cardSelfCheck_Headphones_17-32-46 - [cardSelfCheck_Headphones_17-32-46] Finished 'cardSelfCheck': failed in 17311 ms
+17:33:08 [TestNG-PoolService-2] INFO  cardSelfCheck_Headphones_17-32-46 - [cardSelfCheck_Headphones_17-32-46]   The following asserts failed:
+17:33:08 [TestNG-PoolService-2] INFO  cardSelfCheck_Headphones_17-32-46 - [cardSelfCheck_Headphones_17-32-46]   	Headphones card self-check: the share that fits must be at least 0.95. Not fitting: P9 Wireless Bluetooth Headphones with Mi price 399.0, M.R.P. 39900.0, printed 43.0% (as read: '₹399', '₹39,900', '(43% off)') expected [true] but found [false]

@@ -1,0 +1,21 @@
+17:33:09 [TestNG-PoolService-2] INFO  cardSelfCheck_Speaker_17-33-09 - No existing WebDriver found for current thread. Initializing a new ChromeDriver...
+17:33:09 [TestNG-PoolService-2] INFO  cardSelfCheck_Speaker_17-33-09 - WebDriverManager: chromedriver setup OK
+17:33:11 [TestNG-PoolService-2] INFO  cardSelfCheck_Speaker_17-33-09 - ChromeDriver initialized successfully for thread: 35
+17:33:11 [TestNG-PoolService-2] INFO  cardSelfCheck_Speaker_17-33-09 - [cardSelfCheck_Speaker_17-33-09] TEST: Speaker: price, M.R.P. and printed discount of each card agree
+17:33:11 [TestNG-PoolService-2] INFO  cardSelfCheck_Speaker_17-33-09 - [cardSelfCheck_Speaker_17-33-09] ==================== RULE: Speaker card self-check: (M.R.P. - price) / M.R.P. rounds to the printed discount; at least 95% of the cards must agree ====================
+17:33:11 [TestNG-PoolService-2] INFO  cardSelfCheck_Speaker_17-33-09 - [cardSelfCheck_Speaker_17-33-09] Opening amazon Landing page
+17:33:11 [TestNG-PoolService-2] INFO  cardSelfCheck_Speaker_17-33-09 - [cardSelfCheck_Speaker_17-33-09] Within safeFindElement method
+17:33:16 [TestNG-PoolService-2] INFO  cardSelfCheck_Speaker_17-33-09 - [cardSelfCheck_Speaker_17-33-09]Retrying findElement for: ->By.xpath: //a[@id='nav-logo-sprites']
+17:33:17 [TestNG-PoolService-2] INFO  cardSelfCheck_Speaker_17-33-09 - [cardSelfCheck_Speaker_17-33-09]Refrehsing the page , while trying to safely find : ->By.xpath: //a[@id='nav-logo-sprites']
+17:33:17 [TestNG-PoolService-2] INFO  cardSelfCheck_Speaker_17-33-09 - [cardSelfCheck_Speaker_17-33-09]Found the element returning it ,element ->[[ChromeDriver: chrome on windows (b2b1a1c13ef60cadde82efb9068695f9)] -> xpath: //a[@id='nav-logo-sprites']]
+17:33:18 [TestNG-PoolService-2] INFO  cardSelfCheck_Speaker_17-33-09 - [cardSelfCheck_Speaker_17-33-09] clearBlockers took 355 ms
+17:33:18 [TestNG-PoolService-2] INFO  cardSelfCheck_Speaker_17-33-09 - [cardSelfCheck_Speaker_17-33-09] Giving input within the search bar
+17:33:18 [TestNG-PoolService-2] INFO  cardSelfCheck_Speaker_17-33-09 - [cardSelfCheck_Speaker_17-33-09] Within safeClick method
+17:33:21 [TestNG-PoolService-2] INFO  cardSelfCheck_Speaker_17-33-09 - [cardSelfCheck_Speaker_17-33-09] Clicked the  [[ChromeDriver: chrome on windows (b2b1a1c13ef60cadde82efb9068695f9)] -> xpath: //input[@id='nav-search-submit-button']]   using safeClick
+17:33:21 [TestNG-PoolService-2] INFO  cardSelfCheck_Speaker_17-33-09 - [cardSelfCheck_Speaker_17-33-09] Clicking on the submit in the search bar
+17:33:21 [TestNG-PoolService-2] INFO  cardSelfCheck_Speaker_17-33-09 - [cardSelfCheck_Speaker_17-33-09] clearBlockers took 170 ms
+17:33:21 [TestNG-PoolService-2] INFO  cardSelfCheck_Speaker_17-33-09 - [cardSelfCheck_Speaker_17-33-09] SEARCH 'Speaker' -> https://www.amazon.in/s?k=Speaker&ref=nb_sb_noss
+17:33:25 [TestNG-PoolService-2] INFO  cardSelfCheck_Speaker_17-33-09 - [cardSelfCheck_Speaker_17-33-09] 16 card(s) on screen
+17:33:25 [TestNG-PoolService-2] INFO  cardSelfCheck_Speaker_17-33-09 - [cardSelfCheck_Speaker_17-33-09] Saved what was read to collected\Speaker__Card_self-check.json
+17:33:25 [TestNG-PoolService-2] INFO  cardSelfCheck_Speaker_17-33-09 - [cardSelfCheck_Speaker_17-33-09] CHECK Speaker card self-check: 15 of 15 judged fit (needs at least 0.95), 1 show no value
+17:33:25 [TestNG-PoolService-2] INFO  cardSelfCheck_Speaker_17-33-09 - [cardSelfCheck_Speaker_17-33-09] Speaker card self-check: not judged (no value): boAt Stone 352 Pro/Stone 358 Pro w/ 14W 
