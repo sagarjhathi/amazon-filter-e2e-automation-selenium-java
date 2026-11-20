@@ -57,7 +57,6 @@ jobs:
       matrix:
         group: [BatteryProcessorStorage, BrandsScreenSizeTypeCamEtc, DeliveryPriceOs]
     env:
-      REPORT_BASE: "/amazon-filter-e2e-automation/"
       IS_CRON: ${{ github.event_name == 'schedule' }} # <-- "true" only for cron
     steps:
       - name: Checkout code
@@ -95,6 +94,7 @@ jobs:
 
       - name: Notify Discord – Start of Test
         if: always()
+        continue-on-error: true   # a missing secret (fork PR, Dependabot) or an unreachable webhook must not turn the job red
         shell: bash
         env:
           DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
@@ -103,7 +103,7 @@ jobs:
           timestamp=$(TZ='Asia/Kolkata' date +"%Y-%m-%d %I:%M %p IST")
           actor="${{ github.actor }}"
           branch="${{ github.ref_name }}"
-          job_name="${{ github.job }}"
+          job_name="${{ matrix.group }}"
 
           curl -H "Content-Type: application/json" -X POST -d "{\"content\": \"**CI Test Started - $job_name**\\n Triggered by: $actor\\n Branch: $branch\\n Start Time: $timestamp\\n [View Run]($runUrl)\"}" "$DISCORD_WEBHOOK"
 
@@ -235,7 +235,7 @@ jobs:
       - name: Set up Node (for Allure CLI)
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: '22'
 
       # Carries the trend history forward: allure/history on the branch. It is put into one of the results folders;
       # allure reads it from there. The first time (and on pull requests) there is none, so nothing is copied.
@@ -324,6 +324,7 @@ jobs:
 
       - name: Notify Discord – End of Test
         if: always()
+        continue-on-error: true   # a missing secret (fork PR, Dependabot) or an unreachable webhook must not turn the job red
         shell: bash
         env:
           DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
@@ -341,6 +342,11 @@ jobs:
 
           commit_short="${GITHUB_SHA:0:7}"
           timestamp=$(TZ='Asia/Kolkata' date +"%Y-%m-%d %I:%M %p IST")
-          pagesUrl="https://sagarjhathi.github.io/amazon-filter-e2e-automation/"
 
-          curl -H "Content-Type: application/json" -X POST -d "{\"content\": \"$status_emoji **Main suite** (${{ github.ref_name }}): tests $status\n Triggered by: ${{ github.actor }}\n Commit: \`$commit_short\`\n Completed at: $timestamp\n [View Full Run Details]($runUrl)\n [Open Latest Report on GitHub Pages]($pagesUrl)\"}" "$DISCORD_WEBHOOK"
+          # Link to the report hub only on runs that publish (not pull requests). Built from the repo name, so it follows a rename.
+          reportLine=""
+          if [ "${{ github.event_name }}" != "pull_request" ]; then
+            reportLine="\n [Report hub](https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/)"
+          fi
+
+          curl -H "Content-Type: application/json" -X POST -d "{\"content\": \"$status_emoji **Main suite** (${{ github.ref_name }}): tests $status\n Triggered by: ${{ github.actor }}\n Commit: \`$commit_short\`\n Completed at: $timestamp\n [View Full Run Details]($runUrl)$reportLine\"}" "$DISCORD_WEBHOOK"
