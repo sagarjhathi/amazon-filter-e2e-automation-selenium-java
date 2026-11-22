@@ -33,3 +33,8 @@ eclipse-workspace/Intro/.classpath
 
 # Output of the card checks (CardChecks.saveCollected): run data, not source
 eclipse-workspace/Intro/collected/
+
+# Claude Code setup: CLAUDE.md, skills, agents, settings and personal notes stay on the owner machine
+.claude/
+CLAUDE.local.md
+CLAUDE.md

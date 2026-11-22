@@ -97,11 +97,12 @@ This framework is built using a rich, modern, and production oriented technology
 - **Downloadable merged Allure report**: each run also uploads it as a single HTML file (artifact `allure-report-merged`, kept 30 days) that opens without a server.
 
 ## Team Communication and Alerting
-- **Discord Webhooks** integrated into the CI for:
-  - Execution start alerts
-  - Execution completion summaries
-  - Status highlighting
-  - Direct links to reports, logs, and artifacts
+- **Discord Webhooks** integrated into the main suite workflow (`main-suite.yml`) for:
+  - A start alert per shard
+  - An alert when the compile or unit-test check fails (so no browser test ran)
+  - A completion message with a status mark, the trigger, the commit and a link to the run
+  - A link to the report hub on runs that publish
+  - An alert when publishing the reports fails
 
 ## Code Quality and Maintainability
 - **Well-structured object oriented design** with separation of flows, pages, actions, utilities, listeners, and managers.
@@ -130,7 +131,7 @@ The framework reads from a central properties file to decide how extensively the
 The CI pipeline identifies whether the run originated from a code push or from the nightly CRON job. Based on this, the framework automatically adjusts configuration values. Push based runs stay fast while nightly runs are thorough. This removes manual toggling and keeps the pipeline efficient.
 
 ## Real Time Discord Notifications
-Whenever CI starts, a clear and informative message is sent to Discord. It includes the triggering user, branch name, commit reference, start time, and a direct link to the run. When execution finishes, another message appears showing the final status, completion time, artifact links, and a button to open the latest hosted report on GitHub Pages. This provides immediate visibility and eliminates the need to hunt through CI logs.
+Whenever a shard of the main suite starts, a message is sent to Discord with the shard name, the triggering user, the branch, the start time and a link to the run. When the run finishes, a completion message shows the status, the trigger, the commit, the completion time, a link to the run and, on runs that publish, a link to the report hub on GitHub Pages. If the check job fails, or the publish step fails, there is a message for that too. The notification steps never fail a job: a missing webhook secret (a pull request from a fork) or an unreachable webhook is ignored. The card checks workflow sends no Discord messages.
 
 ## Parallel CI Shards
 Tests are tagged with TestNG groups (`BatteryProcessorStorage`, `BrandsScreenSizeTypeCamEtc`, `DeliveryPriceOs`). CI runs one job per group in parallel, so the full suite finishes in roughly the time of its slowest shard instead of the sum of all tests. Group names describe what is being tested, so anyone can also run a single group locally.
@@ -218,27 +219,55 @@ DeliveryPriceOs              Delivery options, Price slider, OS Version
 
 Extent reports are kept whole per shard because they link to their logs and screenshots with relative paths. Allure stores attachments by unique ID, so its results from all shards merge safely into one report.
 
+The two suites in numbers (read from `filterCoverage.json`; the published Allure totals of 2026-11-20 are the same):
+
+```text
+Suite         Class                Methods   Runs   Runner XML                          Workflow
+Main suite    AmazonTests          14        47     AllTestsGlobal.xml (+ -Dgroups)     main-suite.yml (3 groups)
+Card checks   CardFilterChecks     10        50     CardFilterChecks.xml (+ -Dgroups)   card-checks.yml (4 groups)
+Unit tests    3 classes            -         40     UnitTests.xml                       check job of both workflows
+```
+
+The reports are published to GitHub Pages at https://sagarjhathi.github.io/amazon-filter-e2e-automation-selenium-java/ (the `gh-pages` branch, one landing page with a Main suite and a Card checks section). Both workflows share that one site:
+
+```text
+gh-pages
+   index.html                 landing page, copied from .github/pages/index.html by BOTH workflows
+   allure/  extent/<group>/   Main suite (replaced only by main-suite.yml)
+   run-info.txt               "Run #N - commit - time" of the Main suite
+   card-checks/               Card checks: allure/, extent/<group>/, run-info.txt (replaced only by card-checks.yml)
+```
+
+Both workflows publish under one lock (`concurrency: group: pages-publish`), so two runs never push to `gh-pages` together. Because both copy the same landing page, the last one to publish decides which `index.html` is live: keep `.github/pages/index.html` identical on every branch that publishes. Pull requests build the reports (downloadable) and publish nothing.
+
 ---
 
 # Discord Notifications
 
 ```text
-Start Notification
-   Branch
+Start (one per shard, main suite)
+   Shard (TestNG group) name
    Triggered by
-   Commit reference
+   Branch
    Start time
-   Link to CI run
+   Link to the run
 
-Completion Notification
-   Status
-   Duration
-   Commit reference
-   Links to logs and artifacts
-   Button to open latest GitHub Pages report
+Checks failed (only if the compile or unit tests fail)
+   Branch, triggered by, commit, time
+   Note that no browser test was run
+   Link to the run
+
+Completion
+   Status mark and test result of the shards
+   Branch, triggered by, commit, completion time
+   Link to the run
+   Link to the report hub (only on runs that publish and when no step failed)
+
+Publish failed (only if a publish step fails)
+   Branch, time, link to the run
 ```
 
-This allows anyone on the team to know test results instantly.
+The completion message shows the result of the test jobs. The test step uses `continue-on-error`, so that result can read "success" even when tests failed: always open the report for the real counts (see Known Limitations). The workflow files only reference the webhook secret `DISCORD_WEBHOOK` by name.
 
 ---
 
@@ -348,7 +377,23 @@ This keeps a filter from running on a category where Amazon does not show it, wh
 
 # Card Filter Checks
 
-`tests/CardFilterChecks.java` checks the filters whose result the page states exactly (numbers, labels, product IDs) against the product cards or product pages. There are 10 kinds of check, each run for the search terms in `filterCoverage.json`. What was read is saved to `collected/` before any check. A filter the search does not show is skipped with the reason.
+`tests/CardFilterChecks.java` checks the filters whose result the page states exactly (numbers, labels, product IDs) against the product cards or product pages. There are 10 kinds of check, each run for the 5 search terms in `filterCoverage.json` (50 runs). What was read is saved to `collected/` before any check. A filter the search does not show is skipped with the reason.
+
+Each item is judged `fits`, `does not fit` or `no value` (a card that does not print the fact is listed, not judged), and the share of judged items that fit must reach the rule's threshold (from `utilities/CardChecks.java` and the test class). If nothing can be judged the check is marked inconclusive, not failed.
+
+```text
+Check                                   Judged on        Share that must fit
+Brands                                  cards            0.9   (brand or a known alias is a whole word of the title)
+Customer Reviews                        cards            0.95  (card rating is at least the option's stars)
+Eligible for Free Delivery              cards            0.9   (card prints a "FREE delivery" line)
+Discount                                cards            0.4   (printed discount within 5 points of the level or higher)
+Price range                             cards            0.9   (price inside the applied range)
+Card self-check                         cards            0.95  ((M.R.P. - price) / M.R.P. rounds to the printed percent)
+Card rating vs product page             product pages    0.9   (within 0.1)
+Pay On Delivery                         product pages    1.0   (every opened page shows the label)
+Top Brands                              product pages    1.0
+Seller                                  product pages    reported as a warning, not failed
+```
 
 ```bash
 mvn test "-Dsurefire.suiteXmlFiles=src/test/runners/CardFilterChecks.xml"
@@ -362,7 +407,7 @@ CI (`card-checks.yml`) runs it in four shards, one TestNG group each: `CardSelle
 
 # Unit Tests
 
-Tests with no browser and no Amazon (`FilterMatcherTest`, `CoverageConsistencyTest`, `CardChecksTest`). Both workflows run them in a `check` job before any browser starts.
+Tests with no browser and no Amazon (`FilterMatcherTest`, `CoverageConsistencyTest`, `CardChecksTest`; 40 tests). Both workflows run them, after a compile, in a `check` job before any browser starts. The project has no lint or style tool.
 
 ```bash
 mvn test "-Dsurefire.suiteXmlFiles=src/test/runners/UnitTests.xml"
@@ -387,6 +432,9 @@ A result should mean something, so the tests follow these rules:
 - Product checks are text based. Correct data can still fail, for example "iPhone" vs "Apple", "Alienware" vs "Dell", mAh values vs a range such as "3,000 to 3,999 mAh", and Discount percentages that never appear in product text.
 - Results depend on live Amazon data, so a filter option, a brand order or a price can differ from one day to the next.
 - Delivery Day options (Today, Tomorrow, In 2 Days) are often not shown, so those tests skip.
+- A green workflow can hide a lot. The test step uses `continue-on-error` so reports still upload, which means a shard job is green even when its tests failed, and skipped tests do not turn a run red. For example the published Main suite run of 2026-11-20 had 47 tests: 15 passed, 18 failed and 14 were skipped (for instance Battery Capacity is not shown for four of the five search terms), so only 33 checked something. Read the passed, failed and skipped counts and the skip reasons in the Allure report, not the workflow status or the Discord message.
+- The Discord completion message shows the result of the test jobs, so it can say "success" when tests failed (see above).
+- Some failures come from Amazon data, not from the filters: reseller or misspelled brand names ("ist computers", "Radmi"), and a printed discount that differs from the one the filter used. Aliases for typos are deliberately not added.
 - The tests are meant for occasional demonstration runs, not continuous execution against the live site.
 
 ---
@@ -417,7 +465,7 @@ Automated tests for pull requests and code pushes need fast feedback. Full regre
 Hosting test reports publicly accessible through GitHub Pages allows team members to view results with a single click from Discord or CI logs. It removes the need to download artifacts and improves visibility. GitHub Pages is stable, fast, and integrates naturally with GitHub Actions. Each deploy is pushed as a single fresh commit, so old report history never accumulates and the branch stays small.
 
 ## Discord Notifications
-Email notifications are slower and often ignored. Discord provides real time notifications directly where teams communicate. The webhook integration allows the CI to send clear, actionable messages that include links to build logs, artifacts, and the latest hosted report. This increases collaboration and makes the testing system feel alive and responsive.
+Email notifications are slower and often ignored. Discord provides real time notifications directly where teams communicate. The webhook integration allows the CI to send clear, actionable messages that include a link to the run and, on runs that publish, a link to the hosted report hub. This increases collaboration and makes the testing system feel alive and responsive.
 
 ---
 
