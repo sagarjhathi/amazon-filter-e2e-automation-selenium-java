@@ -83,12 +83,24 @@ public class CoverageConsistencyTest {
 		}
 	}
 
-	// The tests TestNG will run (one per search term for each test method) must be the tests the coverage file promises.
+	// A key in enabledTests.json that matches no filter used by a test is a typo: it would switch nothing off.
+	@Test
+	public void everyEnabledTestsKeyIsAFilterUsedByATest() {
+		Set<String> usedByTests = new HashSet<>(TestInputs.filterOfTest().values());
+		Set<String> unknown = new HashSet<>(TestInputs.enabledTests().keySet());
+		unknown.removeAll(usedByTests);
+		assertTrue(unknown.isEmpty(), "enabledTests.json has filters that no test uses (a typo switches nothing off): " + unknown);
+	}
+
+	// The tests TestNG will run (one per search term for each test method) must be the tests the coverage file promises,
+	// except the ones switched off in enabledTests.json (they have no runs on purpose).
 	@Test
 	public void expectedTestCountEqualsTheRealCount() {
 		int expected = 0;
 		for (String filter : TestInputs.filterOfTest().values()) {
-			expected += TestInputs.coverage().get(filter).size();
+			if (!Boolean.FALSE.equals(TestInputs.enabledTests().get(filter))) {
+				expected += TestInputs.coverage().get(filter).size();
+			}
 		}
 
 		int real = 0;

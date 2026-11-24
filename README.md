@@ -225,7 +225,7 @@ The two suites in numbers (read from `filterCoverage.json`; the published Allure
 Suite         Class                Methods   Runs   Runner XML                          Workflow
 Main suite    AmazonTests          14        47     AllTestsGlobal.xml (+ -Dgroups)     main-suite.yml (3 groups)
 Card checks   CardFilterChecks     10        50     CardFilterChecks.xml (+ -Dgroups)   card-checks.yml (4 groups)
-Unit tests    3 classes            -         40     UnitTests.xml                       check job of both workflows
+Unit tests    3 classes            -         41     UnitTests.xml                       check job of both workflows
 ```
 
 The reports are published to GitHub Pages at https://sagarjhathi.github.io/amazon-filter-e2e-automation-selenium-java/ (the `gh-pages` branch, one landing page with a Main suite and a Card checks section). Both workflows share that one site:
@@ -286,7 +286,6 @@ project-root/
 │       │   ├── base/              BaseTest, BasePage
 │       │   ├── captcha/           CaptchaHandler
 │       │   ├── configManager/     ConfigManager
-│       │   ├── constants/         GlobalConstants
 │       │   ├── driverManager/     DriverManager
 │       │   ├── fileReader/        ExcelReader, FileReader, TestInputs
 │       │   ├── flows/             SharedFilterFlows, BrandFilterFlows,
@@ -298,13 +297,12 @@ project-root/
 │       │   ├── reporting/         ReportManager, TestListenerUpdated, Attachers
 │       │   ├── safeActions/       SafeActions
 │       │   ├── SeleniumGrid/      GlobalGridUtility
-│       │   ├── database/          JDBCConnection
 │       │   └── utilities/         GenericUtility, WaitUtility,
 │       │                          ScreenshotUtilUpdated, ImageCompressor
 │       │
 │       ├── main/resources/
 │       │   ├── configs/           UtilData.properties
-│       │   ├── data/              searchTerms.json, filterCoverage.json, filterHeadings.json, Products.xlsx
+│       │   ├── data/              searchTerms.json, filterCoverage.json, filterHeadings.json, enabledTests.json, Products.xlsx
 │       │   └── log4j2.xml
 │       │
 │       └── test/
@@ -320,7 +318,6 @@ project-root/
 │     card-checks.yml (card checks in 4 shards, merged report, Pages)
 │
 ├── LICENSE
-├── dependency-map.html
 └── README.md
 ```
 
@@ -373,6 +370,16 @@ Search terms are listed per **filter** in `src/main/resources/data/filterCoverag
 
 This keeps a filter from running on a category where Amazon does not show it, which used to end in a silent pass. To run a filter for one more product, add its search term to that filter's line. A test with no filter or no terms fails with a clear message. The unit test `CoverageConsistencyTest` checks that the files and the tests agree.
 
+## Switching tests on and off
+
+`src/main/resources/data/enabledTests.json` has one line per filter (the same names as `filterCoverage.json`), each `true` or `false`:
+
+```json
+"Battery": false
+```
+
+A filter set to `false` is not run for any search term: TestNG creates no run for it, so the report shows no entry for that test. Shards, groups, reports and publishing are untouched; a shard whose tests are all switched off just has nothing to run. This is not a skip: a skipped test means "checked nothing" in this project, and switching a test off is a choice. A filter missing from the file counts as ON, so a typo cannot silently disable a test, and `CoverageConsistencyTest` fails when a key in the file matches no filter used by a test. The lookup is in `TestInputs.termsFor`. Switch it back to `true` to run the test again; the 47 + 50 run counts above are with everything on.
+
 ---
 
 # Card Filter Checks
@@ -407,7 +414,7 @@ CI (`card-checks.yml`) runs it in four shards, one TestNG group each: `CardSelle
 
 # Unit Tests
 
-Tests with no browser and no Amazon (`FilterMatcherTest`, `CoverageConsistencyTest`, `CardChecksTest`; 40 tests). Both workflows run them, after a compile, in a `check` job before any browser starts. The project has no lint or style tool.
+Tests with no browser and no Amazon (`FilterMatcherTest`, `CoverageConsistencyTest`, `CardChecksTest`; 41 tests). Both workflows run them, after a compile, in a `check` job before any browser starts. The project has no lint or style tool.
 
 ```bash
 mvn test "-Dsurefire.suiteXmlFiles=src/test/runners/UnitTests.xml"
@@ -483,14 +490,6 @@ Email notifications are slower and often ignored. Discord provides real time not
 - If a test never appears in CI results, check that it has a `groups` tag matching one of the matrix shards in `main-suite.yml`
 - On Windows, very long screenshot file names can exceed the path limit during git operations; run `git config core.longpaths true`
 - SafeActions already mitigates stale element exceptions. Increase wait durations only when necessary
-
----
-
-# Dependency Map
-
-A visual reference generated directly from the codebase: the actual class-to-class import wiring across every layer, the TestNG lifecycle for a single filter test, and the full CI/CD journey from a git push to the published Extent report.
-
-**[Preview dependency-map.html →](https://htmlpreview.github.io/?https://github.com/sagarjhathi/amazon-filter-e2e-automation-selenium-java/blob/master/dependency-map.html)**
 
 ---
 

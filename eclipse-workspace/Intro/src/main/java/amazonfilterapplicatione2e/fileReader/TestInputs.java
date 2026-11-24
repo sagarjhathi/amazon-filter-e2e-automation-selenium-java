@@ -5,6 +5,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.lang.reflect.Type;
 import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -17,6 +18,8 @@ import com.google.gson.reflect.TypeToken;
 //   filterCoverage.json for each filter, the search terms it applies to. A test runs only for those terms.
 //   filterHeadings.json only the headings that differ from the filter's own name, per search term
 //                       (Amazon calls the same filter "HDD Size" on laptops and "Storage Capacity" on phones).
+//   enabledTests.json   for each filter, true or false: false switches that test off (no run for any search term).
+//                       It is not a skip: nothing is registered, so the report shows no entry for it. A filter missing from the file is ON.
 //
 // To run a filter for one more product, add the search term to that filter in filterCoverage.json.
 //
@@ -60,6 +63,7 @@ public class TestInputs {
 	private static final List<String> SEARCH_TERMS = read("data/searchTerms.json", new TypeToken<List<String>>() { }.getType());
 	private static final Map<String, List<String>> COVERAGE = read("data/filterCoverage.json", new TypeToken<Map<String, List<String>>>() { }.getType());
 	private static final Map<String, Map<String, String>> HEADINGS = read("data/filterHeadings.json", new TypeToken<Map<String, Map<String, String>>>() { }.getType());
+	private static final Map<String, Boolean> ENABLED = read("data/enabledTests.json", new TypeToken<Map<String, Boolean>>() { }.getType());
 
 	private static <T> T read(String file, Type type) {
 		try (InputStream in = TestInputs.class.getClassLoader().getResourceAsStream(file)) {
@@ -77,6 +81,11 @@ public class TestInputs {
 		String filter = FILTER_OF_TEST.get(testName);
 		if (filter == null) {
 			throw new IllegalStateException("The test '" + testName + "' has no filter in TestInputs.FILTER_OF_TEST");
+		}
+
+		// Switched off in enabledTests.json: no search terms, so TestNG creates no run for this test. A filter missing from that file is ON.
+		if (Boolean.FALSE.equals(ENABLED.get(filter))) {
+			return new ArrayList<>();
 		}
 
 		List<String> terms = COVERAGE.get(filter);
@@ -101,4 +110,5 @@ public class TestInputs {
 	public static List<String> searchTerms() { return SEARCH_TERMS; }
 	public static Map<String, List<String>> coverage() { return COVERAGE; }
 	public static Map<String, Map<String, String>> headings() { return HEADINGS; }
+	public static Map<String, Boolean> enabledTests() { return ENABLED; }
 }

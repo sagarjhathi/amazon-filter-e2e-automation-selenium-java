@@ -59,11 +59,11 @@ eclipse-workspace/Intro/
     fileReader/     TestInputs (coverage JSON loader, FILTER_OF_TEST), ExcelReader, FileReader
     reporting/      ReportManager (Extent), TestListenerUpdated, Attachers
     pathManager/    PathManager (run_<timestamp>/reports|logs|screenshots)
-    logger/ constants/ SeleniumGrid/ database/   small or unused-looking helpers
+    logger/ SeleniumGrid/                        small helpers (the unused constants/ and database/ stubs were removed 2026-11-24)
   src/main/resources/
     configs/UtilData.properties      all run settings (see section 4)
     log4j2.xml
-    data/searchTerms.json, filterCoverage.json, filterHeadings.json, Products.xlsx
+    data/searchTerms.json, filterCoverage.json, filterHeadings.json, enabledTests.json (true/false per filter: false = no runs, not a skip; missing = on), Products.xlsx
   src/test/java/
     tests/AmazonTests.java           14 older filter tests (3 TestNG groups)
     tests/CardFilterChecks.java      10 card / product-page check kinds (4 TestNG groups, each also tagged CardChecks)
@@ -71,11 +71,11 @@ eclipse-workspace/Intro/
     retry/                           RetryFailedTest, RetryListener (retry once, not after an AssertionError)
     testDataProvider/                TestDataProvider ("TestRuns", "SearchTerms", "ExcelData")
   src/test/runners/                  TestNG suite XMLs: AllTestsGlobal (pom default), BatteryProcessorStorage, BrandsScreenSizeTypeCamEtc,
-                                     DeliveryPriceOs, CardFilterChecks, UnitTests, LocalExecution (brands only)
-README.md, LICENSE, dependency-map.html, CLAUDE.md   tracked at the repo root
+                                     DeliveryPriceOs, CardFilterChecks, UnitTests
+README.md, LICENSE, CLAUDE.md                        tracked at the repo root
 ```
 
-How many tests (from `filterCoverage.json`, and matching the published Allure totals of 2026-11-20): the 14 older methods expand to **47 runs** (one per search term listed for the filter); the 10 card methods expand to **50 runs** (10 filters x 5 terms). The unit suite is **40 tests** (verified by running it).
+How many tests (from `filterCoverage.json`, and matching the published Allure totals of 2026-11-20): the 14 older methods expand to **47 runs** (one per search term listed for the filter); the 10 card methods expand to **50 runs** (10 filters x 5 terms). These counts are with every test switched on in `enabledTests.json`; a filter set to `false` there has no runs. The unit suite is **41 tests** (verified by running it on 2026-11-24).
 
 `CLAUDE.md` is the one tracked Claude file, so a fresh clone has it (but not the ignored `docs/` or `.claude/`). Tracked in `docs/`: only `CI-Sharding-And-Reporting.md` and `Engineering-Notes.md`. Git-ignored (local, do not expect them in a clone): `docs/` (the rest), `.claude/` (skills, agents, settings), `run_*/`, `eclipse-workspace/Intro/target/`, `.../collected/`, `logs/`, `screenshots/`, `.../test-output/`, `.../bin`, Eclipse files (`.classpath`, `.project`, `.settings/`, `.metadata/`).
 
@@ -86,7 +86,7 @@ Run from `eclipse-workspace/Intro/`. "Verified" means it was run in this session
 | Purpose | Command | Status |
 |---|---|---|
 | Compile main and test code (CI `check`) | `mvn -q test-compile` | **verified, exit 0** |
-| Unit tests, no browser (CI `check`) | `mvn -q test "-Dsurefire.suiteXmlFiles=src/test/runners/UnitTests.xml"` | **verified** (the same suite without `-q`: 40 run, 0 failures, BUILD SUCCESS) |
+| Unit tests, no browser (CI `check`) | `mvn -q test "-Dsurefire.suiteXmlFiles=src/test/runners/UnitTests.xml"` | **verified** (the same suite without `-q`: 41 run, 0 failures, BUILD SUCCESS, 2026-11-24) |
 | Clean compile (CI test jobs) | `mvn clean compile` | UNVERIFIED here, used by CI |
 | Whole older suite (live) | `mvn clean test` (default suite `AllTestsGlobal.xml`, `groups` empty) | UNVERIFIED here, CI runs it |
 | One older shard (live) | `mvn test -Dgroups=DeliveryPriceOs` (others: `BatteryProcessorStorage`, `BrandsScreenSizeTypeCamEtc`) | UNVERIFIED here, CI runs it |
@@ -94,7 +94,6 @@ Run from `eclipse-workspace/Intro/`. "Verified" means it was run in this session
 | Card checks, all (live) | `mvn test "-Dsurefire.suiteXmlFiles=src/test/runners/CardFilterChecks.xml"` | UNVERIFIED here, CI runs it |
 | One card shard (live) | same, plus `"-Dgroups=CardSeller"` (also `CardBrandsReviewsDelivery`, `CardTopBrandsPayOnDelivery`, `CardRatingPriceDiscountSelfCheck`; `CardChecks` = all four) | UNVERIFIED here, CI runs it |
 | One card search term (live) | same, plus `"-DcardChecks.terms=Headphones"` | UNVERIFIED here |
-| Brands test only (live) | suite `src/test/runners/LocalExecution.xml` | UNVERIFIED |
 | One method with `-Dtest=...` | UNVERIFIED: the pom pins `suiteXmlFiles`, which may override `-Dtest` | UNVERIFIED |
 | Lint / format | **none exists** (the pom has no lint or style tool) | verified by reading the pom |
 
@@ -126,7 +125,7 @@ Environment variable read directly (not through the file): `IS_CRON` (`true` onl
 
 **Layers.** Tests -> flows -> pages -> SafeActions -> driver/utilities -> reporting/logging; a layer calls only the layer(s) below it. Tests decide what to open, read and compare, and assert. Flows run multi-step procedures and return plain results. Pages hold locators (`By` fields ending in `By`) and single-page actions. Tests never call the WebDriver directly (no `driver.`, `findElement`, `By.` in test bodies). `FilterMatcher`, `BrandMatcher` and `CardChecks` touch no browser, so they stay unit-testable.
 
-**Naming.** Older tests are `verifying<Filter>FilterFunctionality`; card tests are `<thing>FilterCheckedOn<Cards|TheProductPages>` (plus `cardSelfCheck` and `ratingOnTheCardEqualsRatingOnTheProductPage`). Every new test method needs: a `groups` tag matching a CI shard (else CI skips it), an entry in `TestInputs.FILTER_OF_TEST`, and its filter and search terms in `filterCoverage.json` (enforced by `CoverageConsistencyTest`).
+**Naming.** Older tests are `verifying<Filter>FilterFunctionality`; card tests are `<thing>FilterCheckedOn<Cards|TheProductPages>` (plus `cardSelfCheck` and `ratingOnTheCardEqualsRatingOnTheProductPage`). Every new test method needs: a `groups` tag matching a CI shard (else CI skips it), an entry in `TestInputs.FILTER_OF_TEST`, and its filter and search terms in `filterCoverage.json` (enforced by `CoverageConsistencyTest`). To switch a test off, set its filter to `false` in `enabledTests.json` (the only file to edit); never use a skip for that, and a key there that matches no filter fails the unit test.
 
 **Code style.** Simple, clear code with short plain-language comments. Replaced code is kept as `// OLD:` comments (used throughout the repo). No formatter is configured: match the file you edit. About 97 `System.out` calls still exist; new code logs through `LoggerUtility.getLogger(...)` (lines are prefixed `[testName]`).
 

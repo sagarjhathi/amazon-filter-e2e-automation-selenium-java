@@ -72,7 +72,7 @@ execution down:
 
 This is the mechanism CI uses for sharding (see Section 2). The old per-shard XML files and
 `pom.xml` profiles (`BatteryProcessorOsStorage`, `BrandsScreenSizeTypeCamEtc`, `DeliveryAndPrice`,
-`testng`, `LocalExecution`) still exist in the repo but are no longer what CI uses — they're
+`testng`) still exist in the repo but are no longer what CI uses — they're
 effectively superseded, not deleted.
 
 ---

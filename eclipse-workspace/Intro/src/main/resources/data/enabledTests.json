@@ -1,0 +1,28 @@
+{
+  "brands":                                true,
+  "Battery":                               true,
+  "Discount":                              true,
+  "Screen Size":                           true,
+  "Storage Capacity":                      true,
+  "Display Type":                          true,
+  "Processor Speed":                       true,
+  "Mobile Phone Primary Camera Resolution": true,
+
+  "Operating System Version":              true,
+  "Price":                                 true,
+  "Get It Today":                          true,
+  "Get It by Tomorrow":                    true,
+  "Get It in 2 Days":                      true,
+  "Free Delivery":                         true,
+
+  "Brands (cards)":                        true,
+  "Customer Reviews (cards)":              true,
+  "Eligible for Free Delivery (cards)":    true,
+  "Discount (cards)":                      true,
+  "Price range (cards)":                   true,
+  "Pay On Delivery (cards)":               true,
+  "Top Brands (cards)":                    true,
+  "Seller (cards)":                        true,
+  "Card self-check":                       true,
+  "Card rating":                           true
+}
