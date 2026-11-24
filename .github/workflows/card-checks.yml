@@ -2,8 +2,9 @@ name: Card checks
 
 # Runs only tests/CardFilterChecks (src/test/runners/CardFilterChecks.xml), in 4 shards: one TestNG group per job, named after what it tests.
 # Each test gets its search terms from data/filterCoverage.json; 2 terms run at a time inside a shard.
-# Runs on a push to master, on a pull request to master (reports built and downloadable, nothing published), and by hand (Actions > Card checks > Run workflow).
-# The daily schedule belongs to main-suite.yml only; these checks do not run nightly.
+# Runs on a push to master, on a pull request to master (reports built and downloadable, nothing published), by hand (Actions > Card checks > Run workflow),
+# and nightly at 14:37 UTC (8:07 PM IST), about 3 hours before main-suite.yml's 17:50 UTC run.
+# Push, manual and nightly runs publish to gh-pages (the report job); pull requests do not.
 # Jobs: check (compile + unit tests) -> card-checks (one job per shard) -> report (merged Allure report + one site, published to gh-pages).
 on:
   push:
@@ -11,6 +12,10 @@ on:
   pull_request:
     branches: [master]
   workflow_dispatch:
+  schedule:
+    # 14:37 UTC = 8:07 PM IST daily. Off the hour on purpose (GitHub can delay or drop runs at the start of an hour),
+    # and about 3 hours before main-suite.yml (17:50 UTC), so the two never hit amazon.in together.
+    - cron: "37 14 * * *"
 
 permissions:
   contents: read
@@ -59,7 +64,7 @@ jobs:
       matrix:
         group: [CardSeller, CardBrandsReviewsDelivery, CardTopBrandsPayOnDelivery, CardRatingPriceDiscountSelfCheck]
     env:
-      IS_CRON: ${{ github.event_name == 'schedule' }}   # same as main-suite.yml: "true" only for the nightly cron (this workflow has no schedule yet, so it is "false")
+      IS_CRON: ${{ github.event_name == 'schedule' }}   # same as main-suite.yml: "true" only for the nightly cron (14:37 UTC). The card checks use the same run size either way for now (both runForAllFilterOptions keys are true)
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -140,9 +145,11 @@ jobs:
     permissions:
       contents: write
       actions: write
-    # Only one publish at a time (the same group as main-suite.yml), so two runs never push to gh-pages together.
+    # One publish at a time for THIS workflow. main-suite.yml has its own group (pages-publish-main), so the two workflows never queue
+    # behind or cancel each other (GitHub keeps only one pending job per group). If they push at the same moment, the publish step
+    # detects it and retries (compare-and-swap), so neither overwrites the other's folders.
     concurrency:
-      group: pages-publish
+      group: pages-publish-card
       cancel-in-progress: false
     steps:
       # The landing page (.github/pages/index.html) is copied from here.
@@ -189,7 +196,7 @@ jobs:
       # The gh-pages branch holds the previously published reports; the last Allure report of the card checks (card-checks/allure)
       # keeps its history there, which is copied back so the trend graphs carry over.
       - name: Check out gh-pages
-        if: ${{ github.event_name == 'push' || github.event_name == 'workflow_dispatch' }}
+        if: ${{ github.event_name != 'pull_request' }}
         uses: actions/checkout@v4
         with:
           ref: gh-pages
@@ -219,22 +226,43 @@ jobs:
       # ---- Publish ----
 
       - name: Publish to gh-pages
-        if: ${{ github.event_name == 'push' || github.event_name == 'workflow_dispatch' }}
+        if: ${{ github.event_name != 'pull_request' }}
+        shell: bash
+        env:
+          RUN_NUMBER: ${{ github.run_number }}
         run: |
+          set -euo pipefail
           cd pages
-          # Only card-checks/ and index.html are replaced. Every other folder and file on the branch (the Main suite's allure/, extent/, run-info.txt) is left as it is.
-          rm -rf card-checks
-          cp -r ../site/card-checks card-checks
-          cp ../site/index.html index.html
-          touch .nojekyll
-
-          # One fresh commit each time, so the branch never grows with old reports.
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git checkout --orphan latest
-          git add -A
-          git commit -m "Publish card checks reports from run #${{ github.run_number }}"
-          git push --force origin latest:gh-pages
+
+          # The main suite workflow publishes to the same branch at its own times. Each attempt starts from the CURRENT gh-pages,
+          # replaces only this workflow's folder, and pushes one fresh commit (so the branch never grows with old reports).
+          # --force-with-lease only accepts the push if gh-pages is still the commit this attempt started from. If the other
+          # workflow pushed in between, the push is rejected and the next attempt starts again from the new state, so neither
+          # workflow ever overwrites the other's folders.
+          for attempt in 1 2 3 4 5 6; do
+            git fetch --depth=1 origin gh-pages
+            base=$(git rev-parse FETCH_HEAD)
+            git reset --hard "$base"
+            git clean -fdx
+
+            # Only card-checks/ and index.html are replaced. Every other folder and file on the branch (the Main suite's allure/, extent/, run-info.txt) is left as it is.
+            rm -rf card-checks
+            cp -r ../site/card-checks card-checks
+            cp ../site/index.html index.html
+            touch .nojekyll
+
+            git add -A
+            commit=$(git commit-tree "$(git write-tree)" -m "Publish card checks reports from run #$RUN_NUMBER")
+            if git push --force-with-lease=gh-pages:"$base" origin "$commit":refs/heads/gh-pages; then
+              exit 0
+            fi
+            echo "gh-pages changed while publishing (attempt $attempt of 6), trying again from the new state"
+            sleep $((attempt * 5))
+          done
+          echo "Could not publish after 6 attempts"
+          exit 1
 
       # The per-shard reports and Allure results only exist to feed this job; card-checks-site holds the reports.
       # If any step above failed, this step is skipped and they stay, so the job can be re-run without re-running the checks.

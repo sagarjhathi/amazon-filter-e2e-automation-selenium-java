@@ -170,9 +170,11 @@ jobs:
     permissions:
       contents: write
       actions: write
-    # Only one publish at a time (the same group as card-checks.yml), so two runs never push to gh-pages together.
+    # One publish at a time for THIS workflow. card-checks.yml has its own group (pages-publish-card), so the two workflows never queue
+    # behind or cancel each other (GitHub keeps only one pending job per group). If they push at the same moment, the Deploy step
+    # detects it and retries (compare-and-swap), so neither overwrites the other's folders.
     concurrency:
-      group: pages-publish
+      group: pages-publish-main
       cancel-in-progress: false
     steps:
       # The landing page (.github/pages/index.html) is copied from here.
@@ -263,43 +265,65 @@ jobs:
 
       # ---- Publish (not on pull requests) ----
 
-      # Replaces ONLY allure/, extent/, run-info.txt and index.html on the branch; card-checks/ is left as it is.
+      # Builds this workflow's part of the site in publish-stage/ (NOT in the gh-pages checkout, which can be out of date by the
+      # time we push: the Deploy step below copies these folders onto the newest gh-pages). The folders are allure/, extent/ and run-info.txt.
       # Each group's run folder is copied whole, untouched: its ExtentReport.html uses ../logs and ../screenshots relative links.
       - name: Assemble published site
         if: ${{ github.event_name != 'pull_request' }}
         shell: pwsh
         run: |
-          Remove-Item -Recurse -Force -ErrorAction SilentlyContinue gh-pages/allure, gh-pages/extent, gh-pages/run-info.txt
-          New-Item -ItemType Directory -Path gh-pages/extent | Out-Null
+          New-Item -ItemType Directory -Path publish-stage/extent | Out-Null
 
-          Copy-Item -Recurse "shards/BatteryProcessorStorage" "gh-pages/extent/BatteryProcessorStorage"
-          Copy-Item -Recurse "shards/BrandsScreenSizeTypeCamEtc" "gh-pages/extent/BrandsScreenSizeTypeCamEtc"
-          Copy-Item -Recurse "shards/DeliveryPriceOs" "gh-pages/extent/DeliveryPriceOs"
-          Copy-Item -Recurse "allure-report" "gh-pages/allure"
+          Copy-Item -Recurse "shards/BatteryProcessorStorage" "publish-stage/extent/BatteryProcessorStorage"
+          Copy-Item -Recurse "shards/BrandsScreenSizeTypeCamEtc" "publish-stage/extent/BrandsScreenSizeTypeCamEtc"
+          Copy-Item -Recurse "shards/DeliveryPriceOs" "publish-stage/extent/DeliveryPriceOs"
+          Copy-Item -Recurse "allure-report" "publish-stage/allure"
 
           # The landing page reads this line to show which run the Main suite reports are from.
           $when = (Get-Date).ToUniversalTime().ToString('yyyy-MM-dd HH:mm')
-          "Run #$env:GITHUB_RUN_NUMBER - commit $($env:GITHUB_SHA.Substring(0,7)) - $when UTC" | Set-Content -Path gh-pages/run-info.txt
-
-          # The same landing page file is used by card-checks.yml, so whichever workflow ran last leaves a page with both sections.
-          Copy-Item .github/pages/index.html gh-pages/index.html -Force
-          if (-not (Test-Path gh-pages/.nojekyll)) { New-Item -ItemType File -Path gh-pages/.nojekyll | Out-Null }
+          "Run #$env:GITHUB_RUN_NUMBER - commit $($env:GITHUB_SHA.Substring(0,7)) - $when UTC" | Set-Content -Path publish-stage/run-info.txt
 
       - name: Deploy
         if: ${{ github.event_name != 'pull_request' }}
-        shell: pwsh
+        shell: bash
         working-directory: gh-pages
+        env:
+          RUN_NUMBER: ${{ github.run_number }}
         run: |
+          set -euo pipefail
           git config user.name "github-actions"
           git config user.email "actions@github.com"
 
-          # Reset gh-pages to a single fresh commit each run instead of committing on top
-          # of prior history - otherwise every run's report/screenshots pile up forever
-          # even though only the latest commit is ever actually served.
-          git checkout --orphan gh-pages-deploy
-          git add -A
-          git commit -m "Update report"
-          git push origin gh-pages-deploy:gh-pages --force
+          # The card checks workflow publishes to the same branch at its own times. Each attempt starts from the CURRENT gh-pages,
+          # replaces only this workflow's folders, and pushes one fresh commit (so the branch never grows with old reports).
+          # --force-with-lease only accepts the push if gh-pages is still the commit this attempt started from. If the other
+          # workflow pushed in between, the push is rejected and the next attempt starts again from the new state, so neither
+          # workflow ever overwrites the other's folders.
+          for attempt in 1 2 3 4 5 6; do
+            git fetch --depth=1 origin gh-pages
+            base=$(git rev-parse FETCH_HEAD)
+            git reset --hard "$base"
+            git clean -fdx
+
+            # Only allure/, extent/, run-info.txt and index.html are replaced. card-checks/ is left as it is.
+            rm -rf allure extent run-info.txt
+            cp -r ../publish-stage/allure allure
+            cp -r ../publish-stage/extent extent
+            cp ../publish-stage/run-info.txt run-info.txt
+            # The same landing page file is used by card-checks.yml, so whichever workflow ran last leaves a page with both sections.
+            cp ../.github/pages/index.html index.html
+            touch .nojekyll
+
+            git add -A
+            commit=$(git commit-tree "$(git write-tree)" -m "Publish main suite reports from run #$RUN_NUMBER")
+            if git push --force-with-lease=gh-pages:"$base" origin "$commit":refs/heads/gh-pages; then
+              exit 0
+            fi
+            echo "gh-pages changed while publishing (attempt $attempt of 6), trying again from the new state"
+            sleep $((attempt * 5))
+          done
+          echo "Could not publish after 6 attempts"
+          exit 1
 
       # The per-group artifacts only exist to feed this job; the published site holds the reports. If any step above
       # failed, this step is skipped and they stay, so the job can be re-run without re-running the tests.

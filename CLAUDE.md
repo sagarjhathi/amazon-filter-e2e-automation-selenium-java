@@ -138,13 +138,13 @@ Environment variable read directly (not through the file): `IS_CRON` (`true` onl
 - Waits: explicit waits through WaitUtility/SafeActions; `Thread.sleep` only through `BasePage.pause`.
 - Brand aliases are for real alternative names (iPhone for Apple), never for Amazon typos or reseller brand names: that would hide wrong data (DECISIONS D5).
 
-**Git.** `master` is the default branch. `gh-pages` holds published reports only and is rewritten as one orphan commit each time: never work on it. Branch `arch-improvement` is old and retired: do not use it. **The owner makes every commit and push.** Never commit files that may hold secrets.
+**Git.** `master` is the default branch. `gh-pages` holds published reports only and is rewritten as one fresh parentless commit each time (retried compare-and-swap push, see CI): never work on it. Branch `arch-improvement` is old and retired: do not use it. **The owner makes every commit and push.** Never commit files that may hold secrets.
 
 **CI.**
 - `main-suite.yml`: triggers push and pull request to `master`, manual, and a nightly cron `50 17 * * *` UTC (11:20 PM IST). Jobs: `check` (compile + unit tests) -> `notify-check-failed` (Discord, only if `check` fails) -> `test` (matrix of the 3 groups, `fail-fast: false`, 45 min limit) -> `publish` (merged Allure report, Extent per group, deploy to `gh-pages`, not on pull requests).
-- `card-checks.yml`: triggers push and pull request to `master` and manual (no schedule). Jobs: `check` -> `card-checks` (matrix of the 4 groups) -> `report` (merged Allure report, publishes `card-checks/` and `index.html`, not on pull requests). It has no Discord messages.
+- `card-checks.yml`: triggers push and pull request to `master`, manual, and a nightly cron `37 14 * * *` UTC (8:07 PM IST, about 3 hours before the main suite; schedules run only from `master`). Push, manual and nightly runs publish to `gh-pages`; pull requests do not. Jobs: `check` -> `card-checks` (matrix of the 4 groups) -> `report` (merged Allure report, publishes `card-checks/` and `index.html`, not on pull requests). It has no Discord messages.
 - The test steps use `continue-on-error: true` so reports still upload. Because of this a shard job is green even when its tests failed (UNVERIFIED by a run: the end message text then reads "tests success").
-- Both workflows publish under `concurrency: group: pages-publish` and both copy `.github/pages/index.html`. The main suite replaces only `allure/`, `extent/`, `run-info.txt` and `index.html`; the card suite replaces only `card-checks/` and `index.html`.
+- Each workflow has its own publish lock: `pages-publish-main` (main suite) and `pages-publish-card` (card checks), so they never queue behind or cancel each other (GitHub keeps one pending job per group). Both copy `.github/pages/index.html`. The main suite replaces only `allure/`, `extent/`, `run-info.txt` and `index.html`; the card suite replaces only `card-checks/` and `index.html`. The push to `gh-pages` is a retried compare-and-swap (up to 6 attempts): fetch the current `gh-pages`, replace only that workflow's folders, make a fresh parentless commit with `git commit-tree`, push with `--force-with-lease=gh-pages:<fetched sha>`; if the other workflow pushed first, the push is rejected and the next attempt starts from the new state. After 6 failures the step exits 1 and the shard artifacts stay. Same design as the TypeScript project. NOT yet run on GitHub Actions (written 2026-11-24).
 - Discord (main suite, secret `DISCORD_WEBHOOK`): a start message per shard, "checks failed", the end message (with a `[Report hub]` link only on non-pull-request runs where no step failed), and "report publish failed". All Discord steps have `continue-on-error: true`.
 
 ## 6. Rules for agents
@@ -171,7 +171,7 @@ Environment variable read directly (not through the file): `IS_CRON` (`true` onl
 - **Do not use `${{ github.* }}` inside a workflow `run:` script;** pass it through `env:` (a branch name can contain `$(...)`). The current workflows still do this in their Discord steps: it is a known backlog item, do not copy it into new steps.
 - **Do not put secrets or the webhook URL in any file or log.** The webhook is the GitHub secret `DISCORD_WEBHOOK` (the TypeScript project uses `AMAZON_PLAYWRIGHT`).
 - **Do not leave "TEMPORARY" branch triggers or temp files in a workflow or on `master`.**
-- **Do not publish to `gh-pages` by hand,** and do not let a branch with an old `.github/pages/index.html` publish: both workflows copy that one file under the `pages-publish` lock and the last publisher wins. Keep the file identical on every publishing branch.
+- **Do not publish to `gh-pages` by hand,** and do not let a branch with an old `.github/pages/index.html` publish: both workflows copy that one file when they publish and the last publisher wins. Keep the file identical on every publishing branch.
 - **Do not add aliases for Amazon typos or reseller brand names** to make a brand test pass (DECISIONS D5).
 - **Do not make the card Discount threshold depend on the option level.** The rule in `CardChecks.DISCOUNT`: a card fits when the discount it prints is at least the option's level minus 5 points, a card that prints none is not judged, the share that must fit is 0.4 (DECISIONS D9). If it flaps, the fallback agreed in the sister project is 0.3; it is not in this code yet. (The older `verifyingDiscountFilterFunctionality` test is a separate, strict test.)
 - **Do not decide a filter was applied by comparing the card list before and after a click.** The filter group's own "Clear" link is the signal: shown means applied, gone means cleared (`CardFilterFlows`, `ProductListingPage.clearLinkBy`, DECISIONS D28).
@@ -202,7 +202,7 @@ Environment variable read directly (not through the file): `IS_CRON` (`true` onl
 | IS_CRON | env var, `true` only on the nightly schedule: full filter depth and all products |
 | Landing page | `.github/pages/index.html`, the root `index.html` on `gh-pages`, with a Main suite and a Card checks section |
 | run-info | `run-info.txt` (main) and `card-checks/run-info.txt`: the "Run #N - commit - time" line the landing page shows |
-| `pages-publish` | the concurrency group that serialises the two workflows' publish steps |
+| `pages-publish-main` / `pages-publish-card` | the concurrency group of each workflow's publish job (one publish at a time per workflow; the two workflows are kept apart by the retried push) |
 | Report hub | the Pages site root, linked in the Discord end message |
 | Sister project | the TypeScript/Playwright repo, kept in step by hand through prompts |
 

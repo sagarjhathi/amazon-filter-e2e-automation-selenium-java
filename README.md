@@ -238,7 +238,7 @@ gh-pages
    card-checks/               Card checks: allure/, extent/<group>/, run-info.txt (replaced only by card-checks.yml)
 ```
 
-Both workflows publish under one lock (`concurrency: group: pages-publish`), so two runs never push to `gh-pages` together. Because both copy the same landing page, the last one to publish decides which `index.html` is live: keep `.github/pages/index.html` identical on every branch that publishes. Pull requests build the reports (downloadable) and publish nothing.
+Each workflow has its own publish lock (`pages-publish-main` and `pages-publish-card`), so they never queue behind or cancel each other. The push to `gh-pages` is retried (up to 6 attempts): each attempt starts from the current `gh-pages`, replaces only that workflow's folders and pushes one fresh commit with `--force-with-lease`; if the other workflow pushed first, the push is rejected and retried from the new state, so neither suite's report is lost. Because both copy the same landing page, the last one to publish decides which `index.html` is live: keep `.github/pages/index.html` identical on every branch that publishes. Pull requests build the reports (downloadable) and publish nothing.
 
 ---
 
@@ -401,7 +401,7 @@ mvn test "-Dsurefire.suiteXmlFiles=src/test/runners/CardFilterChecks.xml" "-Dgro
 mvn test "-Dsurefire.suiteXmlFiles=src/test/runners/CardFilterChecks.xml" "-DcardChecks.terms=Headphones"
 ```
 
-CI (`card-checks.yml`) runs it in four shards, one TestNG group each: `CardSeller`, `CardBrandsReviewsDelivery`, `CardTopBrandsPayOnDelivery`, `CardRatingPriceDiscountSelfCheck` (`CardChecks` = all). It runs on pushes and pull requests to master and by hand, and publishes its own section on the Pages site. Like the main suite, it retries a test once after a technical error (not after a failed assertion).
+CI (`card-checks.yml`) runs it in four shards, one TestNG group each: `CardSeller`, `CardBrandsReviewsDelivery`, `CardTopBrandsPayOnDelivery`, `CardRatingPriceDiscountSelfCheck` (`CardChecks` = all). It runs on pushes and pull requests to master, by hand, and every night at 14:37 UTC (8:07 PM IST), about 3 hours before the main suite's nightly run. Push, manual and nightly runs publish its section on the Pages site; pull requests build the reports but publish nothing. The nightly run checks the same number of filter options as a push run. Like the main suite, it retries a test once after a technical error (not after a failed assertion).
 
 ---
 
