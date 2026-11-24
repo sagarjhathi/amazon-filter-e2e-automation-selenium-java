@@ -283,6 +283,9 @@ jobs:
           $when = (Get-Date).ToUniversalTime().ToString('yyyy-MM-dd HH:mm')
           "Run #$env:GITHUB_RUN_NUMBER - commit $($env:GITHUB_SHA.Substring(0,7)) - $when UTC" | Set-Content -Path publish-stage/run-info.txt
 
+          # The tests switched off for this run. The landing page reads this file and lists the ones set to false.
+          Copy-Item "$env:WORKDIR/src/main/resources/data/enabledTests.json" publish-stage/enabledTests.json
+
       - name: Deploy
         if: ${{ github.event_name != 'pull_request' }}
         shell: bash
@@ -305,11 +308,12 @@ jobs:
             git reset --hard "$base"
             git clean -fdx
 
-            # Only allure/, extent/, run-info.txt and index.html are replaced. card-checks/ is left as it is.
-            rm -rf allure extent run-info.txt
+            # Only allure/, extent/, run-info.txt, enabledTests.json and index.html are replaced. card-checks/ is left as it is.
+            rm -rf allure extent run-info.txt enabledTests.json
             cp -r ../publish-stage/allure allure
             cp -r ../publish-stage/extent extent
             cp ../publish-stage/run-info.txt run-info.txt
+            cp ../publish-stage/enabledTests.json enabledTests.json
             # The same landing page file is used by card-checks.yml, so whichever workflow ran last leaves a page with both sections.
             cp ../.github/pages/index.html index.html
             touch .nojekyll

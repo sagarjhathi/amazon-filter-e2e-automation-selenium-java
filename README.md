@@ -235,8 +235,11 @@ gh-pages
    index.html                 landing page, copied from .github/pages/index.html by BOTH workflows
    allure/  extent/<group>/   Main suite (replaced only by main-suite.yml)
    run-info.txt               "Run #N - commit - time" of the Main suite
-   card-checks/               Card checks: allure/, extent/<group>/, run-info.txt (replaced only by card-checks.yml)
+   enabledTests.json          copy of data/enabledTests.json used by the Main suite run
+   card-checks/               Card checks: allure/, extent/<group>/, run-info.txt, enabledTests.json (replaced only by card-checks.yml)
 ```
+
+The landing page reads these two `enabledTests.json` copies and lists, under each suite, the tests set to `false` ("Switched off on purpose (not in these reports)"), so a reader of the Pages site can see what was left out. Card tests are told apart by name (ending in "(cards)" or starting with "Card"). Nothing is shown when nothing is switched off or the file is missing.
 
 Each workflow has its own publish lock (`pages-publish-main` and `pages-publish-card`), so they never queue behind or cancel each other. The push to `gh-pages` is retried (up to 6 attempts): each attempt starts from the current `gh-pages`, replaces only that workflow's folders and pushes one fresh commit with `--force-with-lease`; if the other workflow pushed first, the push is rejected and retried from the new state, so neither suite's report is lost. Because both copy the same landing page, the last one to publish decides which `index.html` is live: keep `.github/pages/index.html` identical on every branch that publishes. Pull requests build the reports (downloadable) and publish nothing.
 
@@ -379,6 +382,21 @@ This keeps a filter from running on a category where Amazon does not show it, wh
 ```
 
 A filter set to `false` is not run for any search term: TestNG creates no run for it, so the report shows no entry for that test. Shards, groups, reports and publishing are untouched; a shard whose tests are all switched off just has nothing to run. This is not a skip: a skipped test means "checked nothing" in this project, and switching a test off is a choice. A filter missing from the file counts as ON, so a typo cannot silently disable a test, and `CoverageConsistencyTest` fails when a key in the file matches no filter used by a test. The lookup is in `TestInputs.termsFor`. Switch it back to `true` to run the test again; the 47 + 50 run counts above are with everything on.
+
+**Currently switched off (2026-11-24), from the Allure history of the last 20 main-suite runs (2026-11-07 to 2026-11-24):** these tests could not assert the data the way the filter promises, so they either checked nothing or failed for a known data reason. That leaves 24 main-suite runs (of 47) plus the 50 card runs.
+
+```text
+Battery                            skipped in 20 of 20 runs (not in the left navigation, or no Battery row)
+Mobile Phone Primary Camera Res.   skipped in 20 of 20 runs (not in the left navigation, or no row)
+Discount (older strict test)       failed in 15 to 20 of 20 runs: cards print less than the level; the card Discount check covers it
+Brands (older strict test)         failed in 13 to 20 of 20 runs: titles without the brand (reseller or typo names); the card Brands check covers it
+Operating System Version           failed in 9 to 20 of 20 runs: the version text is not in the product details we read
+Display Size                       Laptop failed in 20 of 20 runs ("35 to 39 cm" vs "15.6 inches"); Tablet and Mobile were mixed
+```
+
+Turn one back on when its reason is fixed (a matcher change, or a coverage change for Display Size).
+
+The Pages landing page lists the switched-off tests under each suite (see the Pages layout below); the Extent and Allure reports do not.
 
 ---
 

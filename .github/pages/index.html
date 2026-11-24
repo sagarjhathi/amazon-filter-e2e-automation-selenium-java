@@ -23,6 +23,7 @@
                 text-decoration: none; color: #1a1a2e; }
     .extent a:hover { border-color: #2563eb; }
     small { color: #6b7280; }
+    .off { display: block; margin: 0 0 8px 0; }
   </style>
 </head>
 <body>
@@ -46,6 +47,7 @@
       <a href="./extent/DeliveryPriceOs/reports/ExtentReport.html">Delivery / Price / OS</a>
     </div>
     <small data-info="run-info.txt"></small>
+    <small class="off" data-off="enabledTests.json" data-flow="main"></small>
 
     <h2>Card checks</h2>
     <p>Filters checked against exact facts on the product cards and the product pages.</p>
@@ -64,6 +66,7 @@
       <a href="./card-checks/extent/CardRatingPriceDiscountSelfCheck/reports/ExtentReport.html">Rating / Price / Discount / Self-check</a>
     </div>
     <small data-info="card-checks/run-info.txt"></small>
+    <small class="off" data-off="card-checks/enabledTests.json" data-flow="card"></small>
   </div>
 
   <!-- Each workflow writes the run line of its own reports (run number, commit, time) to a text file.
@@ -74,6 +77,25 @@
         .then(function (response) { if (!response.ok) { throw new Error(response.status); } return response.text(); })
         .then(function (text) { line.textContent = text.trim(); })
         .catch(function () { line.textContent = "No run published yet."; });
+    });
+  </script>
+
+  <!-- Each workflow also publishes a copy of enabledTests.json. The tests set to false were switched off on purpose, so they are
+       not in the reports at all. Card tests are the names ending in "(cards)" or starting with "Card". Nothing is shown when
+       the file is missing or when nothing is switched off. -->
+  <script>
+    document.querySelectorAll("[data-off]").forEach(function (line) {
+      var wantCard = line.dataset.flow === "card";
+      fetch(line.dataset.off + "?t=" + Date.now())
+        .then(function (response) { if (!response.ok) { throw new Error(response.status); } return response.json(); })
+        .then(function (enabled) {
+          var off = Object.keys(enabled).filter(function (name) {
+            var isCard = /\(cards\)$/.test(name) || /^Card /.test(name);
+            return enabled[name] === false && isCard === wantCard;
+          });
+          if (off.length > 0) { line.textContent = "Switched off on purpose (not in these reports): " + off.join(", "); }
+        })
+        .catch(function () { });
     });
   </script>
 </body>

@@ -188,6 +188,9 @@ jobs:
           echo "Run #${{ github.run_number }} - commit ${GITHUB_SHA::7} - $(date -u +'%Y-%m-%d %H:%M UTC')" > site/card-checks/run-info.txt
           cp .github/pages/index.html site/index.html
 
+          # The tests switched off for this run. The landing page reads this file and lists the ones set to false.
+          cp "$WORKDIR/src/main/resources/data/enabledTests.json" site/card-checks/enabledTests.json
+
       - name: Set up Node (for Allure CLI)
         uses: actions/setup-node@v4
         with:
