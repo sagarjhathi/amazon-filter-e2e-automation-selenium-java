@@ -1,0 +1,13 @@
+14:59:50 [TestNG-test-Test-1] INFO  verifyingGetItIn2DaysFilterFunctionality_Tablet_14-59-50 - No existing WebDriver found for current thread. Initializing a new ChromeDriver...
+14:59:50 [TestNG-test-Test-1] INFO  verifyingGetItIn2DaysFilterFunctionality_Tablet_14-59-50 - WebDriverManager: chromedriver setup OK
+14:59:51 [TestNG-test-Test-1] INFO  verifyingGetItIn2DaysFilterFunctionality_Tablet_14-59-50 - ChromeDriver initialized successfully for thread: 34
+14:59:52 [TestNG-test-Test-1] INFO  verifyingGetItIn2DaysFilterFunctionality_Tablet_14-59-50 - [verifyingGetItIn2DaysFilterFunctionality_Tablet_14-59-50] Opening amazon Landing page
+14:59:52 [TestNG-test-Test-1] INFO  verifyingGetItIn2DaysFilterFunctionality_Tablet_14-59-50 - [verifyingGetItIn2DaysFilterFunctionality_Tablet_14-59-50] Within safeFindElement method
+14:59:54 [TestNG-test-Test-1] INFO  verifyingGetItIn2DaysFilterFunctionality_Tablet_14-59-50 - [verifyingGetItIn2DaysFilterFunctionality_Tablet_14-59-50]Found the element returning it ,element ->[[ChromeDriver: chrome on windows (1a25c69d9571d11270974adf22be87f3)] -> xpath: //a[@id='nav-logo-sprites']]
+14:59:54 [TestNG-test-Test-1] INFO  verifyingGetItIn2DaysFilterFunctionality_Tablet_14-59-50 - [verifyingGetItIn2DaysFilterFunctionality_Tablet_14-59-50] clearBlockers took 20 ms
+14:59:54 [TestNG-test-Test-1] INFO  verifyingGetItIn2DaysFilterFunctionality_Tablet_14-59-50 - [verifyingGetItIn2DaysFilterFunctionality_Tablet_14-59-50] Giving input within the search bar
+14:59:54 [TestNG-test-Test-1] INFO  verifyingGetItIn2DaysFilterFunctionality_Tablet_14-59-50 - [verifyingGetItIn2DaysFilterFunctionality_Tablet_14-59-50] Within safeClick method
+14:59:56 [TestNG-test-Test-1] INFO  verifyingGetItIn2DaysFilterFunctionality_Tablet_14-59-50 - [verifyingGetItIn2DaysFilterFunctionality_Tablet_14-59-50] Clicked the  [[ChromeDriver: chrome on windows (1a25c69d9571d11270974adf22be87f3)] -> xpath: //input[@id='nav-search-submit-button']]   using safeClick
+14:59:56 [TestNG-test-Test-1] INFO  verifyingGetItIn2DaysFilterFunctionality_Tablet_14-59-50 - [verifyingGetItIn2DaysFilterFunctionality_Tablet_14-59-50] Clicking on the submit in the search bar
+14:59:57 [TestNG-test-Test-1] INFO  verifyingGetItIn2DaysFilterFunctionality_Tablet_14-59-50 - [verifyingGetItIn2DaysFilterFunctionality_Tablet_14-59-50] clearBlockers took 260 ms
+15:00:07 [TestNG-test-Test-1] WARN  verifyingGetItIn2DaysFilterFunctionality_Tablet_14-59-50 - [verifyingGetItIn2DaysFilterFunctionality_Tablet_14-59-50]  Filter option 'Get It in 2 Days' does not exist. Skipping the test.

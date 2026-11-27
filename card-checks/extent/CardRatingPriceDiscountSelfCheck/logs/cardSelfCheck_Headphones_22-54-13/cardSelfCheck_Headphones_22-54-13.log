@@ -1,0 +1,22 @@
+22:54:13 [TestNG-PoolService-1] INFO  cardSelfCheck_Headphones_22-54-13 - No existing WebDriver found for current thread. Initializing a new ChromeDriver...
+22:54:13 [TestNG-PoolService-1] INFO  cardSelfCheck_Headphones_22-54-13 - WebDriverManager: chromedriver setup OK
+22:54:14 [TestNG-PoolService-1] INFO  cardSelfCheck_Headphones_22-54-13 - ChromeDriver initialized successfully for thread: 34
+22:54:14 [TestNG-PoolService-1] INFO  cardSelfCheck_Headphones_22-54-13 - [cardSelfCheck_Headphones_22-54-13] TEST: Headphones: price, M.R.P. and printed discount of each card agree
+22:54:14 [TestNG-PoolService-1] INFO  cardSelfCheck_Headphones_22-54-13 - [cardSelfCheck_Headphones_22-54-13] ==================== RULE: Headphones card self-check: (M.R.P. - price) / M.R.P. rounds to the printed discount; at least 95% of the cards must agree ====================
+22:54:17 [TestNG-PoolService-1] INFO  cardSelfCheck_Headphones_22-54-13 - [cardSelfCheck_Headphones_22-54-13] Opening amazon Landing page
+22:54:17 [TestNG-PoolService-1] INFO  cardSelfCheck_Headphones_22-54-13 - [cardSelfCheck_Headphones_22-54-13] Within safeFindElement method
+22:54:17 [TestNG-PoolService-1] INFO  cardSelfCheck_Headphones_22-54-13 - [cardSelfCheck_Headphones_22-54-13]Found the element returning it ,element ->[[ChromeDriver: chrome on windows (57bbdcbb3d3c06a73a03387e34bfdbe3)] -> xpath: //a[@id='nav-logo-sprites']]
+22:54:17 [TestNG-PoolService-1] INFO  cardSelfCheck_Headphones_22-54-13 - [cardSelfCheck_Headphones_22-54-13] clearBlockers took 432 ms
+22:54:18 [TestNG-PoolService-1] INFO  cardSelfCheck_Headphones_22-54-13 - [cardSelfCheck_Headphones_22-54-13] Giving input within the search bar
+22:54:18 [TestNG-PoolService-1] INFO  cardSelfCheck_Headphones_22-54-13 - [cardSelfCheck_Headphones_22-54-13] Within safeClick method
+22:54:20 [TestNG-PoolService-1] INFO  cardSelfCheck_Headphones_22-54-13 - [cardSelfCheck_Headphones_22-54-13] Clicked the  [[ChromeDriver: chrome on windows (57bbdcbb3d3c06a73a03387e34bfdbe3)] -> xpath: //input[@id='nav-search-submit-button']]   using safeClick
+22:54:20 [TestNG-PoolService-1] INFO  cardSelfCheck_Headphones_22-54-13 - [cardSelfCheck_Headphones_22-54-13] Clicking on the submit in the search bar
+22:54:20 [TestNG-PoolService-1] INFO  cardSelfCheck_Headphones_22-54-13 - [cardSelfCheck_Headphones_22-54-13] clearBlockers took 121 ms
+22:54:20 [TestNG-PoolService-1] INFO  cardSelfCheck_Headphones_22-54-13 - [cardSelfCheck_Headphones_22-54-13] SEARCH 'Headphones' -> https://www.amazon.in/s?k=Headphones&ref=nb_sb_noss
+22:54:25 [TestNG-PoolService-1] INFO  cardSelfCheck_Headphones_22-54-13 - [cardSelfCheck_Headphones_22-54-13] 22 card(s) on screen
+22:54:25 [TestNG-PoolService-1] INFO  cardSelfCheck_Headphones_22-54-13 - [cardSelfCheck_Headphones_22-54-13] Saved what was read to collected\Headphones__Card_self-check.json
+22:54:25 [TestNG-PoolService-1] INFO  cardSelfCheck_Headphones_22-54-13 - [cardSelfCheck_Headphones_22-54-13] CHECK Headphones card self-check: 20 of 22 judged fit (needs at least 0.95), 0 show no value
+22:54:25 [TestNG-PoolService-1] WARN  cardSelfCheck_Headphones_22-54-13 - [cardSelfCheck_Headphones_22-54-13] Headphones card self-check: do not fit: Wireless Bluetooth 5.0 Over-Ear Headphon price 499.0, M.R.P. 49900.0, printed 62.0% (as read: '₹499', '₹49,900', '(62% off)') | LH200 Studio Monitor Headphones, Closed- price 1999.0, M.R.P. 199900.0, printed 41.0% (as read: '₹1,999', '₹1,99,900', '(41% off)')
+22:54:25 [TestNG-PoolService-1] INFO  cardSelfCheck_Headphones_22-54-13 - [cardSelfCheck_Headphones_22-54-13] Finished 'cardSelfCheck': failed in 10398 ms
+22:54:25 [TestNG-PoolService-1] INFO  cardSelfCheck_Headphones_22-54-13 - [cardSelfCheck_Headphones_22-54-13]   The following asserts failed:
+22:54:25 [TestNG-PoolService-1] INFO  cardSelfCheck_Headphones_22-54-13 - [cardSelfCheck_Headphones_22-54-13]   	Headphones card self-check: the share that fits must be at least 0.95. Not fitting: Wireless Bluetooth 5.0 Over-Ear Headphon price 499.0, M.R.P. 49900.0, printed 62.0% (as read: '₹499', '₹49,900', '(62% off)') | LH200 Studio Monitor Headphones, Closed- price 1999.0, M.R.P. 199900.0, printed 41.0% (as read: '₹1,999', '₹1,99,900', '(41% off)') expected [true] but found [false]

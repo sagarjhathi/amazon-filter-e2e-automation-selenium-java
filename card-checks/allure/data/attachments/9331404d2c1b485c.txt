@@ -1,0 +1,32 @@
+23:01:31 [TestNG-PoolService-2] INFO  freeDeliveryFilterCheckedOnTheCards_Mobile_23-01-31 - No existing WebDriver found for current thread. Initializing a new ChromeDriver...
+23:01:31 [TestNG-PoolService-2] INFO  freeDeliveryFilterCheckedOnTheCards_Mobile_23-01-31 - WebDriverManager: chromedriver setup OK
+23:01:38 [TestNG-PoolService-2] INFO  freeDeliveryFilterCheckedOnTheCards_Mobile_23-01-31 - ChromeDriver initialized successfully for thread: 206
+23:01:38 [TestNG-PoolService-2] INFO  freeDeliveryFilterCheckedOnTheCards_Mobile_23-01-31 - [freeDeliveryFilterCheckedOnTheCards_Mobile_23-01-31] TEST: Mobile: Eligible for Free Delivery filter, checked on the cards
+23:01:38 [TestNG-PoolService-2] INFO  freeDeliveryFilterCheckedOnTheCards_Mobile_23-01-31 - [freeDeliveryFilterCheckedOnTheCards_Mobile_23-01-31] ==================== RULE: Mobile Eligible for Free Delivery: every option is applied; the card prints a "FREE delivery" line; at least 90% of the cards must fit ====================
+23:01:40 [TestNG-PoolService-2] INFO  freeDeliveryFilterCheckedOnTheCards_Mobile_23-01-31 - [freeDeliveryFilterCheckedOnTheCards_Mobile_23-01-31] Opening amazon Landing page
+23:01:40 [TestNG-PoolService-2] INFO  freeDeliveryFilterCheckedOnTheCards_Mobile_23-01-31 - [freeDeliveryFilterCheckedOnTheCards_Mobile_23-01-31] Within safeFindElement method
+23:01:40 [TestNG-PoolService-2] INFO  freeDeliveryFilterCheckedOnTheCards_Mobile_23-01-31 - [freeDeliveryFilterCheckedOnTheCards_Mobile_23-01-31]Found the element returning it ,element ->[[ChromeDriver: chrome on windows (204dc4da12f5ce453479b8c28f6aceff)] -> xpath: //a[@id='nav-logo-sprites']]
+23:01:40 [TestNG-PoolService-2] INFO  freeDeliveryFilterCheckedOnTheCards_Mobile_23-01-31 - [freeDeliveryFilterCheckedOnTheCards_Mobile_23-01-31] clearBlockers took 5 ms
+23:01:40 [TestNG-PoolService-2] INFO  freeDeliveryFilterCheckedOnTheCards_Mobile_23-01-31 - [freeDeliveryFilterCheckedOnTheCards_Mobile_23-01-31] Giving input within the search bar
+23:01:40 [TestNG-PoolService-2] INFO  freeDeliveryFilterCheckedOnTheCards_Mobile_23-01-31 - [freeDeliveryFilterCheckedOnTheCards_Mobile_23-01-31] Within safeClick method
+23:01:43 [TestNG-PoolService-2] INFO  freeDeliveryFilterCheckedOnTheCards_Mobile_23-01-31 - [freeDeliveryFilterCheckedOnTheCards_Mobile_23-01-31] Clicked the  [[ChromeDriver: chrome on windows (204dc4da12f5ce453479b8c28f6aceff)] -> xpath: //input[@id='nav-search-submit-button']]   using safeClick
+23:01:43 [TestNG-PoolService-2] INFO  freeDeliveryFilterCheckedOnTheCards_Mobile_23-01-31 - [freeDeliveryFilterCheckedOnTheCards_Mobile_23-01-31] Clicking on the submit in the search bar
+23:01:43 [TestNG-PoolService-2] INFO  freeDeliveryFilterCheckedOnTheCards_Mobile_23-01-31 - [freeDeliveryFilterCheckedOnTheCards_Mobile_23-01-31] clearBlockers took 77 ms
+23:01:43 [TestNG-PoolService-2] INFO  freeDeliveryFilterCheckedOnTheCards_Mobile_23-01-31 - [freeDeliveryFilterCheckedOnTheCards_Mobile_23-01-31] SEARCH 'Mobile' -> https://www.amazon.in/s?k=Mobile&ref=nb_sb_noss
+23:01:43 [TestNG-PoolService-2] INFO  freeDeliveryFilterCheckedOnTheCards_Mobile_23-01-31 - [freeDeliveryFilterCheckedOnTheCards_Mobile_23-01-31] Within filterCheckUnderList method
+23:01:43 [TestNG-PoolService-2] INFO  freeDeliveryFilterCheckedOnTheCards_Mobile_23-01-31 - [freeDeliveryFilterCheckedOnTheCards_Mobile_23-01-31] Found the Filter within the filter check List
+23:01:44 [TestNG-PoolService-2] INFO  freeDeliveryFilterCheckedOnTheCards_Mobile_23-01-31 - [freeDeliveryFilterCheckedOnTheCards_Mobile_23-01-31] 'Eligible for Free Delivery' options on the page: [Free Shipping]
+23:01:44 [TestNG-PoolService-2] INFO  freeDeliveryFilterCheckedOnTheCards_Mobile_23-01-31 - [freeDeliveryFilterCheckedOnTheCards_Mobile_23-01-31] FILTER 'Eligible for Free Delivery': checking 1 of 1 option(s)
+23:01:44 [TestNG-PoolService-2] INFO  freeDeliveryFilterCheckedOnTheCards_Mobile_23-01-31 - [freeDeliveryFilterCheckedOnTheCards_Mobile_23-01-31] OPTION 'Free Shipping' (1 of 1)
+23:01:45 [TestNG-PoolService-2] INFO  freeDeliveryFilterCheckedOnTheCards_Mobile_23-01-31 - [freeDeliveryFilterCheckedOnTheCards_Mobile_23-01-31] clearBlockers took 45 ms
+23:01:46 [TestNG-PoolService-2] INFO  freeDeliveryFilterCheckedOnTheCards_Mobile_23-01-31 - [freeDeliveryFilterCheckedOnTheCards_Mobile_23-01-31] 'Free Shipping' applied after 1460 ms
+23:01:50 [TestNG-PoolService-2] INFO  freeDeliveryFilterCheckedOnTheCards_Mobile_23-01-31 - [freeDeliveryFilterCheckedOnTheCards_Mobile_23-01-31] 22 card(s) on screen
+23:01:50 [TestNG-PoolService-2] INFO  freeDeliveryFilterCheckedOnTheCards_Mobile_23-01-31 - [freeDeliveryFilterCheckedOnTheCards_Mobile_23-01-31] 'Free Shipping': 22 card(s): 22 with a price, 22 with a rating, 22 with a printed discount, 22 with a delivery line, 0 with no main offer
+23:01:50 [TestNG-PoolService-2] INFO  freeDeliveryFilterCheckedOnTheCards_Mobile_23-01-31 - [freeDeliveryFilterCheckedOnTheCards_Mobile_23-01-31] Within safeClick method
+23:01:50 [TestNG-PoolService-2] INFO  freeDeliveryFilterCheckedOnTheCards_Mobile_23-01-31 - [freeDeliveryFilterCheckedOnTheCards_Mobile_23-01-31] Clicked the  [[ChromeDriver: chrome on windows (204dc4da12f5ce453479b8c28f6aceff)] -> xpath: //div[@id='deliveryRefinements']//a[normalize-space(.)='Clear']]   using safeClick
+23:01:50 [TestNG-PoolService-2] INFO  freeDeliveryFilterCheckedOnTheCards_Mobile_23-01-31 - [freeDeliveryFilterCheckedOnTheCards_Mobile_23-01-31] Cleared 'Eligible for Free Delivery' (the Clear link is gone)
+23:01:50 [TestNG-PoolService-2] INFO  freeDeliveryFilterCheckedOnTheCards_Mobile_23-01-31 - [freeDeliveryFilterCheckedOnTheCards_Mobile_23-01-31] clearBlockers took 41 ms
+23:01:50 [TestNG-PoolService-2] INFO  freeDeliveryFilterCheckedOnTheCards_Mobile_23-01-31 - [freeDeliveryFilterCheckedOnTheCards_Mobile_23-01-31] 'Free Shipping' cleared
+23:01:50 [TestNG-PoolService-2] INFO  freeDeliveryFilterCheckedOnTheCards_Mobile_23-01-31 - [freeDeliveryFilterCheckedOnTheCards_Mobile_23-01-31] DONE: 1 option(s) read, not applied: []
+23:01:50 [TestNG-PoolService-2] INFO  freeDeliveryFilterCheckedOnTheCards_Mobile_23-01-31 - [freeDeliveryFilterCheckedOnTheCards_Mobile_23-01-31] Saved what was read to collected\Mobile__Eligible_for_Free_Delivery.json
+23:01:50 [TestNG-PoolService-2] INFO  freeDeliveryFilterCheckedOnTheCards_Mobile_23-01-31 - [freeDeliveryFilterCheckedOnTheCards_Mobile_23-01-31] CHECK Mobile Eligible for Free Delivery 'Free Shipping': 22 of 22 judged fit (needs at least 0.9), 0 show no value

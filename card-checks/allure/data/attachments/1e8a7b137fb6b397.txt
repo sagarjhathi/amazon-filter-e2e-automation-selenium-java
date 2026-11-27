@@ -1,0 +1,98 @@
+22:55:52 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Tablet_22-55-52 - No existing WebDriver found for current thread. Initializing a new ChromeDriver...
+22:55:52 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Tablet_22-55-52 - WebDriverManager: chromedriver setup OK
+22:55:53 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Tablet_22-55-52 - ChromeDriver initialized successfully for thread: 35
+22:55:53 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Tablet_22-55-52 - [brandsFilterCheckedOnTheCards_Tablet_22-55-52] TEST: Tablet: Brands filter, checked on the cards
+22:55:53 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Tablet_22-55-52 - [brandsFilterCheckedOnTheCards_Tablet_22-55-52] ==================== RULE: Tablet Brands: every option is applied; the brand, or a known alias of it, is a whole word of the card's title; at least 90% of the cards must fit ====================
+22:55:54 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Tablet_22-55-52 - [brandsFilterCheckedOnTheCards_Tablet_22-55-52] Opening amazon Landing page
+22:55:54 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Tablet_22-55-52 - [brandsFilterCheckedOnTheCards_Tablet_22-55-52] Within safeFindElement method
+22:55:54 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Tablet_22-55-52 - [brandsFilterCheckedOnTheCards_Tablet_22-55-52]Found the element returning it ,element ->[[ChromeDriver: chrome on windows (394d6bd7924c625afdc67d30e02adbcd)] -> xpath: //a[@id='nav-logo-sprites']]
+22:55:54 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Tablet_22-55-52 - [brandsFilterCheckedOnTheCards_Tablet_22-55-52] clearBlockers took 5 ms
+22:55:55 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Tablet_22-55-52 - [brandsFilterCheckedOnTheCards_Tablet_22-55-52] Giving input within the search bar
+22:55:55 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Tablet_22-55-52 - [brandsFilterCheckedOnTheCards_Tablet_22-55-52] Within safeClick method
+22:55:57 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Tablet_22-55-52 - [brandsFilterCheckedOnTheCards_Tablet_22-55-52] Clicked the  [[ChromeDriver: chrome on windows (394d6bd7924c625afdc67d30e02adbcd)] -> xpath: //input[@id='nav-search-submit-button']]   using safeClick
+22:55:57 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Tablet_22-55-52 - [brandsFilterCheckedOnTheCards_Tablet_22-55-52] Clicking on the submit in the search bar
+22:55:57 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Tablet_22-55-52 - [brandsFilterCheckedOnTheCards_Tablet_22-55-52] clearBlockers took 27 ms
+22:55:57 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Tablet_22-55-52 - [brandsFilterCheckedOnTheCards_Tablet_22-55-52] SEARCH 'Tablet' -> https://www.amazon.in/s?k=Tablet&ref=nb_sb_noss
+22:55:57 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Tablet_22-55-52 - [brandsFilterCheckedOnTheCards_Tablet_22-55-52] Within filterCheckUnderList method
+22:55:57 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Tablet_22-55-52 - [brandsFilterCheckedOnTheCards_Tablet_22-55-52] Found the Filter within the filter check List
+22:55:58 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Tablet_22-55-52 - [brandsFilterCheckedOnTheCards_Tablet_22-55-52] 'Brands' options on the page: [Apple | Lenovo | Xiaomi | Microsoft | Lava | DOMO | iFLYTEK]
+22:55:58 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Tablet_22-55-52 - [brandsFilterCheckedOnTheCards_Tablet_22-55-52] FILTER 'Brands': checking 7 of 7 option(s)
+22:55:58 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Tablet_22-55-52 - [brandsFilterCheckedOnTheCards_Tablet_22-55-52] OPTION 'Apple' (1 of 7)
+22:55:58 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Tablet_22-55-52 - [brandsFilterCheckedOnTheCards_Tablet_22-55-52] clearBlockers took 49 ms
+22:55:59 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Tablet_22-55-52 - [brandsFilterCheckedOnTheCards_Tablet_22-55-52] 'Apple' applied after 1253 ms
+22:56:02 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Tablet_22-55-52 - [brandsFilterCheckedOnTheCards_Tablet_22-55-52] 16 card(s) on screen
+22:56:02 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Tablet_22-55-52 - [brandsFilterCheckedOnTheCards_Tablet_22-55-52] 'Apple': 16 card(s): 16 with a price, 8 with a rating, 1 with a printed discount, 16 with a delivery line, 0 with no main offer
+22:56:02 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Tablet_22-55-52 - [brandsFilterCheckedOnTheCards_Tablet_22-55-52] Within safeClick method
+22:56:02 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Tablet_22-55-52 - [brandsFilterCheckedOnTheCards_Tablet_22-55-52] Clicked the  [[ChromeDriver: chrome on windows (394d6bd7924c625afdc67d30e02adbcd)] -> xpath: //div[@id='s-refinements']//div[@role='group'][div[@role='heading']/span[normalize-space(.)='Brands']]//a[normalize-space(.)='Clear']]   using safeClick
+22:56:02 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Tablet_22-55-52 - [brandsFilterCheckedOnTheCards_Tablet_22-55-52] Cleared 'Brands' (the Clear link is gone)
+22:56:02 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Tablet_22-55-52 - [brandsFilterCheckedOnTheCards_Tablet_22-55-52] clearBlockers took 44 ms
+22:56:02 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Tablet_22-55-52 - [brandsFilterCheckedOnTheCards_Tablet_22-55-52] 'Apple' cleared
+22:56:02 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Tablet_22-55-52 - [brandsFilterCheckedOnTheCards_Tablet_22-55-52] OPTION 'Lenovo' (2 of 7)
+22:56:04 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Tablet_22-55-52 - [brandsFilterCheckedOnTheCards_Tablet_22-55-52] clearBlockers took 33 ms
+22:56:05 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Tablet_22-55-52 - [brandsFilterCheckedOnTheCards_Tablet_22-55-52] 'Lenovo' applied after 1278 ms
+22:56:07 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Tablet_22-55-52 - [brandsFilterCheckedOnTheCards_Tablet_22-55-52] 16 card(s) on screen
+22:56:07 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Tablet_22-55-52 - [brandsFilterCheckedOnTheCards_Tablet_22-55-52] 'Lenovo': 16 card(s): 16 with a price, 15 with a rating, 15 with a printed discount, 16 with a delivery line, 0 with no main offer
+22:56:07 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Tablet_22-55-52 - [brandsFilterCheckedOnTheCards_Tablet_22-55-52] Within safeClick method
+22:56:07 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Tablet_22-55-52 - [brandsFilterCheckedOnTheCards_Tablet_22-55-52] Clicked the  [[ChromeDriver: chrome on windows (394d6bd7924c625afdc67d30e02adbcd)] -> xpath: //div[@id='s-refinements']//div[@role='group'][div[@role='heading']/span[normalize-space(.)='Brands']]//a[normalize-space(.)='Clear']]   using safeClick
+22:56:07 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Tablet_22-55-52 - [brandsFilterCheckedOnTheCards_Tablet_22-55-52] Cleared 'Brands' (the Clear link is gone)
+22:56:07 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Tablet_22-55-52 - [brandsFilterCheckedOnTheCards_Tablet_22-55-52] clearBlockers took 40 ms
+22:56:07 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Tablet_22-55-52 - [brandsFilterCheckedOnTheCards_Tablet_22-55-52] 'Lenovo' cleared
+22:56:07 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Tablet_22-55-52 - [brandsFilterCheckedOnTheCards_Tablet_22-55-52] OPTION 'Xiaomi' (3 of 7)
+22:56:09 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Tablet_22-55-52 - [brandsFilterCheckedOnTheCards_Tablet_22-55-52] clearBlockers took 42 ms
+22:56:10 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Tablet_22-55-52 - [brandsFilterCheckedOnTheCards_Tablet_22-55-52] 'Xiaomi' applied after 1204 ms
+22:56:12 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Tablet_22-55-52 - [brandsFilterCheckedOnTheCards_Tablet_22-55-52] 14 card(s) on screen
+22:56:12 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Tablet_22-55-52 - [brandsFilterCheckedOnTheCards_Tablet_22-55-52] 'Xiaomi': 14 card(s): 13 with a price, 14 with a rating, 12 with a printed discount, 14 with a delivery line, 1 with no main offer
+22:56:12 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Tablet_22-55-52 - [brandsFilterCheckedOnTheCards_Tablet_22-55-52] Within safeClick method
+22:56:12 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Tablet_22-55-52 - [brandsFilterCheckedOnTheCards_Tablet_22-55-52] Clicked the  [[ChromeDriver: chrome on windows (394d6bd7924c625afdc67d30e02adbcd)] -> xpath: //div[@id='s-refinements']//div[@role='group'][div[@role='heading']/span[normalize-space(.)='Brands']]//a[normalize-space(.)='Clear']]   using safeClick
+22:56:13 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Tablet_22-55-52 - [brandsFilterCheckedOnTheCards_Tablet_22-55-52] Cleared 'Brands' (the Clear link is gone)
+22:56:13 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Tablet_22-55-52 - [brandsFilterCheckedOnTheCards_Tablet_22-55-52] clearBlockers took 46 ms
+22:56:13 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Tablet_22-55-52 - [brandsFilterCheckedOnTheCards_Tablet_22-55-52] 'Xiaomi' cleared
+22:56:13 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Tablet_22-55-52 - [brandsFilterCheckedOnTheCards_Tablet_22-55-52] OPTION 'Microsoft' (4 of 7)
+22:56:14 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Tablet_22-55-52 - [brandsFilterCheckedOnTheCards_Tablet_22-55-52] clearBlockers took 40 ms
+22:56:16 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Tablet_22-55-52 - [brandsFilterCheckedOnTheCards_Tablet_22-55-52] 'Microsoft' applied after 1701 ms
+22:56:18 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Tablet_22-55-52 - [brandsFilterCheckedOnTheCards_Tablet_22-55-52] 16 card(s) on screen
+22:56:18 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Tablet_22-55-52 - [brandsFilterCheckedOnTheCards_Tablet_22-55-52] 'Microsoft': 16 card(s): 13 with a price, 11 with a rating, 12 with a printed discount, 15 with a delivery line, 0 with no main offer
+22:56:18 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Tablet_22-55-52 - [brandsFilterCheckedOnTheCards_Tablet_22-55-52] Within safeClick method
+22:56:18 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Tablet_22-55-52 - [brandsFilterCheckedOnTheCards_Tablet_22-55-52] Clicked the  [[ChromeDriver: chrome on windows (394d6bd7924c625afdc67d30e02adbcd)] -> xpath: //div[@id='s-refinements']//div[@role='group'][div[@role='heading']/span[normalize-space(.)='Brands']]//a[normalize-space(.)='Clear']]   using safeClick
+22:56:18 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Tablet_22-55-52 - [brandsFilterCheckedOnTheCards_Tablet_22-55-52] Cleared 'Brands' (the Clear link is gone)
+22:56:18 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Tablet_22-55-52 - [brandsFilterCheckedOnTheCards_Tablet_22-55-52] clearBlockers took 37 ms
+22:56:18 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Tablet_22-55-52 - [brandsFilterCheckedOnTheCards_Tablet_22-55-52] 'Microsoft' cleared
+22:56:18 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Tablet_22-55-52 - [brandsFilterCheckedOnTheCards_Tablet_22-55-52] OPTION 'Lava' (5 of 7)
+22:56:20 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Tablet_22-55-52 - [brandsFilterCheckedOnTheCards_Tablet_22-55-52] clearBlockers took 37 ms
+22:56:21 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Tablet_22-55-52 - [brandsFilterCheckedOnTheCards_Tablet_22-55-52] 'Lava' applied after 1167 ms
+22:56:22 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Tablet_22-55-52 - [brandsFilterCheckedOnTheCards_Tablet_22-55-52] 1 card(s) on screen
+22:56:22 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Tablet_22-55-52 - [brandsFilterCheckedOnTheCards_Tablet_22-55-52] 'Lava': 1 card(s): 1 with a price, 1 with a rating, 1 with a printed discount, 0 with a delivery line, 0 with no main offer
+22:56:22 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Tablet_22-55-52 - [brandsFilterCheckedOnTheCards_Tablet_22-55-52] Within safeClick method
+22:56:22 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Tablet_22-55-52 - [brandsFilterCheckedOnTheCards_Tablet_22-55-52] Clicked the  [[ChromeDriver: chrome on windows (394d6bd7924c625afdc67d30e02adbcd)] -> xpath: //div[@id='s-refinements']//div[@role='group'][div[@role='heading']/span[normalize-space(.)='Brands']]//a[normalize-space(.)='Clear']]   using safeClick
+22:56:22 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Tablet_22-55-52 - [brandsFilterCheckedOnTheCards_Tablet_22-55-52] Cleared 'Brands' (the Clear link is gone)
+22:56:22 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Tablet_22-55-52 - [brandsFilterCheckedOnTheCards_Tablet_22-55-52] clearBlockers took 35 ms
+22:56:22 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Tablet_22-55-52 - [brandsFilterCheckedOnTheCards_Tablet_22-55-52] 'Lava' cleared
+22:56:22 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Tablet_22-55-52 - [brandsFilterCheckedOnTheCards_Tablet_22-55-52] OPTION 'DOMO' (6 of 7)
+22:56:24 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Tablet_22-55-52 - [brandsFilterCheckedOnTheCards_Tablet_22-55-52] clearBlockers took 96 ms
+22:56:25 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Tablet_22-55-52 - [brandsFilterCheckedOnTheCards_Tablet_22-55-52] 'DOMO' applied after 1242 ms
+22:56:27 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Tablet_22-55-52 - [brandsFilterCheckedOnTheCards_Tablet_22-55-52] 15 card(s) on screen
+22:56:27 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Tablet_22-55-52 - [brandsFilterCheckedOnTheCards_Tablet_22-55-52] 'DOMO': 15 card(s): 14 with a price, 13 with a rating, 14 with a printed discount, 14 with a delivery line, 0 with no main offer
+22:56:27 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Tablet_22-55-52 - [brandsFilterCheckedOnTheCards_Tablet_22-55-52] Within safeClick method
+22:56:27 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Tablet_22-55-52 - [brandsFilterCheckedOnTheCards_Tablet_22-55-52] Clicked the  [[ChromeDriver: chrome on windows (394d6bd7924c625afdc67d30e02adbcd)] -> xpath: //div[@id='s-refinements']//div[@role='group'][div[@role='heading']/span[normalize-space(.)='Brands']]//a[normalize-space(.)='Clear']]   using safeClick
+22:56:27 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Tablet_22-55-52 - [brandsFilterCheckedOnTheCards_Tablet_22-55-52] Cleared 'Brands' (the Clear link is gone)
+22:56:27 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Tablet_22-55-52 - [brandsFilterCheckedOnTheCards_Tablet_22-55-52] clearBlockers took 36 ms
+22:56:27 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Tablet_22-55-52 - [brandsFilterCheckedOnTheCards_Tablet_22-55-52] 'DOMO' cleared
+22:56:27 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Tablet_22-55-52 - [brandsFilterCheckedOnTheCards_Tablet_22-55-52] OPTION 'iFLYTEK' (7 of 7)
+22:56:29 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Tablet_22-55-52 - [brandsFilterCheckedOnTheCards_Tablet_22-55-52] clearBlockers took 49 ms
+22:56:30 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Tablet_22-55-52 - [brandsFilterCheckedOnTheCards_Tablet_22-55-52] 'iFLYTEK' applied after 1491 ms
+22:56:33 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Tablet_22-55-52 - [brandsFilterCheckedOnTheCards_Tablet_22-55-52] 16 card(s) on screen
+22:56:33 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Tablet_22-55-52 - [brandsFilterCheckedOnTheCards_Tablet_22-55-52] 'iFLYTEK': 16 card(s): 16 with a price, 16 with a rating, 8 with a printed discount, 16 with a delivery line, 0 with no main offer
+22:56:33 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Tablet_22-55-52 - [brandsFilterCheckedOnTheCards_Tablet_22-55-52] Within safeClick method
+22:56:33 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Tablet_22-55-52 - [brandsFilterCheckedOnTheCards_Tablet_22-55-52] Clicked the  [[ChromeDriver: chrome on windows (394d6bd7924c625afdc67d30e02adbcd)] -> xpath: //div[@id='s-refinements']//div[@role='group'][div[@role='heading']/span[normalize-space(.)='Brands']]//a[normalize-space(.)='Clear']]   using safeClick
+22:56:33 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Tablet_22-55-52 - [brandsFilterCheckedOnTheCards_Tablet_22-55-52] Cleared 'Brands' (the Clear link is gone)
+22:56:33 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Tablet_22-55-52 - [brandsFilterCheckedOnTheCards_Tablet_22-55-52] clearBlockers took 66 ms
+22:56:33 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Tablet_22-55-52 - [brandsFilterCheckedOnTheCards_Tablet_22-55-52] 'iFLYTEK' cleared
+22:56:33 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Tablet_22-55-52 - [brandsFilterCheckedOnTheCards_Tablet_22-55-52] DONE: 7 option(s) read, not applied: []
+22:56:33 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Tablet_22-55-52 - [brandsFilterCheckedOnTheCards_Tablet_22-55-52] Saved what was read to collected\Tablet__Brands.json
+22:56:33 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Tablet_22-55-52 - [brandsFilterCheckedOnTheCards_Tablet_22-55-52] CHECK Tablet Brands 'Apple': 16 of 16 judged fit (needs at least 0.9), 0 show no value
+22:56:33 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Tablet_22-55-52 - [brandsFilterCheckedOnTheCards_Tablet_22-55-52] CHECK Tablet Brands 'Lenovo': 16 of 16 judged fit (needs at least 0.9), 0 show no value
+22:56:33 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Tablet_22-55-52 - [brandsFilterCheckedOnTheCards_Tablet_22-55-52] CHECK Tablet Brands 'Xiaomi': 14 of 14 judged fit (needs at least 0.9), 0 show no value
+22:56:33 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Tablet_22-55-52 - [brandsFilterCheckedOnTheCards_Tablet_22-55-52] CHECK Tablet Brands 'Microsoft': 16 of 16 judged fit (needs at least 0.9), 0 show no value
+22:56:33 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Tablet_22-55-52 - [brandsFilterCheckedOnTheCards_Tablet_22-55-52] CHECK Tablet Brands 'Lava': 1 of 1 judged fit (needs at least 0.9), 0 show no value
+22:56:33 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Tablet_22-55-52 - [brandsFilterCheckedOnTheCards_Tablet_22-55-52] CHECK Tablet Brands 'DOMO': 15 of 15 judged fit (needs at least 0.9), 0 show no value
+22:56:33 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Tablet_22-55-52 - [brandsFilterCheckedOnTheCards_Tablet_22-55-52] CHECK Tablet Brands 'iFLYTEK': 16 of 16 judged fit (needs at least 0.9), 0 show no value

@@ -1,0 +1,218 @@
+14:58:40 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Laptop_14-58-40 - No existing WebDriver found for current thread. Initializing a new ChromeDriver...
+14:58:40 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Laptop_14-58-40 - WebDriverManager: chromedriver setup OK
+14:58:42 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Laptop_14-58-40 - ChromeDriver initialized successfully for thread: 36
+14:58:43 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Laptop_14-58-40 - [verifyingGetItByTomorrowFilterFunctionality_Laptop_14-58-40] Opening amazon Landing page
+14:58:43 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Laptop_14-58-40 - [verifyingGetItByTomorrowFilterFunctionality_Laptop_14-58-40] Within safeFindElement method
+14:58:47 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Laptop_14-58-40 - [verifyingGetItByTomorrowFilterFunctionality_Laptop_14-58-40]Found the element returning it ,element ->[[ChromeDriver: chrome on windows (9f50b17846649a4718b27b81bbef0264)] -> xpath: //a[@id='nav-logo-sprites']]
+14:58:47 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Laptop_14-58-40 - [verifyingGetItByTomorrowFilterFunctionality_Laptop_14-58-40] clearBlockers took 181 ms
+14:58:48 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Laptop_14-58-40 - [verifyingGetItByTomorrowFilterFunctionality_Laptop_14-58-40] Giving input within the search bar
+14:58:48 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Laptop_14-58-40 - [verifyingGetItByTomorrowFilterFunctionality_Laptop_14-58-40] Within safeClick method
+14:58:56 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Laptop_14-58-40 - [verifyingGetItByTomorrowFilterFunctionality_Laptop_14-58-40] Clicked the  [[ChromeDriver: chrome on windows (9f50b17846649a4718b27b81bbef0264)] -> xpath: //input[@id='nav-search-submit-button']]   using safeClick
+14:58:56 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Laptop_14-58-40 - [verifyingGetItByTomorrowFilterFunctionality_Laptop_14-58-40] Clicking on the submit in the search bar
+14:58:57 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Laptop_14-58-40 - [verifyingGetItByTomorrowFilterFunctionality_Laptop_14-58-40] clearBlockers took 15 ms
+14:58:57 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Laptop_14-58-40 - [verifyingGetItByTomorrowFilterFunctionality_Laptop_14-58-40] Within validateDeliveryFilterOptionsWithResult method
+14:58:57 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Laptop_14-58-40 - [verifyingGetItByTomorrowFilterFunctionality_Laptop_14-58-40] Within safeClick method
+14:58:57 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Laptop_14-58-40 - [verifyingGetItByTomorrowFilterFunctionality_Laptop_14-58-40] Clicked the  [[ChromeDriver: chrome on windows (9f50b17846649a4718b27b81bbef0264)] -> xpath: //span[@class='a-size-base a-color-base puis-bold-weight-text' and text()='Delivery Day']/parent::div/following-sibling::ul//span[@class='a-size-base a-color-base' and text()='Get It by Tomorrow']]   using safeClick
+14:58:57 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Laptop_14-58-40 - [verifyingGetItByTomorrowFilterFunctionality_Laptop_14-58-40] Within getMoreButtonByFilterTypeAndName method
+14:58:58 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Laptop_14-58-40 - [verifyingGetItByTomorrowFilterFunctionality_Laptop_14-58-40] Clicked on By.xpath: //span[@class='a-size-base a-color-base puis-bold-weight-text' and text()='Delivery Day']/parent::div/following-sibling::ul//span[@class='a-size-base a-color-base' and text()='Get It by Tomorrow']
+14:58:58 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Laptop_14-58-40 - [verifyingGetItByTomorrowFilterFunctionality_Laptop_14-58-40] Within safeFindElements 
+14:58:58 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Laptop_14-58-40 - [verifyingGetItByTomorrowFilterFunctionality_Laptop_14-58-40] Returning the  [[[ChromeDriver: chrome on windows (9f50b17846649a4718b27b81bbef0264)] -> xpath: //div[@class='a-section a-spacing-small a-spacing-top-small']], [[ChromeDriver: chrome on windows (9f50b17846649a4718b27b81bbef0264)] -> xpath: //div[@class='a-section a-spacing-small a-spacing-top-small']], [[ChromeDriver: chrome on windows (9f50b17846649a4718b27b81bbef0264)] -> xpath: //div[@class='a-section a-spacing-small a-spacing-top-small']], [[ChromeDriver: chrome on windows (9f50b17846649a4718b27b81bbef0264)] -> xpath: //div[@class='a-section a-spacing-small a-spacing-top-small']], [[ChromeDriver: chrome on windows (9f50b17846649a4718b27b81bbef0264)] -> xpath: //div[@class='a-section a-spacing-small a-spacing-top-small']], [[ChromeDriver: chrome on windows (9f50b17846649a4718b27b81bbef0264)] -> xpath: //div[@class='a-section a-spacing-small a-spacing-top-small']], [[ChromeDriver: chrome on windows (9f50b17846649a4718b27b81bbef0264)] -> xpath: //div[@class='a-section a-spacing-small a-spacing-top-small']], [[ChromeDriver: chrome on windows (9f50b17846649a4718b27b81bbef0264)] -> xpath: //div[@class='a-section a-spacing-small a-spacing-top-small']], [[ChromeDriver: chrome on windows (9f50b17846649a4718b27b81bbef0264)] -> xpath: //div[@class='a-section a-spacing-small a-spacing-top-small']], [[ChromeDriver: chrome on windows (9f50b17846649a4718b27b81bbef0264)] -> xpath: //div[@class='a-section a-spacing-small a-spacing-top-small']], [[ChromeDriver: chrome on windows (9f50b17846649a4718b27b81bbef0264)] -> xpath: //div[@class='a-section a-spacing-small a-spacing-top-small']], [[ChromeDriver: chrome on windows (9f50b17846649a4718b27b81bbef0264)] -> xpath: //div[@class='a-section a-spacing-small a-spacing-top-small']], [[ChromeDriver: chrome on windows (9f50b17846649a4718b27b81bbef0264)] -> xpath: //div[@class='a-section a-spacing-small a-spacing-top-small']], [[ChromeDriver: chrome on windows (9f50b17846649a4718b27b81bbef0264)] -> xpath: //div[@class='a-section a-spacing-small a-spacing-top-small']], [[ChromeDriver: chrome on windows (9f50b17846649a4718b27b81bbef0264)] -> xpath: //div[@class='a-section a-spacing-small a-spacing-top-small']], [[ChromeDriver: chrome on windows (9f50b17846649a4718b27b81bbef0264)] -> xpath: //div[@class='a-section a-spacing-small a-spacing-top-small']]] from the safeFindElements method
+14:58:58 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Laptop_14-58-40 - [verifyingGetItByTomorrowFilterFunctionality_Laptop_14-58-40] Created hashset with required data to assert with Within validateDeliveryFilterOptionsWithResult method
+14:58:58 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Laptop_14-58-40 - [verifyingGetItByTomorrowFilterFunctionality_Laptop_14-58-40] this is the set  [Today, 25 Nov, 24 Nov, Tomorrow]
+14:58:58 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Laptop_14-58-40 - [verifyingGetItByTomorrowFilterFunctionality_Laptop_14-58-40] Within deliveryElements loop iterating over the products  Within validateDeliveryFilterOptionsWithResult method
+14:58:58 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Laptop_14-58-40 - [verifyingGetItByTomorrowFilterFunctionality_Laptop_14-58-40] Checking if the allowedDateParts have the assert text — index 0, text: ASUS TUF A15 (2026),Smartchoice,AMD Ryzen 7 8845HS,RTX 3050,16GB RAM (Upgradeable Upto 64GB),512GB SSD,FHD,15.6"(39.6 cm),Win 11,M365 Basic(1Y),Office 24,Black,2.3 Kg,FA506NCG-HN192WS,Gaming Laptop
+4.2
+(45)
+1K+ bought in past month
+Limited time deal
+₹1,10,990
+M.R.P:
+₹1,55,990 (29% off)
+10% Off on select cards
+FREE delivery Thu, 26 Nov
+Or fastest delivery Tomorrow 8 am - 12 pm
+Service: Device Setup
+Add to cart
+14:58:58 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Laptop_14-58-40 - [verifyingGetItByTomorrowFilterFunctionality_Laptop_14-58-40] Within deliveryElements loop iterating over the products  Within validateDeliveryFilterOptionsWithResult method
+14:58:59 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Laptop_14-58-40 - [verifyingGetItByTomorrowFilterFunctionality_Laptop_14-58-40] Checking if the allowedDateParts have the assert text — index 1, text: HP Smartchoice Victus, AMD Ryzen 7 7445HS, 6GB RTX 3050, 16GB DDR5(Upgradeable) 512GB SSD, 144Hz, 300 nits, 15.6''/39.6cm, Win 11, Office 24, Blue, 2.29kg, fb3134/20ax, Xbox Gamepass*, Gaming Laptop
+4.0
+(103)
+₹1,02,990
+Save extra with No Cost EMI
+FREE delivery Thu, 26 Nov
+Or fastest delivery Tomorrow 8 am - 12 pm
+Service: Device Setup
+Add to cart
+14:58:59 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Laptop_14-58-40 - [verifyingGetItByTomorrowFilterFunctionality_Laptop_14-58-40] Within deliveryElements loop iterating over the products  Within validateDeliveryFilterOptionsWithResult method
+14:58:59 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Laptop_14-58-40 - [verifyingGetItByTomorrowFilterFunctionality_Laptop_14-58-40] Checking if the allowedDateParts have the assert text — index 2, text: HP 14 Smartchoice, Intel Core Ultra 5 125H 12 TOPS, 24GB DDR5 (Upgradeable) 1TB SSD, Anti-Glare, FHD, 14''/35.6cm,Win11, M365*Office24, Silver, 1.4kg, ep1180tu, FHD Camera w/Shutter, Backlit AI Laptop
+3.4
+(56)
+200+ bought in past month
+₹1,04,990
+M.R.P:
+₹1,39,201 (25% off)
+Save extra with No Cost EMI
+FREE delivery Thu, 26 Nov
+Or fastest delivery Tomorrow 8 am - 12 pm
+Service: Device Setup
+Add to cart
+14:58:59 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Laptop_14-58-40 - [verifyingGetItByTomorrowFilterFunctionality_Laptop_14-58-40] Within deliveryElements loop iterating over the products  Within validateDeliveryFilterOptionsWithResult method
+14:58:59 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Laptop_14-58-40 - [verifyingGetItByTomorrowFilterFunctionality_Laptop_14-58-40] Checking if the allowedDateParts have the assert text — index 3, text: HP 15, AMD Ryzen 5 7520U (8GB LPDDR5, 512GB SSD) FHD, Anti-Glare, Micro-Edge, 15.6''/39.6cm, Win11, M365 Basic(1year), Offic24, Silver,1.59kg, fc0805AU, FHD Camera w/Privacy Shutter, Backlit Laptop
+2.6
+(6)
+100+ bought in past month
+₹59,990
+M.R.P:
+₹87,179 (31% off)
+Save extra with No Cost EMI
+FREE delivery Thu, 26 Nov
+Or fastest delivery Tomorrow 8 am - 12 pm
+Service: Device Setup
+Add to cart
+14:58:59 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Laptop_14-58-40 - [verifyingGetItByTomorrowFilterFunctionality_Laptop_14-58-40] Within deliveryElements loop iterating over the products  Within validateDeliveryFilterOptionsWithResult method
+14:58:59 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Laptop_14-58-40 - [verifyingGetItByTomorrowFilterFunctionality_Laptop_14-58-40] Checking if the allowedDateParts have the assert text — index 4, text: HP Victus,13th Gen Intel core i7-13650HX, 6GB RTX 4050, 24GB DDR5(Upgradeable), 512GB SSD, 144Hz, 300 nits, 15.6''/39.6cm, Win11, Office24, Mica Silver, 2.29kg, fa2531/2495tx, Xbox pass* Gaming Laptop
+3.3
+(21)
+100+ bought in past month
+₹1,46,990
+Save extra with No Cost EMI
+FREE delivery Thu, 26 Nov
+Or fastest delivery Tomorrow 8 am - 12 pm
+Service: Device Setup
+Add to cart
+14:58:59 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Laptop_14-58-40 - [verifyingGetItByTomorrowFilterFunctionality_Laptop_14-58-40] Within deliveryElements loop iterating over the products  Within validateDeliveryFilterOptionsWithResult method
+14:58:59 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Laptop_14-58-40 - [verifyingGetItByTomorrowFilterFunctionality_Laptop_14-58-40] Checking if the allowedDateParts have the assert text — index 5, text: HP Smartchoice Victus, 13th Gen i7-13620H, 6GB RTX 4050, 16GB DDR4(Upgradeable) 512GB SSD, 144Hz, 300nits, 15.6''/39.6cm, Win11, Office24, Mica Silver, 2.3kg, fa2100tx, Xbox Gamepass* Gaming Laptop
+4.0
+(185)
+₹1,38,490
+M.R.P:
+₹3,21,640 (57% off)
+Save extra with No Cost EMI
+FREE delivery Thu, 26 Nov
+Or fastest delivery Tomorrow 8 am - 12 pm
+Service: Device Setup
+Add to cart
+14:58:59 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Laptop_14-58-40 - [verifyingGetItByTomorrowFilterFunctionality_Laptop_14-58-40] Within deliveryElements loop iterating over the products  Within validateDeliveryFilterOptionsWithResult method
+14:58:59 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Laptop_14-58-40 - [verifyingGetItByTomorrowFilterFunctionality_Laptop_14-58-40] Checking if the allowedDateParts have the assert text — index 6, text: ASUS Chromebook CM1405 (2026), Smartchoice, MediaTek Kompanio 540 Processor, 4GB RAM, 64GB SSD, FHD, 14"(35.5 cm), 60Hz, Chrome OS, Pure Grey, 1.37 Kg, CM1405CM4A-S60034, Thin & Light Laptop
+3.8
+(81)
+500+ bought in past month
+₹28,990
+M.R.P:
+₹37,990 (24% off)
+Save extra with No Cost EMI
+FREE delivery Thu, 26 Nov
+Or fastest delivery Tomorrow 8 am - 12 pm
+Service: Device Setup
+Add to cart
+14:58:59 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Laptop_14-58-40 - [verifyingGetItByTomorrowFilterFunctionality_Laptop_14-58-40] Within deliveryElements loop iterating over the products  Within validateDeliveryFilterOptionsWithResult method
+14:58:59 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Laptop_14-58-40 - [verifyingGetItByTomorrowFilterFunctionality_Laptop_14-58-40] Checking if the allowedDateParts have the assert text — index 7, text: HP 15,(i3 14th Gen) Intel Core 3 100U (8GB DDR5, 512GB SSD) Micro-edge, Anti-Glare, 15.6''/39.6cm, Win11, M365* Office24, Silver, 1.59kg, fd1225tu/fd1145/fd1668/fd1652, FHD Camera,Dual speakers Laptop
+3.3
+(19)
+₹68,990
+M.R.P:
+₹89,697 (23% off)
+Save extra with No Cost EMI
+FREE delivery Thu, 26 Nov
+Or fastest delivery Tomorrow 8 am - 12 pm
+Service: Device Setup
+Add to cart
+14:58:59 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Laptop_14-58-40 - [verifyingGetItByTomorrowFilterFunctionality_Laptop_14-58-40] Within deliveryElements loop iterating over the products  Within validateDeliveryFilterOptionsWithResult method
+14:58:59 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Laptop_14-58-40 - [verifyingGetItByTomorrowFilterFunctionality_Laptop_14-58-40] Checking if the allowedDateParts have the assert text — index 8, text: Lenovo IdeaPad Slim 3, AMD Ryzen 5 40, 16GB RAM, 512GB SSD, FHD Thin and Light Laptop, 15.6" (39.6cm), Windows 11, Microsoft 365 Basic + Office 2024, Grey, 1.6Kg, 82XQ01HQIN, Backlit Keyboard, Laptop
+3.6
+(25)
+100+ bought in past month
+₹72,290
+Save extra with No Cost EMI
+FREE delivery Thu, 26 Nov
+Or fastest delivery Tomorrow 8 am - 12 pm
+Service: Device Setup
+Add to cart
+14:58:59 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Laptop_14-58-40 - [verifyingGetItByTomorrowFilterFunctionality_Laptop_14-58-40] Within deliveryElements loop iterating over the products  Within validateDeliveryFilterOptionsWithResult method
+14:58:59 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Laptop_14-58-40 - [verifyingGetItByTomorrowFilterFunctionality_Laptop_14-58-40] Checking if the allowedDateParts have the assert text — index 9, text: ASUS ROG Strix G16 (2025), AMD Ryzen 9 8940HX, RTX 5050-8GB, 16GB RAM, 1TB SSD, FHD+, 16", 40 cm, Windows 11 Home, M365 Basic(1yr)* Office24, Eclipse Gray, 2.5 Kg, G614PH-RV073WS, Gaming Laptop
+4.1
+(19)
+Limited time deal
+₹2,19,990
+M.R.P:
+₹2,60,990 (16% off)
+Save extra with No Cost EMI
+FREE delivery Thu, 26 Nov
+Or fastest delivery Tomorrow 8 am - 12 pm
+Service: Device Setup
+Add to cart
+14:58:59 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Laptop_14-58-40 - [verifyingGetItByTomorrowFilterFunctionality_Laptop_14-58-40] Within deliveryElements loop iterating over the products  Within validateDeliveryFilterOptionsWithResult method
+14:58:59 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Laptop_14-58-40 - [verifyingGetItByTomorrowFilterFunctionality_Laptop_14-58-40] Checking if the allowedDateParts have the assert text — index 10, text: Lenovo Idea Tab (Smartchoice) with Folio Keyboard + Tab Pen | Wi-Fi + 5G |11" Display, 2.5K Resolution, 90Hz Refresh|8GB RAM, 256GB ROM| MediaTek Dimensity 6300| 7040mAh|4 Speakers| USB-C| Luna Grey
+4.3
+(150)
+1K+ bought in past month
+₹38,999
+M.R.P:
+₹52,000 (25% off)
+Flat INR 500 Off on ALL Banks Cards
+FREE delivery Thu, 26 Nov
+Or fastest delivery Tomorrow 8 am - 12 pm
+Add to cart
+14:58:59 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Laptop_14-58-40 - [verifyingGetItByTomorrowFilterFunctionality_Laptop_14-58-40] Within deliveryElements loop iterating over the products  Within validateDeliveryFilterOptionsWithResult method
+14:58:59 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Laptop_14-58-40 - [verifyingGetItByTomorrowFilterFunctionality_Laptop_14-58-40] Checking if the allowedDateParts have the assert text — index 11, text: Zebronics-NS1000 Laptop Stand Featuring Foldable Design, Anti-Slip Silicone Rubber Pads, Supports Maximum of 5kgs Weight, 6 Adjustable Levels.
+3.5
+(5.9K)
+5K+ bought in past month
+₹229
+M.R.P:
+₹1,399 (84% off)
+Up to 5% back with Amazon Pay ICI...
+FREE delivery Thu, 26 Nov on ₹499 of items fulfilled by Amazon
+Or fastest delivery Tomorrow 8 am - 12 pm
+Add to cart
+14:58:59 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Laptop_14-58-40 - [verifyingGetItByTomorrowFilterFunctionality_Laptop_14-58-40] Within deliveryElements loop iterating over the products  Within validateDeliveryFilterOptionsWithResult method
+14:58:59 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Laptop_14-58-40 - [verifyingGetItByTomorrowFilterFunctionality_Laptop_14-58-40] Checking if the allowedDateParts have the assert text — index 12, text: Dyazo 6 Angles Adjustable Aluminum Ergonomic Foldable Portable Tabletop Laptop/Desktop Riser Stand Holder Compatible for MacBook, HP, Dell, Lenovo & All Other Notebook (Silver)
+4.2
+(21.2K)
+5K+ bought in past month
+Limited time deal
+₹349
+M.R.P:
+₹1,999 (83% off)
+Flat INR 25 Off on ALL BanksCards
+FREE delivery Thu, 26 Nov on ₹499 of items fulfilled by Amazon
+Or fastest delivery Tomorrow 8 am - 12 pm
+Add to cart
+14:58:59 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Laptop_14-58-40 - [verifyingGetItByTomorrowFilterFunctionality_Laptop_14-58-40] Within deliveryElements loop iterating over the products  Within validateDeliveryFilterOptionsWithResult method
+14:58:59 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Laptop_14-58-40 - [verifyingGetItByTomorrowFilterFunctionality_Laptop_14-58-40] Checking if the allowedDateParts have the assert text — index 13, text: STRIFF 2-in-1 Laptop and Mobile Stand, Ergonomic, Adjustable Height, Anti-Slip Base, Heat Dissipation, Portable, Lightweight, Compatible with All Laptops Up to 15.6" (Abs, Black)
+4.2
+(55.8K)
+4K+ bought in past month
+₹229
+M.R.P:
+₹1,499 (85% off)
+Up to 5% back with Amazon Pay ICI...
+FREE delivery Thu, 26 Nov on ₹499 of items fulfilled by Amazon
+Or fastest delivery Tomorrow 8 am - 12 pm
+Add to cart
+14:58:59 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Laptop_14-58-40 - [verifyingGetItByTomorrowFilterFunctionality_Laptop_14-58-40] Within deliveryElements loop iterating over the products  Within validateDeliveryFilterOptionsWithResult method
+14:59:00 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Laptop_14-58-40 - [verifyingGetItByTomorrowFilterFunctionality_Laptop_14-58-40] Checking if the allowedDateParts have the assert text — index 14, text: Portronics My Buddy K Portable Laptop Stand with Adjustable Height, Foldable, OverHeating Protection for Laptops & MacBooks (Grey)
+4.2
+(9.5K)
+5K+ bought in past month
+₹407
+M.R.P:
+₹1,999 (80% off)
+Flat INR 25 Off on ALL BanksCards
+FREE delivery Thu, 26 Nov on ₹499 of items fulfilled by Amazon
+Or fastest delivery Tomorrow 8 am - 12 pm
+Add to cart
+14:59:00 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Laptop_14-58-40 - [verifyingGetItByTomorrowFilterFunctionality_Laptop_14-58-40] Within deliveryElements loop iterating over the products  Within validateDeliveryFilterOptionsWithResult method
+14:59:00 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Laptop_14-58-40 - [verifyingGetItByTomorrowFilterFunctionality_Laptop_14-58-40] Checking if the allowedDateParts have the assert text — index 15, text: Lenovo Yoga Tab Plus Smartchoice AI Tablet with Pen + Keyboard |12.7" Display, 3K Resolution, 144 Hz|16GB RAM, 512GB ROM|Snapdragon 8 Gen 3|10200 mAh|6 Speakers|USB 3.0 with DP-Out|1Year ADP Free|Teal
+4.4
+(266)
+200+ bought in past month
+₹69,999
+M.R.P:
+₹89,000 (21% off)
+Save extra with No Cost EMI
+FREE delivery Sat, 28 Nov
+Or fastest delivery Tomorrow 8 am - 12 pm
+Add to cart
+14:59:00 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Laptop_14-58-40 - [verifyingGetItByTomorrowFilterFunctionality_Laptop_14-58-40] Returning the list with boolean values   Within validateDeliveryFilterOptionsWithResult method
+14:59:00 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Laptop_14-58-40 - [verifyingGetItByTomorrowFilterFunctionality_Laptop_14-58-40] Asserting delivery filter: isValid=true, index=-1, text=All the things are valid no errors

@@ -1,0 +1,253 @@
+14:59:00 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Tablet_14-59-00 - No existing WebDriver found for current thread. Initializing a new ChromeDriver...
+14:59:00 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Tablet_14-59-00 - WebDriverManager: chromedriver setup OK
+14:59:02 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Tablet_14-59-00 - ChromeDriver initialized successfully for thread: 36
+14:59:05 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Tablet_14-59-00 - [verifyingGetItByTomorrowFilterFunctionality_Tablet_14-59-00] Opening amazon Landing page
+14:59:05 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Tablet_14-59-00 - [verifyingGetItByTomorrowFilterFunctionality_Tablet_14-59-00] Within safeFindElement method
+14:59:06 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Tablet_14-59-00 - [verifyingGetItByTomorrowFilterFunctionality_Tablet_14-59-00]Found the element returning it ,element ->[[ChromeDriver: chrome on windows (c91ef860f35ad5962ac79d27e37e7a18)] -> xpath: //a[@id='nav-logo-sprites']]
+14:59:06 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Tablet_14-59-00 - [verifyingGetItByTomorrowFilterFunctionality_Tablet_14-59-00] clearBlockers took 285 ms
+14:59:07 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Tablet_14-59-00 - [verifyingGetItByTomorrowFilterFunctionality_Tablet_14-59-00] Giving input within the search bar
+14:59:07 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Tablet_14-59-00 - [verifyingGetItByTomorrowFilterFunctionality_Tablet_14-59-00] Within safeClick method
+14:59:10 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Tablet_14-59-00 - [verifyingGetItByTomorrowFilterFunctionality_Tablet_14-59-00] Clicked the  [[ChromeDriver: chrome on windows (c91ef860f35ad5962ac79d27e37e7a18)] -> xpath: //input[@id='nav-search-submit-button']]   using safeClick
+14:59:10 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Tablet_14-59-00 - [verifyingGetItByTomorrowFilterFunctionality_Tablet_14-59-00] Clicking on the submit in the search bar
+14:59:11 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Tablet_14-59-00 - [verifyingGetItByTomorrowFilterFunctionality_Tablet_14-59-00] clearBlockers took 22 ms
+14:59:11 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Tablet_14-59-00 - [verifyingGetItByTomorrowFilterFunctionality_Tablet_14-59-00] Within validateDeliveryFilterOptionsWithResult method
+14:59:11 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Tablet_14-59-00 - [verifyingGetItByTomorrowFilterFunctionality_Tablet_14-59-00] Within safeClick method
+14:59:11 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Tablet_14-59-00 - [verifyingGetItByTomorrowFilterFunctionality_Tablet_14-59-00] Clicked the  [[ChromeDriver: chrome on windows (c91ef860f35ad5962ac79d27e37e7a18)] -> xpath: //span[@class='a-size-base a-color-base puis-bold-weight-text' and text()='Delivery Day']/parent::div/following-sibling::ul//span[@class='a-size-base a-color-base' and text()='Get It by Tomorrow']]   using safeClick
+14:59:11 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Tablet_14-59-00 - [verifyingGetItByTomorrowFilterFunctionality_Tablet_14-59-00] Within getMoreButtonByFilterTypeAndName method
+14:59:11 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Tablet_14-59-00 - [verifyingGetItByTomorrowFilterFunctionality_Tablet_14-59-00] Clicked on By.xpath: //span[@class='a-size-base a-color-base puis-bold-weight-text' and text()='Delivery Day']/parent::div/following-sibling::ul//span[@class='a-size-base a-color-base' and text()='Get It by Tomorrow']
+14:59:13 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Tablet_14-59-00 - [verifyingGetItByTomorrowFilterFunctionality_Tablet_14-59-00] Within safeFindElements 
+14:59:13 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Tablet_14-59-00 - [verifyingGetItByTomorrowFilterFunctionality_Tablet_14-59-00] Returning the  [[[ChromeDriver: chrome on windows (c91ef860f35ad5962ac79d27e37e7a18)] -> xpath: //div[@class='a-section a-spacing-small a-spacing-top-small']], [[ChromeDriver: chrome on windows (c91ef860f35ad5962ac79d27e37e7a18)] -> xpath: //div[@class='a-section a-spacing-small a-spacing-top-small']], [[ChromeDriver: chrome on windows (c91ef860f35ad5962ac79d27e37e7a18)] -> xpath: //div[@class='a-section a-spacing-small a-spacing-top-small']], [[ChromeDriver: chrome on windows (c91ef860f35ad5962ac79d27e37e7a18)] -> xpath: //div[@class='a-section a-spacing-small a-spacing-top-small']], [[ChromeDriver: chrome on windows (c91ef860f35ad5962ac79d27e37e7a18)] -> xpath: //div[@class='a-section a-spacing-small a-spacing-top-small']], [[ChromeDriver: chrome on windows (c91ef860f35ad5962ac79d27e37e7a18)] -> xpath: //div[@class='a-section a-spacing-small a-spacing-top-small']], [[ChromeDriver: chrome on windows (c91ef860f35ad5962ac79d27e37e7a18)] -> xpath: //div[@class='a-section a-spacing-small a-spacing-top-small']], [[ChromeDriver: chrome on windows (c91ef860f35ad5962ac79d27e37e7a18)] -> xpath: //div[@class='a-section a-spacing-small a-spacing-top-small']], [[ChromeDriver: chrome on windows (c91ef860f35ad5962ac79d27e37e7a18)] -> xpath: //div[@class='a-section a-spacing-small a-spacing-top-small']], [[ChromeDriver: chrome on windows (c91ef860f35ad5962ac79d27e37e7a18)] -> xpath: //div[@class='a-section a-spacing-small a-spacing-top-small']], [[ChromeDriver: chrome on windows (c91ef860f35ad5962ac79d27e37e7a18)] -> xpath: //div[@class='a-section a-spacing-small a-spacing-top-small']], [[ChromeDriver: chrome on windows (c91ef860f35ad5962ac79d27e37e7a18)] -> xpath: //div[@class='a-section a-spacing-small a-spacing-top-small']], [[ChromeDriver: chrome on windows (c91ef860f35ad5962ac79d27e37e7a18)] -> xpath: //div[@class='a-section a-spacing-small a-spacing-top-small']], [[ChromeDriver: chrome on windows (c91ef860f35ad5962ac79d27e37e7a18)] -> xpath: //div[@class='a-section a-spacing-small a-spacing-top-small']], [[ChromeDriver: chrome on windows (c91ef860f35ad5962ac79d27e37e7a18)] -> xpath: //div[@class='a-section a-spacing-small a-spacing-top-small']], [[ChromeDriver: chrome on windows (c91ef860f35ad5962ac79d27e37e7a18)] -> xpath: //div[@class='a-section a-spacing-small a-spacing-top-small']], [[ChromeDriver: chrome on windows (c91ef860f35ad5962ac79d27e37e7a18)] -> xpath: //div[@class='a-section a-spacing-small a-spacing-top-small']], [[ChromeDriver: chrome on windows (c91ef860f35ad5962ac79d27e37e7a18)] -> xpath: //div[@class='a-section a-spacing-small a-spacing-top-small']], [[ChromeDriver: chrome on windows (c91ef860f35ad5962ac79d27e37e7a18)] -> xpath: //div[@class='a-section a-spacing-small a-spacing-top-small']]] from the safeFindElements method
+14:59:13 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Tablet_14-59-00 - [verifyingGetItByTomorrowFilterFunctionality_Tablet_14-59-00] Created hashset with required data to assert with Within validateDeliveryFilterOptionsWithResult method
+14:59:13 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Tablet_14-59-00 - [verifyingGetItByTomorrowFilterFunctionality_Tablet_14-59-00] this is the set  [Today, 25 Nov, 24 Nov, Tomorrow]
+14:59:13 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Tablet_14-59-00 - [verifyingGetItByTomorrowFilterFunctionality_Tablet_14-59-00] Within deliveryElements loop iterating over the products  Within validateDeliveryFilterOptionsWithResult method
+14:59:13 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Tablet_14-59-00 - [verifyingGetItByTomorrowFilterFunctionality_Tablet_14-59-00] Checking if the allowedDateParts have the assert text — index 0, text: Sponsored
+Xiaomi Pad 8 Creator's Edition with Focus Pen Pro, 11.2 -inch (28.44 CM), LCD 3.2K, 12GB RAM, 256GB ROM, Wi-Fi, Quad Speakers Dolby Atmos, Graphite Grey, AI Enabled
+4.4
+(201)
+400+ bought in past month
+₹52,999
+M.R.P:
+₹63,999 (17% off)
+Save extra with No Cost EMI
+FREE delivery Thu, 26 Nov
+Or fastest delivery Tomorrow 8 am - 12 pm
+Add to cart
++1 other color/pattern
+14:59:13 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Tablet_14-59-00 - [verifyingGetItByTomorrowFilterFunctionality_Tablet_14-59-00] Within deliveryElements loop iterating over the products  Within validateDeliveryFilterOptionsWithResult method
+14:59:13 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Tablet_14-59-00 - [verifyingGetItByTomorrowFilterFunctionality_Tablet_14-59-00] Checking if the allowedDateParts have the assert text — index 1, text: Sponsored
+Lenovo Idea Tab (Smartchoice) with Tab Pen | WiFi Only |11" 2.5K IPS Display |6GB RAM + 128GB ROM (Expandable Upto 2TB)| MediaTek Dimensity 6300|7040mAh|4 Speakers| Grey
+4.1
+(134)
+2K+ bought in past month
+₹27,999
+M.R.P:
+₹48,000 (42% off)
+Flat INR 500 Off on ALL Banks Cards
+FREE delivery Thu, 26 Nov
+Or fastest delivery Tomorrow 8 am - 12 pm
+Add to cart
+14:59:13 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Tablet_14-59-00 - [verifyingGetItByTomorrowFilterFunctionality_Tablet_14-59-00] Within deliveryElements loop iterating over the products  Within validateDeliveryFilterOptionsWithResult method
+14:59:13 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Tablet_14-59-00 - [verifyingGetItByTomorrowFilterFunctionality_Tablet_14-59-00] Checking if the allowedDateParts have the assert text — index 2, text: Samsung Galaxy Tab A11+ [Smartchoice], 11-inch (27.82 CM), LCD Display, 6GB RAM, 128GB ROM, Wi-Fi, Quad Speakers, Dolby Atmos, Silver, AI Enabled
+4.5
+(382)
+1K+ bought in past month
+₹21,999
+M.R.P:
+₹27,999 (21% off)
+Save extra with No Cost EMI
+FREE delivery Thu, 26 Nov
+Or fastest delivery Tomorrow 8 am - 12 pm
+Add to cart
+14:59:13 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Tablet_14-59-00 - [verifyingGetItByTomorrowFilterFunctionality_Tablet_14-59-00] Within deliveryElements loop iterating over the products  Within validateDeliveryFilterOptionsWithResult method
+14:59:13 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Tablet_14-59-00 - [verifyingGetItByTomorrowFilterFunctionality_Tablet_14-59-00] Checking if the allowedDateParts have the assert text — index 3, text: Redmi Pad 2, 11-inch (27.94 CM), LCD Display - 2.5K Sharp & Clear, 4GB RAM, 128GB ROM, Wi-Fi, Quad Speakers, Dolby Atmos, Sky Blue, AI Enabled
+4.2
+(277)
+500+ bought in past month
+₹20,999
+Save extra with No Cost EMI
+FREE delivery Thu, 26 Nov
+Or fastest delivery Tomorrow 8 am - 12 pm
+Add to cart
+14:59:13 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Tablet_14-59-00 - [verifyingGetItByTomorrowFilterFunctionality_Tablet_14-59-00] Within deliveryElements loop iterating over the products  Within validateDeliveryFilterOptionsWithResult method
+14:59:13 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Tablet_14-59-00 - [verifyingGetItByTomorrowFilterFunctionality_Tablet_14-59-00] Checking if the allowedDateParts have the assert text — index 4, text: Sponsored
+Redmi Pad 2, 11-inch (27.94 CM), LCD Display - 2.5K Sharp & Clear, 4GB RAM, 128GB ROM, Wi-Fi, Quad Speakers, Dolby Atmos, Sky Blue, AI Enabled
+4.2
+(277)
+500+ bought in past month
+₹20,999
+Save extra with No Cost EMI
+FREE delivery Thu, 26 Nov
+Or fastest delivery Tomorrow 8 am - 12 pm
+Add to cart
++2 other colors/patterns
+14:59:13 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Tablet_14-59-00 - [verifyingGetItByTomorrowFilterFunctionality_Tablet_14-59-00] Within deliveryElements loop iterating over the products  Within validateDeliveryFilterOptionsWithResult method
+14:59:13 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Tablet_14-59-00 - [verifyingGetItByTomorrowFilterFunctionality_Tablet_14-59-00] Checking if the allowedDateParts have the assert text — index 5, text: Lenovo Tab (Smartchoice) | 10.1 Inch Display| Wi-Fi Only| 4 GB RAM + 64 GB ROM (Expandable up to 1 TB)| Metal Body| Dual Speakers with Dolby Atmos| Android 14| Color: Polar Blue
+4.3
+(691)
+1K+ bought in past month
+₹17,999
+M.R.P:
+₹18,000
+Flat INR 500 Off on ALL Banks Cards
+FREE delivery Thu, 26 Nov
+Or fastest delivery Tomorrow 8 am - 12 pm
+Add to cart
+14:59:13 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Tablet_14-59-00 - [verifyingGetItByTomorrowFilterFunctionality_Tablet_14-59-00] Within deliveryElements loop iterating over the products  Within validateDeliveryFilterOptionsWithResult method
+14:59:13 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Tablet_14-59-00 - [verifyingGetItByTomorrowFilterFunctionality_Tablet_14-59-00] Checking if the allowedDateParts have the assert text — index 6, text: OnePlus, Pad Go 2, 12.1 inch (30.73 CM), LCD, 8GB RAM, 128GB ROM, Wi-Fi, Quad Speakers, Eye Care,Shadow Black, AI Enabled
+4.3
+(1.1K)
+1K+ bought in past month
+₹29,447
+M.R.P:
+₹29,999 (2% off)
+Up to 5% back with Amazon Pay ICI...
+FREE delivery Fri, 27 Nov
+Or fastest delivery Tomorrow 8 am - 12 pm
+Add to cart
+14:59:13 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Tablet_14-59-00 - [verifyingGetItByTomorrowFilterFunctionality_Tablet_14-59-00] Within deliveryElements loop iterating over the products  Within validateDeliveryFilterOptionsWithResult method
+14:59:13 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Tablet_14-59-00 - [verifyingGetItByTomorrowFilterFunctionality_Tablet_14-59-00] Checking if the allowedDateParts have the assert text — index 7, text: Lenovo Idea Tab Plus with Pen|Wifi + 5G|12.1 inches 2.5K Display,800nits Peak Brightness|12GB RAM+256GB ROM(Expandable upto 2TB)|MediaTek Dimensity 6400| 10200mAh|4 Speakers with Dolby Atmos|Luna Grey
+4.2
+(203)
+500+ bought in past month
+₹39,534
+M.R.P:
+₹45,000 (12% off)
+Save extra with No Cost EMI
+FREE delivery Thu, 26 Nov
+Or fastest delivery Tomorrow 8 am - 12 pm
+Add to cart
+14:59:13 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Tablet_14-59-00 - [verifyingGetItByTomorrowFilterFunctionality_Tablet_14-59-00] Within deliveryElements loop iterating over the products  Within validateDeliveryFilterOptionsWithResult method
+14:59:14 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Tablet_14-59-00 - [verifyingGetItByTomorrowFilterFunctionality_Tablet_14-59-00] Checking if the allowedDateParts have the assert text — index 8, text: Samsung Galaxy Tab S10 Plus [Smartchoice], S Pen in-Box, 31.5 cm (12.4 inch) Dynamic AMOLED 2X Display, 12 GB RAM, 256 GB Storage, Wi-Fi Tablet, Moonstone Gray
+4.5
+(104)
+300+ bought in past month
+Limited time deal
+₹77,999
+M.R.P:
+₹1,01,999 (24% off)
+Save extra with No Cost EMI
+FREE delivery Thu, 26 Nov
+Or fastest delivery Tomorrow 8 am - 12 pm
+Add to cart
+14:59:14 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Tablet_14-59-00 - [verifyingGetItByTomorrowFilterFunctionality_Tablet_14-59-00] Within deliveryElements loop iterating over the products  Within validateDeliveryFilterOptionsWithResult method
+14:59:14 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Tablet_14-59-00 - [verifyingGetItByTomorrowFilterFunctionality_Tablet_14-59-00] Checking if the allowedDateParts have the assert text — index 9, text: Samsung Galaxy Tab S10 Lite [Smartchoice], 10.9-inch (27.7 CM), LCD Display, 6GB RAM, 128GB ROM, Wi-Fi+5G, Dual Speakers, S Pen, Gray, AI Enabled
+4.4
+(350)
+500+ bought in past month
+₹36,987
+M.R.P:
+₹41,999 (12% off)
+Save extra with No Cost EMI
+FREE delivery Thu, 26 Nov
+Or fastest delivery Tomorrow 8 am - 12 pm
+Add to cart
+14:59:14 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Tablet_14-59-00 - [verifyingGetItByTomorrowFilterFunctionality_Tablet_14-59-00] Within deliveryElements loop iterating over the products  Within validateDeliveryFilterOptionsWithResult method
+14:59:14 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Tablet_14-59-00 - [verifyingGetItByTomorrowFilterFunctionality_Tablet_14-59-00] Checking if the allowedDateParts have the assert text — index 10, text: Lenovo Idea Tab (Smartchoice) with Tab Pen | WiFi Only |11" 2.5K IPS Display |6GB RAM + 128GB ROM (Expandable Upto 2TB)| MediaTek Dimensity 6300|7040mAh|4 Speakers| Grey
+4.1
+(134)
+2K+ bought in past month
+₹27,999
+M.R.P:
+₹48,000 (42% off)
+Flat INR 500 Off on ALL Banks Cards
+FREE delivery Thu, 26 Nov
+Or fastest delivery Tomorrow 8 am - 12 pm
+Add to cart
+14:59:14 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Tablet_14-59-00 - [verifyingGetItByTomorrowFilterFunctionality_Tablet_14-59-00] Within deliveryElements loop iterating over the products  Within validateDeliveryFilterOptionsWithResult method
+14:59:14 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Tablet_14-59-00 - [verifyingGetItByTomorrowFilterFunctionality_Tablet_14-59-00] Checking if the allowedDateParts have the assert text — index 11, text: Lenovo Idea Tab Smartchoice |11-inch 2.5K Clear Display, 90Hz Refresh Rate, 8GB RAM, 256GB ROM| MediaTek Dimensity 6300| 7040mAh Battery|4 Speakers| USB-C |Wi-Fi |AI-Enabled, Dolby Atmos, Luna Grey
+4.5
+(447)
+300+ bought in past month
+₹29,999
+M.R.P:
+₹35,000 (14% off)
+Flat INR 500 Off on ALL Banks Cards
+FREE delivery Thu, 26 Nov
+Or fastest delivery Tomorrow 8 am - 12 pm
+Add to cart
+14:59:14 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Tablet_14-59-00 - [verifyingGetItByTomorrowFilterFunctionality_Tablet_14-59-00] Within deliveryElements loop iterating over the products  Within validateDeliveryFilterOptionsWithResult method
+14:59:14 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Tablet_14-59-00 - [verifyingGetItByTomorrowFilterFunctionality_Tablet_14-59-00] Checking if the allowedDateParts have the assert text — index 12, text: Lenovo Idea Tab Pro Gen 2 with Pen Plus {Smartchoice} 13" Display, 3.5K Resolution, 144Hz Refresh | 8GB, 256GB | Snapdragon 8s Gen 4 | 10200mAh, 4 JBL Speakers, USB 3.0 with DP-Out, Wi-Fi 7, Luna Grey
+4.2
+(287)
+1K+ bought in past month
+₹49,999
+M.R.P:
+₹70,000 (29% off)
+Flat INR 500 Off on ALL Banks Cards
+FREE delivery Thu, 26 Nov
+Or fastest delivery Tomorrow 8 am - 12 pm
+Add to cart
+14:59:14 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Tablet_14-59-00 - [verifyingGetItByTomorrowFilterFunctionality_Tablet_14-59-00] Within deliveryElements loop iterating over the products  Within validateDeliveryFilterOptionsWithResult method
+14:59:14 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Tablet_14-59-00 - [verifyingGetItByTomorrowFilterFunctionality_Tablet_14-59-00] Checking if the allowedDateParts have the assert text — index 13, text: Lenovo Idea Tab Pro Gen 2 (Smartchoice) with Pen Plus | 13" Display, 3.5K Resolution, 144 Hz Refresh |12GB, 256GB | Snapdragon 8s Gen 4 | 10200mAh | 4 JBL Speakers | USB 3.0 with DP-Out | Wi-Fi 7
+4.0
+(98)
+500+ bought in past month
+₹54,999
+M.R.P:
+₹75,000 (27% off)
+Flat INR 500 Off on ALL Banks Cards
+FREE delivery Thu, 26 Nov
+Or fastest delivery Tomorrow 8 am - 12 pm
+Add to cart
+14:59:14 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Tablet_14-59-00 - [verifyingGetItByTomorrowFilterFunctionality_Tablet_14-59-00] Within deliveryElements loop iterating over the products  Within validateDeliveryFilterOptionsWithResult method
+14:59:14 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Tablet_14-59-00 - [verifyingGetItByTomorrowFilterFunctionality_Tablet_14-59-00] Checking if the allowedDateParts have the assert text — index 14, text: Lenovo Idea Tab ( Smartchoice) with Tab Pen | WiFi+5G |11" 2.5K IPS Display |6GB RAM + 128GB ROM (Expandable Upto 2TB)| MediaTek Dimensity 6300|7040mAh|4 Speakers| Grey
+3.9
+(96)
+2K+ bought in past month
+₹30,862
+M.R.P:
+₹53,000 (42% off)
+Flat INR 500 Off on ALL Banks Cards
+FREE delivery Thu, 26 Nov
+Or fastest delivery Tomorrow 8 am - 12 pm
+Add to cart
+14:59:14 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Tablet_14-59-00 - [verifyingGetItByTomorrowFilterFunctionality_Tablet_14-59-00] Within deliveryElements loop iterating over the products  Within validateDeliveryFilterOptionsWithResult method
+14:59:14 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Tablet_14-59-00 - [verifyingGetItByTomorrowFilterFunctionality_Tablet_14-59-00] Checking if the allowedDateParts have the assert text — index 15, text: Xiaomi Pad 8 Nano Texture, 11.2 -inch (28.44 CM), LCD 3.2K, 12GB RAM, 256GB ROM, Wi-Fi, Quad Speakers Dolby Atmos, Supports Focus Pen Pro, Graphite Grey, AI Enabled
+4.4
+(133)
+200+ bought in past month
+₹49,999
+M.R.P:
+₹59,999 (17% off)
+Save extra with No Cost EMI
+FREE delivery Fri, 27 Nov
+Or fastest delivery Tomorrow 8 am - 12 pm
+Add to cart
+14:59:14 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Tablet_14-59-00 - [verifyingGetItByTomorrowFilterFunctionality_Tablet_14-59-00] Within deliveryElements loop iterating over the products  Within validateDeliveryFilterOptionsWithResult method
+14:59:14 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Tablet_14-59-00 - [verifyingGetItByTomorrowFilterFunctionality_Tablet_14-59-00] Checking if the allowedDateParts have the assert text — index 16, text: Lenovo Yoga Tab Plus Smartchoice AI Tablet with Pen + Keyboard |12.7" Display, 3K Resolution, 144 Hz|16GB RAM, 512GB ROM|Snapdragon 8 Gen 3|10200 mAh|6 Speakers|USB 3.0 with DP-Out|1Year ADP Free|Teal
+4.4
+(266)
+200+ bought in past month
+₹69,999
+M.R.P:
+₹89,000 (21% off)
+Save extra with No Cost EMI
+FREE delivery Sat, 28 Nov
+Or fastest delivery Tomorrow 8 am - 12 pm
+Add to cart
+14:59:14 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Tablet_14-59-00 - [verifyingGetItByTomorrowFilterFunctionality_Tablet_14-59-00] Within deliveryElements loop iterating over the products  Within validateDeliveryFilterOptionsWithResult method
+14:59:14 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Tablet_14-59-00 - [verifyingGetItByTomorrowFilterFunctionality_Tablet_14-59-00] Checking if the allowedDateParts have the assert text — index 17, text: Xiaomi Pad 8 Nano Texture, 11.2 -inch (28.44 CM), LCD 3.2K, 12GB RAM, 256GB ROM, Wi-Fi, Quad Speakers Dolby Atmos, Supports Focus Pen Pro, Titanium Blue, AI Enabled
+4.4
+(133)
+100+ bought in past month
+₹49,999
+M.R.P:
+₹59,999 (17% off)
+Save extra with No Cost EMI
+FREE delivery Thu, 26 Nov
+Or fastest delivery Tomorrow 8 am - 12 pm
+Add to cart
+14:59:14 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Tablet_14-59-00 - [verifyingGetItByTomorrowFilterFunctionality_Tablet_14-59-00] Within deliveryElements loop iterating over the products  Within validateDeliveryFilterOptionsWithResult method
+14:59:14 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Tablet_14-59-00 - [verifyingGetItByTomorrowFilterFunctionality_Tablet_14-59-00] Checking if the allowedDateParts have the assert text — index 18, text: Lenovo Tab Plus Gen 2 {Smartchoice} with JBL 9-unit Speaker System, Wifi only, 12.1" 2.5K Display, 800nits Peak Brightness |8GB RAM + 256GB ROM (Expandable upto 2TB), MediaTek Dimensity 7400| 10200mAh
+4.5
+(30)
+100+ bought in past month
+₹40,999
+M.R.P:
+₹63,000 (35% off)
+Flat INR 500 Off on ALL Banks Cards
+FREE delivery Thu, 26 Nov
+Or fastest delivery Tomorrow 8 am - 12 pm
+Add to cart
+14:59:14 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Tablet_14-59-00 - [verifyingGetItByTomorrowFilterFunctionality_Tablet_14-59-00] Returning the list with boolean values   Within validateDeliveryFilterOptionsWithResult method
+14:59:14 [TestNG-test-Test-3] INFO  verifyingGetItByTomorrowFilterFunctionality_Tablet_14-59-00 - [verifyingGetItByTomorrowFilterFunctionality_Tablet_14-59-00] Asserting delivery filter: isValid=true, index=-1, text=All the things are valid no errors

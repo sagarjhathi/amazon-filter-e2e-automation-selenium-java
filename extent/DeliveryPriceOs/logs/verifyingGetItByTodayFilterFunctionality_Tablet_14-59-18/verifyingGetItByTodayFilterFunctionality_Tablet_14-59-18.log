@@ -1,0 +1,13 @@
+14:59:18 [TestNG-test-Test-2] INFO  verifyingGetItByTodayFilterFunctionality_Tablet_14-59-18 - No existing WebDriver found for current thread. Initializing a new ChromeDriver...
+14:59:18 [TestNG-test-Test-2] INFO  verifyingGetItByTodayFilterFunctionality_Tablet_14-59-18 - WebDriverManager: chromedriver setup OK
+14:59:20 [TestNG-test-Test-2] INFO  verifyingGetItByTodayFilterFunctionality_Tablet_14-59-18 - ChromeDriver initialized successfully for thread: 35
+14:59:20 [TestNG-test-Test-2] INFO  verifyingGetItByTodayFilterFunctionality_Tablet_14-59-18 - [verifyingGetItByTodayFilterFunctionality_Tablet_14-59-18] Opening amazon Landing page
+14:59:21 [TestNG-test-Test-2] INFO  verifyingGetItByTodayFilterFunctionality_Tablet_14-59-18 - [verifyingGetItByTodayFilterFunctionality_Tablet_14-59-18] Within safeFindElement method
+14:59:24 [TestNG-test-Test-2] INFO  verifyingGetItByTodayFilterFunctionality_Tablet_14-59-18 - [verifyingGetItByTodayFilterFunctionality_Tablet_14-59-18]Found the element returning it ,element ->[[ChromeDriver: chrome on windows (ecfea978029ea54a11faec45659f59e7)] -> xpath: //a[@id='nav-logo-sprites']]
+14:59:24 [TestNG-test-Test-2] INFO  verifyingGetItByTodayFilterFunctionality_Tablet_14-59-18 - [verifyingGetItByTodayFilterFunctionality_Tablet_14-59-18] clearBlockers took 130 ms
+14:59:25 [TestNG-test-Test-2] INFO  verifyingGetItByTodayFilterFunctionality_Tablet_14-59-18 - [verifyingGetItByTodayFilterFunctionality_Tablet_14-59-18] Giving input within the search bar
+14:59:25 [TestNG-test-Test-2] INFO  verifyingGetItByTodayFilterFunctionality_Tablet_14-59-18 - [verifyingGetItByTodayFilterFunctionality_Tablet_14-59-18] Within safeClick method
+14:59:29 [TestNG-test-Test-2] INFO  verifyingGetItByTodayFilterFunctionality_Tablet_14-59-18 - [verifyingGetItByTodayFilterFunctionality_Tablet_14-59-18] Clicked the  [[ChromeDriver: chrome on windows (ecfea978029ea54a11faec45659f59e7)] -> xpath: //input[@id='nav-search-submit-button']]   using safeClick
+14:59:29 [TestNG-test-Test-2] INFO  verifyingGetItByTodayFilterFunctionality_Tablet_14-59-18 - [verifyingGetItByTodayFilterFunctionality_Tablet_14-59-18] Clicking on the submit in the search bar
+14:59:29 [TestNG-test-Test-2] INFO  verifyingGetItByTodayFilterFunctionality_Tablet_14-59-18 - [verifyingGetItByTodayFilterFunctionality_Tablet_14-59-18] clearBlockers took 20 ms
+14:59:39 [TestNG-test-Test-2] WARN  verifyingGetItByTodayFilterFunctionality_Tablet_14-59-18 - [verifyingGetItByTodayFilterFunctionality_Tablet_14-59-18]  Filter option 'Get It Today' does not exist. Skipping the test.

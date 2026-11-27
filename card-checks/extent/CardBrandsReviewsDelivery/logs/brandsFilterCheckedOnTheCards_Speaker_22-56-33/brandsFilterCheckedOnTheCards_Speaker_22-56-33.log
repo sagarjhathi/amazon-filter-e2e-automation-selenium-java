@@ -1,0 +1,467 @@
+22:56:33 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - No existing WebDriver found for current thread. Initializing a new ChromeDriver...
+22:56:33 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - WebDriverManager: chromedriver setup OK
+22:56:35 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - ChromeDriver initialized successfully for thread: 35
+22:56:35 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] TEST: Speaker: Brands filter, checked on the cards
+22:56:35 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] ==================== RULE: Speaker Brands: every option is applied; the brand, or a known alias of it, is a whole word of the card's title; at least 90% of the cards must fit ====================
+22:56:36 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] Opening amazon Landing page
+22:56:36 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] Within safeFindElement method
+22:56:36 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33]Found the element returning it ,element ->[[ChromeDriver: chrome on windows (303eccd7ada56abe093243ed7e22d7d0)] -> xpath: //a[@id='nav-logo-sprites']]
+22:56:36 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] clearBlockers took 7 ms
+22:56:37 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] Giving input within the search bar
+22:56:37 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] Within safeClick method
+22:56:38 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] Clicked the  [[ChromeDriver: chrome on windows (303eccd7ada56abe093243ed7e22d7d0)] -> xpath: //input[@id='nav-search-submit-button']]   using safeClick
+22:56:38 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] Clicking on the submit in the search bar
+22:56:38 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] clearBlockers took 53 ms
+22:56:38 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] SEARCH 'Speaker' -> https://www.amazon.in/s?k=Speaker&crid=1LKGM2HD0J0DY&sprefix=%2Caps%2C281&ref=nb_sb_noss
+22:56:38 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] Within filterCheckUnderList method
+22:56:39 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] Found the Filter within the filter check List
+22:56:40 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] 'Brands' options on the page: [JBL | boAt | Bose | Sony | Marshall | ZEBRONICS | Portronics | PHILIPS | Tribit | YAMAHA | Creative | Edifier | Klipsch | Sonos | pTron | Polk Audio | BLAUPUNKT | Samsung | Intex | Audio-Technica | UBON | Infinity | Artis | PIONEER | Anker | Bowers & Wilkins | Mackie | AKAI | Altec Lansing | MIATONE | Focal | Ant Esports | KEF | GOVO | Jabra | Elac | Nu Republic | Bosch | TRONICA | Clarion]
+22:56:40 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] FILTER 'Brands': checking 40 of 40 option(s)
+22:56:40 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] OPTION 'JBL' (1 of 40)
+22:56:42 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] clearBlockers took 47 ms
+22:56:43 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] 'JBL' applied after 1253 ms
+22:56:45 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] 16 card(s) on screen
+22:56:45 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] 'JBL': 16 card(s): 16 with a price, 16 with a rating, 16 with a printed discount, 16 with a delivery line, 0 with no main offer
+22:56:45 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] Within safeClick method
+22:56:45 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] Clicked the  [[ChromeDriver: chrome on windows (303eccd7ada56abe093243ed7e22d7d0)] -> xpath: //div[@id='s-refinements']//div[@role='group'][div[@role='heading']/span[normalize-space(.)='Brands']]//a[normalize-space(.)='Clear']]   using safeClick
+22:56:45 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] Cleared 'Brands' (the Clear link is gone)
+22:56:45 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] clearBlockers took 36 ms
+22:56:45 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] 'JBL' cleared
+22:56:45 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] OPTION 'boAt' (2 of 40)
+22:56:48 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] clearBlockers took 46 ms
+22:56:49 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] 'boAt' applied after 1307 ms
+22:56:51 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] 16 card(s) on screen
+22:56:51 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] 'boAt': 16 card(s): 16 with a price, 15 with a rating, 16 with a printed discount, 16 with a delivery line, 0 with no main offer
+22:56:51 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] Within safeClick method
+22:56:51 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] Clicked the  [[ChromeDriver: chrome on windows (303eccd7ada56abe093243ed7e22d7d0)] -> xpath: //div[@id='s-refinements']//div[@role='group'][div[@role='heading']/span[normalize-space(.)='Brands']]//a[normalize-space(.)='Clear']]   using safeClick
+22:56:52 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] Cleared 'Brands' (the Clear link is gone)
+22:56:52 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] clearBlockers took 49 ms
+22:56:52 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] 'boAt' cleared
+22:56:52 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] OPTION 'Bose' (3 of 40)
+22:56:54 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] clearBlockers took 45 ms
+22:56:55 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] 'Bose' applied after 1272 ms
+22:56:57 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] 16 card(s) on screen
+22:56:57 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] 'Bose': 16 card(s): 16 with a price, 16 with a rating, 14 with a printed discount, 15 with a delivery line, 0 with no main offer
+22:56:57 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] Within safeClick method
+22:56:57 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] Clicked the  [[ChromeDriver: chrome on windows (303eccd7ada56abe093243ed7e22d7d0)] -> xpath: //div[@id='s-refinements']//div[@role='group'][div[@role='heading']/span[normalize-space(.)='Brands']]//a[normalize-space(.)='Clear']]   using safeClick
+22:56:57 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] Cleared 'Brands' (the Clear link is gone)
+22:56:57 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] clearBlockers took 36 ms
+22:56:57 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] 'Bose' cleared
+22:56:57 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] OPTION 'Sony' (4 of 40)
+22:57:00 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] clearBlockers took 44 ms
+22:57:01 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] 'Sony' applied after 1178 ms
+22:57:03 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] 16 card(s) on screen
+22:57:03 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] 'Sony': 16 card(s): 14 with a price, 16 with a rating, 14 with a printed discount, 14 with a delivery line, 0 with no main offer
+22:57:03 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] Within safeClick method
+22:57:03 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] Clicked the  [[ChromeDriver: chrome on windows (303eccd7ada56abe093243ed7e22d7d0)] -> xpath: //div[@id='s-refinements']//div[@role='group'][div[@role='heading']/span[normalize-space(.)='Brands']]//a[normalize-space(.)='Clear']]   using safeClick
+22:57:03 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] Cleared 'Brands' (the Clear link is gone)
+22:57:03 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] clearBlockers took 36 ms
+22:57:03 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] 'Sony' cleared
+22:57:03 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] OPTION 'Marshall' (5 of 40)
+22:57:06 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] clearBlockers took 41 ms
+22:57:07 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] 'Marshall' applied after 1185 ms
+22:57:09 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] 16 card(s) on screen
+22:57:09 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] 'Marshall': 16 card(s): 15 with a price, 16 with a rating, 9 with a printed discount, 15 with a delivery line, 0 with no main offer
+22:57:09 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] Within safeClick method
+22:57:09 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] Clicked the  [[ChromeDriver: chrome on windows (303eccd7ada56abe093243ed7e22d7d0)] -> xpath: //div[@id='s-refinements']//div[@role='group'][div[@role='heading']/span[normalize-space(.)='Brands']]//a[normalize-space(.)='Clear']]   using safeClick
+22:57:09 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] Cleared 'Brands' (the Clear link is gone)
+22:57:09 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] clearBlockers took 81 ms
+22:57:09 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] 'Marshall' cleared
+22:57:09 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] OPTION 'ZEBRONICS' (6 of 40)
+22:57:12 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] clearBlockers took 49 ms
+22:57:13 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] 'ZEBRONICS' applied after 1247 ms
+22:57:15 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] 16 card(s) on screen
+22:57:15 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] 'ZEBRONICS': 16 card(s): 16 with a price, 16 with a rating, 16 with a printed discount, 16 with a delivery line, 0 with no main offer
+22:57:15 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] Within safeClick method
+22:57:15 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] Clicked the  [[ChromeDriver: chrome on windows (303eccd7ada56abe093243ed7e22d7d0)] -> xpath: //div[@id='s-refinements']//div[@role='group'][div[@role='heading']/span[normalize-space(.)='Brands']]//a[normalize-space(.)='Clear']]   using safeClick
+22:57:15 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] Cleared 'Brands' (the Clear link is gone)
+22:57:15 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] clearBlockers took 47 ms
+22:57:15 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] 'ZEBRONICS' cleared
+22:57:15 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] OPTION 'Portronics' (7 of 40)
+22:57:18 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] clearBlockers took 46 ms
+22:57:19 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] 'Portronics' applied after 1220 ms
+22:57:21 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] 16 card(s) on screen
+22:57:21 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] 'Portronics': 16 card(s): 16 with a price, 16 with a rating, 16 with a printed discount, 16 with a delivery line, 0 with no main offer
+22:57:21 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] Within safeClick method
+22:57:21 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] Clicked the  [[ChromeDriver: chrome on windows (303eccd7ada56abe093243ed7e22d7d0)] -> xpath: //div[@id='s-refinements']//div[@role='group'][div[@role='heading']/span[normalize-space(.)='Brands']]//a[normalize-space(.)='Clear']]   using safeClick
+22:57:21 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] Cleared 'Brands' (the Clear link is gone)
+22:57:21 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] clearBlockers took 57 ms
+22:57:21 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] 'Portronics' cleared
+22:57:21 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] OPTION 'PHILIPS' (8 of 40)
+22:57:24 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] clearBlockers took 38 ms
+22:57:25 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] 'PHILIPS' applied after 1194 ms
+22:57:27 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] 16 card(s) on screen
+22:57:27 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] 'PHILIPS': 16 card(s): 16 with a price, 15 with a rating, 16 with a printed discount, 16 with a delivery line, 0 with no main offer
+22:57:27 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] Within safeClick method
+22:57:27 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] Clicked the  [[ChromeDriver: chrome on windows (303eccd7ada56abe093243ed7e22d7d0)] -> xpath: //div[@id='s-refinements']//div[@role='group'][div[@role='heading']/span[normalize-space(.)='Brands']]//a[normalize-space(.)='Clear']]   using safeClick
+22:57:27 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] Cleared 'Brands' (the Clear link is gone)
+22:57:27 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] clearBlockers took 132 ms
+22:57:27 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] 'PHILIPS' cleared
+22:57:27 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] OPTION 'Tribit' (9 of 40)
+22:57:30 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] clearBlockers took 37 ms
+22:57:31 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] 'Tribit' applied after 1204 ms
+22:57:33 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] 13 card(s) on screen
+22:57:33 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] 'Tribit': 13 card(s): 13 with a price, 13 with a rating, 13 with a printed discount, 13 with a delivery line, 0 with no main offer
+22:57:33 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] Within safeClick method
+22:57:33 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] Clicked the  [[ChromeDriver: chrome on windows (303eccd7ada56abe093243ed7e22d7d0)] -> xpath: //div[@id='s-refinements']//div[@role='group'][div[@role='heading']/span[normalize-space(.)='Brands']]//a[normalize-space(.)='Clear']]   using safeClick
+22:57:33 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] Cleared 'Brands' (the Clear link is gone)
+22:57:33 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] clearBlockers took 39 ms
+22:57:33 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] 'Tribit' cleared
+22:57:33 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] OPTION 'YAMAHA' (10 of 40)
+22:57:35 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] clearBlockers took 50 ms
+22:57:37 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] 'YAMAHA' applied after 1201 ms
+22:57:39 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] 16 card(s) on screen
+22:57:39 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] 'YAMAHA': 16 card(s): 16 with a price, 16 with a rating, 16 with a printed discount, 16 with a delivery line, 0 with no main offer
+22:57:39 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] Within safeClick method
+22:57:39 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] Clicked the  [[ChromeDriver: chrome on windows (303eccd7ada56abe093243ed7e22d7d0)] -> xpath: //div[@id='s-refinements']//div[@role='group'][div[@role='heading']/span[normalize-space(.)='Brands']]//a[normalize-space(.)='Clear']]   using safeClick
+22:57:39 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] Cleared 'Brands' (the Clear link is gone)
+22:57:39 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] clearBlockers took 38 ms
+22:57:39 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] 'YAMAHA' cleared
+22:57:39 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] OPTION 'Creative' (11 of 40)
+22:57:41 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] clearBlockers took 38 ms
+22:57:42 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] 'Creative' applied after 1191 ms
+22:57:45 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] 16 card(s) on screen
+22:57:45 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] 'Creative': 16 card(s): 14 with a price, 16 with a rating, 10 with a printed discount, 14 with a delivery line, 0 with no main offer
+22:57:45 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] Within safeClick method
+22:57:45 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] Clicked the  [[ChromeDriver: chrome on windows (303eccd7ada56abe093243ed7e22d7d0)] -> xpath: //div[@id='s-refinements']//div[@role='group'][div[@role='heading']/span[normalize-space(.)='Brands']]//a[normalize-space(.)='Clear']]   using safeClick
+22:57:45 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] Cleared 'Brands' (the Clear link is gone)
+22:57:45 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] clearBlockers took 38 ms
+22:57:45 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] 'Creative' cleared
+22:57:45 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] OPTION 'Edifier' (12 of 40)
+22:57:47 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] clearBlockers took 44 ms
+22:57:48 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] 'Edifier' applied after 1294 ms
+22:57:51 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] 16 card(s) on screen
+22:57:51 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] 'Edifier': 16 card(s): 16 with a price, 16 with a rating, 15 with a printed discount, 16 with a delivery line, 0 with no main offer
+22:57:51 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] Within safeClick method
+22:57:51 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] Clicked the  [[ChromeDriver: chrome on windows (303eccd7ada56abe093243ed7e22d7d0)] -> xpath: //div[@id='s-refinements']//div[@role='group'][div[@role='heading']/span[normalize-space(.)='Brands']]//a[normalize-space(.)='Clear']]   using safeClick
+22:57:51 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] Cleared 'Brands' (the Clear link is gone)
+22:57:51 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] clearBlockers took 50 ms
+22:57:51 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] 'Edifier' cleared
+22:57:51 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] OPTION 'Klipsch' (13 of 40)
+22:57:53 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] clearBlockers took 41 ms
+22:57:55 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] 'Klipsch' applied after 1777 ms
+22:57:58 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] 22 card(s) on screen
+22:57:58 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] 'Klipsch': 22 card(s): 22 with a price, 22 with a rating, 21 with a printed discount, 22 with a delivery line, 0 with no main offer
+22:57:58 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] Within safeClick method
+22:57:58 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] Clicked the  [[ChromeDriver: chrome on windows (303eccd7ada56abe093243ed7e22d7d0)] -> xpath: //div[@id='s-refinements']//div[@role='group'][div[@role='heading']/span[normalize-space(.)='Brands']]//a[normalize-space(.)='Clear']]   using safeClick
+22:57:58 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] Cleared 'Brands' (the Clear link is gone)
+22:57:58 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] clearBlockers took 46 ms
+22:57:58 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] 'Klipsch' cleared
+22:57:58 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] OPTION 'Sonos' (14 of 40)
+22:58:01 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] clearBlockers took 43 ms
+22:58:02 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] 'Sonos' applied after 1720 ms
+22:58:04 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] 16 card(s) on screen
+22:58:04 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] 'Sonos': 16 card(s): 16 with a price, 16 with a rating, 12 with a printed discount, 16 with a delivery line, 0 with no main offer
+22:58:04 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] Within safeClick method
+22:58:05 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] Clicked the  [[ChromeDriver: chrome on windows (303eccd7ada56abe093243ed7e22d7d0)] -> xpath: //div[@id='s-refinements']//div[@role='group'][div[@role='heading']/span[normalize-space(.)='Brands']]//a[normalize-space(.)='Clear']]   using safeClick
+22:58:05 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] Cleared 'Brands' (the Clear link is gone)
+22:58:05 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] clearBlockers took 38 ms
+22:58:05 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] 'Sonos' cleared
+22:58:05 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] OPTION 'pTron' (15 of 40)
+22:58:07 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] clearBlockers took 53 ms
+22:58:08 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] 'pTron' applied after 1224 ms
+22:58:10 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] 13 card(s) on screen
+22:58:10 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] 'pTron': 13 card(s): 13 with a price, 13 with a rating, 13 with a printed discount, 10 with a delivery line, 0 with no main offer
+22:58:10 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] Within safeClick method
+22:58:10 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] Clicked the  [[ChromeDriver: chrome on windows (303eccd7ada56abe093243ed7e22d7d0)] -> xpath: //div[@id='s-refinements']//div[@role='group'][div[@role='heading']/span[normalize-space(.)='Brands']]//a[normalize-space(.)='Clear']]   using safeClick
+22:58:10 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] Cleared 'Brands' (the Clear link is gone)
+22:58:10 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] clearBlockers took 46 ms
+22:58:10 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] 'pTron' cleared
+22:58:10 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] OPTION 'Polk Audio' (16 of 40)
+22:58:13 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] clearBlockers took 46 ms
+22:58:14 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] 'Polk Audio' applied after 1225 ms
+22:58:16 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] 16 card(s) on screen
+22:58:16 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] 'Polk Audio': 16 card(s): 16 with a price, 16 with a rating, 13 with a printed discount, 16 with a delivery line, 0 with no main offer
+22:58:16 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] Within safeClick method
+22:58:16 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] Clicked the  [[ChromeDriver: chrome on windows (303eccd7ada56abe093243ed7e22d7d0)] -> xpath: //div[@id='s-refinements']//div[@role='group'][div[@role='heading']/span[normalize-space(.)='Brands']]//a[normalize-space(.)='Clear']]   using safeClick
+22:58:16 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] Cleared 'Brands' (the Clear link is gone)
+22:58:16 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] clearBlockers took 45 ms
+22:58:16 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] 'Polk Audio' cleared
+22:58:16 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] OPTION 'BLAUPUNKT' (17 of 40)
+22:58:19 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] clearBlockers took 42 ms
+22:58:20 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] 'BLAUPUNKT' applied after 1202 ms
+22:58:22 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] 16 card(s) on screen
+22:58:22 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] 'BLAUPUNKT': 16 card(s): 15 with a price, 15 with a rating, 15 with a printed discount, 15 with a delivery line, 0 with no main offer
+22:58:22 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] Within safeClick method
+22:58:22 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] Clicked the  [[ChromeDriver: chrome on windows (303eccd7ada56abe093243ed7e22d7d0)] -> xpath: //div[@id='s-refinements']//div[@role='group'][div[@role='heading']/span[normalize-space(.)='Brands']]//a[normalize-space(.)='Clear']]   using safeClick
+22:58:22 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] Cleared 'Brands' (the Clear link is gone)
+22:58:22 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] clearBlockers took 45 ms
+22:58:22 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] 'BLAUPUNKT' cleared
+22:58:22 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] OPTION 'Samsung' (18 of 40)
+22:58:25 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] clearBlockers took 48 ms
+22:58:26 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] 'Samsung' applied after 1230 ms
+22:58:28 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] 16 card(s) on screen
+22:58:28 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] 'Samsung': 16 card(s): 15 with a price, 16 with a rating, 13 with a printed discount, 15 with a delivery line, 0 with no main offer
+22:58:28 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] Within safeClick method
+22:58:28 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] Clicked the  [[ChromeDriver: chrome on windows (303eccd7ada56abe093243ed7e22d7d0)] -> xpath: //div[@id='s-refinements']//div[@role='group'][div[@role='heading']/span[normalize-space(.)='Brands']]//a[normalize-space(.)='Clear']]   using safeClick
+22:58:28 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] Cleared 'Brands' (the Clear link is gone)
+22:58:28 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] clearBlockers took 40 ms
+22:58:28 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] 'Samsung' cleared
+22:58:28 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] OPTION 'Intex' (19 of 40)
+22:58:31 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] clearBlockers took 50 ms
+22:58:32 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] 'Intex' applied after 1219 ms
+22:58:34 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] 16 card(s) on screen
+22:58:34 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] 'Intex': 16 card(s): 15 with a price, 15 with a rating, 15 with a printed discount, 14 with a delivery line, 0 with no main offer
+22:58:34 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] Within safeClick method
+22:58:34 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] Clicked the  [[ChromeDriver: chrome on windows (303eccd7ada56abe093243ed7e22d7d0)] -> xpath: //div[@id='s-refinements']//div[@role='group'][div[@role='heading']/span[normalize-space(.)='Brands']]//a[normalize-space(.)='Clear']]   using safeClick
+22:58:34 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] Cleared 'Brands' (the Clear link is gone)
+22:58:34 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] clearBlockers took 43 ms
+22:58:34 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] 'Intex' cleared
+22:58:34 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] OPTION 'Audio-Technica' (20 of 40)
+22:58:37 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] clearBlockers took 76 ms
+22:58:38 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] 'Audio-Technica' applied after 1740 ms
+22:58:41 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] 16 card(s) on screen
+22:58:41 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] 'Audio-Technica': 16 card(s): 16 with a price, 15 with a rating, 12 with a printed discount, 16 with a delivery line, 0 with no main offer
+22:58:41 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] Within safeClick method
+22:58:41 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] Clicked the  [[ChromeDriver: chrome on windows (303eccd7ada56abe093243ed7e22d7d0)] -> xpath: //div[@id='s-refinements']//div[@role='group'][div[@role='heading']/span[normalize-space(.)='Brands']]//a[normalize-space(.)='Clear']]   using safeClick
+22:58:41 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] Cleared 'Brands' (the Clear link is gone)
+22:58:41 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] clearBlockers took 43 ms
+22:58:41 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] 'Audio-Technica' cleared
+22:58:41 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] OPTION 'UBON' (21 of 40)
+22:58:43 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] clearBlockers took 50 ms
+22:58:45 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] 'UBON' applied after 1719 ms
+22:58:47 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] 16 card(s) on screen
+22:58:47 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] 'UBON': 16 card(s): 16 with a price, 9 with a rating, 15 with a printed discount, 16 with a delivery line, 0 with no main offer
+22:58:47 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] Within safeClick method
+22:58:47 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] Clicked the  [[ChromeDriver: chrome on windows (303eccd7ada56abe093243ed7e22d7d0)] -> xpath: //div[@id='s-refinements']//div[@role='group'][div[@role='heading']/span[normalize-space(.)='Brands']]//a[normalize-space(.)='Clear']]   using safeClick
+22:58:47 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] Cleared 'Brands' (the Clear link is gone)
+22:58:47 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] clearBlockers took 50 ms
+22:58:47 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] 'UBON' cleared
+22:58:47 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] OPTION 'Infinity' (22 of 40)
+22:58:49 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] clearBlockers took 44 ms
+22:58:51 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] 'Infinity' applied after 1662 ms
+22:58:53 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] 16 card(s) on screen
+22:58:53 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] 'Infinity': 16 card(s): 16 with a price, 16 with a rating, 16 with a printed discount, 16 with a delivery line, 0 with no main offer
+22:58:53 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] Within safeClick method
+22:58:53 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] Clicked the  [[ChromeDriver: chrome on windows (303eccd7ada56abe093243ed7e22d7d0)] -> xpath: //div[@id='s-refinements']//div[@role='group'][div[@role='heading']/span[normalize-space(.)='Brands']]//a[normalize-space(.)='Clear']]   using safeClick
+22:58:53 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] Cleared 'Brands' (the Clear link is gone)
+22:58:53 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] clearBlockers took 44 ms
+22:58:53 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] 'Infinity' cleared
+22:58:53 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] OPTION 'Artis' (23 of 40)
+22:58:56 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] clearBlockers took 58 ms
+22:58:57 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] 'Artis' applied after 1217 ms
+22:58:59 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] 10 card(s) on screen
+22:58:59 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] 'Artis': 10 card(s): 10 with a price, 10 with a rating, 9 with a printed discount, 9 with a delivery line, 0 with no main offer
+22:58:59 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] Within safeClick method
+22:58:59 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] Clicked the  [[ChromeDriver: chrome on windows (303eccd7ada56abe093243ed7e22d7d0)] -> xpath: //div[@id='s-refinements']//div[@role='group'][div[@role='heading']/span[normalize-space(.)='Brands']]//a[normalize-space(.)='Clear']]   using safeClick
+22:58:59 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] Cleared 'Brands' (the Clear link is gone)
+22:58:59 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] clearBlockers took 54 ms
+22:58:59 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] 'Artis' cleared
+22:58:59 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] OPTION 'PIONEER' (24 of 40)
+22:59:01 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] clearBlockers took 45 ms
+22:59:03 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] 'PIONEER' applied after 1672 ms
+22:59:05 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] 16 card(s) on screen
+22:59:05 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] 'PIONEER': 16 card(s): 16 with a price, 16 with a rating, 15 with a printed discount, 16 with a delivery line, 0 with no main offer
+22:59:05 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] Within safeClick method
+22:59:05 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] Clicked the  [[ChromeDriver: chrome on windows (303eccd7ada56abe093243ed7e22d7d0)] -> xpath: //div[@id='s-refinements']//div[@role='group'][div[@role='heading']/span[normalize-space(.)='Brands']]//a[normalize-space(.)='Clear']]   using safeClick
+22:59:05 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] Cleared 'Brands' (the Clear link is gone)
+22:59:05 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] clearBlockers took 56 ms
+22:59:05 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] 'PIONEER' cleared
+22:59:05 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] OPTION 'Anker' (25 of 40)
+22:59:08 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] clearBlockers took 51 ms
+22:59:09 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] 'Anker' applied after 1171 ms
+22:59:10 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] 8 card(s) on screen
+22:59:10 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] 'Anker': 8 card(s): 8 with a price, 8 with a rating, 5 with a printed discount, 8 with a delivery line, 0 with no main offer
+22:59:10 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] Within safeClick method
+22:59:10 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] Clicked the  [[ChromeDriver: chrome on windows (303eccd7ada56abe093243ed7e22d7d0)] -> xpath: //div[@id='s-refinements']//div[@role='group'][div[@role='heading']/span[normalize-space(.)='Brands']]//a[normalize-space(.)='Clear']]   using safeClick
+22:59:10 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] Cleared 'Brands' (the Clear link is gone)
+22:59:10 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] clearBlockers took 46 ms
+22:59:10 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] 'Anker' cleared
+22:59:10 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] OPTION 'Bowers & Wilkins' (26 of 40)
+22:59:13 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] clearBlockers took 45 ms
+22:59:14 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] 'Bowers & Wilkins' applied after 1273 ms
+22:59:15 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] 8 card(s) on screen
+22:59:15 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] 'Bowers & Wilkins': 8 card(s): 8 with a price, 6 with a rating, 4 with a printed discount, 8 with a delivery line, 0 with no main offer
+22:59:15 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] Within safeClick method
+22:59:15 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] Clicked the  [[ChromeDriver: chrome on windows (303eccd7ada56abe093243ed7e22d7d0)] -> xpath: //div[@id='s-refinements']//div[@role='group'][div[@role='heading']/span[normalize-space(.)='Brands']]//a[normalize-space(.)='Clear']]   using safeClick
+22:59:15 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] Cleared 'Brands' (the Clear link is gone)
+22:59:15 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] clearBlockers took 45 ms
+22:59:15 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] 'Bowers & Wilkins' cleared
+22:59:15 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] OPTION 'Mackie' (27 of 40)
+22:59:18 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] clearBlockers took 44 ms
+22:59:19 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] 'Mackie' applied after 1192 ms
+22:59:21 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] 16 card(s) on screen
+22:59:21 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] 'Mackie': 16 card(s): 16 with a price, 15 with a rating, 16 with a printed discount, 16 with a delivery line, 0 with no main offer
+22:59:21 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] Within safeClick method
+22:59:21 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] Clicked the  [[ChromeDriver: chrome on windows (303eccd7ada56abe093243ed7e22d7d0)] -> xpath: //div[@id='s-refinements']//div[@role='group'][div[@role='heading']/span[normalize-space(.)='Brands']]//a[normalize-space(.)='Clear']]   using safeClick
+22:59:21 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] Cleared 'Brands' (the Clear link is gone)
+22:59:21 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] clearBlockers took 44 ms
+22:59:21 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] 'Mackie' cleared
+22:59:21 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] OPTION 'AKAI' (28 of 40)
+22:59:24 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] clearBlockers took 49 ms
+22:59:25 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] 'AKAI' applied after 1187 ms
+22:59:27 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] 15 card(s) on screen
+22:59:27 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] 'AKAI': 15 card(s): 15 with a price, 15 with a rating, 15 with a printed discount, 14 with a delivery line, 0 with no main offer
+22:59:27 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] Within safeClick method
+22:59:27 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] Clicked the  [[ChromeDriver: chrome on windows (303eccd7ada56abe093243ed7e22d7d0)] -> xpath: //div[@id='s-refinements']//div[@role='group'][div[@role='heading']/span[normalize-space(.)='Brands']]//a[normalize-space(.)='Clear']]   using safeClick
+22:59:27 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] Cleared 'Brands' (the Clear link is gone)
+22:59:27 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] clearBlockers took 48 ms
+22:59:27 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] 'AKAI' cleared
+22:59:27 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] OPTION 'Altec Lansing' (29 of 40)
+22:59:29 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] clearBlockers took 49 ms
+22:59:30 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] 'Altec Lansing' applied after 1230 ms
+22:59:33 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] 16 card(s) on screen
+22:59:33 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] 'Altec Lansing': 16 card(s): 16 with a price, 16 with a rating, 3 with a printed discount, 16 with a delivery line, 0 with no main offer
+22:59:33 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] Within safeClick method
+22:59:33 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] Clicked the  [[ChromeDriver: chrome on windows (303eccd7ada56abe093243ed7e22d7d0)] -> xpath: //div[@id='s-refinements']//div[@role='group'][div[@role='heading']/span[normalize-space(.)='Brands']]//a[normalize-space(.)='Clear']]   using safeClick
+22:59:33 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] Cleared 'Brands' (the Clear link is gone)
+22:59:33 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] clearBlockers took 47 ms
+22:59:33 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] 'Altec Lansing' cleared
+22:59:33 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] OPTION 'MIATONE' (30 of 40)
+22:59:35 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] clearBlockers took 49 ms
+22:59:37 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] 'MIATONE' applied after 1674 ms
+22:59:38 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] 8 card(s) on screen
+22:59:38 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] 'MIATONE': 8 card(s): 8 with a price, 8 with a rating, 0 with a printed discount, 8 with a delivery line, 0 with no main offer
+22:59:38 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] Within safeClick method
+22:59:38 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] Clicked the  [[ChromeDriver: chrome on windows (303eccd7ada56abe093243ed7e22d7d0)] -> xpath: //div[@id='s-refinements']//div[@role='group'][div[@role='heading']/span[normalize-space(.)='Brands']]//a[normalize-space(.)='Clear']]   using safeClick
+22:59:38 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] Cleared 'Brands' (the Clear link is gone)
+22:59:38 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] clearBlockers took 48 ms
+22:59:38 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] 'MIATONE' cleared
+22:59:38 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] OPTION 'Focal' (31 of 40)
+22:59:41 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] clearBlockers took 49 ms
+22:59:42 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] 'Focal' applied after 1791 ms
+22:59:44 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] 16 card(s) on screen
+22:59:44 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] 'Focal': 16 card(s): 16 with a price, 15 with a rating, 11 with a printed discount, 16 with a delivery line, 0 with no main offer
+22:59:44 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] Within safeClick method
+22:59:44 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] Clicked the  [[ChromeDriver: chrome on windows (303eccd7ada56abe093243ed7e22d7d0)] -> xpath: //div[@id='s-refinements']//div[@role='group'][div[@role='heading']/span[normalize-space(.)='Brands']]//a[normalize-space(.)='Clear']]   using safeClick
+22:59:44 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] Cleared 'Brands' (the Clear link is gone)
+22:59:45 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] clearBlockers took 52 ms
+22:59:45 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] 'Focal' cleared
+22:59:45 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] OPTION 'Ant Esports' (32 of 40)
+22:59:47 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] clearBlockers took 56 ms
+22:59:48 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] 'Ant Esports' applied after 1226 ms
+22:59:50 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] 10 card(s) on screen
+22:59:50 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] 'Ant Esports': 10 card(s): 10 with a price, 8 with a rating, 10 with a printed discount, 7 with a delivery line, 0 with no main offer
+22:59:50 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] Within safeClick method
+22:59:50 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] Clicked the  [[ChromeDriver: chrome on windows (303eccd7ada56abe093243ed7e22d7d0)] -> xpath: //div[@id='s-refinements']//div[@role='group'][div[@role='heading']/span[normalize-space(.)='Brands']]//a[normalize-space(.)='Clear']]   using safeClick
+22:59:50 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] Cleared 'Brands' (the Clear link is gone)
+22:59:50 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] clearBlockers took 48 ms
+22:59:50 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] 'Ant Esports' cleared
+22:59:50 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] OPTION 'KEF' (33 of 40)
+22:59:52 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] clearBlockers took 51 ms
+22:59:53 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] 'KEF' applied after 1196 ms
+22:59:55 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] 16 card(s) on screen
+22:59:55 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] 'KEF': 16 card(s): 16 with a price, 12 with a rating, 8 with a printed discount, 16 with a delivery line, 0 with no main offer
+22:59:55 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] Within safeClick method
+22:59:56 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] Clicked the  [[ChromeDriver: chrome on windows (303eccd7ada56abe093243ed7e22d7d0)] -> xpath: //div[@id='s-refinements']//div[@role='group'][div[@role='heading']/span[normalize-space(.)='Brands']]//a[normalize-space(.)='Clear']]   using safeClick
+22:59:56 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] Cleared 'Brands' (the Clear link is gone)
+22:59:56 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] clearBlockers took 49 ms
+22:59:56 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] 'KEF' cleared
+22:59:56 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] OPTION 'GOVO' (34 of 40)
+22:59:58 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] clearBlockers took 49 ms
+22:59:59 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] 'GOVO' applied after 1169 ms
+23:00:01 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] 16 card(s) on screen
+23:00:01 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] 'GOVO': 16 card(s): 15 with a price, 16 with a rating, 15 with a printed discount, 14 with a delivery line, 0 with no main offer
+23:00:01 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] Within safeClick method
+23:00:01 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] Clicked the  [[ChromeDriver: chrome on windows (303eccd7ada56abe093243ed7e22d7d0)] -> xpath: //div[@id='s-refinements']//div[@role='group'][div[@role='heading']/span[normalize-space(.)='Brands']]//a[normalize-space(.)='Clear']]   using safeClick
+23:00:01 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] Cleared 'Brands' (the Clear link is gone)
+23:00:02 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] clearBlockers took 53 ms
+23:00:02 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] 'GOVO' cleared
+23:00:02 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] OPTION 'Jabra' (35 of 40)
+23:00:04 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] clearBlockers took 56 ms
+23:00:05 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] 'Jabra' applied after 1217 ms
+23:00:07 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] 16 card(s) on screen
+23:00:07 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] 'Jabra': 16 card(s): 16 with a price, 15 with a rating, 14 with a printed discount, 16 with a delivery line, 0 with no main offer
+23:00:07 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] Within safeClick method
+23:00:07 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] Clicked the  [[ChromeDriver: chrome on windows (303eccd7ada56abe093243ed7e22d7d0)] -> xpath: //div[@id='s-refinements']//div[@role='group'][div[@role='heading']/span[normalize-space(.)='Brands']]//a[normalize-space(.)='Clear']]   using safeClick
+23:00:07 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] Cleared 'Brands' (the Clear link is gone)
+23:00:07 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] clearBlockers took 55 ms
+23:00:07 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] 'Jabra' cleared
+23:00:07 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] OPTION 'Elac' (36 of 40)
+23:00:10 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] clearBlockers took 106 ms
+23:00:11 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] 'Elac' applied after 1311 ms
+23:00:13 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] 10 card(s) on screen
+23:00:13 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] 'Elac': 10 card(s): 9 with a price, 10 with a rating, 8 with a printed discount, 9 with a delivery line, 0 with no main offer
+23:00:13 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] Within safeClick method
+23:00:13 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] Clicked the  [[ChromeDriver: chrome on windows (303eccd7ada56abe093243ed7e22d7d0)] -> xpath: //div[@id='s-refinements']//div[@role='group'][div[@role='heading']/span[normalize-space(.)='Brands']]//a[normalize-space(.)='Clear']]   using safeClick
+23:00:13 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] Cleared 'Brands' (the Clear link is gone)
+23:00:13 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] clearBlockers took 49 ms
+23:00:13 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] 'Elac' cleared
+23:00:13 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] OPTION 'Nu Republic' (37 of 40)
+23:00:15 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] clearBlockers took 53 ms
+23:00:16 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] 'Nu Republic' applied after 1180 ms
+23:00:18 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] 7 card(s) on screen
+23:00:18 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] 'Nu Republic': 7 card(s): 7 with a price, 7 with a rating, 7 with a printed discount, 7 with a delivery line, 0 with no main offer
+23:00:18 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] Within safeClick method
+23:00:18 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] Clicked the  [[ChromeDriver: chrome on windows (303eccd7ada56abe093243ed7e22d7d0)] -> xpath: //div[@id='s-refinements']//div[@role='group'][div[@role='heading']/span[normalize-space(.)='Brands']]//a[normalize-space(.)='Clear']]   using safeClick
+23:00:18 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] Cleared 'Brands' (the Clear link is gone)
+23:00:18 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] clearBlockers took 52 ms
+23:00:18 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] 'Nu Republic' cleared
+23:00:18 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] OPTION 'Bosch' (38 of 40)
+23:00:20 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] clearBlockers took 56 ms
+23:00:21 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] 'Bosch' applied after 1182 ms
+23:00:23 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] 10 card(s) on screen
+23:00:23 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] 'Bosch': 10 card(s): 10 with a price, 9 with a rating, 9 with a printed discount, 10 with a delivery line, 0 with no main offer
+23:00:23 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] Within safeClick method
+23:00:23 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] Clicked the  [[ChromeDriver: chrome on windows (303eccd7ada56abe093243ed7e22d7d0)] -> xpath: //div[@id='s-refinements']//div[@role='group'][div[@role='heading']/span[normalize-space(.)='Brands']]//a[normalize-space(.)='Clear']]   using safeClick
+23:00:23 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] Cleared 'Brands' (the Clear link is gone)
+23:00:23 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] clearBlockers took 57 ms
+23:00:23 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] 'Bosch' cleared
+23:00:23 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] OPTION 'TRONICA' (39 of 40)
+23:00:26 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] clearBlockers took 54 ms
+23:00:27 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] 'TRONICA' applied after 1272 ms
+23:00:29 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] 16 card(s) on screen
+23:00:29 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] 'TRONICA': 16 card(s): 16 with a price, 16 with a rating, 16 with a printed discount, 16 with a delivery line, 0 with no main offer
+23:00:29 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] Within safeClick method
+23:00:29 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] Clicked the  [[ChromeDriver: chrome on windows (303eccd7ada56abe093243ed7e22d7d0)] -> xpath: //div[@id='s-refinements']//div[@role='group'][div[@role='heading']/span[normalize-space(.)='Brands']]//a[normalize-space(.)='Clear']]   using safeClick
+23:00:29 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] Cleared 'Brands' (the Clear link is gone)
+23:00:30 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] clearBlockers took 50 ms
+23:00:30 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] 'TRONICA' cleared
+23:00:30 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] OPTION 'Clarion' (40 of 40)
+23:00:32 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] clearBlockers took 55 ms
+23:00:33 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] 'Clarion' applied after 1717 ms
+23:00:35 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] 11 card(s) on screen
+23:00:35 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] 'Clarion': 11 card(s): 10 with a price, 10 with a rating, 7 with a printed discount, 10 with a delivery line, 0 with no main offer
+23:00:35 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] Within safeClick method
+23:00:36 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] Clicked the  [[ChromeDriver: chrome on windows (303eccd7ada56abe093243ed7e22d7d0)] -> xpath: //div[@id='s-refinements']//div[@role='group'][div[@role='heading']/span[normalize-space(.)='Brands']]//a[normalize-space(.)='Clear']]   using safeClick
+23:00:36 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] Cleared 'Brands' (the Clear link is gone)
+23:00:36 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] clearBlockers took 56 ms
+23:00:36 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] 'Clarion' cleared
+23:00:36 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] DONE: 40 option(s) read, not applied: []
+23:00:36 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] Saved what was read to collected\Speaker__Brands.json
+23:00:36 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] CHECK Speaker Brands 'JBL': 16 of 16 judged fit (needs at least 0.9), 0 show no value
+23:00:36 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] CHECK Speaker Brands 'boAt': 16 of 16 judged fit (needs at least 0.9), 0 show no value
+23:00:36 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] CHECK Speaker Brands 'Bose': 16 of 16 judged fit (needs at least 0.9), 0 show no value
+23:00:36 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] CHECK Speaker Brands 'Sony': 16 of 16 judged fit (needs at least 0.9), 0 show no value
+23:00:36 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] CHECK Speaker Brands 'Marshall': 16 of 16 judged fit (needs at least 0.9), 0 show no value
+23:00:36 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] CHECK Speaker Brands 'ZEBRONICS': 16 of 16 judged fit (needs at least 0.9), 0 show no value
+23:00:36 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] CHECK Speaker Brands 'Portronics': 16 of 16 judged fit (needs at least 0.9), 0 show no value
+23:00:36 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] CHECK Speaker Brands 'PHILIPS': 16 of 16 judged fit (needs at least 0.9), 0 show no value
+23:00:36 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] CHECK Speaker Brands 'Tribit': 13 of 13 judged fit (needs at least 0.9), 0 show no value
+23:00:36 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] CHECK Speaker Brands 'YAMAHA': 16 of 16 judged fit (needs at least 0.9), 0 show no value
+23:00:36 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] CHECK Speaker Brands 'Creative': 16 of 16 judged fit (needs at least 0.9), 0 show no value
+23:00:36 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] CHECK Speaker Brands 'Edifier': 16 of 16 judged fit (needs at least 0.9), 0 show no value
+23:00:36 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] CHECK Speaker Brands 'Klipsch': 22 of 22 judged fit (needs at least 0.9), 0 show no value
+23:00:36 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] CHECK Speaker Brands 'Sonos': 16 of 16 judged fit (needs at least 0.9), 0 show no value
+23:00:36 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] CHECK Speaker Brands 'pTron': 13 of 13 judged fit (needs at least 0.9), 0 show no value
+23:00:36 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] CHECK Speaker Brands 'Polk Audio': 16 of 16 judged fit (needs at least 0.9), 0 show no value
+23:00:36 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] CHECK Speaker Brands 'BLAUPUNKT': 16 of 16 judged fit (needs at least 0.9), 0 show no value
+23:00:36 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] CHECK Speaker Brands 'Samsung': 16 of 16 judged fit (needs at least 0.9), 0 show no value
+23:00:36 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] CHECK Speaker Brands 'Intex': 16 of 16 judged fit (needs at least 0.9), 0 show no value
+23:00:36 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] CHECK Speaker Brands 'Audio-Technica': 16 of 16 judged fit (needs at least 0.9), 0 show no value
+23:00:36 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] CHECK Speaker Brands 'UBON': 15 of 16 judged fit (needs at least 0.9), 0 show no value
+23:00:36 [TestNG-PoolService-2] WARN  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] Speaker Brands 'UBON': do not fit: J8 Air Hook Wtih Environmental Noise Cancellation 
+23:00:36 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] CHECK Speaker Brands 'Infinity': 16 of 16 judged fit (needs at least 0.9), 0 show no value
+23:00:36 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] CHECK Speaker Brands 'Artis': 10 of 10 judged fit (needs at least 0.9), 0 show no value
+23:00:36 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] CHECK Speaker Brands 'PIONEER': 16 of 16 judged fit (needs at least 0.9), 0 show no value
+23:00:36 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] CHECK Speaker Brands 'Anker': 8 of 8 judged fit (needs at least 0.9), 0 show no value
+23:00:36 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] CHECK Speaker Brands 'Bowers & Wilkins': 7 of 8 judged fit (needs at least 0.9), 0 show no value
+23:00:36 [TestNG-PoolService-2] WARN  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] Speaker Brands 'Bowers & Wilkins': do not fit: Zeppelin Pro Solar Gold
+23:00:36 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] CHECK Speaker Brands 'Mackie': 16 of 16 judged fit (needs at least 0.9), 0 show no value
+23:00:36 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] CHECK Speaker Brands 'AKAI': 14 of 15 judged fit (needs at least 0.9), 0 show no value
+23:00:36 [TestNG-PoolService-2] WARN  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] Speaker Brands 'AKAI': do not fit: Plug-in Speaker
+23:00:36 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] CHECK Speaker Brands 'Altec Lansing': 16 of 16 judged fit (needs at least 0.9), 0 show no value
+23:00:36 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] CHECK Speaker Brands 'MIATONE': 8 of 8 judged fit (needs at least 0.9), 0 show no value
+23:00:36 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] CHECK Speaker Brands 'Focal': 16 of 16 judged fit (needs at least 0.9), 0 show no value
+23:00:36 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] CHECK Speaker Brands 'Ant Esports': 10 of 10 judged fit (needs at least 0.9), 0 show no value
+23:00:36 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] CHECK Speaker Brands 'KEF': 16 of 16 judged fit (needs at least 0.9), 0 show no value
+23:00:36 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] CHECK Speaker Brands 'GOVO': 16 of 16 judged fit (needs at least 0.9), 0 show no value
+23:00:36 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] CHECK Speaker Brands 'Jabra': 16 of 16 judged fit (needs at least 0.9), 0 show no value
+23:00:36 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] CHECK Speaker Brands 'Elac': 10 of 10 judged fit (needs at least 0.9), 0 show no value
+23:00:36 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] CHECK Speaker Brands 'Nu Republic': 7 of 7 judged fit (needs at least 0.9), 0 show no value
+23:00:36 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] CHECK Speaker Brands 'Bosch': 10 of 10 judged fit (needs at least 0.9), 0 show no value
+23:00:36 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] CHECK Speaker Brands 'TRONICA': 16 of 16 judged fit (needs at least 0.9), 0 show no value
+23:00:36 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] CHECK Speaker Brands 'Clarion': 11 of 11 judged fit (needs at least 0.9), 0 show no value
+23:00:36 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33] Finished 'brandsFilterCheckedOnTheCards': failed in 240603 ms
+23:00:36 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33]   The following asserts failed:
+23:00:36 [TestNG-PoolService-2] INFO  brandsFilterCheckedOnTheCards_Speaker_22-56-33 - [brandsFilterCheckedOnTheCards_Speaker_22-56-33]   	Speaker Brands 'Bowers & Wilkins': the share that fits must be at least 0.9. Not fitting: Zeppelin Pro Solar Gold expected [true] but found [false]

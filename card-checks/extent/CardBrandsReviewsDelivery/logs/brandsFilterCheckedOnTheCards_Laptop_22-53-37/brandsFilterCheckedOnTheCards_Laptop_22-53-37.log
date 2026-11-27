@@ -1,0 +1,132 @@
+22:53:37 [TestNG-PoolService-1] INFO  brandsFilterCheckedOnTheCards_Laptop_22-53-37 - No existing WebDriver found for current thread. Initializing a new ChromeDriver...
+22:53:41 [TestNG-PoolService-1] INFO  brandsFilterCheckedOnTheCards_Laptop_22-53-37 - WebDriverManager: chromedriver setup OK
+22:53:47 [TestNG-PoolService-1] INFO  brandsFilterCheckedOnTheCards_Laptop_22-53-37 - ChromeDriver initialized successfully for thread: 34
+22:53:47 [TestNG-PoolService-1] INFO  brandsFilterCheckedOnTheCards_Laptop_22-53-37 - [brandsFilterCheckedOnTheCards_Laptop_22-53-37] TEST: Laptop: Brands filter, checked on the cards
+22:53:47 [TestNG-PoolService-1] INFO  brandsFilterCheckedOnTheCards_Laptop_22-53-37 - [brandsFilterCheckedOnTheCards_Laptop_22-53-37] ==================== RULE: Laptop Brands: every option is applied; the brand, or a known alias of it, is a whole word of the card's title; at least 90% of the cards must fit ====================
+22:53:49 [TestNG-PoolService-1] INFO  brandsFilterCheckedOnTheCards_Laptop_22-53-37 - [brandsFilterCheckedOnTheCards_Laptop_22-53-37] Opening amazon Landing page
+22:53:49 [TestNG-PoolService-1] INFO  brandsFilterCheckedOnTheCards_Laptop_22-53-37 - [brandsFilterCheckedOnTheCards_Laptop_22-53-37] Within safeFindElement method
+22:53:49 [TestNG-PoolService-1] INFO  brandsFilterCheckedOnTheCards_Laptop_22-53-37 - [brandsFilterCheckedOnTheCards_Laptop_22-53-37]Found the element returning it ,element ->[[ChromeDriver: chrome on windows (6c6d8bea6733f46b941ebf9e89c9d39c)] -> xpath: //a[@id='nav-logo-sprites']]
+22:53:50 [TestNG-PoolService-1] INFO  brandsFilterCheckedOnTheCards_Laptop_22-53-37 - [brandsFilterCheckedOnTheCards_Laptop_22-53-37] clearBlockers took 758 ms
+22:53:50 [TestNG-PoolService-1] INFO  brandsFilterCheckedOnTheCards_Laptop_22-53-37 - [brandsFilterCheckedOnTheCards_Laptop_22-53-37] Giving input within the search bar
+22:53:50 [TestNG-PoolService-1] INFO  brandsFilterCheckedOnTheCards_Laptop_22-53-37 - [brandsFilterCheckedOnTheCards_Laptop_22-53-37] Within safeClick method
+22:53:53 [TestNG-PoolService-1] INFO  brandsFilterCheckedOnTheCards_Laptop_22-53-37 - [brandsFilterCheckedOnTheCards_Laptop_22-53-37] Clicked the  [[ChromeDriver: chrome on windows (6c6d8bea6733f46b941ebf9e89c9d39c)] -> xpath: //input[@id='nav-search-submit-button']]   using safeClick
+22:53:53 [TestNG-PoolService-1] INFO  brandsFilterCheckedOnTheCards_Laptop_22-53-37 - [brandsFilterCheckedOnTheCards_Laptop_22-53-37] Clicking on the submit in the search bar
+22:53:53 [TestNG-PoolService-1] INFO  brandsFilterCheckedOnTheCards_Laptop_22-53-37 - [brandsFilterCheckedOnTheCards_Laptop_22-53-37] clearBlockers took 43 ms
+22:53:53 [TestNG-PoolService-1] INFO  brandsFilterCheckedOnTheCards_Laptop_22-53-37 - [brandsFilterCheckedOnTheCards_Laptop_22-53-37] SEARCH 'Laptop' -> https://www.amazon.in/s?k=Laptop&ref=nb_sb_noss
+22:53:53 [TestNG-PoolService-1] INFO  brandsFilterCheckedOnTheCards_Laptop_22-53-37 - [brandsFilterCheckedOnTheCards_Laptop_22-53-37] Within filterCheckUnderList method
+22:53:54 [TestNG-PoolService-1] INFO  brandsFilterCheckedOnTheCards_Laptop_22-53-37 - [brandsFilterCheckedOnTheCards_Laptop_22-53-37] Found the Filter within the filter check List
+22:53:55 [TestNG-PoolService-1] INFO  brandsFilterCheckedOnTheCards_Laptop_22-53-37 - [brandsFilterCheckedOnTheCards_Laptop_22-53-37] 'Brands' options on the page: [HP | Dell | Lenovo | ASUS | Acer | Samsung | Microsoft | MSI | Alienware | GIGABYTE]
+22:53:55 [TestNG-PoolService-1] INFO  brandsFilterCheckedOnTheCards_Laptop_22-53-37 - [brandsFilterCheckedOnTheCards_Laptop_22-53-37] FILTER 'Brands': checking 10 of 10 option(s)
+22:53:55 [TestNG-PoolService-1] INFO  brandsFilterCheckedOnTheCards_Laptop_22-53-37 - [brandsFilterCheckedOnTheCards_Laptop_22-53-37] OPTION 'HP' (1 of 10)
+22:53:56 [TestNG-PoolService-1] INFO  brandsFilterCheckedOnTheCards_Laptop_22-53-37 - [brandsFilterCheckedOnTheCards_Laptop_22-53-37] clearBlockers took 40 ms
+22:53:57 [TestNG-PoolService-1] INFO  brandsFilterCheckedOnTheCards_Laptop_22-53-37 - [brandsFilterCheckedOnTheCards_Laptop_22-53-37] 'HP' applied after 1250 ms
+22:54:01 [TestNG-PoolService-1] INFO  brandsFilterCheckedOnTheCards_Laptop_22-53-37 - [brandsFilterCheckedOnTheCards_Laptop_22-53-37] 22 card(s) on screen
+22:54:01 [TestNG-PoolService-1] INFO  brandsFilterCheckedOnTheCards_Laptop_22-53-37 - [brandsFilterCheckedOnTheCards_Laptop_22-53-37] 'HP': 22 card(s): 22 with a price, 22 with a rating, 21 with a printed discount, 22 with a delivery line, 0 with no main offer
+22:54:01 [TestNG-PoolService-1] INFO  brandsFilterCheckedOnTheCards_Laptop_22-53-37 - [brandsFilterCheckedOnTheCards_Laptop_22-53-37] Within safeClick method
+22:54:01 [TestNG-PoolService-1] INFO  brandsFilterCheckedOnTheCards_Laptop_22-53-37 - [brandsFilterCheckedOnTheCards_Laptop_22-53-37] Clicked the  [[ChromeDriver: chrome on windows (6c6d8bea6733f46b941ebf9e89c9d39c)] -> xpath: //div[@id='s-refinements']//div[@role='group'][div[@role='heading']/span[normalize-space(.)='Brands']]//a[normalize-space(.)='Clear']]   using safeClick
+22:54:01 [TestNG-PoolService-1] INFO  brandsFilterCheckedOnTheCards_Laptop_22-53-37 - [brandsFilterCheckedOnTheCards_Laptop_22-53-37] Cleared 'Brands' (the Clear link is gone)
+22:54:01 [TestNG-PoolService-1] INFO  brandsFilterCheckedOnTheCards_Laptop_22-53-37 - [brandsFilterCheckedOnTheCards_Laptop_22-53-37] clearBlockers took 60 ms
+22:54:01 [TestNG-PoolService-1] INFO  brandsFilterCheckedOnTheCards_Laptop_22-53-37 - [brandsFilterCheckedOnTheCards_Laptop_22-53-37] 'HP' cleared
+22:54:01 [TestNG-PoolService-1] INFO  brandsFilterCheckedOnTheCards_Laptop_22-53-37 - [brandsFilterCheckedOnTheCards_Laptop_22-53-37] OPTION 'Dell' (2 of 10)
+22:54:04 [TestNG-PoolService-1] INFO  brandsFilterCheckedOnTheCards_Laptop_22-53-37 - [brandsFilterCheckedOnTheCards_Laptop_22-53-37] clearBlockers took 41 ms
+22:54:05 [TestNG-PoolService-1] INFO  brandsFilterCheckedOnTheCards_Laptop_22-53-37 - [brandsFilterCheckedOnTheCards_Laptop_22-53-37] 'Dell' applied after 1242 ms
+22:54:08 [TestNG-PoolService-1] INFO  brandsFilterCheckedOnTheCards_Laptop_22-53-37 - [brandsFilterCheckedOnTheCards_Laptop_22-53-37] 16 card(s) on screen
+22:54:08 [TestNG-PoolService-1] INFO  brandsFilterCheckedOnTheCards_Laptop_22-53-37 - [brandsFilterCheckedOnTheCards_Laptop_22-53-37] 'Dell': 16 card(s): 16 with a price, 14 with a rating, 15 with a printed discount, 16 with a delivery line, 0 with no main offer
+22:54:08 [TestNG-PoolService-1] INFO  brandsFilterCheckedOnTheCards_Laptop_22-53-37 - [brandsFilterCheckedOnTheCards_Laptop_22-53-37] Within safeClick method
+22:54:08 [TestNG-PoolService-1] INFO  brandsFilterCheckedOnTheCards_Laptop_22-53-37 - [brandsFilterCheckedOnTheCards_Laptop_22-53-37] Clicked the  [[ChromeDriver: chrome on windows (6c6d8bea6733f46b941ebf9e89c9d39c)] -> xpath: //div[@id='s-refinements']//div[@role='group'][div[@role='heading']/span[normalize-space(.)='Brands']]//a[normalize-space(.)='Clear']]   using safeClick
+22:54:08 [TestNG-PoolService-1] INFO  brandsFilterCheckedOnTheCards_Laptop_22-53-37 - [brandsFilterCheckedOnTheCards_Laptop_22-53-37] Cleared 'Brands' (the Clear link is gone)
+22:54:08 [TestNG-PoolService-1] INFO  brandsFilterCheckedOnTheCards_Laptop_22-53-37 - [brandsFilterCheckedOnTheCards_Laptop_22-53-37] clearBlockers took 50 ms
+22:54:08 [TestNG-PoolService-1] INFO  brandsFilterCheckedOnTheCards_Laptop_22-53-37 - [brandsFilterCheckedOnTheCards_Laptop_22-53-37] 'Dell' cleared
+22:54:08 [TestNG-PoolService-1] INFO  brandsFilterCheckedOnTheCards_Laptop_22-53-37 - [brandsFilterCheckedOnTheCards_Laptop_22-53-37] OPTION 'Lenovo' (3 of 10)
+22:54:11 [TestNG-PoolService-1] INFO  brandsFilterCheckedOnTheCards_Laptop_22-53-37 - [brandsFilterCheckedOnTheCards_Laptop_22-53-37] clearBlockers took 40 ms
+22:54:12 [TestNG-PoolService-1] INFO  brandsFilterCheckedOnTheCards_Laptop_22-53-37 - [brandsFilterCheckedOnTheCards_Laptop_22-53-37] 'Lenovo' applied after 1297 ms
+22:54:14 [TestNG-PoolService-1] INFO  brandsFilterCheckedOnTheCards_Laptop_22-53-37 - [brandsFilterCheckedOnTheCards_Laptop_22-53-37] 16 card(s) on screen
+22:54:14 [TestNG-PoolService-1] INFO  brandsFilterCheckedOnTheCards_Laptop_22-53-37 - [brandsFilterCheckedOnTheCards_Laptop_22-53-37] 'Lenovo': 16 card(s): 16 with a price, 11 with a rating, 16 with a printed discount, 16 with a delivery line, 0 with no main offer
+22:54:14 [TestNG-PoolService-1] INFO  brandsFilterCheckedOnTheCards_Laptop_22-53-37 - [brandsFilterCheckedOnTheCards_Laptop_22-53-37] Within safeClick method
+22:54:14 [TestNG-PoolService-1] INFO  brandsFilterCheckedOnTheCards_Laptop_22-53-37 - [brandsFilterCheckedOnTheCards_Laptop_22-53-37] Clicked the  [[ChromeDriver: chrome on windows (6c6d8bea6733f46b941ebf9e89c9d39c)] -> xpath: //div[@id='s-refinements']//div[@role='group'][div[@role='heading']/span[normalize-space(.)='Brands']]//a[normalize-space(.)='Clear']]   using safeClick
+22:54:14 [TestNG-PoolService-1] INFO  brandsFilterCheckedOnTheCards_Laptop_22-53-37 - [brandsFilterCheckedOnTheCards_Laptop_22-53-37] Cleared 'Brands' (the Clear link is gone)
+22:54:14 [TestNG-PoolService-1] INFO  brandsFilterCheckedOnTheCards_Laptop_22-53-37 - [brandsFilterCheckedOnTheCards_Laptop_22-53-37] clearBlockers took 39 ms
+22:54:14 [TestNG-PoolService-1] INFO  brandsFilterCheckedOnTheCards_Laptop_22-53-37 - [brandsFilterCheckedOnTheCards_Laptop_22-53-37] 'Lenovo' cleared
+22:54:14 [TestNG-PoolService-1] INFO  brandsFilterCheckedOnTheCards_Laptop_22-53-37 - [brandsFilterCheckedOnTheCards_Laptop_22-53-37] OPTION 'ASUS' (4 of 10)
+22:54:17 [TestNG-PoolService-1] INFO  brandsFilterCheckedOnTheCards_Laptop_22-53-37 - [brandsFilterCheckedOnTheCards_Laptop_22-53-37] clearBlockers took 37 ms
+22:54:18 [TestNG-PoolService-1] INFO  brandsFilterCheckedOnTheCards_Laptop_22-53-37 - [brandsFilterCheckedOnTheCards_Laptop_22-53-37] 'ASUS' applied after 1197 ms
+22:54:20 [TestNG-PoolService-1] INFO  brandsFilterCheckedOnTheCards_Laptop_22-53-37 - [brandsFilterCheckedOnTheCards_Laptop_22-53-37] 16 card(s) on screen
+22:54:20 [TestNG-PoolService-1] INFO  brandsFilterCheckedOnTheCards_Laptop_22-53-37 - [brandsFilterCheckedOnTheCards_Laptop_22-53-37] 'ASUS': 16 card(s): 16 with a price, 15 with a rating, 15 with a printed discount, 16 with a delivery line, 0 with no main offer
+22:54:20 [TestNG-PoolService-1] INFO  brandsFilterCheckedOnTheCards_Laptop_22-53-37 - [brandsFilterCheckedOnTheCards_Laptop_22-53-37] Within safeClick method
+22:54:20 [TestNG-PoolService-1] INFO  brandsFilterCheckedOnTheCards_Laptop_22-53-37 - [brandsFilterCheckedOnTheCards_Laptop_22-53-37] Clicked the  [[ChromeDriver: chrome on windows (6c6d8bea6733f46b941ebf9e89c9d39c)] -> xpath: //div[@id='s-refinements']//div[@role='group'][div[@role='heading']/span[normalize-space(.)='Brands']]//a[normalize-space(.)='Clear']]   using safeClick
+22:54:20 [TestNG-PoolService-1] INFO  brandsFilterCheckedOnTheCards_Laptop_22-53-37 - [brandsFilterCheckedOnTheCards_Laptop_22-53-37] Cleared 'Brands' (the Clear link is gone)
+22:54:20 [TestNG-PoolService-1] INFO  brandsFilterCheckedOnTheCards_Laptop_22-53-37 - [brandsFilterCheckedOnTheCards_Laptop_22-53-37] clearBlockers took 41 ms
+22:54:20 [TestNG-PoolService-1] INFO  brandsFilterCheckedOnTheCards_Laptop_22-53-37 - [brandsFilterCheckedOnTheCards_Laptop_22-53-37] 'ASUS' cleared
+22:54:20 [TestNG-PoolService-1] INFO  brandsFilterCheckedOnTheCards_Laptop_22-53-37 - [brandsFilterCheckedOnTheCards_Laptop_22-53-37] OPTION 'Acer' (5 of 10)
+22:54:23 [TestNG-PoolService-1] INFO  brandsFilterCheckedOnTheCards_Laptop_22-53-37 - [brandsFilterCheckedOnTheCards_Laptop_22-53-37] clearBlockers took 42 ms
+22:54:24 [TestNG-PoolService-1] INFO  brandsFilterCheckedOnTheCards_Laptop_22-53-37 - [brandsFilterCheckedOnTheCards_Laptop_22-53-37] 'Acer' applied after 1197 ms
+22:54:26 [TestNG-PoolService-1] INFO  brandsFilterCheckedOnTheCards_Laptop_22-53-37 - [brandsFilterCheckedOnTheCards_Laptop_22-53-37] 16 card(s) on screen
+22:54:26 [TestNG-PoolService-1] INFO  brandsFilterCheckedOnTheCards_Laptop_22-53-37 - [brandsFilterCheckedOnTheCards_Laptop_22-53-37] 'Acer': 16 card(s): 16 with a price, 14 with a rating, 16 with a printed discount, 16 with a delivery line, 0 with no main offer
+22:54:26 [TestNG-PoolService-1] INFO  brandsFilterCheckedOnTheCards_Laptop_22-53-37 - [brandsFilterCheckedOnTheCards_Laptop_22-53-37] Within safeClick method
+22:54:26 [TestNG-PoolService-1] INFO  brandsFilterCheckedOnTheCards_Laptop_22-53-37 - [brandsFilterCheckedOnTheCards_Laptop_22-53-37] Clicked the  [[ChromeDriver: chrome on windows (6c6d8bea6733f46b941ebf9e89c9d39c)] -> xpath: //div[@id='s-refinements']//div[@role='group'][div[@role='heading']/span[normalize-space(.)='Brands']]//a[normalize-space(.)='Clear']]   using safeClick
+22:54:26 [TestNG-PoolService-1] INFO  brandsFilterCheckedOnTheCards_Laptop_22-53-37 - [brandsFilterCheckedOnTheCards_Laptop_22-53-37] Cleared 'Brands' (the Clear link is gone)
+22:54:26 [TestNG-PoolService-1] INFO  brandsFilterCheckedOnTheCards_Laptop_22-53-37 - [brandsFilterCheckedOnTheCards_Laptop_22-53-37] clearBlockers took 40 ms
+22:54:26 [TestNG-PoolService-1] INFO  brandsFilterCheckedOnTheCards_Laptop_22-53-37 - [brandsFilterCheckedOnTheCards_Laptop_22-53-37] 'Acer' cleared
+22:54:26 [TestNG-PoolService-1] INFO  brandsFilterCheckedOnTheCards_Laptop_22-53-37 - [brandsFilterCheckedOnTheCards_Laptop_22-53-37] OPTION 'Samsung' (6 of 10)
+22:54:29 [TestNG-PoolService-1] INFO  brandsFilterCheckedOnTheCards_Laptop_22-53-37 - [brandsFilterCheckedOnTheCards_Laptop_22-53-37] clearBlockers took 38 ms
+22:54:30 [TestNG-PoolService-1] INFO  brandsFilterCheckedOnTheCards_Laptop_22-53-37 - [brandsFilterCheckedOnTheCards_Laptop_22-53-37] 'Samsung' applied after 1699 ms
+22:54:33 [TestNG-PoolService-1] INFO  brandsFilterCheckedOnTheCards_Laptop_22-53-37 - [brandsFilterCheckedOnTheCards_Laptop_22-53-37] 16 card(s) on screen
+22:54:33 [TestNG-PoolService-1] INFO  brandsFilterCheckedOnTheCards_Laptop_22-53-37 - [brandsFilterCheckedOnTheCards_Laptop_22-53-37] 'Samsung': 16 card(s): 15 with a price, 15 with a rating, 14 with a printed discount, 15 with a delivery line, 0 with no main offer
+22:54:33 [TestNG-PoolService-1] INFO  brandsFilterCheckedOnTheCards_Laptop_22-53-37 - [brandsFilterCheckedOnTheCards_Laptop_22-53-37] Within safeClick method
+22:54:33 [TestNG-PoolService-1] INFO  brandsFilterCheckedOnTheCards_Laptop_22-53-37 - [brandsFilterCheckedOnTheCards_Laptop_22-53-37] Clicked the  [[ChromeDriver: chrome on windows (6c6d8bea6733f46b941ebf9e89c9d39c)] -> xpath: //div[@id='s-refinements']//div[@role='group'][div[@role='heading']/span[normalize-space(.)='Brands']]//a[normalize-space(.)='Clear']]   using safeClick
+22:54:33 [TestNG-PoolService-1] INFO  brandsFilterCheckedOnTheCards_Laptop_22-53-37 - [brandsFilterCheckedOnTheCards_Laptop_22-53-37] Cleared 'Brands' (the Clear link is gone)
+22:54:33 [TestNG-PoolService-1] INFO  brandsFilterCheckedOnTheCards_Laptop_22-53-37 - [brandsFilterCheckedOnTheCards_Laptop_22-53-37] clearBlockers took 61 ms
+22:54:33 [TestNG-PoolService-1] INFO  brandsFilterCheckedOnTheCards_Laptop_22-53-37 - [brandsFilterCheckedOnTheCards_Laptop_22-53-37] 'Samsung' cleared
+22:54:33 [TestNG-PoolService-1] INFO  brandsFilterCheckedOnTheCards_Laptop_22-53-37 - [brandsFilterCheckedOnTheCards_Laptop_22-53-37] OPTION 'Microsoft' (7 of 10)
+22:54:35 [TestNG-PoolService-1] INFO  brandsFilterCheckedOnTheCards_Laptop_22-53-37 - [brandsFilterCheckedOnTheCards_Laptop_22-53-37] clearBlockers took 50 ms
+22:54:36 [TestNG-PoolService-1] INFO  brandsFilterCheckedOnTheCards_Laptop_22-53-37 - [brandsFilterCheckedOnTheCards_Laptop_22-53-37] 'Microsoft' applied after 1187 ms
+22:54:38 [TestNG-PoolService-1] INFO  brandsFilterCheckedOnTheCards_Laptop_22-53-37 - [brandsFilterCheckedOnTheCards_Laptop_22-53-37] 16 card(s) on screen
+22:54:38 [TestNG-PoolService-1] INFO  brandsFilterCheckedOnTheCards_Laptop_22-53-37 - [brandsFilterCheckedOnTheCards_Laptop_22-53-37] 'Microsoft': 16 card(s): 16 with a price, 5 with a rating, 15 with a printed discount, 13 with a delivery line, 0 with no main offer
+22:54:38 [TestNG-PoolService-1] INFO  brandsFilterCheckedOnTheCards_Laptop_22-53-37 - [brandsFilterCheckedOnTheCards_Laptop_22-53-37] Within safeClick method
+22:54:38 [TestNG-PoolService-1] INFO  brandsFilterCheckedOnTheCards_Laptop_22-53-37 - [brandsFilterCheckedOnTheCards_Laptop_22-53-37] Clicked the  [[ChromeDriver: chrome on windows (6c6d8bea6733f46b941ebf9e89c9d39c)] -> xpath: //div[@id='s-refinements']//div[@role='group'][div[@role='heading']/span[normalize-space(.)='Brands']]//a[normalize-space(.)='Clear']]   using safeClick
+22:54:38 [TestNG-PoolService-1] INFO  brandsFilterCheckedOnTheCards_Laptop_22-53-37 - [brandsFilterCheckedOnTheCards_Laptop_22-53-37] Cleared 'Brands' (the Clear link is gone)
+22:54:39 [TestNG-PoolService-1] INFO  brandsFilterCheckedOnTheCards_Laptop_22-53-37 - [brandsFilterCheckedOnTheCards_Laptop_22-53-37] clearBlockers took 46 ms
+22:54:39 [TestNG-PoolService-1] INFO  brandsFilterCheckedOnTheCards_Laptop_22-53-37 - [brandsFilterCheckedOnTheCards_Laptop_22-53-37] 'Microsoft' cleared
+22:54:39 [TestNG-PoolService-1] INFO  brandsFilterCheckedOnTheCards_Laptop_22-53-37 - [brandsFilterCheckedOnTheCards_Laptop_22-53-37] OPTION 'MSI' (8 of 10)
+22:54:41 [TestNG-PoolService-1] INFO  brandsFilterCheckedOnTheCards_Laptop_22-53-37 - [brandsFilterCheckedOnTheCards_Laptop_22-53-37] clearBlockers took 37 ms
+22:54:42 [TestNG-PoolService-1] INFO  brandsFilterCheckedOnTheCards_Laptop_22-53-37 - [brandsFilterCheckedOnTheCards_Laptop_22-53-37] 'MSI' applied after 1164 ms
+22:54:44 [TestNG-PoolService-1] INFO  brandsFilterCheckedOnTheCards_Laptop_22-53-37 - [brandsFilterCheckedOnTheCards_Laptop_22-53-37] 16 card(s) on screen
+22:54:44 [TestNG-PoolService-1] INFO  brandsFilterCheckedOnTheCards_Laptop_22-53-37 - [brandsFilterCheckedOnTheCards_Laptop_22-53-37] 'MSI': 16 card(s): 16 with a price, 10 with a rating, 15 with a printed discount, 16 with a delivery line, 0 with no main offer
+22:54:44 [TestNG-PoolService-1] INFO  brandsFilterCheckedOnTheCards_Laptop_22-53-37 - [brandsFilterCheckedOnTheCards_Laptop_22-53-37] Within safeClick method
+22:54:44 [TestNG-PoolService-1] INFO  brandsFilterCheckedOnTheCards_Laptop_22-53-37 - [brandsFilterCheckedOnTheCards_Laptop_22-53-37] Clicked the  [[ChromeDriver: chrome on windows (6c6d8bea6733f46b941ebf9e89c9d39c)] -> xpath: //div[@id='s-refinements']//div[@role='group'][div[@role='heading']/span[normalize-space(.)='Brands']]//a[normalize-space(.)='Clear']]   using safeClick
+22:54:44 [TestNG-PoolService-1] INFO  brandsFilterCheckedOnTheCards_Laptop_22-53-37 - [brandsFilterCheckedOnTheCards_Laptop_22-53-37] Cleared 'Brands' (the Clear link is gone)
+22:54:44 [TestNG-PoolService-1] INFO  brandsFilterCheckedOnTheCards_Laptop_22-53-37 - [brandsFilterCheckedOnTheCards_Laptop_22-53-37] clearBlockers took 51 ms
+22:54:44 [TestNG-PoolService-1] INFO  brandsFilterCheckedOnTheCards_Laptop_22-53-37 - [brandsFilterCheckedOnTheCards_Laptop_22-53-37] 'MSI' cleared
+22:54:44 [TestNG-PoolService-1] INFO  brandsFilterCheckedOnTheCards_Laptop_22-53-37 - [brandsFilterCheckedOnTheCards_Laptop_22-53-37] OPTION 'Alienware' (9 of 10)
+22:54:47 [TestNG-PoolService-1] INFO  brandsFilterCheckedOnTheCards_Laptop_22-53-37 - [brandsFilterCheckedOnTheCards_Laptop_22-53-37] clearBlockers took 40 ms
+22:54:48 [TestNG-PoolService-1] INFO  brandsFilterCheckedOnTheCards_Laptop_22-53-37 - [brandsFilterCheckedOnTheCards_Laptop_22-53-37] 'Alienware' applied after 1157 ms
+22:54:50 [TestNG-PoolService-1] INFO  brandsFilterCheckedOnTheCards_Laptop_22-53-37 - [brandsFilterCheckedOnTheCards_Laptop_22-53-37] 16 card(s) on screen
+22:54:50 [TestNG-PoolService-1] INFO  brandsFilterCheckedOnTheCards_Laptop_22-53-37 - [brandsFilterCheckedOnTheCards_Laptop_22-53-37] 'Alienware': 16 card(s): 15 with a price, 8 with a rating, 14 with a printed discount, 13 with a delivery line, 0 with no main offer
+22:54:50 [TestNG-PoolService-1] INFO  brandsFilterCheckedOnTheCards_Laptop_22-53-37 - [brandsFilterCheckedOnTheCards_Laptop_22-53-37] Within safeClick method
+22:54:50 [TestNG-PoolService-1] INFO  brandsFilterCheckedOnTheCards_Laptop_22-53-37 - [brandsFilterCheckedOnTheCards_Laptop_22-53-37] Clicked the  [[ChromeDriver: chrome on windows (6c6d8bea6733f46b941ebf9e89c9d39c)] -> xpath: //div[@id='s-refinements']//div[@role='group'][div[@role='heading']/span[normalize-space(.)='Brands']]//a[normalize-space(.)='Clear']]   using safeClick
+22:54:50 [TestNG-PoolService-1] INFO  brandsFilterCheckedOnTheCards_Laptop_22-53-37 - [brandsFilterCheckedOnTheCards_Laptop_22-53-37] Cleared 'Brands' (the Clear link is gone)
+22:54:50 [TestNG-PoolService-1] INFO  brandsFilterCheckedOnTheCards_Laptop_22-53-37 - [brandsFilterCheckedOnTheCards_Laptop_22-53-37] clearBlockers took 56 ms
+22:54:50 [TestNG-PoolService-1] INFO  brandsFilterCheckedOnTheCards_Laptop_22-53-37 - [brandsFilterCheckedOnTheCards_Laptop_22-53-37] 'Alienware' cleared
+22:54:50 [TestNG-PoolService-1] INFO  brandsFilterCheckedOnTheCards_Laptop_22-53-37 - [brandsFilterCheckedOnTheCards_Laptop_22-53-37] OPTION 'GIGABYTE' (10 of 10)
+22:54:53 [TestNG-PoolService-1] INFO  brandsFilterCheckedOnTheCards_Laptop_22-53-37 - [brandsFilterCheckedOnTheCards_Laptop_22-53-37] clearBlockers took 44 ms
+22:54:54 [TestNG-PoolService-1] INFO  brandsFilterCheckedOnTheCards_Laptop_22-53-37 - [brandsFilterCheckedOnTheCards_Laptop_22-53-37] 'GIGABYTE' applied after 1180 ms
+22:54:55 [TestNG-PoolService-1] INFO  brandsFilterCheckedOnTheCards_Laptop_22-53-37 - [brandsFilterCheckedOnTheCards_Laptop_22-53-37] 2 card(s) on screen
+22:54:55 [TestNG-PoolService-1] INFO  brandsFilterCheckedOnTheCards_Laptop_22-53-37 - [brandsFilterCheckedOnTheCards_Laptop_22-53-37] 'GIGABYTE': 2 card(s): 2 with a price, 1 with a rating, 1 with a printed discount, 2 with a delivery line, 0 with no main offer
+22:54:55 [TestNG-PoolService-1] INFO  brandsFilterCheckedOnTheCards_Laptop_22-53-37 - [brandsFilterCheckedOnTheCards_Laptop_22-53-37] Within safeClick method
+22:54:55 [TestNG-PoolService-1] INFO  brandsFilterCheckedOnTheCards_Laptop_22-53-37 - [brandsFilterCheckedOnTheCards_Laptop_22-53-37] Clicked the  [[ChromeDriver: chrome on windows (6c6d8bea6733f46b941ebf9e89c9d39c)] -> xpath: //div[@id='s-refinements']//div[@role='group'][div[@role='heading']/span[normalize-space(.)='Brands']]//a[normalize-space(.)='Clear']]   using safeClick
+22:54:55 [TestNG-PoolService-1] INFO  brandsFilterCheckedOnTheCards_Laptop_22-53-37 - [brandsFilterCheckedOnTheCards_Laptop_22-53-37] Cleared 'Brands' (the Clear link is gone)
+22:54:55 [TestNG-PoolService-1] INFO  brandsFilterCheckedOnTheCards_Laptop_22-53-37 - [brandsFilterCheckedOnTheCards_Laptop_22-53-37] clearBlockers took 42 ms
+22:54:55 [TestNG-PoolService-1] INFO  brandsFilterCheckedOnTheCards_Laptop_22-53-37 - [brandsFilterCheckedOnTheCards_Laptop_22-53-37] 'GIGABYTE' cleared
+22:54:55 [TestNG-PoolService-1] INFO  brandsFilterCheckedOnTheCards_Laptop_22-53-37 - [brandsFilterCheckedOnTheCards_Laptop_22-53-37] DONE: 10 option(s) read, not applied: []
+22:54:55 [TestNG-PoolService-1] INFO  brandsFilterCheckedOnTheCards_Laptop_22-53-37 - [brandsFilterCheckedOnTheCards_Laptop_22-53-37] Saved what was read to collected\Laptop__Brands.json
+22:54:55 [TestNG-PoolService-1] INFO  brandsFilterCheckedOnTheCards_Laptop_22-53-37 - [brandsFilterCheckedOnTheCards_Laptop_22-53-37] CHECK Laptop Brands 'HP': 22 of 22 judged fit (needs at least 0.9), 0 show no value
+22:54:55 [TestNG-PoolService-1] INFO  brandsFilterCheckedOnTheCards_Laptop_22-53-37 - [brandsFilterCheckedOnTheCards_Laptop_22-53-37] CHECK Laptop Brands 'Dell': 16 of 16 judged fit (needs at least 0.9), 0 show no value
+22:54:55 [TestNG-PoolService-1] INFO  brandsFilterCheckedOnTheCards_Laptop_22-53-37 - [brandsFilterCheckedOnTheCards_Laptop_22-53-37] CHECK Laptop Brands 'Lenovo': 16 of 16 judged fit (needs at least 0.9), 0 show no value
+22:54:55 [TestNG-PoolService-1] INFO  brandsFilterCheckedOnTheCards_Laptop_22-53-37 - [brandsFilterCheckedOnTheCards_Laptop_22-53-37] CHECK Laptop Brands 'ASUS': 16 of 16 judged fit (needs at least 0.9), 0 show no value
+22:54:55 [TestNG-PoolService-1] INFO  brandsFilterCheckedOnTheCards_Laptop_22-53-37 - [brandsFilterCheckedOnTheCards_Laptop_22-53-37] CHECK Laptop Brands 'Acer': 16 of 16 judged fit (needs at least 0.9), 0 show no value
+22:54:55 [TestNG-PoolService-1] INFO  brandsFilterCheckedOnTheCards_Laptop_22-53-37 - [brandsFilterCheckedOnTheCards_Laptop_22-53-37] CHECK Laptop Brands 'Samsung': 16 of 16 judged fit (needs at least 0.9), 0 show no value
+22:54:55 [TestNG-PoolService-1] INFO  brandsFilterCheckedOnTheCards_Laptop_22-53-37 - [brandsFilterCheckedOnTheCards_Laptop_22-53-37] CHECK Laptop Brands 'Microsoft': 16 of 16 judged fit (needs at least 0.9), 0 show no value
+22:54:55 [TestNG-PoolService-1] INFO  brandsFilterCheckedOnTheCards_Laptop_22-53-37 - [brandsFilterCheckedOnTheCards_Laptop_22-53-37] CHECK Laptop Brands 'MSI': 16 of 16 judged fit (needs at least 0.9), 0 show no value
+22:54:55 [TestNG-PoolService-1] INFO  brandsFilterCheckedOnTheCards_Laptop_22-53-37 - [brandsFilterCheckedOnTheCards_Laptop_22-53-37] CHECK Laptop Brands 'Alienware': 16 of 16 judged fit (needs at least 0.9), 0 show no value
+22:54:55 [TestNG-PoolService-1] INFO  brandsFilterCheckedOnTheCards_Laptop_22-53-37 - [brandsFilterCheckedOnTheCards_Laptop_22-53-37] CHECK Laptop Brands 'GIGABYTE': 2 of 2 judged fit (needs at least 0.9), 0 show no value
+22:54:55 [TestNG-PoolService-1] INFO  brandsFilterCheckedOnTheCards_Laptop_22-53-37 - [brandsFilterCheckedOnTheCards_Laptop_22-53-37] Finished 'brandsFilterCheckedOnTheCards': passed in 67815 ms
